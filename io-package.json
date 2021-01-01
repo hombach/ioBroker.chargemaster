@@ -37,7 +37,7 @@
     "loglevel": "info",
     "readme": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
     "icon": "chargemaster.png",
-    "extIcon": "https://github.com/hombach/ioBroker.chargemaster/blob/master/admin/ChargeMaster.png",
+    "extIcon": "https://github.com/hombach/ioBroker.chargemaster/blob/master/admin/chargemaster.png",
     "keywords": [ "chargemaster", "wallbox" ],
     "type": "vehicle",
     "connectionType": "local",

@@ -1,0 +1,326 @@
+{
+  "common": {
+    "name": "chargemaster",
+    "version": "0.0.1",
+    "title": "chargemaster",
+    "titleLang": {
+      "en": "ChargeMaster",
+      "de": "ChargeMaster",
+      "ru": "ChargeMaster",
+      "pt": "ChargeMaster",
+      "nl": "ChargeMaster",
+      "fr": "ChargeMaster",
+      "it": "ChargeMaster",
+      "es": "ChargeMaster",
+      "pl": "ChargeMaster",
+      "zh-cn": "ChargeMaster"
+    },
+    "desc": {
+      "en": "Adapter for managing of multi EV-chargers with use of PV-energy",
+      "de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
+      "ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
+      "pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
+      "nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
+      "fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
+      "it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
+      "es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
+      "pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
+      "zh-cn": "使用PV能源管理多个EV充电器的适配器"
+    },
+    "authors": [
+      "Christian Hombach"
+    ],
+    "platform": "Javascript/Node.js",
+    "mode": "daemon",
+    "enabled": true,
+    "license": "MIT",
+    "loglevel": "info",
+    "readme": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
+    "icon": "chargemaster.png",
+    "extIcon": "https://github.com/hombach/ioBroker.chargemaster/blob/master/admin/ChargeMaster.png",
+    "keywords": [ "chargemaster", "wallbox" ],
+    "type": "vehicle",
+    "connectionType": "local",
+    "dataSource": "poll",
+    "news": {
+      "0.0.1": {
+        "en": "initial release"
+      }
+    },
+    "main": "main.js",
+    "compact": true,
+    "materialize": true,
+    "materializeTab": true,
+    "supportCustoms": false,
+    "dependencies": [
+      {
+        "js-controller": ">=3.0.0",
+        "admin": ">=3.0.0"
+      }
+    ]
+  },
+
+  "native": {
+    "ipaddress": "",
+    "polltimelive": 10000,
+    "StateHomeBatSoc": "",
+    "StateHomeSolarPower": "",
+    "StateHomePowerConsumption": ""
+  },
+
+  "objects": [],
+
+  "instanceObjects": [
+    {
+      "_id": "Info",
+      "type": "channel",
+      "common": { "name": "Informations about chargemaster" },
+      "native": {}
+    },
+    {
+      "_id": "Info.CarState",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "State of connected car",
+        "type": "number",
+        "unit": "",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+
+
+    {
+      "_id": "Power",
+      "type": "channel",
+      "common": { "name": "current charger power data" },
+      "native": {}
+    },
+    {
+      "_id": "Power.ChargeCurrent",
+      "type": "state",
+      "common": {
+        "role": "value.current",
+        "name": "Charge current output",
+        "type": "number",
+        "unit": "A",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "Power.Charge",
+      "type": "state",
+      "common": {
+        "role": "value.power",
+        "name": "actual charging-power",
+        "type": "number",
+        "unit": "W",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+
+
+    {
+      "_id": "Statistics_Total",
+      "type": "channel",
+      "common": { "name": "statistical data total lifetime" },
+      "native": {}
+    },
+    {
+      "_id": "Statistics_Total.Charged",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Totally charged in go-e lifetime",
+        "type": "number",
+        "unit": "kWh",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+
+
+    {
+      "_id": "Settings",
+      "type": "channel",
+      "common": { "name": "states to dynamically adjust global settings" },
+      "native": {}
+    },
+    {
+      "_id": "Settings.Setpoint_HomeBatSoC",
+      "type": "state",
+      "common": {
+        "role": "level",
+        "name": "Setpoint for home battery state of charge",
+        "type": "number",
+        "unit": "%",
+        "read": true,
+        "write": true,
+        "def": 50
+      },
+      "native": {}
+    },
+
+
+    {
+      "_id": "Settings_Wallbox_1",
+      "type": "channel",
+      "common": { "name": "states to dynamically adjust wallbox 1 settings" },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_1.ChargeNOW",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "ChargeNOW enabled for wallbox 1",
+        "type": "boolean",
+        "unit": "",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_1.ChargeCurrent",
+      "type": "state",
+      "common": {
+        "role": "value.current",
+        "name": "Setting charge current output for wallbox 1",
+        "type": "number",
+        "unit": "A",
+        "read": true,
+        "write": true,
+        "def": 6
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_1.ChargeManager",
+      "type": "state",
+      "common": {
+        "role": "switch.mode.auto",
+        "name": "Charge Manager for wallbox 1 enabled",
+        "type": "boolean",
+        "unit": "",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+
+
+    {
+      "_id": "Settings_Wallbox_2",
+      "type": "channel",
+      "common": { "name": "states to dynamically adjust wallbox 2 settings" },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_2.ChargeNOW",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "ChargeNOW enabled for wallbox 2",
+        "type": "boolean",
+        "unit": "",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_2.ChargeCurrent",
+      "type": "state",
+      "common": {
+        "role": "value.current",
+        "name": "Setting charge current output for wallbox 2",
+        "type": "number",
+        "unit": "A",
+        "read": true,
+        "write": true,
+        "def": 6
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_2.ChargeManager",
+      "type": "state",
+      "common": {
+        "role": "switch.mode.auto",
+        "name": "Charge Manager for wallbox 2 enabled",
+        "type": "boolean",
+        "unit": "",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+
+
+    {
+      "_id": "Settings_Wallbox_3",
+      "type": "channel",
+      "common": { "name": "states to dynamically adjust wallbox 3 settings" },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_3.ChargeNOW",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "ChargeNOW enabled for wallbox 3",
+        "type": "boolean",
+        "unit": "",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_3.ChargeCurrent",
+      "type": "state",
+      "common": {
+        "role": "value.current",
+        "name": "Setting charge current output for wallbox 3",
+        "type": "number",
+        "unit": "A",
+        "read": true,
+        "write": true,
+        "def": 6
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings_Wallbox_3.ChargeManager",
+      "type": "state",
+      "common": {
+        "role": "switch.mode.auto",
+        "name": "Charge Manager for wallbox 3 enabled",
+        "type": "boolean",
+        "unit": "",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    }
+
+  ]
+}

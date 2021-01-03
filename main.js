@@ -115,12 +115,12 @@ class chargemaster extends utils.Adapter {
         }
 
         else { // only if Power.ChargingAllowed is still set: switch OFF; set to min. current; 
-            this.getState('Power.ChargingAllowed', (_err, state) => {
-                if (state.val == true) { // Set to false only if still true
+//CM            this.getState('Power.ChargingAllowed', (_err, state) => {
+//CM                if (state.val == true) { // Set to false only if still true
                     ZielAmpere = 6;
                     this.Charge_Config('0', ZielAmpere, `Wallbox abschalten`);
-                }
-            });
+//CM                }
+//CM            });
         }
 
         adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.polltimelive);

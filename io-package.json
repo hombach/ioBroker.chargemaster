@@ -197,7 +197,7 @@
       "native": {}
     },
     {
-      "_id": "Settings_Wallbox_2.ChargeNOW",
+      "_id": "Settings_Wallbox_2.ChargeNOW_2",
       "type": "state",
       "common": {
         "role": "switch",
@@ -211,7 +211,7 @@
       "native": {}
     },
     {
-      "_id": "Settings_Wallbox_2.ChargeCurrent",
+      "_id": "Settings_Wallbox_2.ChargeCurrent_2",
       "type": "state",
       "common": {
         "role": "value.current",
@@ -225,7 +225,7 @@
       "native": {}
     },
     {
-      "_id": "Settings_Wallbox_2.ChargeManager",
+      "_id": "Settings_Wallbox_2.ChargeManager_2",
       "type": "state",
       "common": {
         "role": "switch.mode.auto",

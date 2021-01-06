@@ -14,17 +14,17 @@ systemDictionary = {
         "pl": "Ustawienia adaptera dla ChargeMaster",
         "zh-cn": "ChargeMaster的适配器设置"
     },
-    'polltimelive': {
-        "en": "Time between data polls from charger [ms]",
-        "de": "Zeit zwischen Datenabfragen vom Ladegerät [ms]",
-        "ru": "Время между опросами данных от зарядного устройства [мс]",
-        "pt": "Tempo entre pesquisas de dados do carregador [ms]",
-        "nl": "Tijd tussen gegevenspolls van oplader [ms]",
-        "fr": "Temps entre les interrogations de données du chargeur [ms]",
-        "it": "Tempo tra sondaggi di dati dal caricatore [ms]",
-        "es": "Tiempo entre encuestas de datos del cargador [ms]",
-        "pl": "Czas między sondażami danych z ładowarki [ms]",
-        "zh-cn": "充电器进行数据轮询之间的时间[ms]"
+    'cycletime': {
+        "en": "Cycletime for chargemanager [ms]",
+        "de": "Zykluszeit für Chargemanager [ms]",
+        "ru": "Время цикла для chargemanager [мс]",
+        "pt": "Cycletime for chargemanager [ms]",
+        "nl": "Cyclustijd voor chargemanager [ms]",
+        "fr": "Temps de cycle pour chargemanager [ms]",
+        "it": "Cycletime for chargemanager [ms]",
+        "es": "Tiempo de ciclo para chargemanager [ms]",
+        "pl": "Czas cykliczny dla chargeremanager [ms]",
+        "zh-cn": "充电管理器的周期[ms]"
     },
     'StateHomeSolarPower': {
         "en": "object-id for currently available solar power [W]",

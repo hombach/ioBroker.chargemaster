@@ -41,11 +41,11 @@ class chargemaster extends utils.Adapter {
     * Is called when databases are connected and adapter received configuration.
     */
     async onReady() {
-        if (!this.config.polltimelive) {
-            this.log.warn('Polltime not configured or zero - will be set to 10 seconds');
-            this.config.polltimelive = 10000;
+        if (!this.config.cycletime) {
+            this.log.warn('Cycletime not configured or zero - will be set to 10 seconds');
+            this.config.cycletime = 10000;
         } 
-        this.log.info('Polltime set to: ' + (this.config.polltimelive / 1000) + ' seconds');
+        this.log.info('Cycletime set to: ' + (this.config.cycletime / 1000) + ' seconds');
  
         // this.subscribeStates('*'); // all states changes inside the adapters namespace are subscribed
                 
@@ -90,14 +90,14 @@ class chargemaster extends utils.Adapter {
     
     /*****************************************************************************************/
     StateMachine() {
-        this.log.debug(`StateMachine start`);
+        this.log.debug(`StateMachine cycle started`);
         this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = state.val }); // Get Desired Battery SoC
         this.getState('Settings_Wallbox_1.ChargeNOW', (_err, state) => { ChargeNOW = state.val });
         this.getState('Settings_Wallbox_1.ChargeManager', (_err, state) => { ChargeManager = state.val });
         this.getState('Settings_Wallbox_1.ChargeCurrent', (_err, state) => { ChargeCurrent = state.val });
 
         if (ChargeNOW) { // Charge-NOW is enabled
-            this.Charge_Config('1', ChargeCurrent, 'Wallbox für Schnellladung aktivieren');  // keep active charging current!!
+            this.Charge_Config('1', ChargeCurrent, 'Wallbox für Ladung aktivieren');  // keep active charging current!!
         }
 
         else if (ChargeManager) { // Charge-Manager is enabled

@@ -75,45 +75,9 @@
 
   "instanceObjects": [
     {
-      "_id": "Info",
-      "type": "channel",
-      "common": { "name": "Informations about chargemaster" },
-      "native": {}
-    },
-    {
-      "_id": "Info.CarState",
-      "type": "state",
-      "common": {
-        "role": "value",
-        "name": "State of connected car",
-        "type": "number",
-        "unit": "",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
-
-
-    {
       "_id": "Power",
       "type": "channel",
-      "common": { "name": "current charger power data" },
-      "native": {}
-    },
-    {
-      "_id": "Power.ChargeCurrent",
-      "type": "state",
-      "common": {
-        "role": "value.current",
-        "name": "Charge current output",
-        "type": "number",
-        "unit": "A",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
+      "common": { "name": "current charging power data" },
       "native": {}
     },
     {
@@ -121,7 +85,7 @@
       "type": "state",
       "common": {
         "role": "value.power",
-        "name": "actual charging-power",
+        "name": "actual total charging-power",
         "type": "number",
         "unit": "W",
         "read": true,

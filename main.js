@@ -142,31 +142,20 @@ class chargemaster extends utils.Adapter {
             default:
                 this.setStateAsync('Info.CarStateString', 'Error', true);
         }
-        this.setStateAsync('Statistics_Total.Charged', (status.eto / 10), true);
         this.setStateAsync('Power.Charge', (status.nrg[11] * 10), true); // trim to Watt
-        this.log.debug('got and parsed go-eCharger data');
     }
 
 
     /*****************************************************************************************/
     Charge_Config(Allow, Ampere, LogMessage) {
- /*       var got = require('got');
         this.log.debug(`${LogMessage}  -  ${Ampere} Ampere`);
-        (async () => {
-            try {
-                // @ts-ignore got is valid
-                var response = await got(`http://${this.config.ipaddress}/mqtt?payload=alw=${Allow}`); // activate charging
-                if (!response.error && response.statusCode == 200) {
-                    this.log.debug(`Sent: ${response.body}`)
-                }
-                else if (response.error) {
-                    this.log.warn(`Error: ${response.error} by writing @ ${this.config.ipaddress} alw=${Allow}`);
-                }
-            } catch (e) {
-                this.log.error(`Error in calling go-eCharger API: ${e}`);
-            } // END catch
-        })();
- */   } // END Charge_Config
+        try {
+            this.setForeignState(this.config.StateWallBox1ChargeCurrent, Ampere);
+            this.setForeignState(this.config.StateWallBox1ChargeAllowed, Ampere);
+        } catch (e) {
+            this.log.error(`Error in setting charging for wallbox 1: ${e}`);
+        } // END catch
+    } // END Charge_Config
 
 
     /*****************************************************************************************/

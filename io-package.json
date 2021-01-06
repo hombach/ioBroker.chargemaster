@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.0.2": {
+        "en": "fix errors to get it running in old single wallbox mode"
+      },
       "0.0.1": {
         "en": "initial release"
       }
@@ -55,7 +58,7 @@
     "dependencies": [
       {
         "js-controller": ">=3.0.0",
-        "admin": ">=3.0.0"
+        "admin": ">=4.0.0"
       }
     ]
   },

@@ -14,19 +14,21 @@
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/hombach/ioBroker.chargemaster/master.svg)](https://travis-ci.org/hombach/ioBroker.chargemaster)
 
 ## Adapter for managing of multi EV-chargers with use of PV-energy
-Adapter for managing of multi EV-chargers with use of PV-energy. Adapter handles with up to 3 EV wallboxes to manage charging by potential use of PV energy
+Adapter for managing of multi EV-chargers (wallboxes) with use of PV-energy. Adapter handles with up to 3 EV wallboxes to manage charging by potential use of PV energy
 
 ### Settings
 To connect to the wallboxes type in the states with needed data in the config.
 
 ## Changelog
+### 0.0.2 (06.01.2021)
+* (HombachC) fix errors to get it running in old single wallbox mode
 ### 0.0.1 (01.01.2021)
 * (HombachC) initial release
 
 ## License
 MIT License
 
-Copyright (c) 2021 HombachC
+Copyright (c) 2021 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

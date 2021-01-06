@@ -114,13 +114,9 @@ class chargemaster extends utils.Adapter {
             });
         }
 
-        else { // only if Power.ChargingAllowed is still set: switch OFF; set to min. current; 
-//CM            this.getState('Power.ChargingAllowed', (_err, state) => {
-//CM                if (state.val == true) { // Set to false only if still true
+        else { // switch OFF; set to min. current; 
                     ZielAmpere = 6;
                     this.Charge_Config('0', ZielAmpere, `Wallbox abschalten`);
-//CM                }
-//CM            });
         }
 
         adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.polltimelive);
@@ -146,9 +142,6 @@ class chargemaster extends utils.Adapter {
             default:
                 this.setStateAsync('Info.CarStateString', 'Error', true);
         }
-        this.setStateAsync('Power.ChargeCurrent', status.amp, true);
-        this.setStateAsync('Power.ChargeCurrentVolatile', status.amx, true);
-        this.setStateAsync('Power.ChargingAllowed', status.alw, true);
         this.setStateAsync('Statistics_Total.Charged', (status.eto / 10), true);
         this.setStateAsync('Power.Charge', (status.nrg[11] * 10), true); // trim to Watt
         this.log.debug('got and parsed go-eCharger data');
@@ -157,7 +150,7 @@ class chargemaster extends utils.Adapter {
 
     /*****************************************************************************************/
     Charge_Config(Allow, Ampere, LogMessage) {
-        var got = require('got');
+ /*       var got = require('got');
         this.log.debug(`${LogMessage}  -  ${Ampere} Ampere`);
         (async () => {
             try {
@@ -173,7 +166,7 @@ class chargemaster extends utils.Adapter {
                 this.log.error(`Error in calling go-eCharger API: ${e}`);
             } // END catch
         })();
-    } // END Charge_Config
+ */   } // END Charge_Config
 
 
     /*****************************************************************************************/

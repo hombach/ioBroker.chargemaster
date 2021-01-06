@@ -61,5 +61,29 @@ systemDictionary = {
         "es": "ID de objeto para el consumo actual de energía en el hogar [W]",
         "pl": "id obiektu dla bieżącego zużycia energii w domu [W]",
         "zh-cn": "当前家庭功耗的对象ID [W]"
+    },
+    'StateWallBox1ChargeCurrent': {
+        "en": "object-id for setting wallbox 1 charging current [A]",
+        "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 1 [A]",
+        "ru": "идентификатор объекта для установки зарядного тока Wallbox 1 [A]",
+        "pt": "object-id para definir a corrente de carregamento da caixa de parede 1 [A]",
+        "nl": "object-id voor het instellen van de laadstroom in wallbox 1 [A]",
+        "fr": "object-id pour régler le courant de charge de la Wallbox 1 [A]",
+        "it": "object-id per l'impostazione della corrente di carica della wallbox 1 [A]",
+        "es": "ID de objeto para configurar la corriente de carga de la caja de pared 1 [A]",
+        "pl": "id obiektu do ustawiania prądu ładowania wallbox 1 [A]",
+        "zh-cn": "用于设置墙盒1充电电流[A]的对象ID"
+    },
+    'StateWallBox1ChargeAllowed': {
+        "en": "object-id for enable wallbox 1 charging [true/false]",
+        "de": "Objekt-ID zum Aktivieren des Ladens von Wallbox 1 [true/false]",
+        "ru": "идентификатор объекта для включения зарядки Wallbox 1 [true/false]",
+        "pt": "object-id para habilitar o carregamento da wallbox 1 [true/false]",
+        "nl": "object-id voor inschakelen wallbox 1 opladen [true/false]",
+        "fr": "object-id pour activer le chargement de la Wallbox 1 [true/false]",
+        "it": "ID oggetto per abilitare la ricarica della wallbox 1 [true/false]",
+        "es": "ID de objeto para habilitar la carga de Wallbox 1 [true/false]",
+        "pl": "identyfikator obiektu do włączenia ładowania Wallbox 1 [true/false]",
+        "zh-cn": "启用Wallbox 1收费的对象ID [true/false]"
     }
 };

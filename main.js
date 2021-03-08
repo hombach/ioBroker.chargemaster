@@ -147,10 +147,6 @@ class chargemaster extends utils.Adapter {
     /*****************************************************************************************/
     StateMachine() {
         this.log.debug(`StateMachine cycle started`);
-        //this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = state.val }); // Get Desired Battery SoC
-        //this.getState('Settings_Wallbox_1.ChargeNOW', (_err, state) => { ChargeNOW1 = state.val });
-        //this.getState('Settings_Wallbox_1.ChargeManager', (_err, state) => { ChargeManager1 = state.val });
-        //this.getState('Settings_Wallbox_1.ChargeCurrent', (_err, state) => { ChargeCurrent1 = state.val });
 
         if (ChargeNOW1) { // Charge-NOW is enabled
             this.Charge_Config('1', ChargeCurrent1, 'Wallbox für Ladung aktivieren');  // keep active charging current!!

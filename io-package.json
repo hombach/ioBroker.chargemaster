@@ -141,6 +141,29 @@
       },
       "native": {}
     },
+    {
+      "_id": "Settings.WB_1",
+      "type": "channel",
+      "common": { "name": "states to dynamically adjust wallbox 1 settings" },
+      "native": {}
+    },
+    {
+      "_id": "Settings.WB_1.ChargeNOW",
+      "type": "state",
+      "common": {
+        "role": "switch",
+        "name": "ChargeNOW enabled for wallbox 1",
+        "type": "boolean",
+        "unit": "",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+
+
+
 
 
     {

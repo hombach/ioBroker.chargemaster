@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.0.3": {
+        "en": "bump dependencies"
+      },
       "0.0.2": {
         "en": "fix errors to get it running in old single wallbox mode"
       },
@@ -134,7 +137,7 @@
         "unit": "%",
         "read": true,
         "write": true,
-        "def": 50
+        "def": 80
       },
       "native": {}
     },

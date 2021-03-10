@@ -12,10 +12,11 @@
     <script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
     <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.js"></script>
-    <script type="text/javascript" src="../../lib/js/selectID.js"></script>
-    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
+    <!--  <script type="text/javascript" src="../../lib/js/selectID.js"></script> -->
+      <script type="text/javascript" src="../../js/selectID.js"></script>
+      <script type="text/javascript" src="../../js/adapter-settings.js"></script>
 
-    <!-- Load our own files -->
+      <!-- Load our own files -->
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="words.js"></script>
 
@@ -97,9 +98,6 @@
                 });
             });
 
-
-            
-
             // END NEW  */
 
 
@@ -132,7 +130,7 @@
         var selectId;
         function initSelectId(callback) {
             if (selectId) return callback(selectId);
-            window.alert("initSelectId");
+            window.alert("function initSelectId entered");
             socket.emit('getObjects', function (err, objs) {
                 selectId = $('#dialog-select-member').selectId('init', {
                     noMultiselect: true,
@@ -204,9 +202,6 @@
                 <input type="number" class="value" id="cycletime" />
                 <label for="cycletime" class="translate">cycletime</label>
             </div>
-        </div>
-
-        <div class="row">
             <div class="col s5 m5 l5 input-field">
                 <input type="text" class="value" id="StateHomeSolarPower" />
                 <label for="StateHomeSolarPower" class="translate">StateHomeSolarPower</label>
@@ -215,29 +210,7 @@
                 <a id="StateHomeSolarPowerPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
             </div>
         </div>
-
-
-        <div class="row">
-            <div class="col s5 m5 l5 input-field">
-                <input type="text" class="value" id="StateHomeBatSoc" />
-                <label for="StateHomeBatSoc" class="translate">StateHomeBatSoc</label>
-            </div>
-            <div class="col s1 m1 l1">
-                <a id="StateHomeBatSocPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col s5 m5 l5 input-field">
-                <input type="text" class="value" id="StateHomePowerConsumption" />
-                <label for="StateHomePowerConsumption" class="translate">StateHomePowerConsumption</label>
-            </div>
-            <div class="col s1 m1 l1">
-                <a id="StateHomePowerConsumptionPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
-            </div>
-        </div>
-
-
+ 
         <div class="row">
             <div class="col s5 m5 l5 input-field">
                 <input type="text" class="value" id="StateHomeBatSoc" />

@@ -71,7 +71,13 @@
     "polltimelive": 10000,
     "StateHomeBatSoc": "",
     "StateHomeSolarPower": "",
-    "StateHomePowerConsumption": ""
+    "StateHomePowerConsumption": "",
+    "StateWallBox0ChargeCurrent": "",
+    "StateWallBox0ChargeCurrentPopUp": "",
+    "StateWallBox1ChargeCurrent": "",
+    "StateWallBox1ChargeCurrentPopUp": "",
+    "StateWallBox2ChargeCurrent": "",
+    "StateWallBox2ChargeCurrentPopUp": ""
   },
 
   "objects": [],

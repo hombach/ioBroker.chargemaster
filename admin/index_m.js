@@ -117,7 +117,7 @@ function WRONGinitSelectId(callback) {
         callback(selectId);
     });
 }
-// END NEW
+// END NEW 
 
 var selectId;
 function initSelectId(callback) {
@@ -127,7 +127,8 @@ function initSelectId(callback) {
     }
     window.alert("function initSelectId entered 2");
     socket.emit('getObjects', function (err, objs) {
-        selectId = $('#dialog-select-member').selectId('init', {
+ //       selectId = $('#dialog-select-member').selectId('init', {
+        selectId = $('#adapter-container').selectId('init', {
             noMultiselect: true,
             objects: objs,
             imgPath: '../../lib/css/fancytree/',

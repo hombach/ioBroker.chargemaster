@@ -101,7 +101,7 @@ function save(callback) {
 
 
 // NEW from BlueFox, Not Working
-//      var selectId;
+var selectId;
 function initSelectId(callback) {
     window.alert("function initSelectId entered");
     if (selectId) return callback(selectId);

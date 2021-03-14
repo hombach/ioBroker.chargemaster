@@ -31,7 +31,7 @@ function load(settings, onChange) {
     });
 
     $('#StateHomeBatSocPopUp').on('click', function () {
-        window.alert("StateHomeBatSocPopUp!   " + $('#StateHomeBatSoc').val());
+        window.alert("StateHomeBatSocPopUp pressed:   " + $('#StateHomeBatSoc').val());
         initSelectId(function (sid) {
             sid.selectId('show', $('#StateHomeBatSoc').val(), function (newId) {
                 if (newId) {

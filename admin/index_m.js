@@ -103,8 +103,9 @@ function save(callback) {
 // NEW from BlueFox, Not Working
 //      var selectId;
 function initSelectId(callback) {
-    if (selectId) return callback(selectId);
     window.alert("function initSelectId entered");
+    if (selectId) return callback(selectId);
+    window.alert("function initSelectId entered 2");
     socket.emit('getObjects', function (err, objs) {
         selectId = $('#dialog-select-member').selectId('init', {
             noMultiselect: true,

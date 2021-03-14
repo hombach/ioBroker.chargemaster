@@ -1,7 +1,6 @@
 <html>
 <head>
     <!-- Load ChargeMaster scripts and styles-->
-    <link rel="stylesheet" type="text/css" href="../../lib/css/fancytree/ui.fancytree.min.css" />
     <link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
     <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css" />
 
@@ -9,21 +8,25 @@
     <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
     <script type="text/javascript" src="../../js/translate.js"></script>
     <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+
+    <!-- For menu to select states - selectID.js (node_modules/iobroker.admin/www/lib/js/)  -->
     <script type="text/javascript" src="../../lib/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.min.js"></script>
-
-    <!--  <script type="text/javascript" src="../../lib/js/jquery.fancytree-all.js"></script> -->
-
+    <link rel="stylesheet" type="text/css" href="../../lib/css/fancytree/ui.fancytree.min.css" />
     <script type="text/javascript" src="../../lib/js/selectID.js"></script>
+
     <script type="text/javascript" src="../../js/adapter-settings.js"></script>
 
     <!-- Load our own files -->
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script type="text/javascript" src="words.js"></script>
+    <script type="text/javascript" src="index_m.js"></script>
 
     <style>
     </style>
 
+
+    <!-- Load our own files
     <script type="text/javascript">
         // This will be called by the admin adapter when the settings page loads
         function load(settings, onChange) {
@@ -128,7 +131,7 @@
 
 
         // NEW from BlueFox, Not Working
-  //      var selectId;
+        //      var selectId;
         function initSelectId(callback) {
             if (selectId) return callback(selectId);
             window.alert("function initSelectId entered");
@@ -187,6 +190,9 @@
 // END NEW */
 
     </script>
+    Load our own files -->
+
+
 </head>
 
 <body>

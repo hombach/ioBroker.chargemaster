@@ -21,7 +21,7 @@ To connect to the wallboxes type in the states with needed data in the config.
 
 ## Changelog
 ### 0.0.4 (15.03.2021)
-* (HombachC) fix error in forreign state popup
+* (HombachC) fix error in foreign state popup
 ### 0.0.3 (08.03.2021)
 * (HombachC) bump dependencies
 ### 0.0.2 (06.01.2021)

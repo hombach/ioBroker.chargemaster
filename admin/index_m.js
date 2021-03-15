@@ -42,6 +42,25 @@ function load(settings, onChange) {
         });
     });
 
+
+    $('#actualValueTempDialogPopUp').on('click', function () {
+        initSelectId(function (sid) {
+            sid.selectId('show', $('#actualValueTemp').val(), function (newId) {
+                if (newId) {
+                    $('#actualValueTemp').val(newId).trigger('change');
+                }
+            });
+        });
+    });
+
+
+
+
+
+
+
+
+
     $('#StateHomePowerConsumptionPopUp').on('click', function () {
         initSelectId(function (sid) {
             sid.selectId('show', $('#StateHomePowerConsumption').val(), function (newId) {
@@ -119,7 +138,56 @@ function WRONGinitSelectId(callback) {
 }
 // END NEW 
 
-var selectId;
+
+/*
+ ## How to use
+    ```
+ <!-- Somewhere in HTML -->
+    <div id="dialog-select-member" style="display: none"></div>
+ ```
+
+    ```
+ // In Javascript
+ // Name "dialog-select-member" is important, because for that exist the CSS classes
+ // Important to have "admin/img/big-info.png" in too, because this icon will be loaded if no icon found, elsewise we have endless loop
+ var selectId;
+ function initSelectId (cb) {
+     if (selectId) return cb ? cb(selectId) : selectId;
+    socket.emit('getObjects', function (err, res) {
+        if (!err && res) {
+            selectId = $('#dialog-select-member').selectId('init',  {
+                noMultiselect: true,
+                objects: res,
+                imgPath:       '../../lib/css/fancytree/',
+                filter:        {type: 'state'},
+                name:          'adapter-select-state',
+                texts: {
+                    select:          _('Select'),
+                    cancel:          _('Cancel'),
+                    all:             _('All'),
+                    id:              _('ID'),
+                    name:            _('Name'),
+                    role:            _('Role'),
+                    room:            _('Room'),
+                    value:           _('Value'),
+                    selectid:        _('Select ID'),
+                    from:            _('From'),
+                    lc:              _('Last changed'),
+                    ts:              _('Time stamp'),
+                    wait:            _('Processing...'),
+                    ack:             _('Acknowledged'),
+                    selectAll:       _('Select all'),
+                    unselectAll:     _('Deselect all'),
+                    invertSelection: _('Invert selection')
+                },
+                columns: ['image', 'name', 'role', 'room', 'value']
+            });
+            cb && cb(selectId);
+        }
+    });
+}
+*/
+let selectId;
 function initSelectId(callback) {
     window.alert("function initSelectId entered");
     if (selectId) {
@@ -127,8 +195,8 @@ function initSelectId(callback) {
     }
     window.alert("function initSelectId entered 2");
     socket.emit('getObjects', function (err, objs) {
- //       selectId = $('#dialog-select-member').selectId('init', {
-        selectId = $('#adapter-container').selectId('init', {
+        selectId = $('#dialog-select-member').selectId('init', {
+ //       selectId = $('#adapter-container').selectId('init', {
             noMultiselect: true,
             objects: objs,
             imgPath: '../../lib/css/fancytree/',

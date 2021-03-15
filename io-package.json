@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.0.4": {
+        "en": "fix error in forreign state popup"
+      },
       "0.0.3": {
         "en": "bump dependencies"
       },

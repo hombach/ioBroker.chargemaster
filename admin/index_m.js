@@ -19,7 +19,6 @@ function load(settings, onChange) {
         }
     });
 
-    // NEW, NOT WORKING
     $('#StateHomeSolarPowerPopUp').on('click', function () {
         initSelectId(function (sid) {
             sid.selectId('show', $('#StateHomeSolarPower').val(), function (newId) {
@@ -31,11 +30,9 @@ function load(settings, onChange) {
     });
 
     $('#StateHomeBatSocPopUp').on('click', function () {
-        window.alert("StateHomeBatSocPopUp pressed:   " + $('#StateHomeBatSoc').val());
         initSelectId(function (sid) {
             sid.selectId('show', $('#StateHomeBatSoc').val(), function (newId) {
                 if (newId) {
-                    window.alert("NewID!!");
                     $('#StateHomeBatSoc').val(newId).trigger('change');
                 }
             });
@@ -72,11 +69,6 @@ function load(settings, onChange) {
         });
     });
 
-    // END NEW  */
-
-
-
-
 
     onChange(false);
     // reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
@@ -103,7 +95,6 @@ function save(callback) {
 let selectId;
 function initSelectId(callback) {
     if (selectId) return callback(selectId);
-window.alert("function initSelectId entered");
     socket.emit('getObjects', function (err, objs) {
         if (!err && objs) {
             selectId = $('#dialog-select-member').selectId('init', {
@@ -133,7 +124,6 @@ window.alert("function initSelectId entered");
                 },
                 columns: ['image', 'name', 'role']
             });
-window.alert("Error: " + err + "  Objects: " + objs);
             callback(selectId);
         }
     });

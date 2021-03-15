@@ -131,7 +131,7 @@ window.alert("function initSelectId entered");
                     unselectAll: _('Deselect all'),
                     invertSelection: _('Invert selection')
                 },
-                columns: ['image', 'name', 'role', 'room']
+                columns: ['image', 'name', 'role']
             });
 window.alert("Error: " + err + "  Objects: " + objs);
             callback(selectId);

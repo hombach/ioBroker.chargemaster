@@ -48,6 +48,8 @@ class chargemaster extends utils.Adapter {
         this.log.info('Cycletime set to: ' + (this.config.cycletime / 1000) + ' seconds');
 
         this.subscribeStates('Settings.*');
+        // this.subscribeStates('*'); // all states changes inside the adapters namespace are subscribed
+        // this.subscribeForeignObjects('dwd.0.warning.*');
 
         try {
             this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = state.val }); // Get Desired Battery SoC
@@ -63,10 +65,6 @@ class chargemaster extends utils.Adapter {
         } catch (e) {
             this.log.error(`Unhandled exception processing initial state check: ${e}`);
         }
-
-
-        // this.subscribeStates('*'); // all states changes inside the adapters namespace are subscribed
-        // this.subscribeForeignObjects('dwd.0.warning.*');
 
         this.log.debug(`Init done, launching state machine`);
         this.StateMachine();
@@ -145,11 +143,11 @@ class chargemaster extends utils.Adapter {
     StateMachine() {
         this.log.debug(`StateMachine cycle started`);
 
-        if (ChargeNOW[0]) { // Charge-NOW is enabled
-            this.Charge_Config('1', ChargeCurrent[0], 'Wallbox für Ladung aktivieren');  // keep active charging current!!
+        if (ChargeNOW[2]) { // Charge-NOW is enabled
+            this.Charge_Config('1', ChargeCurrent[2], 'Wallbox für Ladung aktivieren');  // keep active charging current!!
         }
 
-        else if (ChargeManager[0]) { // Charge-Manager is enabled
+        else if (ChargeManager[2]) { // Charge-Manager is enabled
             this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => {
                 BatSoC = state.val;
                 this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
@@ -172,7 +170,7 @@ class chargemaster extends utils.Adapter {
     }
 
 
-    /*****************************************************************************************/
+    /***********************************OBSOLETE!!!******************************************************/
     ParseStatus(status) {
         this.setStateAsync('Info.CarState', status.car, true);
         switch (status.car) {
@@ -199,10 +197,10 @@ class chargemaster extends utils.Adapter {
     Charge_Config(Allow, Ampere, LogMessage) {
         this.log.debug(`${LogMessage}  -  ${Ampere} Ampere`);
         try {
-            this.setForeignState(this.config.StateWallBox1ChargeCurrent, Ampere);
-            this.setForeignState(this.config.StateWallBox1ChargeAllowed, Allow);
+            this.setForeignState(this.config.StateWallBox2ChargeCurrent, Ampere);
+            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Allow);
         } catch (e) {
-            this.log.error(`Error in setting charging for wallbox 0: ${e}`);
+            this.log.error(`Error in setting charging for wallbox 2: ${e}`);
         } // END catch
     } // END Charge_Config
 

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,11 +43,11 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.0.5": {
+        "en": "fixed to box 2"
+      },
       "0.0.4": {
         "en": "fix error in foreign state popup"
-      },
-      "0.0.3": {
-        "en": "bump dependencies"
       },
       "0.0.2": {
         "en": "fix errors to get it running in old single wallbox mode"

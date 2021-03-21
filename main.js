@@ -52,7 +52,7 @@ class chargemaster extends utils.Adapter {
         // this.subscribeForeignObjects('dwd.0.warning.*');
 
         try {
-            this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = state.val }); // Get Desired Battery SoC
+            this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { this.MinHomeBatVal = state.val }); // Get Desired Battery SoC
             this.getState('Settings.WB_0.ChargeNOW', (_err, state) => { ChargeNOW[0] = state.val });
             this.getState('Settings.WB_0.ChargeManager', (_err, state) => { ChargeManager[0] = state.val });
             this.getState('Settings.WB_0.ChargeCurrent', (_err, state) => { ChargeCurrent[0] = state.val });
@@ -149,7 +149,7 @@ class chargemaster extends utils.Adapter {
 
         else if (ChargeManager[2]) { // Charge-Manager is enabled
             this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => {
-                BatSoC = state.val;
+                this.BatSoC = state.val;
                 this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
                 if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?
                     this.Charge_Manager();
@@ -166,7 +166,7 @@ class chargemaster extends utils.Adapter {
                     this.Charge_Config('0', ZielAmpere, `Wallbox abschalten`);
         }
 
-        adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.polltimelive);
+        adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
     }
 
 
@@ -207,13 +207,13 @@ class chargemaster extends utils.Adapter {
 
     /*****************************************************************************************/
     Charge_Manager() {
-        this.getForeignState(this.config.StateHomeSolarPower, (_err, state) => { SolarPower = state.val });
+        this.getForeignState(this.config.StateHomeSolarPower, (_err, state) => { this.SolarPower = state.val });
         this.log.debug(`Got external state of solar power: ${SolarPower} W`);
-        this.getForeignState(this.config.StateHomePowerConsumption, (_err, state) => { HouseConsumption = state.val });
+        this.getForeignState(this.config.StateHomePowerConsumption, (_err, state) => { this.HouseConsumption = state.val });
         this.log.debug(`Got external state of house power consumption: ${HouseConsumption} W`);
-        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { BatSoC = state.val });
+        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
         this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
-        this.getState('Power.Charge', (_err, state) => { ChargePower = state.val });
+        this.getState('Power.Charge', (_err, state) => { this.ChargePower = state.val });
 
         OptAmpere = (Math.floor(
             (SolarPower - HouseConsumption + ChargePower - 100

@@ -70,17 +70,18 @@
   },
 
   "native": {
-    "ipaddress": "",
-    "polltimelive": 10000,
+    "cycletime": 10000,
     "StateHomeBatSoc": "",
     "StateHomeSolarPower": "",
     "StateHomePowerConsumption": "",
     "StateWallBox0ChargeCurrent": "",
     "StateWallBox0ChargeCurrentPopUp": "",
+    "StateWallBox0ChargeAllowed": "",
     "StateWallBox1ChargeCurrent": "",
     "StateWallBox1ChargeCurrentPopUp": "",
+    "StateWallBox1ChargeAllowed": "",
     "StateWallBox2ChargeCurrent": "",
-    "StateWallBox2ChargeCurrentPopUp": ""
+    "StateWallBox2ChargeAllowed": ""
   },
 
   "objects": [],

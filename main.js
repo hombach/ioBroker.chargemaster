@@ -270,6 +270,7 @@ class chargemaster extends utils.Adapter {
             });
             this.log.debug(`Got charge power of wallbox 2: ${BatSoC}W`);
             TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
+            this.setStateAsync('Power.Charge', TotalChargePower, true); // trim to Watt
         } catch (e) {
             this.log.error(`Error in reading charge power of wallboxes: ${e}`);
         } // END catch

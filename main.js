@@ -261,7 +261,7 @@ class chargemaster extends utils.Adapter {
             this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => {
                 Wallbox[0].ChargePower = state.val;
             });
-            this.log.debug(`Got charge power of wallbox 0; ${this.config.StateWallBox0ChargePower}: ${state.val}W`);
+            this.log.debug(`Got charge power of wallbox 0; ${this.config.StateWallBox0ChargePower}: ${Wallbox[0].ChargePower.val}W`);
             this.getForeignState(this.config.StateWallBox1ChargePower, (_err, state) => {
                 Wallbox[1].ChargePower = state.val;
             });

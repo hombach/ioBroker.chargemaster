@@ -154,6 +154,7 @@ class chargemaster extends utils.Adapter {
     /*****************************************************************************************/
     StateMachine() {
         this.log.debug(`StateMachine cycle started`);
+        this.Calc_Total_Power();
 
         if (Wallbox[2].ChargeNOW) { // Charge-NOW is enabled
             this.Charge_Config('1', Wallbox[2].ChargeCurrent, 'Wallbox für Ladung aktivieren');  // keep active charging current!!
@@ -223,9 +224,9 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`Got external state of solar power: ${SolarPower} W`);
         this.getForeignState(this.config.StateHomePowerConsumption, (_err, state) => { this.HouseConsumption = state.val });
         this.log.debug(`Got external state of house power consumption: ${HouseConsumption} W`);
-        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
-        this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
-        this.Calc_Total_Power();
+//        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
+//        this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
+//        this.Calc_Total_Power();
 
         OptAmpere = (Math.floor(
             (SolarPower - HouseConsumption + TotalChargePower - 100
@@ -254,7 +255,7 @@ class chargemaster extends utils.Adapter {
 
 
     /*****************************************************************************************/
-    Calc_Total_Power(Allow, Ampere, LogMessage) {
+    Calc_Total_Power() {
         this.log.debug(`Get charge power of all wallboxes`);
         try {
             this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => {

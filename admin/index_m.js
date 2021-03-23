@@ -59,12 +59,20 @@ function load(settings, onChange) {
             });
         });
     });
-
     $('#StateWallBox0ChargeAllowedPopUp').on('click', function () {
         initSelectId(function (sid) {
             sid.selectId('show', $('#StateWallBox0ChargeAllowed').val(), function (newId) {
                 if (newId) {
                     $('#StateWallBox0ChargeAllowed').val(newId).trigger('change');
+                }
+            });
+        });
+    });
+    $('#StateWallBox0ChargePowerPopUp').on('click', function () {
+        initSelectId(function (sid) {
+            sid.selectId('show', $('#StateWallBox0ChargePower').val(), function (newId) {
+                if (newId) {
+                    $('#StateWallBox0ChargePower').val(newId).trigger('change');
                 }
             });
         });
@@ -80,12 +88,20 @@ function load(settings, onChange) {
             });
         });
     });
-
     $('#StateWallBox1ChargeAllowedPopUp').on('click', function () {
         initSelectId(function (sid) {
             sid.selectId('show', $('#StateWallBox1ChargeAllowed').val(), function (newId) {
                 if (newId) {
                     $('#StateWallBox1ChargeAllowed').val(newId).trigger('change');
+                }
+            });
+        });
+    });
+    $('#StateWallBox1ChargePowerPopUp').on('click', function () {
+        initSelectId(function (sid) {
+            sid.selectId('show', $('#StateWallBox1ChargePower').val(), function (newId) {
+                if (newId) {
+                    $('#StateWallBox1ChargePower').val(newId).trigger('change');
                 }
             });
         });
@@ -101,12 +117,20 @@ function load(settings, onChange) {
             });
         });
     });
-
     $('#StateWallBox2ChargeAllowedPopUp').on('click', function () {
         initSelectId(function (sid) {
             sid.selectId('show', $('#StateWallBox2ChargeAllowed').val(), function (newId) {
                 if (newId) {
                     $('#StateWallBox2ChargeAllowed').val(newId).trigger('change');
+                }
+            });
+        });
+    });
+    $('#StateWallBox2ChargePowerPopUp').on('click', function () {
+        initSelectId(function (sid) {
+            sid.selectId('show', $('#StateWallBox2ChargePower').val(), function (newId) {
+                if (newId) {
+                    $('#StateWallBox2ChargePower').val(newId).trigger('change');
                 }
             });
         });

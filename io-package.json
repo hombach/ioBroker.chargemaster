@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.0.6": {
+        "en": "added collection and calc of total charge power"
+      },
       "0.0.5": {
         "en": "fixed to box 2"
       },
@@ -75,13 +78,14 @@
     "StateHomeSolarPower": "",
     "StateHomePowerConsumption": "",
     "StateWallBox0ChargeCurrent": "",
-    "StateWallBox0ChargeCurrentPopUp": "",
     "StateWallBox0ChargeAllowed": "",
+    "StateWallBox0ChargePower": "",
     "StateWallBox1ChargeCurrent": "",
-    "StateWallBox1ChargeCurrentPopUp": "",
     "StateWallBox1ChargeAllowed": "",
+    "StateWallBox1ChargePower": "",
     "StateWallBox2ChargeCurrent": "",
-    "StateWallBox2ChargeAllowed": ""
+    "StateWallBox2ChargeAllowed": "",
+    "StateWallBox2ChargePower": ""
   },
 
   "objects": [],

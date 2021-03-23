@@ -86,6 +86,18 @@ systemDictionary = {
         "pl": "identyfikator obiektu do włączenia ładowania Wallbox 0 [true/false]",
         "zh-cn": "启用Wallbox 0收费的对象ID [true/false]"
     },
+    'StateWallBox0ChargePower': {
+        "en": "object-id for reading wallbox 0 charging power [W]",
+        "de": "Objekt-ID zum Lesen der Ladeleistung von Wallbox 0 [W]",
+        "ru": "идентификатор объекта для чтения мощности зарядки wallbox 0 [Вт]",
+        "pt": "object-id para ler a potência de carregamento da caixa de embutir 0 [W]",
+        "nl": "object-id voor het lezen van het laadvermogen van wallbox 0 [W]",
+        "fr": "object-id pour lire la puissance de charge de la wallbox 0 [W]",
+        "it": "object-id per la lettura della potenza di carica della wallbox 0 [W]",
+        "es": "ID de objeto para leer la potencia de carga de la caja de pared 0 [W]",
+        "pl": "object-id do odczytu mocy ładowania wallbox 0 [W]",
+        "zh-cn": "读取Wallbox 0充电功率的对象ID [W]"
+    },
     'StateWallBox1ChargeCurrent': {
         "en": "object-id for setting wallbox 1 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 1 [A]",
@@ -110,6 +122,18 @@ systemDictionary = {
         "pl": "identyfikator obiektu do włączenia ładowania Wallbox 1 [true/false]",
         "zh-cn": "启用Wallbox 1收费的对象ID [true/false]"
     },
+    'StateWallBox1ChargePower': {
+        "en": "object-id for reading wallbox 1 charging power [W]",
+        "de": "Objekt-ID zum Lesen der Ladeleistung von Wallbox 1 [W]",
+        "ru": "идентификатор объекта для чтения мощности зарядки wallbox 1 [Вт]",
+        "pt": "object-id para ler a potência de carregamento da caixa de embutir 1 [W]",
+        "nl": "object-id voor het lezen van het laadvermogen van wallbox 1 [W]",
+        "fr": "object-id pour lire la puissance de charge de la wallbox 1 [W]",
+        "it": "object-id per la lettura della potenza di carica della wallbox 1 [W]",
+        "es": "ID de objeto para leer la potencia de carga de la caja de pared 1 [W]",
+        "pl": "object-id do odczytu mocy ładowania wallbox 1 [W]",
+        "zh-cn": "读取Wallbox 1充电功率的对象ID [W]"
+    },
     'StateWallBox2ChargeCurrent': {
         "en": "object-id for setting wallbox 2 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 2 [A]",
@@ -133,5 +157,17 @@ systemDictionary = {
         "es": "ID de objeto para habilitar la carga de Wallbox 2 [true/false]",
         "pl": "identyfikator obiektu do włączenia ładowania Wallbox 2 [true/false]",
         "zh-cn": "启用Wallbox 2收费的对象ID [true/false]"
+    },
+    'StateWallBox2ChargePower': {
+        "en": "object-id for reading wallbox 2 charging power [W]",
+        "de": "Objekt-ID zum Lesen der Ladeleistung von Wallbox 2 [W]",
+        "ru": "идентификатор объекта для чтения мощности зарядки wallbox 2 [Вт]",
+        "pt": "object-id para ler a potência de carregamento da caixa de embutir 2 [W]",
+        "nl": "object-id voor het lezen van het laadvermogen van wallbox 2 [W]",
+        "fr": "object-id pour lire la puissance de charge de la wallbox 2 [W]",
+        "it": "object-id per la lettura della potenza di carica della wallbox 2 [W]",
+        "es": "ID de objeto para leer la potencia de carga de la caja de pared 2 [W]",
+        "pl": "object-id do odczytu mocy ładowania wallbox 2 [W]",
+        "zh-cn": "读取Wallbox 2充电功率的对象ID [W]"
     }
 };

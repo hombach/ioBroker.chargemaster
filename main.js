@@ -12,13 +12,24 @@ let ZielAmpere       = 5;
 let OptAmpere        = 6;
 let MinHomeBatVal    = 87;
 let OffVerzoegerung  = 0;
-let ChargeNOW = [false, false, false];
-let ChargeManager = [false, false, false];
-let ChargeCurrent = [0, 0, 0];
-let ChargePower      = 0;
+
+var Wallbox = [
+    {   ChargeNOW: false, ChargeManager: false,
+        ChargeCurrent: 0, ChargePower: 0
+    },
+    {   ChargeNOW: false, ChargeManager: false,
+        ChargeCurrent: 0, ChargePower: 0
+    },
+    {   ChargeNOW: false, ChargeManager: false,
+        ChargeCurrent: 0, ChargePower: 0
+    }
+];
+
+let TotalChargePower = 0;
 let SolarPower       = 0;
 let HouseConsumption = 0;
 let BatSoC           = 0;
+
 
 class chargemaster extends utils.Adapter {
 
@@ -52,16 +63,17 @@ class chargemaster extends utils.Adapter {
         // this.subscribeForeignObjects('dwd.0.warning.*');
 
         try {
-            this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { this.MinHomeBatVal = state.val }); // Get Desired Battery SoC
-            this.getState('Settings.WB_0.ChargeNOW', (_err, state) => { ChargeNOW[0] = state.val });
-            this.getState('Settings.WB_0.ChargeManager', (_err, state) => { ChargeManager[0] = state.val });
-            this.getState('Settings.WB_0.ChargeCurrent', (_err, state) => { ChargeCurrent[0] = state.val });
-            this.getState('Settings.WB_1.ChargeNOW', (_err, state) => { ChargeNOW[1] = state.val });
-            this.getState('Settings.WB_1.ChargeManager', (_err, state) => { ChargeManager[1] = state.val });
-            this.getState('Settings.WB_1.ChargeCurrent', (_err, state) => { ChargeCurrent[1] = state.val });
-            this.getState('Settings.WB_2.ChargeNOW', (_err, state) => { ChargeNOW[2] = state.val });
-            this.getState('Settings.WB_2.ChargeManager', (_err, state) => { ChargeManager[2] = state.val });
-            this.getState('Settings.WB_2.ChargeCurrent', (_err, state) => { ChargeCurrent[2] = state.val });
+            this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { this.MinHomeBatVal = state.val });
+            this.getState('Settings.WB_0.ChargeNOW', (_err, state) => { Wallbox[0].ChargeNOW = state.val });
+            this.getState('Settings.WB_0.ChargeManager', (_err, state) => { Wallbox[0].ChargeManager = state.val });
+            this.getState('Settings.WB_0.ChargeCurrent', (_err, state) => { Wallbox[0].ChargeCurrent = state.val });
+            this.getState('Settings.WB_1.ChargeNOW', (_err, state) => { Wallbox[1].ChargeNOW = state.val });
+            this.getState('Settings.WB_1.ChargeManager', (_err, state) => { Wallbox[1].ChargeManager = state.val });
+            this.getState('Settings.WB_1.ChargeCurrent', (_err, state) => { Wallbox[1].ChargeCurrent = state.val });
+            this.getState('Settings.WB_2.ChargeNOW', (_err, state) => { Wallbox[2].ChargeNOW = state.val });
+            this.getState('Settings.WB_2.ChargeManager', (_err, state) => { Wallbox[2].ChargeManager = state.val });
+            this.getState('Settings.WB_2.ChargeCurrent', (_err, state) => { Wallbox[2].ChargeCurrent = state.val });
+            this.Calc_Total_Power();
         } catch (e) {
             this.log.error(`Unhandled exception processing initial state check: ${e}`);
         }
@@ -81,34 +93,34 @@ class chargemaster extends utils.Adapter {
                 this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
                 switch (id) { 
                     case 'Settings.Setpoint_HomeBatSoC':
-                        this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = state.val }); // Get Desired Battery SoC
+                        this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { this.MinHomeBatVal = state.val }); // Get Desired Battery SoC
                         break;
                     case 'Settings.WB_1.ChargeNOW':
-                        this.getState('Settings.WB_1.ChargeNOW', (_err, state) => { ChargeNOW[0] = state.val });
+                        this.getState('Settings.WB_1.ChargeNOW', (_err, state) => { Wallbox[0].ChargeNOW = state.val });
                         break;
                     case 'Settings.WB_1.ChargeManager':
-                        this.getState('Settings.WB_1.ChargeManager', (_err, state) => { ChargeManager[0] = state.val });
+                        this.getState('Settings.WB_1.ChargeManager', (_err, state) => { Wallbox[0].ChargeManager = state.val });
                         break;
                     case 'Settings.WB_1.ChargeCurrent':
-                        this.getState('Settings.WB_1.ChargeCurrent', (_err, state) => { ChargeCurrent[0] = state.val });
+                        this.getState('Settings.WB_1.ChargeCurrent', (_err, state) => { Wallbox[0].ChargeCurrent = state.val });
                         break;
                     case 'Settings.WB_2.ChargeNOW':
-                        this.getState('Settings.WB_2.ChargeNOW', (_err, state) => { ChargeNOW[1] = state.val });
+                        this.getState('Settings.WB_2.ChargeNOW', (_err, state) => { Wallbox[1].ChargeNOW = state.val });
                         break;
                     case 'Settings.WB_2.ChargeManager':
-                        this.getState('Settings.WB_2.ChargeManager', (_err, state) => { ChargeManager[1] = state.val });
+                        this.getState('Settings.WB_2.ChargeManager', (_err, state) => { Wallbox[1].ChargeManager = state.val });
                         break;
                     case 'Settings.WB_2.ChargeCurrent':
-                        this.getState('Settings.WB_2.ChargeCurrent', (_err, state) => { ChargeCurrent[1] = state.val });
+                        this.getState('Settings.WB_2.ChargeCurrent', (_err, state) => { Wallbox[1].ChargeCurrent = state.val });
                         break;
                     case 'Settings.WB_3.ChargeNOW':
-                        this.getState('Settings.WB_3.ChargeNOW', (_err, state) => { ChargeNOW[2] = state.val });
+                        this.getState('Settings.WB_3.ChargeNOW', (_err, state) => { Wallbox[2].ChargeNOW = state.val });
                         break;
                     case 'Settings.WB_3.ChargeManager':
-                        this.getState('Settings.WB_3.ChargeManager', (_err, state) => { ChargeManager[2] = state.val });
+                        this.getState('Settings.WB_3.ChargeManager', (_err, state) => { Wallbox[2].ChargeManager = state.val });
                         break;
                     case 'Settings.WB_3.ChargeCurrent':
-                        this.getState('Settings.WB_3.ChargeCurrent', (_err, state) => { ChargeCurrent[2] = state.val });
+                        this.getState('Settings.WB_3.ChargeCurrent', (_err, state) => { Wallbox[2].ChargeCurrent = state.val });
                         break;
                 }
 
@@ -143,11 +155,11 @@ class chargemaster extends utils.Adapter {
     StateMachine() {
         this.log.debug(`StateMachine cycle started`);
 
-        if (ChargeNOW[2]) { // Charge-NOW is enabled
-            this.Charge_Config('1', ChargeCurrent[2], 'Wallbox für Ladung aktivieren');  // keep active charging current!!
+        if (Wallbox[2].ChargeNOW) { // Charge-NOW is enabled
+            this.Charge_Config('1', Wallbox[2].ChargeCurrent, 'Wallbox für Ladung aktivieren');  // keep active charging current!!
         }
 
-        else if (ChargeManager[2]) { // Charge-Manager is enabled
+        else if (Wallbox[2].ChargeManager) { // Charge-Manager is enabled
             this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => {
                 this.BatSoC = state.val;
                 this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
@@ -213,10 +225,10 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`Got external state of house power consumption: ${HouseConsumption} W`);
         this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
         this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
-        this.getState('Power.Charge', (_err, state) => { this.ChargePower = state.val });
+        this.Calc_Total_Power();
 
         OptAmpere = (Math.floor(
-            (SolarPower - HouseConsumption + ChargePower - 100
+            (SolarPower - HouseConsumption + TotalChargePower - 100
                 + ((2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal))) / 230)); // -100 W Reserve + max. 2000 fÜr Batterieleerung
 
         this.log.debug(`Optimal charging current would be: ${OptAmpere} A`);
@@ -227,7 +239,7 @@ class chargemaster extends utils.Adapter {
         } else if (ZielAmpere > OptAmpere) ZielAmpere--;
 
         this.log.debug(`ZielAmpere: ${ZielAmpere} Ampere; Leistung DC: ${SolarPower} W; `
-            + `Hausverbrauch: ${HouseConsumption} W; Gesamtleistung Charger: ${ChargePower} W`);
+            + `Hausverbrauch: ${HouseConsumption} W; Gesamtleistung alle Charger: ${TotalChargePower} W`);
         
         if (ZielAmpere > (5 + 4)) {
             this.Charge_Config('1', ZielAmpere, `Charging current: ${ZielAmpere} A`); // An und Zielstrom da größer 5 + Hysterese
@@ -239,6 +251,30 @@ class chargemaster extends utils.Adapter {
             }
         }
     } // END Charge_Manager
+
+
+    /*****************************************************************************************/
+    Calc_Total_Power(Allow, Ampere, LogMessage) {
+        this.log.debug(`Get charge power of all wallboxes`);
+        try {
+            this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => {
+                Wallbox[0].ChargePower = state.val;
+            });
+            this.log.debug(`Got charge power of wallbox 0: ${BatSoC}W`);
+            this.getForeignState(this.config.StateWallBox1ChargePower, (_err, state) => {
+                Wallbox[1].ChargePower = state.val;
+            });
+            this.log.debug(`Got charge power of wallbox 1: ${BatSoC}W`);
+            this.getForeignState(this.config.StateWallBox2ChargePower, (_err, state) => {
+                Wallbox[2].ChargePower = state.val;
+            });
+            this.log.debug(`Got charge power of wallbox 2: ${BatSoC}W`);
+            TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
+        } catch (e) {
+            this.log.error(`Error in reading charge power of wallboxes: ${e}`);
+        } // END catch
+    } // END Calc_Total_Power
+
        
 } // END Class
 

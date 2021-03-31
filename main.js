@@ -10,25 +10,30 @@ const adapterIntervals = {};
 // Variablen
 let ZielAmpere       = 5;
 let OptAmpere        = 6;
-let MinHomeBatVal    = 87;
 let OffVerzoegerung  = 0;
+
 
 var Wallbox = [
     {   ChargeNOW: false, ChargeManager: false,
-        ChargeCurrent: 0, ChargePower: 0
+        ChargeCurrent: 0, ChargePower: 0,
+        MinAmp: 0, MaxAmp: 0
     },
     {   ChargeNOW: false, ChargeManager: false,
-        ChargeCurrent: 0, ChargePower: 0
+        ChargeCurrent: 0, ChargePower: 0,
+        MinAmp: 0, MaxAmp: 0
     },
     {   ChargeNOW: false, ChargeManager: false,
-        ChargeCurrent: 0, ChargePower: 0
+        ChargeCurrent: 0, ChargePower: 0,
+        MinAmp: 0, MaxAmp: 0
     }
 ];
+
 
 let TotalChargePower = 0;
 let SolarPower       = 0;
 let HouseConsumption = 0;
 let BatSoC           = 0;
+let MinHomeBatVal = 87;
 
 
 class chargemaster extends utils.Adapter {
@@ -77,6 +82,13 @@ class chargemaster extends utils.Adapter {
         } catch (e) {
             this.log.error(`Unhandled exception processing initial state check: ${e}`);
         }
+
+        Wallbox[0].MinAmp = this.config.MinAmpWallBox0;
+        Wallbox[0].MaxAmp = this.config.MaxAmpWallBox0;
+        Wallbox[1].MinAmp = this.config.MinAmpWallBox1;
+        Wallbox[1].MaxAmp = this.config.MaxAmpWallBox1;
+        Wallbox[2].MinAmp = this.config.MinAmpWallBox2;
+        Wallbox[2].MaxAmp = this.config.MaxAmpWallBox2;
 
         this.log.debug(`Init done, launching state machine`);
         this.StateMachine();
@@ -168,15 +180,15 @@ class chargemaster extends utils.Adapter {
                     this.Charge_Manager();
                 }
                 else { // FUTURE: time of day forces emptying of home battery
-                    ZielAmpere = 6;
+                    ZielAmpere = Wallbox[2].MinAmp;
                     this.Charge_Config('0', ZielAmpere, `Hausbatterie laden bis ${MinHomeBatVal}%`);
                 }
             });
         }
 
         else { // switch OFF; set to min. current; 
-                    ZielAmpere = 6;
-                    this.Charge_Config('0', ZielAmpere, `Wallbox abschalten`);
+                    ZielAmpere = Wallbox[2].MinAmp;
+                    this.Charge_Config('0', ZielAmpere, `Wallbox 2 abschalten`);
         }
 
         adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);

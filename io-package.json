@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.0.7": {
+        "en": "added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox"
+      },
       "0.0.6": {
         "en": "added collection and calc of total charge power"
       },
@@ -74,18 +77,22 @@
 
   "native": {
     "cycletime": 10000,
+    "MaxAmpTotal": 20,
     "StateHomeBatSoc": "",
     "StateHomeSolarPower": "",
     "StateHomePowerConsumption": "",
     "StateWallBox0ChargeCurrent": "",
     "StateWallBox0ChargeAllowed": "",
     "StateWallBox0ChargePower": "",
+    "MinAmpWallBox0": 6, "MaxAmpWallBox0": 16,
     "StateWallBox1ChargeCurrent": "",
     "StateWallBox1ChargeAllowed": "",
     "StateWallBox1ChargePower": "",
+    "MinAmpWallBox1": 6, "MaxAmpWallBox1": 16,
     "StateWallBox2ChargeCurrent": "",
     "StateWallBox2ChargeAllowed": "",
-    "StateWallBox2ChargePower": ""
+    "StateWallBox2ChargePower": "",
+    "MinAmpWallBox2": 6, "MaxAmpWallBox2": 16
   },
 
   "objects": [],

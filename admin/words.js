@@ -26,6 +26,20 @@ systemDictionary = {
         "pl": "Czas cykliczny dla chargeremanager [ms]",
         "zh-cn": "充电管理器的周期[ms]"
     },
+
+    'MaxAmpTotal': {
+        "en": "Maximum allowed sum of currents for complete system [A]",
+        "de": "Maximal zulässige Summe der Ströme für das gesamte System [A]",
+        "ru": "Максимально допустимая сумма токов для всей системы [A]",
+        "pt": "Soma máxima permitida de correntes para sistema completo [A]",
+        "nl": "Maximaal toegestane som van stromen voor compleet systeem [A]",
+        "fr": "Somme maximale autorisée des courants pour le système complet [A]",
+        "it": "Somma massima consentita delle correnti per l'intero sistema [A]",
+        "es": "Suma máxima permitida de corrientes para el sistema completo [A]",
+        "pl": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
+        "zh-cn": "整个系统的最大允许电流总和[A]"
+    },
+
     'StateHomeSolarPower': {
         "en": "object-id for currently available solar power [W]",
         "de": "Objekt-ID für derzeit verfügbare Solarenergie [W]",
@@ -62,6 +76,7 @@ systemDictionary = {
         "pl": "id obiektu dla bieżącego zużycia energii w domu [W]",
         "zh-cn": "当前家庭功耗的对象ID [W]"
     },
+
     'StateWallBox0ChargeCurrent': {
         "en": "object-id for setting wallbox 0 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 0 [A]",
@@ -98,6 +113,31 @@ systemDictionary = {
         "pl": "object-id do odczytu mocy ładowania wallbox 0 [W]",
         "zh-cn": "读取Wallbox 0充电功率的对象ID [W]"
     },
+    'MinAmpWallBox0': {
+        "en": "Minimum allowed current for Wallbox 0 [A]",
+        "de": "Zulässiger Mindeststrom für Wallbox 0 [A]",
+        "ru": "Минимально допустимый ток для Wallbox 0 [A]",
+        "pt": "Corrente mínima permitida para Wallbox 0 [A]",
+        "nl": "Minimaal toegestane stroom voor Wallbox 0 [A]",
+        "fr": "Courant minimum autorisé pour Wallbox 0 [A]",
+        "it": "Corrente minima consentita per Wallbox 0 [A]",
+        "es": "Corriente mínima permitida para Wallbox 0 [A]",
+        "pl": "Minimalny dopuszczalny prąd dla Wallbox 0 [A]",
+        "zh-cn": "Wallbox 0的最小允许电流[A]"
+    },
+    'MaxAmpWallBox0': {
+        "en": "Maximum allowed current for Wallbox 0 [A]",
+        "de": "Maximal zulässiger Strom für Wallbox 0 [A]",
+        "ru": "Максимально допустимый ток для Wallbox 0 [A]",
+        "pt": "Corrente máxima permitida para Wallbox 0 [A]",
+        "nl": "Maximaal toegestane stroom voor Wallbox 0 [A]",
+        "fr": "Courant maximal autorisé pour la Wallbox 0 [A]",
+        "it": "Corrente massima consentita per Wallbox 0 [A]",
+        "es": "Corriente máxima permitida para Wallbox 0 [A]",
+        "pl": "Maksymalny dopuszczalny prąd dla Wallbox 0 [A]",
+        "zh-cn": "Wallbox 0的最大允许电流[A]"
+    },
+
     'StateWallBox1ChargeCurrent': {
         "en": "object-id for setting wallbox 1 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 1 [A]",
@@ -134,6 +174,31 @@ systemDictionary = {
         "pl": "object-id do odczytu mocy ładowania wallbox 1 [W]",
         "zh-cn": "读取Wallbox 1充电功率的对象ID [W]"
     },
+    'MinAmpWallBox1': {
+        "en": "Minimum allowed current for Wallbox 1 [A]",
+        "de": "Zulässiger Mindeststrom für Wallbox 1 [A]",
+        "ru": "Минимально допустимый ток для Wallbox 1 [A]",
+        "pt": "Corrente mínima permitida para Wallbox 1 [A]",
+        "nl": "Minimaal toegestane stroom voor Wallbox 1 [A]",
+        "fr": "Courant minimum autorisé pour Wallbox 1 [A]",
+        "it": "Corrente minima consentita per Wallbox 1 [A]",
+        "es": "Corriente mínima permitida para Wallbox 1 [A]",
+        "pl": "Minimalny dopuszczalny prąd dla Wallbox 1 [A]",
+        "zh-cn": "Wallbox 1的最小允许电流[A]"
+    },
+    'MaxAmpWallBox1': {
+        "en": "Maximum allowed current for Wallbox 1 [A]",
+        "de": "Maximal zulässiger Strom für Wallbox 1 [A]",
+        "ru": "Максимально допустимый ток для Wallbox 1 [A]",
+        "pt": "Corrente máxima permitida para Wallbox 1 [A]",
+        "nl": "Maximaal toegestane stroom voor Wallbox 1 [A]",
+        "fr": "Courant maximal autorisé pour la Wallbox 1 [A]",
+        "it": "Corrente massima consentita per Wallbox 1 [A]",
+        "es": "Corriente máxima permitida para Wallbox 1 [A]",
+        "pl": "Maksymalny dopuszczalny prąd dla Wallbox 1 [A]",
+        "zh-cn": "Wallbox 1的最大允许电流[A]"
+    },
+
     'StateWallBox2ChargeCurrent': {
         "en": "object-id for setting wallbox 2 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 2 [A]",
@@ -169,5 +234,30 @@ systemDictionary = {
         "es": "ID de objeto para leer la potencia de carga de la caja de pared 2 [W]",
         "pl": "object-id do odczytu mocy ładowania wallbox 2 [W]",
         "zh-cn": "读取Wallbox 2充电功率的对象ID [W]"
+    },
+    'MinAmpWallBox2': {
+        "en": "Minimum allowed current for Wallbox 2 [A]",
+        "de": "Zulässiger Mindeststrom für Wallbox 2 [A]",
+        "ru": "Минимально допустимый ток для Wallbox 2 [A]",
+        "pt": "Corrente mínima permitida para Wallbox 2 [A]",
+        "nl": "Minimaal toegestane stroom voor Wallbox 2 [A]",
+        "fr": "Courant minimum autorisé pour Wallbox 2 [A]",
+        "it": "Corrente minima consentita per Wallbox 2 [A]",
+        "es": "Corriente mínima permitida para Wallbox 2 [A]",
+        "pl": "Minimalny dopuszczalny prąd dla Wallbox 2 [A]",
+        "zh-cn": "Wallbox 2的最小允许电流[A]"
+    },
+    'MaxAmpWallBox2': {
+        "en": "Maximum allowed current for Wallbox 2 [A]",
+        "de": "Maximal zulässiger Strom für Wallbox 2 [A]",
+        "ru": "Максимально допустимый ток для Wallbox 2 [A]",
+        "pt": "Corrente máxima permitida para Wallbox 2 [A]",
+        "nl": "Maximaal toegestane stroom voor Wallbox 2 [A]",
+        "fr": "Courant maximal autorisé pour la Wallbox 2 [A]",
+        "it": "Corrente massima consentita per Wallbox 2 [A]",
+        "es": "Corriente máxima permitida para Wallbox 2 [A]",
+        "pl": "Maksymalny dopuszczalny prąd dla Wallbox 2 [A]",
+        "zh-cn": "Wallbox 2的最大允许电流[A]"
     }
+  
 };

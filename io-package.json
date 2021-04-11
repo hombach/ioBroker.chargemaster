@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -80,7 +80,7 @@
 
   "native": {
     "cycletime": 10000,
-    "MaxAmpTotal": 20,
+    "MaxAmpTotal": 6,
     "StateHomeBatSoc": "",
     "StateHomeSolarPower": "",
     "StateHomePowerConsumption": "",

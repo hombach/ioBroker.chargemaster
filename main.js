@@ -33,7 +33,7 @@ let TotalChargePower = 0;
 let SolarPower       = 0;
 let HouseConsumption = 0;
 let BatSoC           = 0;
-let MinHomeBatVal = 87;
+let MinHomeBatVal = 85;
 
 
 class chargemaster extends utils.Adapter {

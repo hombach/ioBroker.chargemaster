@@ -40,6 +40,7 @@ let SolarPower       = 0;
 let HouseConsumption = 0;
 let BatSoC           = 0;
 let MinHomeBatVal = 85;
+let TotalSetPointAmp = 0;
 
 
 class chargemaster extends utils.Adapter {
@@ -263,7 +264,7 @@ class chargemaster extends utils.Adapter {
     /*****************************************************************************************/
     Charge_Limiter() {
         let iBox = 0;
-        let TotalSetPointAmp = 0;
+        TotalSetPointAmp = 0;
         for (iBox = 0; iBox <= 2; iBox++) { // switch of boxes and adjust local limits
             if (Wallbox[iBox].SetOptAllow = false) { // Switch of imediately
                 Wallbox[iBox].SetAllow = false;
@@ -302,7 +303,28 @@ class chargemaster extends utils.Adapter {
     Charge_Config() {
         let iBox = 0;
         for (iBox = 0; iBox <= 2; iBox++) {
-            if (Wallbox[iBox].SetAllow = false) {
+            if (Wallbox[iBox].SetAllow = false) { // first switch off boxes
+                try {
+                    switch (iBox) {
+                        case 0:
+                            this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[iBox].SetAllow);
+                            this.setForeignState(this.config.StateWallBox0ChargeCurrent, Wallbox[iBox].SetAmp);
+                        case 1:
+                            this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[iBox].SetAllow);
+                            this.setForeignState(this.config.StateWallBox1ChargeCurrent, Wallbox[iBox].SetAmp);
+                        case 2:
+                            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Wallbox[iBox].SetAllow);
+                            this.setForeignState(this.config.StateWallBox2ChargeCurrent, Wallbox[iBox].SetAmp);
+// FEEDBACK ABFRAGEN!!!!
+
+                    }
+                } catch (e) {
+                    this.log.error(`Error in setting charging for wallbox ${iBox}: ${e}`);
+                } // END try-catch
+                this.log.debug(`Wallbox ${iBox} abschalten  -  ${Wallbox[iBox].SetAmp} Ampere`);
+            }
+            else if ((this.config.MaxAmpTotal - TotalSetPointAmp) >= (Wallbox[iBox].SetAmp - Wallbox[iBox].ChargeCurrent)) { // other boxes have already reduced current
+// HIER FRISST ES SICH OHNE FEEDBACK.... wenn kein Auto lädt obwohl es dürfte.... -> globale Abfrage ob Auto vorhanden in WallBox-Schnittstelle implementieren
                 try {
                     switch (iBox) {
                         case 0:
@@ -318,8 +340,7 @@ class chargemaster extends utils.Adapter {
                 } catch (e) {
                     this.log.error(`Error in setting charging for wallbox ${iBox}: ${e}`);
                 } // END try-catch
-                this.log.debug(`Wallbox ${iBox} abschalten  -  ${Wallbox[iBox].SetAmp} Ampere`);
-
+                this.log.debug(`Wallbox ${iBox} für Ladung aktivieren  -  ${Wallbox[iBox].SetAmp} Ampere`);
             }
         }
 

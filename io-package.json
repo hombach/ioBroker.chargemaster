@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.0.8": {
+        "en": "bumped dependencies, small fixes"
+      },
       "0.0.7": {
         "en": "added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox"
       },

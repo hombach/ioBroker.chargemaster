@@ -113,6 +113,18 @@ systemDictionary = {
         "pl": "object-id do odczytu mocy ładowania wallbox 0 [W]",
         "zh-cn": "读取Wallbox 0充电功率的对象ID [W]"
     },
+    'StateWallBox0MeasuredMaxChargeAmp': {
+        "en": "object-id for reading measured max phase current of wallbox 0 [A]",
+        "de": "Objekt-ID zum Lesen des gemessenen maximalen Phasenstroms der Wallbox 0 [A]",
+        "ru": "идентификатор объекта для чтения измеренного максимального фазного тока настенной коробки 0 [A]",
+        "pt": "object-id para leitura da corrente de fase máxima medida da caixa de embutir 0 [A]",
+        "nl": "object-id voor het uitlezen van gemeten max. fasestroom van wallbox 0 [A]",
+        "fr": "object-id pour la lecture du courant de phase max mesuré de la Wallbox 0 [A]",
+        "it": "object-id per la lettura della corrente di fase massima misurata della wallbox 0 [A]",
+        "es": "ID de objeto para leer la corriente de fase máxima medida de la caja de empotrar 0 [A]",
+        "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 0 [A]",
+        "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 0 [A]"
+    },
     'MinAmpWallBox0': {
         "en": "Minimum allowed current for Wallbox 0 [A]",
         "de": "Zulässiger Mindeststrom für Wallbox 0 [A]",
@@ -174,6 +186,18 @@ systemDictionary = {
         "pl": "object-id do odczytu mocy ładowania wallbox 1 [W]",
         "zh-cn": "读取Wallbox 1充电功率的对象ID [W]"
     },
+    'StateWallBox1MeasuredMaxChargeAmp': {
+        "en": "object-id for reading measured max phase current of wallbox 1 [A]",
+        "de": "Objekt-ID zum Lesen des gemessenen maximalen Phasenstroms der Wallbox 1 [A]",
+        "ru": "идентификатор объекта для чтения измеренного максимального фазного тока настенной коробки 1 [A]",
+        "pt": "object-id para leitura da corrente de fase máxima medida da caixa de embutir 1 [A]",
+        "nl": "object-id voor het uitlezen van gemeten max. fasestroom van wallbox 1 [A]",
+        "fr": "object-id pour la lecture du courant de phase max mesuré de la Wallbox 1 [A]",
+        "it": "object-id per la lettura della corrente di fase massima misurata della wallbox 1 [A]",
+        "es": "ID de objeto para leer la corriente de fase máxima medida de la caja de empotrar 1 [A]",
+        "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 1 [A]",
+        "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 1 [A]"
+    },
     'MinAmpWallBox1': {
         "en": "Minimum allowed current for Wallbox 1 [A]",
         "de": "Zulässiger Mindeststrom für Wallbox 1 [A]",
@@ -234,6 +258,18 @@ systemDictionary = {
         "es": "ID de objeto para leer la potencia de carga de la caja de pared 2 [W]",
         "pl": "object-id do odczytu mocy ładowania wallbox 2 [W]",
         "zh-cn": "读取Wallbox 2充电功率的对象ID [W]"
+    },
+    'StateWallBox2MeasuredMaxChargeAmp': {
+        "en": "object-id for reading measured max phase current of wallbox 2 [A]",
+        "de": "Objekt-ID zum Lesen des gemessenen maximalen Phasenstroms der Wallbox 2 [A]",
+        "ru": "идентификатор объекта для чтения измеренного максимального фазного тока настенной коробки 2 [A]",
+        "pt": "object-id para leitura da corrente de fase máxima medida da caixa de embutir 2 [A]",
+        "nl": "object-id voor het uitlezen van gemeten max. fasestroom van wallbox 2 [A]",
+        "fr": "object-id pour la lecture du courant de phase max mesuré de la Wallbox 2 [A]",
+        "it": "object-id per la lettura della corrente di fase massima misurata della wallbox 2 [A]",
+        "es": "ID de objeto para leer la corriente de fase máxima medida de la caja de empotrar 2 [A]",
+        "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 2 [A]",
+        "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 2 [A]"
     },
     'MinAmpWallBox2': {
         "en": "Minimum allowed current for Wallbox 2 [A]",

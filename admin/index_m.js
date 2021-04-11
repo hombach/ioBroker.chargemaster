@@ -77,6 +77,15 @@ function load(settings, onChange) {
             });
         });
     });
+    $('#StateWallBox0MeasuredMaxChargeAmpPopUp').on('click', function () {
+        initSelectId(function (sid) {
+            sid.selectId('show', $('#StateWallBox0MeasuredMaxChargeAmp').val(), function (newId) {
+                if (newId) {
+                    $('#StateWallBox0MeasuredMaxChargeAmp').val(newId).trigger('change');
+                }
+            });
+        });
+    });
 
 
     $('#StateWallBox1ChargeCurrentPopUp').on('click', function () {
@@ -106,6 +115,15 @@ function load(settings, onChange) {
             });
         });
     });
+    $('#StateWallBox1MeasuredMaxChargeAmpPopUp').on('click', function () {
+        initSelectId(function (sid) {
+            sid.selectId('show', $('#StateWallBox1MeasuredMaxChargeAmp').val(), function (newId) {
+                if (newId) {
+                    $('#StateWallBox1MeasuredMaxChargeAmp').val(newId).trigger('change');
+                }
+            });
+        });
+    });
 
 
     $('#StateWallBox2ChargeCurrentPopUp').on('click', function () {
@@ -131,6 +149,15 @@ function load(settings, onChange) {
             sid.selectId('show', $('#StateWallBox2ChargePower').val(), function (newId) {
                 if (newId) {
                     $('#StateWallBox2ChargePower').val(newId).trigger('change');
+                }
+            });
+        });
+    });
+    $('#StateWallBox2MeasuredMaxChargeAmpPopUp').on('click', function () {
+        initSelectId(function (sid) {
+            sid.selectId('show', $('#StateWallBox2MeasuredMaxChargeAmp').val(), function (newId) {
+                if (newId) {
+                    $('#StateWallBox2MeasuredMaxChargeAmp').val(newId).trigger('change');
                 }
             });
         });

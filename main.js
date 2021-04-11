@@ -14,33 +14,30 @@ let OffVerzoegerung  = 0;
 
 
 var Wallbox = [
-    {   ChargeNOW : false, ChargeManager : false,
-        ChargeCurrent : 0, ChargePower : 0,
-        MinAmp : 6, MaxAmp : 8,
-        SetOptAmp : 5, SetOptAllow : false,
-        SetAmp : 0, SetAllow : false
+    {   ChargeNOW: false, ChargeManager: false,
+        ChargeCurrent: 0, ChargePower: 0, MeasuredMaxChargeAmp: 0,
+        MinAmp: 6, MaxAmp: 8,
+        SetOptAmp: 5, SetOptAllow: false, SetAmp: 0, SetAllow: false
     },
-    {   ChargeNOW : false, ChargeManager : false,
-        ChargeCurrent : 0, ChargePower : 0,
-        MinAmp : 6, MaxAmp : 8,
-        SetOptAmp : 5, SetOptAllow : false,
-        SetAmp: 0, SetAllow: false
+    {   ChargeNOW: false, ChargeManager: false,
+        ChargeCurrent: 0, ChargePower: 0, MeasuredMaxChargeAmp: 0,
+        MinAmp: 6, MaxAmp: 8,
+        SetOptAmp: 5, SetOptAllow: false, SetAmp: 0, SetAllow: false
     },
-    {   ChargeNOW : false, ChargeManager : false,
-        ChargeCurrent : 0, ChargePower : 0,
-        MinAmp : 6, MaxAmp : 8,
-        SetOptAmp : 5, SetOptAllow : false,
-        SetAmp: 0, SetAllow: false
+    {   ChargeNOW: false, ChargeManager: false,
+        ChargeCurrent: 0, ChargePower: 0, MeasuredMaxChargeAmp: 0,
+        MinAmp: 6, MaxAmp: 8,
+        SetOptAmp: 5, SetOptAllow: false, SetAmp: 0, SetAllow: false
     }
 ];
 
-
-let TotalChargePower = 0;
-let SolarPower       = 0;
-let HouseConsumption = 0;
-let BatSoC           = 0;
-let MinHomeBatVal = 85;
-let TotalSetPointAmp = 0;
+let SolarPower          = 0;
+let HouseConsumption    = 0;
+let BatSoC              = 0;
+let MinHomeBatVal       = 85;
+let TotalSetOptAmp      = 0;
+let TotalChargePower    = 0;
+let TotalMeasuredChargeCurrent  = 0;
 
 
 class chargemaster extends utils.Adapter {
@@ -76,7 +73,7 @@ class chargemaster extends utils.Adapter {
         // this.subscribeForeignObjects('dwd.0.warning.*');
 
         try {
-            this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { this.MinHomeBatVal = state.val });
+            this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = state.val });
             this.getState('Settings.WB_0.ChargeNOW', (_err, state) => { Wallbox[0].ChargeNOW = state.val });
             this.getState('Settings.WB_0.ChargeManager', (_err, state) => { Wallbox[0].ChargeManager = state.val });
             this.getState('Settings.WB_0.ChargeCurrent', (_err, state) => { Wallbox[0].ChargeCurrent = state.val });
@@ -113,7 +110,7 @@ class chargemaster extends utils.Adapter {
                 this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
                 switch (id) { 
                     case 'Settings.Setpoint_HomeBatSoC':
-                        this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { this.MinHomeBatVal = state.val }); // Get Desired Battery SoC
+                        this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = state.val }); // Get Desired Battery SoC
                         break;
                     case 'Settings.WB_1.ChargeNOW':
                         this.getState('Settings.WB_1.ChargeNOW', (_err, state) => { Wallbox[0].ChargeNOW = state.val });
@@ -193,7 +190,7 @@ class chargemaster extends utils.Adapter {
                     }
                     else { // FUTURE: time of day forces emptying of home battery
 //                        ZielAmpere = Wallbox[i].MinAmp;
-                        Wallbox[i].SetOptAmp = Wallbox[2].MinAmp;
+                        Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
 //                        this.Charge_Config('0', ZielAmpere, `Hausbatterie laden bis ${MinHomeBatVal}%`);
                         Wallbox[i].SetOptAllow = false;
                     }
@@ -202,7 +199,7 @@ class chargemaster extends utils.Adapter {
 
             else { // switch OFF; set to min. current; 
 //                ZielAmpere = Wallbox[i].MinAmp;
-                Wallbox[i].SetOptAmp = Wallbox[2].MinAmp;
+                Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
 //                this.Charge_Config('0', ZielAmpere, `Wallbox 2 abschalten`);
                 Wallbox[i].SetOptAllow = false;
             }
@@ -217,9 +214,9 @@ class chargemaster extends utils.Adapter {
 
     /*****************************************************************************************/
     Charge_Manager(iBox) {
-        this.getForeignState(this.config.StateHomeSolarPower, (_err, state) => { this.SolarPower = state.val });
+        this.getForeignState(this.config.StateHomeSolarPower, (_err, state) => { SolarPower = state.val });
         this.log.debug(`Got external state of solar power: ${SolarPower} W`);
-        this.getForeignState(this.config.StateHomePowerConsumption, (_err, state) => { this.HouseConsumption = state.val });
+        this.getForeignState(this.config.StateHomePowerConsumption, (_err, state) => { HouseConsumption = state.val });
         this.log.debug(`Got external state of house power consumption: ${HouseConsumption} W`);
         //        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
         //        this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
@@ -264,7 +261,7 @@ class chargemaster extends utils.Adapter {
     /*****************************************************************************************/
     Charge_Limiter() {
         let iBox = 0;
-        TotalSetPointAmp = 0;
+        TotalSetOptAmp = 0;
         for (iBox = 0; iBox <= 2; iBox++) { // switch of boxes and adjust local limits
             if (Wallbox[iBox].SetOptAllow = false) { // Switch of imediately
                 Wallbox[iBox].SetAllow = false;
@@ -272,16 +269,16 @@ class chargemaster extends utils.Adapter {
             }
             else { // verifiy SetOptAmp against total current
                 if (Wallbox[iBox].SetOptAmp > this.config.MaxAmpTotal) { Wallbox[iBox].SetOptAmp = this.config.MaxAmpTotal }
-                if (TotalSetPointAmp + Wallbox[iBox].SetOptAmp <= this.config.MaxAmpTotal) { // enough current available
+                if (TotalSetOptAmp + Wallbox[iBox].SetOptAmp <= this.config.MaxAmpTotal) { // enough current available
                     Wallbox[iBox].SetAmp = Wallbox[iBox].SetOptAmp;
                     Wallbox[iBox].SetAllow = true;
-                    TotalSetPointAmp = TotalSetPointAmp + Wallbox[iBox].SetAmp;
+                    TotalSetOptAmp = TotalSetOptAmp + Wallbox[iBox].SetAmp;
                 }
                 else { // not enough current available
-                    if (this.config.MaxAmpTotal - TotalSetPointAmp >= Wallbox[iBox].MinAmp) { // still enough above min current?
-                        Wallbox[iBox].SetAmp = this.config.MaxAmpTotal - TotalSetPointAmp;
+                    if (this.config.MaxAmpTotal - TotalSetOptAmp >= Wallbox[iBox].MinAmp) { // still enough above min current?
+                        Wallbox[iBox].SetAmp = this.config.MaxAmpTotal - TotalSetOptAmp;
                         Wallbox[iBox].SetAllow = true;
-                        TotalSetPointAmp = TotalSetPointAmp + Wallbox[iBox].SetAmp;
+                        TotalSetOptAmp = TotalSetOptAmp + Wallbox[iBox].SetAmp;
                     }
                 } 
             }
@@ -323,19 +320,19 @@ class chargemaster extends utils.Adapter {
                 } // END try-catch
                 this.log.debug(`Wallbox ${iBox} abschalten  -  ${Wallbox[iBox].SetAmp} Ampere`);
             }
-            else if ((this.config.MaxAmpTotal - TotalSetPointAmp) >= (Wallbox[iBox].SetAmp - Wallbox[iBox].ChargeCurrent)) { // other boxes have already reduced current
-// HIER FRISST ES SICH OHNE FEEDBACK.... wenn kein Auto lädt obwohl es dürfte.... -> globale Abfrage ob Auto vorhanden in WallBox-Schnittstelle implementieren
+            else if (TotalMeasuredChargeCurrent + (Wallbox[iBox].SetAmp - Wallbox[iBox].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
+                //HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
                 try {
                     switch (iBox) {
                         case 0:
-                            this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[iBox].SetAllow);
                             this.setForeignState(this.config.StateWallBox0ChargeCurrent, Wallbox[iBox].SetAmp);
+                            this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[iBox].SetAllow);
                         case 1:
-                            this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[iBox].SetAllow);
                             this.setForeignState(this.config.StateWallBox1ChargeCurrent, Wallbox[iBox].SetAmp);
+                            this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[iBox].SetAllow);
                         case 2:
-                            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Wallbox[iBox].SetAllow);
                             this.setForeignState(this.config.StateWallBox2ChargeCurrent, Wallbox[iBox].SetAmp);
+                            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Wallbox[iBox].SetAllow);
                     }
                 } catch (e) {
                     this.log.error(`Error in setting charging for wallbox ${iBox}: ${e}`);
@@ -351,26 +348,47 @@ class chargemaster extends utils.Adapter {
     Calc_Total_Power() {
         this.log.debug(`Get charge power of all wallboxes`);
         try {
+
             this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => {
                 Wallbox[0].ChargePower = state.val;
             });
-            this.log.debug(`Got charge power of wallbox 0; ${this.config.StateWallBox0ChargePower}: ${Wallbox[0].ChargePower.val}W`);
+            this.getForeignState(this.config.StateWallBox0MeasuredMaxChargeAmp, (_err, state) => {
+                Wallbox[0].MeasuredMaxChargeAmp = state.val;
+            });
+            this.log.debug(`Got charge power of wallbox 0; _
+                            ${this.config.StateWallBox0ChargePower}: ${Wallbox[0].ChargePower}W; _
+                            ${this.config.StateWallBox0MeasuredMaxChargeAmp}: ${Wallbox[0].MeasuredMaxChargeAmp} A`);
+
             this.getForeignState(this.config.StateWallBox1ChargePower, (_err, state) => {
                 Wallbox[1].ChargePower = state.val;
             });
-            this.log.debug(`Got charge power of wallbox 1; ${this.config.StateWallBox1ChargePower}: ${Wallbox[1].ChargePower}W`);
+            this.getForeignState(this.config.StateWallBox1MeasuredMaxChargeAmp, (_err, state) => {
+                Wallbox[1].MeasuredMaxChargeAmp = state.val;
+            });
+            this.log.debug(`Got charge power of wallbox 1; _
+                            ${this.config.StateWallBox1ChargePower}: ${Wallbox[1].ChargePower}W; _
+                            ${this.config.StateWallBox1MeasuredMaxChargeAmp}: ${Wallbox[1].MeasuredMaxChargeAmp} A`);
+
             this.getForeignState(this.config.StateWallBox2ChargePower, (_err, state) => {
                 Wallbox[2].ChargePower = state.val;
             });
-            this.log.debug(`Got charge power of wallbox 2; ${this.config.StateWallBox2ChargePower}: ${Wallbox[2].ChargePower}W`);
+            this.getForeignState(this.config.StateWallBox2MeasuredMaxChargeAmp, (_err, state) => {
+                Wallbox[2].MeasuredMaxChargeAmp = state.val;
+            });
+            this.log.debug(`Got charge power of wallbox 2; _
+                            ${this.config.StateWallBox2ChargePower}: ${Wallbox[2].ChargePower}W; _
+                            ${this.config.StateWallBox2MeasuredMaxChargeAmp}: ${Wallbox[2].MeasuredMaxChargeAmp} A`);
+
             TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
             this.setStateAsync('Power.Charge', TotalChargePower, true); // trim to Watt
+            TotalMeasuredChargeCurrent = Math.ceil(Wallbox[0].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[1].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[2].MeasuredMaxChargeAmp);
+
         } catch (e) {
             this.log.error(`Error in reading charge power of wallboxes: ${e}`);
         } // END catch
     } // END Calc_Total_Power
 
-       
+         
 } // END Class
 
 

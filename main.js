@@ -14,17 +14,23 @@ let OffVerzoegerung  = 0;
 
 
 var Wallbox = [
-    {   ChargeNOW: false, ChargeManager: false,
-        ChargeCurrent: 0, ChargePower: 0,
-        MinAmp: 0, MaxAmp: 0
+    {   ChargeNOW : false, ChargeManager : false,
+        ChargeCurrent : 0, ChargePower : 0,
+        MinAmp : 6, MaxAmp : 8,
+        SetOptAmp : 5, SetOptAllow : false,
+        SetAmp : 0, SetAllow : false
     },
-    {   ChargeNOW: false, ChargeManager: false,
-        ChargeCurrent: 0, ChargePower: 0,
-        MinAmp: 0, MaxAmp: 0
+    {   ChargeNOW : false, ChargeManager : false,
+        ChargeCurrent : 0, ChargePower : 0,
+        MinAmp : 6, MaxAmp : 8,
+        SetOptAmp : 5, SetOptAllow : false,
+        SetAmp: 0, SetAllow: false
     },
-    {   ChargeNOW: false, ChargeManager: false,
-        ChargeCurrent: 0, ChargePower: 0,
-        MinAmp: 0, MaxAmp: 0
+    {   ChargeNOW : false, ChargeManager : false,
+        ChargeCurrent : 0, ChargePower : 0,
+        MinAmp : 6, MaxAmp : 8,
+        SetOptAmp : 5, SetOptAllow : false,
+        SetAmp: 0, SetAllow: false
     }
 ];
 
@@ -52,6 +58,7 @@ class chargemaster extends utils.Adapter {
         // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
+
 
     /****************************************************************************************
     * Is called when databases are connected and adapter received configuration.
@@ -146,7 +153,6 @@ class chargemaster extends utils.Adapter {
     }
 
 
-
     /****************************************************************************************
     * Is called when adapter shuts down - callback has to be called under any circumstances!
     * @param {() => void} callback */
@@ -165,105 +171,159 @@ class chargemaster extends utils.Adapter {
     
     /*****************************************************************************************/
     StateMachine() {
+        let i = 0;
         this.log.debug(`StateMachine cycle started`);
         this.Calc_Total_Power();
 
-        if (Wallbox[2].ChargeNOW) { // Charge-NOW is enabled
-            this.Charge_Config('1', Wallbox[2].ChargeCurrent, 'Wallbox für Ladung aktivieren');  // keep active charging current!!
+        for (i = 2; i <= 2; i++) {
+            if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
+//               this.Charge_Config('1', Wallbox[i].ChargeCurrent, 'Wallbox für Ladung aktivieren');  // keep active charging current!!
+                Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
+                Wallbox[i].SetOptAllow = true;
+            }
+
+            else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
+                this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => {
+                    this.BatSoC = state.val;
+                    this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
+                    if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?
+//                        this.Charge_Manager();
+                        this.Charge_Manager(i);
+                    }
+                    else { // FUTURE: time of day forces emptying of home battery
+//                        ZielAmpere = Wallbox[i].MinAmp;
+                        Wallbox[i].SetOptAmp = Wallbox[2].MinAmp;
+//                        this.Charge_Config('0', ZielAmpere, `Hausbatterie laden bis ${MinHomeBatVal}%`);
+                        Wallbox[i].SetOptAllow = false;
+                    }
+                });
+            }
+
+            else { // switch OFF; set to min. current; 
+//                ZielAmpere = Wallbox[i].MinAmp;
+                Wallbox[i].SetOptAmp = Wallbox[2].MinAmp;
+//                this.Charge_Config('0', ZielAmpere, `Wallbox 2 abschalten`);
+                Wallbox[i].SetOptAllow = false;
+            }
         }
 
-        else if (Wallbox[2].ChargeManager) { // Charge-Manager is enabled
-            this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => {
-                this.BatSoC = state.val;
-                this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
-                if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?
-                    this.Charge_Manager();
-                }
-                else { // FUTURE: time of day forces emptying of home battery
-                    ZielAmpere = Wallbox[2].MinAmp;
-                    this.Charge_Config('0', ZielAmpere, `Hausbatterie laden bis ${MinHomeBatVal}%`);
-                }
-            });
-        }
-
-        else { // switch OFF; set to min. current; 
-                    ZielAmpere = Wallbox[2].MinAmp;
-                    this.Charge_Config('0', ZielAmpere, `Wallbox 2 abschalten`);
-        }
+        this.Charge_Limiter
+        this.Charge_Config
 
         adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
     }
 
 
-    /***********************************OBSOLETE!!!******************************************************/
-    ParseStatus(status) {
-        this.setStateAsync('Info.CarState', status.car, true);
-        switch (status.car) {
-            case "1":
-                this.setStateAsync('Info.CarStateString', 'Wallbox ready, no car', true);
-                break;
-            case "2":
-                this.setStateAsync('Info.CarStateString', 'Charging...', true);
-                break;
-            case "3":
-                this.setStateAsync('Info.CarStateString', 'Wait for car', true);
-                break;
-            case "4":
-                this.setStateAsync('Info.CarStateString', 'Charge finished, car still connected', true);
-                break;
-            default:
-                this.setStateAsync('Info.CarStateString', 'Error', true);
-        }
-        this.setStateAsync('Power.Charge', (status.nrg[11] * 10), true); // trim to Watt
-    }
-
-
     /*****************************************************************************************/
-    Charge_Config(Allow, Ampere, LogMessage) {
-        this.log.debug(`${LogMessage}  -  ${Ampere} Ampere`);
-        try {
-            this.setForeignState(this.config.StateWallBox2ChargeCurrent, Ampere);
-            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Allow);
-        } catch (e) {
-            this.log.error(`Error in setting charging for wallbox 2: ${e}`);
-        } // END catch
-    } // END Charge_Config
-
-
-    /*****************************************************************************************/
-    Charge_Manager() {
+    Charge_Manager(iBox) {
         this.getForeignState(this.config.StateHomeSolarPower, (_err, state) => { this.SolarPower = state.val });
         this.log.debug(`Got external state of solar power: ${SolarPower} W`);
         this.getForeignState(this.config.StateHomePowerConsumption, (_err, state) => { this.HouseConsumption = state.val });
         this.log.debug(`Got external state of house power consumption: ${HouseConsumption} W`);
-//        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
-//        this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
-//        this.Calc_Total_Power();
+        //        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
+        //        this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
+        //        this.Calc_Total_Power();
 
         OptAmpere = (Math.floor(
             (SolarPower - HouseConsumption + TotalChargePower - 100
                 + ((2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal))) / 230)); // -100 W Reserve + max. 2000 fÜr Batterieleerung
 
         this.log.debug(`Optimal charging current would be: ${OptAmpere} A`);
-        if (OptAmpere > 16) OptAmpere = 16;
+        //        if (OptAmpere > 16) OptAmpere = 16; 
+        if (OptAmpere > Wallbox[iBox].MaxAmp) OptAmpere = Wallbox[iBox].MaxAmp; // limiting to max current of single box - global will be limited later
 
-        if (ZielAmpere < OptAmpere) {
-            ZielAmpere++;
-        } else if (ZielAmpere > OptAmpere) ZielAmpere--;
+//        if (ZielAmpere < OptAmpere) {
+        if (Wallbox[iBox].SetPointAmp < OptAmpere) {
+//            ZielAmpere++
+            Wallbox[iBox].SetPointAmp++;
+//        } else if (ZielAmpere > OptAmpere) ZielAmpere--;
+        } else if (Wallbox[iBox].SetPointAmp > OptAmpere) Wallbox[iBox].SetPointAmp--;
 
-        this.log.debug(`ZielAmpere: ${ZielAmpere} Ampere; Leistung DC: ${SolarPower} W; `
+//        this.log.debug(`ZielAmpere: ${ZielAmpere} Ampere; Leistung DC: ${SolarPower} W; `
+//            + `Hausverbrauch: ${HouseConsumption} W; Gesamtleistung alle Charger: ${TotalChargePower} W`);
+        this.log.debug(`Wallbox: ${iBox} ZielAmpere: ${Wallbox[iBox].SetPointAmp} Ampere; Leistung DC: ${SolarPower} W; `
             + `Hausverbrauch: ${HouseConsumption} W; Gesamtleistung alle Charger: ${TotalChargePower} W`);
-        
-        if (ZielAmpere > (5 + 4)) {
-            this.Charge_Config('1', ZielAmpere, `Charging current: ${ZielAmpere} A`); // An und Zielstrom da größer 5 + Hysterese
-        } else if (ZielAmpere < 6) {
+
+//        if (ZielAmpere > (5 + 4)) {
+        if (Wallbox[iBox].SetPointAmp >= (Wallbox[iBox].MinAmp + 4)) {
+//            this.Charge_Config('1', ZielAmpere, `Charging current: ${ZielAmpere} A`); // An und Zielstrom da größer 5 + Hysterese
+            Wallbox[iBox].SetPointAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
+//        } else if (ZielAmpere < 6) {
+        } else if (Wallbox[iBox].SetPointAmp < Wallbox[iBox].MinAmp) {
             OffVerzoegerung++;
             if (OffVerzoegerung > 12) {
-                this.Charge_Config('0', ZielAmpere, `zu wenig Überschuss`); // Aus und Zielstrom
+//                this.Charge_Config('0', ZielAmpere, `zu wenig Überschuss`); // Aus und Zielstrom
+                Wallbox[iBox].SetPointAllow = false; // Aus und Zielstrom
                 OffVerzoegerung = 0;
             }
         }
     } // END Charge_Manager
+
+
+    /*****************************************************************************************/
+    Charge_Limiter() {
+        let iBox = 0;
+        let TotalSetPointAmp = 0;
+        for (iBox = 0; iBox <= 2; iBox++) { // switch of boxes and adjust local limits
+            if (Wallbox[iBox].SetOptAllow = false) { // Switch of imediately
+                Wallbox[iBox].SetAllow = false;
+                Wallbox[iBox].SetAmp = Wallbox[iBox].SetOptAmp;
+            }
+            else { // verifiy SetOptAmp against total current
+                if (Wallbox[iBox].SetOptAmp > this.config.MaxAmpTotal) { Wallbox[iBox].SetOptAmp = this.config.MaxAmpTotal }
+                if (TotalSetPointAmp + Wallbox[iBox].SetOptAmp <= this.config.MaxAmpTotal) { // enough current available
+                    Wallbox[iBox].SetAmp = Wallbox[iBox].SetOptAmp;
+                    Wallbox[iBox].SetAllow = true;
+                    TotalSetPointAmp = TotalSetPointAmp + Wallbox[iBox].SetAmp;
+                }
+                else { // not enough current available
+                    if (this.config.MaxAmpTotal - TotalSetPointAmp >= Wallbox[iBox].MinAmp) { // still enough above min current?
+                        Wallbox[iBox].SetAmp = this.config.MaxAmpTotal - TotalSetPointAmp;
+                        Wallbox[iBox].SetAllow = true;
+                        TotalSetPointAmp = TotalSetPointAmp + Wallbox[iBox].SetAmp;
+                    }
+                } 
+            }
+
+        }
+    } // END Charge_Limiter
+
+
+    /*****************************************************************************************/
+//    Charge_Config(Allow, Ampere, LogMessage) {
+//        this.log.debug(`${LogMessage}  -  ${Ampere} Ampere`);
+//        try {
+//            this.setForeignState(this.config.StateWallBox2ChargeCurrent, Ampere);
+//            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Allow);
+//        } catch (e) {
+//            this.log.error(`Error in setting charging for wallbox 2: ${e}`);
+//        } // END catch
+//    } // END Charge_Config
+    Charge_Config() {
+        let iBox = 0;
+        for (iBox = 0; iBox <= 2; iBox++) {
+            if (Wallbox[iBox].SetAllow = false) {
+                try {
+                    switch (iBox) {
+                        case 0:
+                            this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[iBox].SetAllow);
+                            this.setForeignState(this.config.StateWallBox0ChargeCurrent, Wallbox[iBox].SetAmp);
+                        case 1:
+                            this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[iBox].SetAllow);
+                            this.setForeignState(this.config.StateWallBox1ChargeCurrent, Wallbox[iBox].SetAmp);
+                        case 2:
+                            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Wallbox[iBox].SetAllow);
+                            this.setForeignState(this.config.StateWallBox2ChargeCurrent, Wallbox[iBox].SetAmp);
+                    }
+                } catch (e) {
+                    this.log.error(`Error in setting charging for wallbox ${iBox}: ${e}`);
+                } // END try-catch
+                this.log.debug(`Wallbox ${iBox} abschalten  -  ${Wallbox[iBox].SetAmp} Ampere`);
+
+            }
+        }
+
+    } // END Charge_Config
 
 
     /*****************************************************************************************/

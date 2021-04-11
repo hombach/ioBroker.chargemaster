@@ -134,7 +134,7 @@
       "type": "state",
       "common": {
         "role": "value",
-        "name": "Totally charged in go-e lifetime",
+        "name": "Totally charged sum all wallboxes",
         "type": "number",
         "unit": "kWh",
         "read": true,

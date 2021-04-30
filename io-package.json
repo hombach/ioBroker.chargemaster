@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.1.1": {
+        "en": "fixed errors with js-controller 3.3.x, bumbed dependencies"
+      },
       "0.1.0": {
         "en": "first running version, fixed to 3 boxes"
       },

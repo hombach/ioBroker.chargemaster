@@ -420,7 +420,7 @@ class chargemaster extends utils.Adapter {
                 }
             }
         } catch (e) {
-            this.log.error(`[asyncGetForeignState]: ${e}`);
+            this.log.error(`[asyncGetForeignState](${statePath}): ${e}`);
             return null;
         }
     }

@@ -353,8 +353,8 @@ class chargemaster extends utils.Adapter {
  //               Wallbox[0].MeasuredMaxChargeAmp = Number(state.val);
  //           });
             Wallbox[0].MeasuredMaxChargeAmp = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox0MeasuredMaxChargeAmp));
-            this.log.debug(`Got charge power of wallbox 0; ${this.config.StateWallBox0ChargePower}: ${Wallbox[0].ChargePower}W; _
-                            ${this.config.StateWallBox0MeasuredMaxChargeAmp}: ${Wallbox[0].MeasuredMaxChargeAmp} A`);
+            this.log.debug(`Got charge power of wallbox 0; ${this.config.StateWallBox0ChargePower}: ${Wallbox[0].ChargePower} W; _
+                ${this.config.StateWallBox0MeasuredMaxChargeAmp}: ${Wallbox[0].MeasuredMaxChargeAmp} A`);
 
  //           this.getForeignState(this.config.StateWallBox1ChargePower, (_err, state) => { Wallbox[1].ChargePower = Number(state.val); });
             Wallbox[1].ChargePower = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox1ChargePower));
@@ -362,8 +362,8 @@ class chargemaster extends utils.Adapter {
 //                Wallbox[1].MeasuredMaxChargeAmp = Number(state.val);
 //            });
             Wallbox[1].MeasuredMaxChargeAmp = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox1MeasuredMaxChargeAmp));
-            this.log.debug(`Got charge power of wallbox 1; ${this.config.StateWallBox1ChargePower}: ${Wallbox[1].ChargePower}W; _
-                            ${this.config.StateWallBox1MeasuredMaxChargeAmp}: ${Wallbox[1].MeasuredMaxChargeAmp} A`);
+            this.log.debug(`Got charge power of wallbox 1; ${this.config.StateWallBox1ChargePower}: ${Wallbox[1].ChargePower} W; _
+                ${this.config.StateWallBox1MeasuredMaxChargeAmp}: ${Wallbox[1].MeasuredMaxChargeAmp} A`);
 
 //            this.getForeignState(this.config.StateWallBox2ChargePower, (_err, state) => { Wallbox[2].ChargePower = Number(state.val); });
             Wallbox[2].ChargePower = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox2ChargePower));
@@ -371,8 +371,8 @@ class chargemaster extends utils.Adapter {
 //                Wallbox[2].MeasuredMaxChargeAmp = Number(state.val);
 //            });
             Wallbox[2].MeasuredMaxChargeAmp = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox2MeasuredMaxChargeAmp));
-            this.log.debug(`Got charge power of wallbox 2; ${this.config.StateWallBox2ChargePower}: ${Wallbox[2].ChargePower}W; _
-                            ${this.config.StateWallBox2MeasuredMaxChargeAmp}: ${Wallbox[2].MeasuredMaxChargeAmp} A`);
+            this.log.debug(`Got charge power of wallbox 2; ${this.config.StateWallBox2ChargePower}: ${Wallbox[2].ChargePower} W; _
+                ${this.config.StateWallBox2MeasuredMaxChargeAmp}: ${Wallbox[2].MeasuredMaxChargeAmp} A`);
 
             TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
             this.setStateAsync('Power.Charge', TotalChargePower, true); // trim to Watt
@@ -395,7 +395,7 @@ class chargemaster extends utils.Adapter {
             if (stateObject == null) return null; // errors thrown already in asyncGetForeignState()
             return stateObject.val;
         } catch (e) {
-            this.log.error(`[asyncGetForeignStateValue]: ${e}`);
+            this.log.error(`[asyncGetForeignStateValue](${statePath}): ${e}`);
             return null;
         }
     }

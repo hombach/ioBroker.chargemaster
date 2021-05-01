@@ -44,7 +44,7 @@
     "dataSource": "poll",
     "news": {
       "0.1.2": {
-        "en": "code cleanup and optimization"
+        "en": "code cleanup and optimization, fixed onStateChange"
       },
       "0.1.1": {
         "en": "fixed errors with js-controller 3.3.x, bumped dependencies"

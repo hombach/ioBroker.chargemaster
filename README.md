@@ -21,7 +21,7 @@ To connect to the wallboxes type in the states with needed data in the config.
 
 ## Changelog
 ### 0.1.2 (02.05.2021)
-* (HombachC) code cleanup and optimization
+* (HombachC) code cleanup and optimization, fixed onStateChange
 ### 0.1.1 (30.04.2021)
 * (HombachC) fixed errors with js-controller 3.3.x, bumped dependencies
 ### 0.1.0 (11.04.2021)

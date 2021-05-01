@@ -391,6 +391,7 @@ class chargemaster extends utils.Adapter {
     */
      async asyncGetForeignStateVal(statePath) {
         try {
+            this.log.debug(`Try to get State Value in [asyncGetForeignStateValue](${statePath})`);
             const stateObject = await this.asyncGetForeignState(statePath);
             if (stateObject == null) return null; // errors thrown already in asyncGetForeignState()
             return stateObject.val;

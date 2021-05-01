@@ -344,29 +344,33 @@ class chargemaster extends utils.Adapter {
 
 
     /*****************************************************************************************/
-    Calc_Total_Power() {
+    async Calc_Total_Power() {
         this.log.debug(`Get charge power of all wallboxes`);
         try {
-            // @ts-ignore
-            this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => { Wallbox[0].ChargePower = Number(state.val) });
-            this.getForeignState(this.config.StateWallBox0MeasuredMaxChargeAmp, (_err, state) => {
-                // @ts-ignore
-                Wallbox[0].MeasuredMaxChargeAmp = Number(state.val);
-            });
+ //           this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => { Wallbox[0].ChargePower = Number(state.val) });
+            Wallbox[0].ChargePower = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower));
+ //           this.getForeignState(this.config.StateWallBox0MeasuredMaxChargeAmp, (_err, state) => {
+ //               Wallbox[0].MeasuredMaxChargeAmp = Number(state.val);
+ //           });
+            Wallbox[0].MeasuredMaxChargeAmp = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox0MeasuredMaxChargeAmp));
             this.log.debug(`Got charge power of wallbox 0; ${this.config.StateWallBox0ChargePower}: ${Wallbox[0].ChargePower}W; _
                             ${this.config.StateWallBox0MeasuredMaxChargeAmp}: ${Wallbox[0].MeasuredMaxChargeAmp} A`);
 
-            this.getForeignState(this.config.StateWallBox1ChargePower, (_err, state) => { Wallbox[1].ChargePower = Number(state.val); });
-            this.getForeignState(this.config.StateWallBox1MeasuredMaxChargeAmp, (_err, state) => {
-                Wallbox[1].MeasuredMaxChargeAmp = Number(state.val);
-            });
+ //           this.getForeignState(this.config.StateWallBox1ChargePower, (_err, state) => { Wallbox[1].ChargePower = Number(state.val); });
+            Wallbox[1].ChargePower = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox1ChargePower));
+//            this.getForeignState(this.config.StateWallBox1MeasuredMaxChargeAmp, (_err, state) => {
+//                Wallbox[1].MeasuredMaxChargeAmp = Number(state.val);
+//            });
+            Wallbox[1].MeasuredMaxChargeAmp = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox1MeasuredMaxChargeAmp));
             this.log.debug(`Got charge power of wallbox 1; ${this.config.StateWallBox1ChargePower}: ${Wallbox[1].ChargePower}W; _
                             ${this.config.StateWallBox1MeasuredMaxChargeAmp}: ${Wallbox[1].MeasuredMaxChargeAmp} A`);
 
-            this.getForeignState(this.config.StateWallBox2ChargePower, (_err, state) => { Wallbox[2].ChargePower = Number(state.val); });
-            this.getForeignState(this.config.StateWallBox2MeasuredMaxChargeAmp, (_err, state) => {
-                Wallbox[2].MeasuredMaxChargeAmp = Number(state.val);
-            });
+//            this.getForeignState(this.config.StateWallBox2ChargePower, (_err, state) => { Wallbox[2].ChargePower = Number(state.val); });
+            Wallbox[2].ChargePower = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox2ChargePower));
+//            this.getForeignState(this.config.StateWallBox2MeasuredMaxChargeAmp, (_err, state) => {
+//                Wallbox[2].MeasuredMaxChargeAmp = Number(state.val);
+//            });
+            Wallbox[2].MeasuredMaxChargeAmp = await Number(this.asyncGetForeignStateVal(this.config.StateWallBox2MeasuredMaxChargeAmp));
             this.log.debug(`Got charge power of wallbox 2; ${this.config.StateWallBox2ChargePower}: ${Wallbox[2].ChargePower}W; _
                             ${this.config.StateWallBox2MeasuredMaxChargeAmp}: ${Wallbox[2].MeasuredMaxChargeAmp} A`);
 
@@ -379,6 +383,67 @@ class chargemaster extends utils.Adapter {
         } // END catch
     } // END Calc_Total_Power
 
+
+    /**
+    * Get foreign state value
+    * @param {string}      statePath  - Full path to state, like 0_userdata.0.other.isSummer
+    * @return {Promise<*>}            - State value, or null if error
+    */
+     async asyncGetForeignStateVal(statePath) {
+        try {
+            const stateObject = await this.asyncGetForeignState(statePath);
+            if (stateObject == null) return null; // errors thrown already in asyncGetForeignState()
+            return stateObject.val;
+        } catch (e) {
+            this.log.error(`[asyncGetForeignStateValue]: ${e}`);
+            return null;
+        }
+    }
+
+    /**
+    * Get foreign state
+    * 
+    * @param {string}      statePath  - Full path to state, like 0_userdata.0.other.isSummer
+    * @return {Promise<object>}       - State object: {val: false, ack: true, ts: 1591117034451, …}, or null if error
+    */
+    async asyncGetForeignState(statePath) {
+        try {
+            const stateObject = await this.getForeignObjectAsync(statePath); // Check state existence
+            if (!stateObject) {
+                throw (`State '${statePath}' does not exist.`);
+            } else { // Get state value, so like: {val: false, ack: true, ts: 1591117034451, …}
+                const stateValueObject = await this.getForeignStateAsync(statePath);
+                if (!this.isLikeEmpty(stateValueObject)) {
+                    return stateValueObject;
+                } else {
+                    throw (`Unable to retrieve info from state '${statePath}'.`);
+                }
+            }
+        } catch (e) {
+            this.log.error(`[asyncGetForeignState]: ${e}`);
+            return null;
+        }
+    }
+
+    isLikeEmpty(inputVar) {
+        if (typeof inputVar !== 'undefined' && inputVar !== null) {
+            let sTemp = JSON.stringify(inputVar);
+            sTemp = sTemp.replace(/\s+/g, ''); // remove all white spaces
+            sTemp = sTemp.replace(/"+/g,  ''); // remove all >"<
+            sTemp = sTemp.replace(/'+/g,  ''); // remove all >'<
+            sTemp = sTemp.replace(/\[+/g, ''); // remove all >[<
+            sTemp = sTemp.replace(/\]+/g, ''); // remove all >]<
+            sTemp = sTemp.replace(/\{+/g, ''); // remove all >{<
+            sTemp = sTemp.replace(/\}+/g, ''); // remove all >}<
+            if (sTemp !== '') {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+    }
          
 } // END Class
 

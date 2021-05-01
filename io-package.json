@@ -44,7 +44,7 @@
     "dataSource": "poll",
     "news": {
       "0.1.1": {
-        "en": "fixed errors with js-controller 3.3.x, bumbed dependencies"
+        "en": "fixed errors with js-controller 3.3.x, bumped dependencies"
       },
       "0.1.0": {
         "en": "first running version, fixed to 3 boxes"

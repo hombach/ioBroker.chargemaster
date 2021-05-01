@@ -391,7 +391,7 @@ class chargemaster extends utils.Adapter {
     */
      async asyncGetForeignStateVal(statePath) {
         try {
-            const stateObject = await this.asyncGetForeignState(statePath);
+            let stateObject = await this.asyncGetForeignState(statePath);
             if (stateObject == null) return null; // errors thrown already in asyncGetForeignState()
             return stateObject.val;
         } catch (e) {
@@ -408,8 +408,8 @@ class chargemaster extends utils.Adapter {
     */
     async asyncGetForeignState(statePath) {
         try {
-            this.log.debug(`Try to get State Object in [asyncGetForeignState](${statePath})`);
-            const stateObject = await this.getForeignObjectAsync(statePath); // Check state existence
+            this.log.debug(`Try to get State Object in [asyncGetForeignState]("${statePath}")`);
+            let stateObject = await this.getForeignObjectAsync(statePath); // Check state existence
             if (!stateObject) {
                 throw (`State '${statePath}' does not exist.`);
             } else { // Get state value, so like: {val: false, ack: true, ts: 1591117034451, …}

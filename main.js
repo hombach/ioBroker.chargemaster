@@ -347,10 +347,7 @@ class chargemaster extends utils.Adapter {
     Calc_Total_Power() {
         this.log.debug(`Get charge power of all wallboxes`);
         try {
-
-            this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => {
-                Wallbox[0].ChargePower = Number(state.val);
-            });
+            this.getForeignState(this.config.StateWallBox0ChargePower, (_err, state) => { Wallbox[0].ChargePower = Number(state.val) });
             this.getForeignState(this.config.StateWallBox0MeasuredMaxChargeAmp, (_err, state) => {
                 Wallbox[0].MeasuredMaxChargeAmp = Number(state.val);
             });

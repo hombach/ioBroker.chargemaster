@@ -74,16 +74,16 @@ class chargemaster extends utils.Adapter {
         try {
             this.getState('Settings.Setpoint_HomeBatSoC', (_err, state) => { MinHomeBatVal = Number(state.val) });
             //this.getState('Settings.WB_0.ChargeNOW', (_err, state) => { Wallbox[0].ChargeNOW = Boolean(state.val) });
-            Wallbox[0].ChargeNOW = await this.asyncGetForeignStateVal('Settings.WB_0.ChargeNOW');
+            Wallbox[0].ChargeNOW = await this.asyncGetStateVal('Settings.WB_0.ChargeNOW');
             this.log.debug(`Wallbox[0].ChargeNOW: ${Wallbox[0].ChargeNOW}`);
             this.getState('Settings.WB_0.ChargeManager', (_err, state) => { Wallbox[0].ChargeManager = Boolean(state.val) });
-            Wallbox[0].ChargeCurrent = await this.asyncGetForeignStateVal('Settings.WB_0.ChargeCurrent');
+            Wallbox[0].ChargeCurrent = await this.asyncGetStateVal('Settings.WB_0.ChargeCurrent');
             this.getState('Settings.WB_1.ChargeNOW', (_err, state) => { Wallbox[1].ChargeNOW = Boolean(state.val) });
             this.getState('Settings.WB_1.ChargeManager', (_err, state) => { Wallbox[1].ChargeManager = Boolean(state.val) });
-            Wallbox[1].ChargeCurrent = await this.asyncGetForeignStateVal('Settings.WB_1.ChargeCurrent');
+            Wallbox[1].ChargeCurrent = await this.asyncGetStateVal('Settings.WB_1.ChargeCurrent');
             this.getState('Settings.WB_2.ChargeNOW', (_err, state) => { Wallbox[2].ChargeNOW = Boolean(state.val) });
             this.getState('Settings.WB_2.ChargeManager', (_err, state) => { Wallbox[2].ChargeManager = Boolean(state.val) });
-            Wallbox[2].ChargeCurrent = await this.asyncGetForeignStateVal('Settings.WB_2.ChargeCurrent');
+            Wallbox[2].ChargeCurrent = await this.asyncGetStateVal('Settings.WB_2.ChargeCurrent');
             this.Calc_Total_Power();
         } catch (e) {
             this.log.error(`Unhandled exception processing initial state check: ${e}`);
@@ -406,6 +406,47 @@ class chargemaster extends utils.Adapter {
             }
         } catch (e) {
             this.log.error(`[asyncGetForeignState](${statePath}): ${e}`);
+            return null;
+        }
+    }
+
+    /**
+    * Get state value
+    * @param {string}      statePath  - Path to state, like other.isSummer
+    * @return {Promise<*>}            - State value, or null if error
+    */
+    async asyncGetStateVal(statePath) {
+        try {
+            let stateObject = await this.asyncGetState(statePath);
+            if (stateObject == null) return null; // errors thrown already in asyncGetState()
+            return stateObject.val;
+        } catch (e) {
+            this.log.error(`[asyncGetStateValue](${statePath}): ${e}`);
+            return null;
+        }
+    }
+
+    /**
+    * Get state
+    * 
+    * @param {string}      statePath  - Path to state, like other.isSummer
+    * @return {Promise<object>}       - State object: {val: false, ack: true, ts: 1591117034451, …}, or null if error
+    */
+    async asyncGetState(statePath) {
+        try {
+            let stateObject = await this.getObjectAsync(statePath); // Check state existence
+            if (!stateObject) {
+                throw (`State '${statePath}' does not exist.`);
+            } else { // Get state value, so like: {val: false, ack: true, ts: 1591117034451, …}
+                const stateValueObject = await this.getStateAsync(statePath);
+                if (!this.isLikeEmpty(stateValueObject)) {
+                    return stateValueObject;
+                } else {
+                    throw (`Unable to retrieve info from state '${statePath}'.`);
+                }
+            }
+        } catch (e) {
+            this.log.error(`[asyncGetState](${statePath}): ${e}`);
             return null;
         }
     }

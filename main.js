@@ -174,9 +174,9 @@ class chargemaster extends utils.Adapter {
 
         for (i = 2; i <= 2; i++) {
             if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
-//               this.Charge_Config('1', Wallbox[i].ChargeCurrent, 'Wallbox für Ladung aktivieren');  // keep active charging current!!
                 Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
                 Wallbox[i].SetOptAllow = true;
+                this.log.debug(`Wallbox ${i} für Ladung aktivieren`);
             }
 
             else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
@@ -186,15 +186,15 @@ class chargemaster extends utils.Adapter {
                     this.Charge_Manager(i);
                 } else { // FUTURE: time of day forces emptying of home battery
                     Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
-//                  this.Charge_Config('0', ZielAmpere, `Hausbatterie laden bis ${MinHomeBatVal}%`);
                     Wallbox[i].SetOptAllow = false;
+                    this.log.debug(`Hausbatterie laden bis ${MinHomeBatVal}%`);
                 }
             }
 
             else { // switch OFF; set to min. current; 
                 Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
-//                this.Charge_Config('0', ZielAmpere, `Wallbox 2 abschalten`);
                 Wallbox[i].SetOptAllow = false;
+                this.log.debug(`Wallbox ${i} abschalten`);
             }
         }
 
@@ -230,9 +230,8 @@ class chargemaster extends utils.Adapter {
 
 //        if (ZielAmpere > (5 + 4)) {
         if (Wallbox[iBox].SetPointAmp >= (Wallbox[iBox].MinAmp + 4)) {
-//            this.Charge_Config('1', ZielAmpere, `Charging current: ${ZielAmpere} A`); // An und Zielstrom da größer 5 + Hysterese
+//            this.Charge_Config('1', ZielAmpere, `Charging current: ${ZielAmpere} A`);
             Wallbox[iBox].SetPointAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
-//        } else if (ZielAmpere < 6) {
         } else if (Wallbox[iBox].SetPointAmp < Wallbox[iBox].MinAmp) {
             OffVerzoegerung++;
             if (OffVerzoegerung > 12) {
@@ -343,7 +342,8 @@ class chargemaster extends utils.Adapter {
             Wallbox[2].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox2ChargePower);
             Wallbox[2].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox2MeasuredMaxChargeAmp);
             this.log.debug(`Got charge power of wallbox 2: ${Wallbox[2].ChargePower} W; ${Wallbox[2].MeasuredMaxChargeAmp} A`);
-
+            this.log.debug(`TEST: ${this.config.tableWallboxes[0].MxAmpWallBox}`);
+            this.log.debug(`TEST: ${this.config.tableWallboxes[2].MxAmpWallBox}`);
             TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
             this.setStateAsync('Power.Charge', TotalChargePower, true); // trim to Watt
             TotalMeasuredChargeCurrent = Math.ceil(Wallbox[0].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[1].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[2].MeasuredMaxChargeAmp);
@@ -455,7 +455,8 @@ class chargemaster extends utils.Adapter {
             return true;
         }
     }
-         
+
+       
 } // END Class
 
 

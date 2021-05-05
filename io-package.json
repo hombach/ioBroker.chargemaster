@@ -111,41 +111,6 @@
     "StateWallBox2MeasuredMaxChargeAmp": "",
     "MinAmpWallBox2": 6,
     "MaxAmpWallBox2": 16,
-
-
-    "tableWallboxes": [
-      {
-        "StateWallBoxChargeCurrent": "",
-        "StateWallBoxChargeAllowed": "",
-        "StateWallBoxChargePower": "",
-        "StateWallBoxMeasuredMaxChargeAmp": "",
-        "MinAmpWallBox": 6,
-        "MxAmpWallBox": 100
-      },
-      {
-        "StateWallBoxChargeCurrent": "",
-        "StateWallBoxChargeAllowed": "",
-        "StateWallBoxChargePower": "",
-        "StateWallBoxMeasuredMaxChargeAmp": "",
-        "MinAmpWallBox": 6,
-        "MxAmpWallBox": 101
-      },
-      {
-        "StateWallBoxChargeCurrent": "",
-        "StateWallBoxChargeAllowed": "",
-        "StateWallBoxChargePower": "",
-        "StateWallBoxMeasuredMaxChargeAmp": "",
-        "MinAmpWallBox": 6,
-        "MxAmpWallBox": 102
-      }
-    ]
-
-
-
-
-
-  },
-
   "objects": [],
 
   "instanceObjects": [

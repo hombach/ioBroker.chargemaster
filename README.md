@@ -26,8 +26,6 @@ To connect to the wallboxes type in the states with needed data in the config.
 * (HombachC) fixed errors with js-controller 3.3.x, bumped dependencies
 ### 0.1.0 (11.04.2021)
 * (HombachC) first running version, fixed to 3 boxes
-### 0.0.8 (11.04.2021)
-* (HombachC) bumped dependencies, small fixes
 ### 0.0.7 (31.03.2021)
 * (HombachC) added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox
 ### 0.0.6 (23.03.2021)

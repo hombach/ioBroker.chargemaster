@@ -52,9 +52,6 @@
       "0.1.0": {
         "en": "first running version, fixed to 3 boxes"
       },
-      "0.0.8": {
-        "en": "bumped dependencies, small fixes"
-      },
       "0.0.7": {
         "en": "added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox"
       },

@@ -211,8 +211,6 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`Got external state of solar power: ${SolarPower} W`);
         HouseConsumption = await this.asyncGetForeignStateVal(this.config.StateHomePowerConsumption);
         this.log.debug(`Got external state of house power consumption: ${HouseConsumption} W`);
-        //        this.getForeignState(this.config.StateHomeBatSoc, (_err, state) => { this.BatSoC = state.val });
-        //        this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
         //        this.Calc_Total_Power();
 
         OptAmpere = await (Math.floor(
@@ -228,7 +226,6 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`Wallbox: ${i} ZielAmpere: ${Wallbox[i].SetPointAmp} Ampere; Leistung DC: ${SolarPower} W; `
             + `Hausverbrauch: ${HouseConsumption} W; Gesamtleistung alle Charger: ${TotalChargePower} W`);
 
-//        if (ZielAmpere > (5 + 4)) {
         if (Wallbox[i].SetPointAmp >= (Wallbox[i].MinAmp + 4)) {
 //            this.Charge_Config('1', ZielAmpere, `Charging current: ${ZielAmpere} A`);
             Wallbox[i].SetPointAllow = true; // An und Zielstrom da größer MinAmp + Hysterese

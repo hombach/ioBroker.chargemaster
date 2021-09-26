@@ -77,6 +77,9 @@ systemDictionary = {
         "zh-cn": "当前家庭功耗的对象ID [W]"
     },
 
+    'StateWallBox0Headline': {
+        "en": "Data Connections for WallBox 0"
+    },
     'StateWallBox0ChargeCurrent': {
         "en": "object-id for setting wallbox 0 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 0 [A]",

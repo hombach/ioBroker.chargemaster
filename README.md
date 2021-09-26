@@ -20,6 +20,9 @@ Adapter for managing of multi EV-chargers (wallboxes) with use of PV-energy. Ada
 To connect to the wallboxes type in the states with needed data in the config.
 
 ## Changelog
+! Note that missing version entries are typically dependency updates for security.
+### 0.1.4 (26.09.2021)
+* (HombachC) bumped dependencies
 ### 0.1.3 (16.07.2021)
 * (HombachC) fixed vulnerability
 ### 0.1.2 (02.05.2021)

@@ -172,7 +172,7 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`StateMachine cycle started`);
         this.Calc_Total_Power();
 
-        for (i = 2; i <= 2; i++) {
+        for (i = 0; i <= 2; i++) {
             if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
                 Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
                 Wallbox[i].SetOptAllow = true;
@@ -281,7 +281,7 @@ class chargemaster extends utils.Adapter {
 //    } // END Charge_Config
     Charge_Config() {
         let i = 0;
-        for (i = 2; i <= 2; i++) {
+        for (i = 0; i <= 2; i++) {
             if (Wallbox[i].SetAllow = false) { // first switch off boxes
                 try {
                     switch (i) {

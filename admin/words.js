@@ -162,6 +162,18 @@ systemDictionary = {
         "zh-cn": "Wallbox 0的最大允许电流[A]"
     },
 
+    'StateWallBox1Headline': {
+        "en": "Data Connections for WallBox 1",
+        "de": "Datenverbindungen für WallBox 1",
+        "ru": "Соединения данных для WallBox 1",
+        "pt": "Conexões de dados para WallBox 1",
+        "nl": "Dataverbindingen voor WallBox 1",
+        "fr": "Connexions de données pour WallBox 1",
+        "it": "Connessioni dati per WallBox 1",
+        "es": "Conexiones de datos para WallBox 1",
+        "pl": "Połączenia danych dla WallBox 1",
+        "zh-cn": "WallBox 1 的数据连接"
+    },
     'StateWallBox1ChargeCurrent': {
         "en": "object-id for setting wallbox 1 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 1 [A]",
@@ -235,6 +247,18 @@ systemDictionary = {
         "zh-cn": "Wallbox 1的最大允许电流[A]"
     },
 
+    'StateWallBox2Headline': {
+        "en": "Data Connections for WallBox 2",
+        "de": "Datenverbindungen für WallBox 2",
+        "ru": "Соединения данных для WallBox 2",
+        "pt": "Conexões de dados para WallBox 2",
+        "nl": "Dataverbindingen voor WallBox 2",
+        "fr": "Connexions de données pour WallBox 2",
+        "it": "Connessioni dati per WallBox 2",
+        "es": "Conexiones de datos para WallBox 2",
+        "pl": "Połączenia danych dla WallBox 2",
+        "zh-cn": "WallBox 2 的数据连接"
+    },
     'StateWallBox2ChargeCurrent': {
         "en": "object-id for setting wallbox 2 charging current [A]",
         "de": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 2 [A]",

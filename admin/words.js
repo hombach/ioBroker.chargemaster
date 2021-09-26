@@ -78,7 +78,16 @@ systemDictionary = {
     },
 
     'StateWallBox0Headline': {
-        "en": "Data Connections for WallBox 0"
+        "en": "Data Connections for WallBox 0",
+        "de": "Datenverbindungen für WallBox 0",
+        "ru": "Соединения данных для WallBox 0",
+        "pt": "Conexões de dados para WallBox 0",
+        "nl": "Dataverbindingen voor WallBox 0",
+        "fr": "Connexions de données pour WallBox 0",
+        "it": "Connessioni dati per WallBox 0",
+        "es": "Conexiones de datos para WallBox 0",
+        "pl": "Połączenia danych dla WallBox 0",
+        "zh-cn": "WallBox 0 的数据连接"
     },
     'StateWallBox0ChargeCurrent': {
         "en": "object-id for setting wallbox 0 charging current [A]",

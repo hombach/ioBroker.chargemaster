@@ -44,7 +44,7 @@
     "dataSource": "poll",
     "news": {
       "0.1.5": {
-        "en": "bumped dependencies; fixed vulnerability"
+        "en": "fixed vulnerability; improved docu"
       },
       "0.1.4": {
         "en": "bumped dependencies"
@@ -62,10 +62,28 @@
         "en": "first running version, fixed to 3 boxes"
       },
       "0.0.7": {
-        "en": "added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox"
+        "en": "added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "de": "MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox hinzugefügt",
+        "ru": "добавлены MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "pt": "adicionado MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "nl": "toegevoegd MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "fr": "ajouté MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "it": "aggiunti MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "es": "agregó MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "pl": "dodano MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "zh-cn": "添加了 MaxAmpTotal、MinAmpWallBox、MaxAmpWallBox"
       },
       "0.0.6": {
-        "en": "added collection and calc of total charge power"
+        "en": "added collection and calc of total charge power",
+        "de": "Sammlung und Berechnung der Gesamtladeleistung hinzugefügt",
+        "ru": "добавлен сбор и вычисление общей мощности заряда",
+        "pt": "coleção adicionada e cálculo da potência de carga total",
+        "nl": "toegevoegde verzameling en berekening van het totale laadvermogen",
+        "fr": "collection ajoutée et calcul de la puissance de charge totale",
+        "it": "aggiunta raccolta e calcolo della potenza di carica totale",
+        "es": "colección agregada y cálculo de la potencia de carga total",
+        "pl": "dodano zbieranie i obliczanie całkowitej mocy ładowania",
+        "zh-cn": "增加了总充电功率的收集和计算"
       },
       "0.0.5": {
         "en": "fixed to box 2"
@@ -177,7 +195,7 @@
       "type": "state",
       "common": {
         "role": "level",
-        "name": "Setpoint for home battery state of charge",
+        "name": "Setpoint to dynamically adjust minimum home battery state of charge",
         "type": "number",
         "unit": "%",
         "read": true,

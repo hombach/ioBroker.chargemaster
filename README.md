@@ -11,18 +11,22 @@
 
 [![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)](https://nodei.co/npm/iobroker.chargemaster/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/hombach/ioBroker.chargemaster/master.svg)](https://travis-ci.org/hombach/ioBroker.chargemaster)
+Travis CI-Tests: [![Travis-CI](http://img.shields.io/travis/hombach/ioBroker.chargemaster/master.svg)](https://travis-ci.org/hombach/ioBroker.chargemaster)
+
+Appveyor CI-Tests: [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-chargemaster)
+
+[![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)](https://nodei.co/npm/iobroker.chargemaster/)
 
 ## Adapter for managing of multi EV-chargers with use of PV-energy
 Adapter for managing of multi EV-chargers (wallboxes) with use of PV-energy. Adapter handles with up to 3 EV wallboxes to manage charging by potential use of PV energy
 
-### Settings
+## Settings
 To connect to the wallboxes type in the states with needed data in the config.
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
 ### 0.1.5 (15.10.2021)
-* (HombachC) bumped dependencies; fixed vulnerability
+* (HombachC) fixed vulnerability, improved docu
 ### 0.1.4 (26.09.2021)
 * (HombachC) bumped dependencies
 ### 0.1.3 (16.07.2021)

@@ -15,16 +15,16 @@ systemDictionary = {
         "zh-cn": "ChargeMaster的适配器设置"
     },
     'cycletime': {
-        "en": "Cycletime for chargemanager [ms]",
-        "de": "Zykluszeit für Chargemanager [ms]",
-        "ru": "Время цикла для chargemanager [мс]",
-        "pt": "Cycletime for chargemanager [ms]",
-        "nl": "Cyclustijd voor chargemanager [ms]",
-        "fr": "Temps de cycle pour chargemanager [ms]",
-        "it": "Cycletime for chargemanager [ms]",
-        "es": "Tiempo de ciclo para chargemanager [ms]",
-        "pl": "Czas cykliczny dla chargeremanager [ms]",
-        "zh-cn": "充电管理器的周期[ms]"
+        "en": "Cycletime for chargemanager [ms] - (default 10000)",
+        "de": "Zykluszeit für Chargemanager [ms] - (Standard 10000)",
+        "ru": "Время цикла для chargemanager [мс] - (по умолчанию 10000)",
+        "pt": "Cycletime for chargemanager [ms] - (padrão 10000)",
+        "nl": "Cyclustijd voor chargemanager [ms] - (standaard 10000)",
+        "fr": "Temps de cycle pour chargemanager [ms] - (par défaut 10000)",
+        "it": "Tempo di ciclo per chargemanager [ms] - (predefinito 10000)",
+        "es": "Cycletime for chargemanager [ms] - (predeterminado 10000)",
+        "pl": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
+        "zh-cn": "Chargemanager 的周期时间 [ms] -（默认 10000)"
     },
 
     'MaxAmpTotal': {
@@ -52,6 +52,7 @@ systemDictionary = {
         "pl": "id obiektu dla aktualnie dostępnej energii słonecznej [W]",
         "zh-cn": "当前可用太阳能的对象ID [W]"
     },
+
     'StateHomeBatSoc': {
         "en": "object-id for current home battery state of charge [%]",
         "de": "Objekt-ID für den aktuellen Ladezustand der Heimbatterie [%]",
@@ -64,6 +65,7 @@ systemDictionary = {
         "pl": "id obiektu dla aktualnego stanu naładowania akumulatora w domu [%]",
         "zh-cn": "当前家用电池充电状态的对象ID [％]"
     },
+
     'StateHomePowerConsumption': {
         "en": "object-id for current home power consumption [W]",
         "de": "Objekt-ID für den aktuellen Stromverbrauch zu Hause [W]",

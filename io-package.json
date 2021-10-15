@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.1.5": {
+        "en": "bumped dependencies; fixed vulnerability"
+      },
       "0.1.4": {
         "en": "bumped dependencies"
       },

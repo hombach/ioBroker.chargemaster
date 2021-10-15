@@ -21,6 +21,8 @@ To connect to the wallboxes type in the states with needed data in the config.
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 0.1.5 (15.10.2021)
+* (HombachC) bumped dependencies; fixed vulnerability
 ### 0.1.4 (26.09.2021)
 * (HombachC) bumped dependencies
 ### 0.1.3 (16.07.2021)

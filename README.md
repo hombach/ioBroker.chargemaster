@@ -25,12 +25,10 @@ To connect to the wallboxes type in the states with needed data in the config.
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 0.2.0 (18.12.2021)
+* (HombachC) dropped node.js 10 support; bumped dependencies
 ### 0.1.5 (15.10.2021)
-* (HombachC) fixed vulnerability, improved docu
-### 0.1.4 (26.09.2021)
-* (HombachC) bumped dependencies
-### 0.1.3 (16.07.2021)
-* (HombachC) fixed vulnerability
+* (HombachC) fixed vulnerability; improved docu
 ### 0.1.2 (02.05.2021)
 * (HombachC) code cleanup and optimization, fixed onStateChange
 ### 0.1.1 (30.04.2021)

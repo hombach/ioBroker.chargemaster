@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.chargemaster.svg)](https://www.npmjs.com/package/iobroker.chargemaster)
 ![Number of Installations (latest)](http://ioBroker.live/badges/template-installed.svg)
 ![Number of Installations (stable)](http://ioBroker.live/badges/template-stable.svg)
-[![Dependency Status](https://img.shields.io/david/hombach/ioBroker.chargemaster.svg)](https://david-dm.org/hombach/ioBroker.chargemaster)
 [![Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.chargemaster)
 ![Node.js CI](https://github.com/hombach/ioBroker.chargemaster/workflows/Node.js%20CI/badge.svg)
 

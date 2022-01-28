@@ -2,22 +2,19 @@
 # ioBroker.chargemaster
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.chargemaster.svg)](https://www.npmjs.com/package/iobroker.chargemaster)
+![NPM version (stable)](http://ioBroker.live/badges/chargemaster-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.chargemaster.svg)](https://www.npmjs.com/package/iobroker.chargemaster)
-![Number of Installations (latest)](http://ioBroker.live/badges/template-installed.svg)
-![Number of Installations (stable)](http://ioBroker.live/badges/template-stable.svg)
+![Number of Installations (latest)](http://ioBroker.live/badges/chargemaster-installed.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.chargemaster)
+
+CI-Tests:
 ![Node.js CI](https://github.com/hombach/ioBroker.chargemaster/workflows/Node.js%20CI/badge.svg)
+[![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-chargemaster)
 
 [![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)](https://nodei.co/npm/iobroker.chargemaster/)
 
-Travis CI-Tests: [![Travis-CI](http://img.shields.io/travis/hombach/ioBroker.chargemaster/master.svg)](https://travis-ci.org/hombach/ioBroker.chargemaster)
-
-Appveyor CI-Tests: [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-chargemaster)
-
-[![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)](https://nodei.co/npm/iobroker.chargemaster/)
-
-## Adapter for managing of multi EV-chargers with use of PV-energy
-Adapter for managing of multi EV-chargers (wallboxes) with use of PV-energy. Adapter handles with up to 3 EV wallboxes to manage charging by potential use of PV energy
+## Adapter to manage one or multiple EV-chargers with use of PV-energy
+Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy. Adapter currently handles with up to 3 EV wallboxes to manage charging available grid power  with potential use of PV surplus energy. 
 
 ## Settings
 To connect to the wallboxes type in the states with needed data in the config.

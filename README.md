@@ -51,6 +51,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 0.0.1 (01.01.2021)
 * (HombachC) initial release
 
+## Tested with
+- 3x go-E Charger & Kostal PikoBA
+
 ## License
 MIT License
 

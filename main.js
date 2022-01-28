@@ -193,7 +193,7 @@ class chargemaster extends utils.Adapter {
             if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
                 Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
                 Wallbox[i].SetOptAllow = true;
-                this.log.debug(`Wallbox ${i} für Ladung aktivieren`);
+                this.log.debug(`Wallbox ${i} planned for charge`);
             }
 
             else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
@@ -271,12 +271,14 @@ class chargemaster extends utils.Adapter {
                 if (TotalSetOptAmp + Wallbox[i].SetOptAmp <= this.config.MaxAmpTotal) { // enough current available
                     Wallbox[i].SetAmp = Wallbox[i].SetOptAmp;
                     Wallbox[i].SetAllow = true;
+                    this.log.debug(`Wallbox ${i} enable charge`);
                     TotalSetOptAmp = TotalSetOptAmp + Wallbox[i].SetAmp;
                 }
-                else { // not enough current available
+                else { // not enough current available, throttled charge
                     if (this.config.MaxAmpTotal - TotalSetOptAmp >= Wallbox[i].MinAmp) { // still enough above min current?
                         Wallbox[i].SetAmp = this.config.MaxAmpTotal - TotalSetOptAmp;
                         Wallbox[i].SetAllow = true;
+                        this.log.debug(`Wallbox ${i} enable throttled charge`);
                         TotalSetOptAmp = TotalSetOptAmp + Wallbox[i].SetAmp;
                     }
                 } 

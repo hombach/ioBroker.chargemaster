@@ -121,6 +121,7 @@ class chargemaster extends utils.Adapter {
     * @param { string } id
     * @param { ioBroker.State | null | undefined } state */
     async onStateChange(id, state) {
+        this.log.debug(`state ${state} for ${id} changed`);
         try {
             if (state) { // The state was changed
                 this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);

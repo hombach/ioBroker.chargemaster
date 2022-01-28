@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.3.1": {
+        "en": "added sentry statistics"
+      },
       "0.3.0": {
         "en": "first public release for iOBroker latest repo; added sentry support"
       },

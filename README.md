@@ -26,6 +26,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 0.3.1 (28.01.2022)
+* (HombachC) added sentry statistics
 ### 0.3.0 (28.01.2022)
 * (HombachC) first public release for iOBroker latest repo; added sentry support
 ### 0.2.0 (18.12.2021)

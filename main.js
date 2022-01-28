@@ -105,6 +105,9 @@ class chargemaster extends utils.Adapter {
                 Sentry && Sentry.withScope(scope => {
                     scope.setLevel('info');
                     scope.setTag('System Power', this.config.MaxAmpTotal);
+                    scope.setTag('WallboxAmp_0', this.config.StateWallBox0MeasuredMaxChargeAmp);
+                    scope.setTag('WallboxAmp_1', this.config.StateWallBox0MeasuredMaxChargeAmp);
+                    scope.setTag('WallboxAmp_2', this.config.StateWallBox0MeasuredMaxChargeAmp);
                     Sentry.captureMessage('Adapter chargemaster started', 'info'); // Level "info"
                 });
             }

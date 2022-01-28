@@ -193,7 +193,7 @@ class chargemaster extends utils.Adapter {
             if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
                 Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
                 Wallbox[i].SetOptAllow = true;
-                this.log.debug(`Wallbox ${i} planned for charge`);
+                this.log.debug(`Wallbox ${i} planned for charge with ${Wallbox[i].SetOptAmp}A`);
             }
 
             else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
@@ -204,19 +204,19 @@ class chargemaster extends utils.Adapter {
                 } else { // FUTURE: time of day forces emptying of home battery
                     Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
                     Wallbox[i].SetOptAllow = false;
-                    this.log.debug(`Hausbatterie laden bis ${MinHomeBatVal}%`);
+                    this.log.debug(`Wait for home battery SoC of ${MinHomeBatVal}%`);
                 }
             }
 
             else { // switch OFF; set to min. current; 
                 Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
                 Wallbox[i].SetOptAllow = false;
-                this.log.debug(`Wallbox ${i} abschalten`);
+                this.log.debug(`Switch off Wallbox ${i} planned`);
             }
         }
 
-        this.Charge_Limiter
-        this.Charge_Config
+        this.Charge_Limiter()
+        this.Charge_Config()
 
         adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
     }
@@ -271,14 +271,14 @@ class chargemaster extends utils.Adapter {
                 if (TotalSetOptAmp + Wallbox[i].SetOptAmp <= this.config.MaxAmpTotal) { // enough current available
                     Wallbox[i].SetAmp = Wallbox[i].SetOptAmp;
                     Wallbox[i].SetAllow = true;
-                    this.log.debug(`Wallbox ${i} enable charge`);
+                    this.log.debug(`Wallbox ${i} enable charge with ${Wallbox[i].SetAmp}A`);
                     TotalSetOptAmp = TotalSetOptAmp + Wallbox[i].SetAmp;
                 }
                 else { // not enough current available, throttled charge
                     if (this.config.MaxAmpTotal - TotalSetOptAmp >= Wallbox[i].MinAmp) { // still enough above min current?
                         Wallbox[i].SetAmp = this.config.MaxAmpTotal - TotalSetOptAmp;
                         Wallbox[i].SetAllow = true;
-                        this.log.debug(`Wallbox ${i} enable throttled charge`);
+                        this.log.debug(`Wallbox ${i} enable throttled charge with ${Wallbox[i].SetAmp}A`);
                         TotalSetOptAmp = TotalSetOptAmp + Wallbox[i].SetAmp;
                     }
                 } 

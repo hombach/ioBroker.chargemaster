@@ -44,7 +44,7 @@
     "dataSource": "poll",
     "news": {
       "0.3.1": {
-        "en": "added sentry statistics; optimized logging"
+        "en": "added sentry statistics; optimized logging; fixed type conversion bug"
       },
       "0.3.0": {
         "en": "first public release for iOBroker latest repo; added sentry support"

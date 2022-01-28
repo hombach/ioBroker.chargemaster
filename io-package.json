@@ -107,7 +107,7 @@
       {
         "admin": ">=4.0.0"
       }
-    ]
+    ],
     "dependencies": [
       {
         "js-controller": ">=3.1.0"

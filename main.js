@@ -211,7 +211,7 @@ class chargemaster extends utils.Adapter {
             else { // switch OFF; set to min. current; 
                 Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
                 Wallbox[i].SetOptAllow = false;
-                this.log.debug(`Wallbox ${i} planned for switch off`);
+                this.log.debug(`Wallbox ${i} planned for switch off - ${Wallbox[i].SetOptAllow}%`);
             }
         }
 

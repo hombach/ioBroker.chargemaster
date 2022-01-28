@@ -21,8 +21,13 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 ## Settings
 To connect to the wallboxes type in the states with needed data in the config.
 
+## Notes
+This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 0.3.0 (28.01.2022)
+* (HombachC) first public release for iOBroker latest repo; added sentry support
 ### 0.2.0 (18.12.2021)
 * (HombachC) dropped node.js 10 support; bumped dependencies
 ### 0.1.5 (15.10.2021)
@@ -37,8 +42,6 @@ To connect to the wallboxes type in the states with needed data in the config.
 * (HombachC) added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox
 ### 0.0.6 (23.03.2021)
 * (HombachC) added collection and calc of total charge power
-### 0.0.5 (21.03.2021)
-* (HombachC) fixed to box 2
 ### 0.0.4 (15.03.2021)
 * (HombachC) fix error in foreign state popup
 ### 0.0.2 (06.01.2021)

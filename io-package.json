@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -38,11 +38,14 @@
     "readme": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/README.md",
     "icon": "chargemaster.png",
     "extIcon": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
-    "keywords": [ "chargemaster", "wallbox" ],
+    "keywords": [ "chargemaster", "wallbox", "solar power" ],
     "type": "vehicle",
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.3.0": {
+        "en": "first public release for iOBroker latest repo; added sentry support"
+      },
       "0.2.0": {
         "en": "dropped node.js 10 support; bumped dependencies"
       },
@@ -82,9 +85,6 @@
         "pl": "dodano zbieranie i obliczanie całkowitej mocy ładowania",
         "zh-cn": "增加了总充电功率的收集和计算"
       },
-      "0.0.5": {
-        "en": "fixed to box 2"
-      },
       "0.0.4": {
         "en": "fix error in foreign state popup"
       },
@@ -105,8 +105,14 @@
         "js-controller": ">=3.1.0",
         "admin": ">=4.0.0"
       }
-    ]
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://0e33dc63a0e34165850d97add3cc3684@o415875.ingest.sentry.io/5307610"
+      }
+    }
   },
+
 
   "native": {
     "cycletime": 10000,

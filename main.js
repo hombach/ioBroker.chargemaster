@@ -96,6 +96,20 @@ class chargemaster extends utils.Adapter {
         Wallbox[2].MaxAmp = this.config.MaxAmpWallBox2;
         this.log.debug(`Init done, launching state machine`);
         this.StateMachine();
+
+        //sentry.io ping
+        if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
+            const sentryInstance = this.getPluginInstance('sentry');
+            if (sentryInstance) {
+                const Sentry = sentryInstance.getSentryObject();
+                Sentry && Sentry.withScope(scope => {
+                    scope.setLevel('info');
+                    scope.setTag('System Power', this.config.MaxAmpTotal);
+                    Sentry.captureMessage('Adapter chargemaster started', 'info'); // Level "info"
+                });
+            }
+        }
+
     }
 
 

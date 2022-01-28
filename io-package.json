@@ -103,10 +103,14 @@
     "materialize": true,
     "materializeTab": true,
     "supportCustoms": false,
+    "globalDependencies": [
+      {
+        "admin": ">=4.0.0"
+      }
+    ]
     "dependencies": [
       {
-        "js-controller": ">=3.1.0",
-        "admin": ">=4.0.0"
+        "js-controller": ">=3.1.0"
       }
     ],
     "plugins": {

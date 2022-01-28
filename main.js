@@ -262,7 +262,7 @@ class chargemaster extends utils.Adapter {
         let i = 0;
         TotalSetOptAmp = 0;
         for (i = 0; i <= 2; i++) { // switch of boxes and adjust local limits
-            if (Wallbox[i].SetOptAllow = false) { // Switch of imediately
+            if (Wallbox[i].SetOptAllow == false) { // Switch of imediately
                 Wallbox[i].SetAllow = false;
                 Wallbox[i].SetAmp = Wallbox[i].MinAmp;
                 this.log.debug(`Wallbox ${i} verified for switch off`);
@@ -300,7 +300,7 @@ class chargemaster extends utils.Adapter {
     Charge_Config() {
         let i = 0;
         for (i = 0; i <= 2; i++) {
-            if (Wallbox[i].SetAllow = false) { // first switch off boxes
+            if (Wallbox[i].SetAllow == false) { // first switch off boxes
                 try {
                     switch (i) {
                         case 0:
@@ -318,8 +318,7 @@ class chargemaster extends utils.Adapter {
                     this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
                 } // END try-catch
                 this.log.debug(`Shutdown Wallbox ${i} - ${Wallbox[i].SetAmp} Ampere`);
-            }
-            else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
+            } else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
                 //HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
                 try {
                     switch (i) {
@@ -345,7 +344,6 @@ class chargemaster extends utils.Adapter {
 
     /*****************************************************************************************/
     async Calc_Total_Power() {
-        let i = 0;
         this.log.debug(`Get charge power of all wallboxes`);
         try {
             Wallbox[0].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower);

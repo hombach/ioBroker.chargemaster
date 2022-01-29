@@ -289,15 +289,6 @@ class chargemaster extends utils.Adapter {
 
 
     /*****************************************************************************************/
-//    Charge_Config(Allow, Ampere, LogMessage) {
-//        this.log.debug(`${LogMessage}  -  ${Ampere} Ampere`);
-//        try {
-//            this.setForeignState(this.config.StateWallBox2ChargeCurrent, Ampere);
-//            this.setForeignState(this.config.StateWallBox2ChargeAllowed, Allow);
-//        } catch (e) {
-//            this.log.error(`Error in setting charging for wallbox 2: ${e}`);
-//        } // END catch
-//    } // END Charge_Config
     Charge_Config() {
         let i = 0;
         for (i = 0; i <= 2; i++) {

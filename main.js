@@ -157,8 +157,6 @@ class chargemaster extends utils.Adapter {
                         Wallbox[2].ChargeCurrent = await this.asyncGetStateVal('Settings.WB_2.ChargeCurrent');
                         break;
                 }
-
-
             } else {     // The state was deleted
                 this.log.warn(`state ${id} deleted`);
             }
@@ -198,7 +196,7 @@ class chargemaster extends utils.Adapter {
             }
 
             else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
-                BatSoC = Number(this.asyncGetForeignStateVal(this.config.StateHomeBatSoc)); // sollte evtl. await sein
+                BatSoC = Number(this.asyncGetForeignStateVal(this.config.StateHomeBatSoc));
                 this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
                 if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?
                     this.Charge_Manager(i);

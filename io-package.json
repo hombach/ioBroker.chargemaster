@@ -101,7 +101,6 @@
     "main": "main.js",
     "compact": true,
     "materialize": true,
-    "materializeTab": true,
     "supportCustoms": false,
     "globalDependencies": [
       {

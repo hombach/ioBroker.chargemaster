@@ -44,7 +44,7 @@
     "dataSource": "poll",
     "news": {
       "0.3.2": {
-        "en": "fixing test automation"
+        "en": "fixing test automation, several bugfixes for cleaner run without config"
       },
       "0.3.1": {
         "en": "added sentry statistics; optimized logging; fixed type conversion bug"

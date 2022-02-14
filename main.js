@@ -291,11 +291,16 @@ class chargemaster extends utils.Adapter {
         let i = 0;
         for (i = 0; i <= 2; i++) {
             if (Wallbox[i].SetAllow == false) { // first switch off boxes
-                try {
+//                try {
                     switch (i) {
                         case 0:
-                            this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[i].SetAllow);
-                            this.setForeignState(this.config.StateWallBox0ChargeCurrent, Number(Wallbox[i].SetAmp));
+                            try {
+                                this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[i].SetAllow);
+                                this.setForeignState(this.config.StateWallBox0ChargeCurrent, Number(Wallbox[i].SetAmp));
+                            } catch (e) {
+                                this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
+
+                            }
                         case 1:
                             this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[i].SetAllow);
                             this.setForeignState(this.config.StateWallBox1ChargeCurrent, Number(Wallbox[i].SetAmp));
@@ -304,9 +309,9 @@ class chargemaster extends utils.Adapter {
                             this.setForeignState(this.config.StateWallBox2ChargeCurrent, Number(Wallbox[i].SetAmp));
 // FEEDBACK ABFRAGEN!!!!
                     }
-                } catch (e) {
-                    this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
-                } // END try-catch
+//                } catch (e) {
+//                    this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
+//                } // END try-catch
                 this.log.debug(`Shutdown Wallbox ${i} - ${Wallbox[i].SetAmp} Ampere`);
             } else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
                 //HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
@@ -352,6 +357,15 @@ class chargemaster extends utils.Adapter {
             this.log.error(`Error in reading charge power of wallboxes: ${e}`);
         } // END catch
     } // END Calc_Total_Power
+
+
+    /**
+     * Verify for existance of a to be configured value
+     * @param {string}      configName  - Name of the config to be verified, like this.config.StateWallBox0ChargeAllowed
+     */
+    VerConfig(configName) {
+        return true;
+    } // END VerConfig
 
 
     /**

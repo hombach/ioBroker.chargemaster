@@ -291,16 +291,11 @@ class chargemaster extends utils.Adapter {
         let i = 0;
         for (i = 0; i <= 2; i++) {
             if (Wallbox[i].SetAllow == false) { // first switch off boxes
-//                try {
+                try {
                     switch (i) {
                         case 0:
-                            try {
                                 this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[i].SetAllow);
                                 this.setForeignState(this.config.StateWallBox0ChargeCurrent, Number(Wallbox[i].SetAmp));
-                            } catch (e) {
-                                this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
-
-                            }
                         case 1:
                             this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[i].SetAllow);
                             this.setForeignState(this.config.StateWallBox1ChargeCurrent, Number(Wallbox[i].SetAmp));
@@ -309,9 +304,9 @@ class chargemaster extends utils.Adapter {
                             this.setForeignState(this.config.StateWallBox2ChargeCurrent, Number(Wallbox[i].SetAmp));
 // FEEDBACK ABFRAGEN!!!!
                     }
-//                } catch (e) {
-//                    this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
-//                } // END try-catch
+                } catch (e) {
+                    this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
+                } // END try-catch
                 this.log.debug(`Shutdown Wallbox ${i} - ${Wallbox[i].SetAmp} Ampere`);
             } else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
                 //HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
@@ -341,7 +336,9 @@ class chargemaster extends utils.Adapter {
     async Calc_Total_Power() {
         this.log.debug(`Get charge power of all wallboxes`);
         try {
-            Wallbox[0].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower);
+            if (this.VerConfig(this.config.StateWallBox0ChargePower)) {
+                Wallbox[0].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower);
+            }
             Wallbox[0].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox0MeasuredMaxChargeAmp);
             this.log.debug(`Got charge power of wallbox 0: ${Wallbox[0].ChargePower} W; ${Wallbox[0].MeasuredMaxChargeAmp} A`);
             Wallbox[1].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox1ChargePower);
@@ -364,7 +361,12 @@ class chargemaster extends utils.Adapter {
      * @param {string}      configName  - Name of the config to be verified, like this.config.StateWallBox0ChargeAllowed
      */
     VerConfig(configName) {
-        return true;
+        if (configName) {
+            this.log.error(`Error in your configuration - Please verify!`);
+            return true;
+        } else {
+            return false;
+        }
     } // END VerConfig
 
 

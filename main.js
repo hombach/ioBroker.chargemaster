@@ -85,6 +85,8 @@ class chargemaster extends utils.Adapter {
             return;
         }
 
+        this.log.warn(`TEST: ${await this.getObjectAsync(this.config.StateHomeBatSoc)}`)
+
         if ((this.config.StateWallBox0ChargeCurrent != "") &&
                 (this.config.StateWallBox0ChargeAllowed != "") &&
                 (this.config.StateWallBox0ChargePower != "") &&

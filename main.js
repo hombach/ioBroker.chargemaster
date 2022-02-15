@@ -83,6 +83,7 @@ class chargemaster extends utils.Adapter {
             this.log.error(`Solar system states not configured - shutting down adapter`);
             //this.disable;
             this.terminate;
+            return;
         }
 
         if ((this.config.StateWallBox0ChargeCurrent != "") &&

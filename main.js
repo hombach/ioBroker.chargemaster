@@ -73,12 +73,13 @@ class chargemaster extends utils.Adapter {
 
 
 
-        this.log.warn(`TEST: ${await this.getObjectAsync(this.config.StateHomeBatSoc)}`)
+        this.log.warn(`TEST: ${await this.getForeignObjectAsync(this.config.StateHomeBatSoc)}`)
 
+       
         // verify configured foreign states chargers and amount of chargers
-        if ((this.config.StateHomeBatSoc != "") && (await this.getObjectAsync(this.config.StateHomeBatSoc)) &&
-                (this.config.StateHomeSolarPower != "") && (await this.getObjectAsync(this.config.StateHomeSolarPower)) &&
-                (this.config.StateHomePowerConsumption != "") && (await this.getObjectAsync(this.config.StateHomePowerConsumption)))
+        if ((this.config.StateHomeBatSoc != "") && (await this.getForeignObjectAsync(this.config.StateHomeBatSoc)) &&
+                (this.config.StateHomeSolarPower != "") && (await this.getForeignObjectAsync(this.config.StateHomeSolarPower)) &&
+                (this.config.StateHomePowerConsumption != "") && (await this.getForeignObjectAsync(this.config.StateHomePowerConsumption)))
         {
             this.log.info(`Verified solar system states`);
         } else {
@@ -87,10 +88,10 @@ class chargemaster extends utils.Adapter {
             return;
         }
         
-        if ((this.config.StateWallBox0ChargeCurrent != "") && (await this.getObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
-                (this.config.StateWallBox0ChargeCurrent != "") && (await this.getObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
-                (this.config.StateWallBox0ChargePower != "") && (await this.getObjectAsync(this.config.StateWallBox0ChargePower)) &&
-                (this.config.StateWallBox0MeasuredMaxChargeAmp != "") && (await this.getObjectAsync(this.config.StateWallBox0MeasuredMaxChargeAmp)))
+        if ((this.config.StateWallBox0ChargeCurrent != "") && (await this.getForeignObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
+                (this.config.StateWallBox0ChargeCurrent != "") && (await this.getForeignObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
+                (this.config.StateWallBox0ChargePower != "") && (await this.getForeignObjectAsync(this.config.StateWallBox0ChargePower)) &&
+                (this.config.StateWallBox0MeasuredMaxChargeAmp != "") && (await this.getForeignObjectAsync(this.config.StateWallBox0MeasuredMaxChargeAmp)))
         {
             this.log.info(`Charger 0 states verified`);
             maxCharger = 0;

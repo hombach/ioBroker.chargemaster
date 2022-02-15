@@ -73,6 +73,8 @@ class chargemaster extends utils.Adapter {
 
 
 
+        this.log.warn(`TEST: ${await this.getObjectAsync(this.config.StateHomeBatSoc)}`)
+
         // verify configured foreign states chargers and amount of chargers
         if ((this.config.StateHomeBatSoc != "") && (await this.getObjectAsync(this.config.StateHomeBatSoc)) &&
                 (this.config.StateHomeSolarPower != "") && (await this.getObjectAsync(this.config.StateHomeSolarPower)) &&
@@ -84,17 +86,16 @@ class chargemaster extends utils.Adapter {
             this.disable;
             return;
         }
-
-        this.log.warn(`TEST: ${await this.getObjectAsync(this.config.StateHomeBatSoc)}`)
-
-        if ((this.config.StateWallBox0ChargeCurrent != "") &&
-                (this.config.StateWallBox0ChargeAllowed != "") &&
-                (this.config.StateWallBox0ChargePower != "") &&
-                (this.config.StateWallBox0MeasuredMaxChargeAmp != "")) {
+        
+        if ((this.config.StateWallBox0ChargeCurrent != "") && (await this.getObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
+                (this.config.StateWallBox0ChargeCurrent != "") && (await this.getObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
+                (this.config.StateWallBox0ChargePower != "") && (await this.getObjectAsync(this.config.StateWallBox0ChargePower)) &&
+                (this.config.StateWallBox0MeasuredMaxChargeAmp != "") && (await this.getObjectAsync(this.config.StateWallBox0MeasuredMaxChargeAmp)))
+        {
             this.log.info(`Charger 0 states verified`);
             maxCharger = 0;
         } else {
-            this.log.error(`Charger 0 not configured - shutting down adapter`);
+            this.log.error(`Charger 0 not configured or not reachable - shutting down adapter`);
             this.disable;
             return;
         }

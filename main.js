@@ -75,13 +75,13 @@ class chargemaster extends utils.Adapter {
 
         async function stateTest(adapter, input) {
             try {
-                const ret = await adapter.getForeignObjectAsync(input);
-                adapter.log.info(`getForeignObjectAsync() returns ${ret}`);
-                return true;
+                let ret = await adapter.getForeignObjectAsync(input);
+                adapter.log.debug(`State verification by getForeignObjectAsync() returns ${ret}`);
             } catch (e) {
-                adapter.log.error(`Configured state ${input} is not OK and throws an error: ${e.message}`);
+                adapter.log.error(`Configured state ${input} is not OK and throws an error: "${e.message}"`);
                 return false;
             }
+            return true;
         }
 
 

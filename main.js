@@ -74,15 +74,13 @@ class chargemaster extends utils.Adapter {
 
 
         // verify configured foreign states chargers and amount of chargers
-        if ((this.config.StateHomeBatSoc != "") &&
-                (this.config.StateHomeSolarPower != "") &&
-                (this.config.StateHomePowerConsumption != "")) {
-
-            this.log.warn(`TEST: ${await this.getObjectAsync(this.config.StateHomeBatSoc)}`);
-
+        if ((this.config.StateHomeBatSoc != "") && (await this.getObjectAsync(this.config.StateHomeBatSoc)) &&
+                (this.config.StateHomeSolarPower != "") && (await this.getObjectAsync(this.config.StateHomeSolarPower)) &&
+                (this.config.StateHomePowerConsumption != "") && (await this.getObjectAsync(this.config.StateHomePowerConsumption)))
+        {
             this.log.info(`Verified solar system states`);
         } else {
-            this.log.error(`Solar system states not configured - shutting down adapter`);
+            this.log.error(`Solar system states not configured or not reachable - shutting down adapter`);
             this.disable;
             return;
         }

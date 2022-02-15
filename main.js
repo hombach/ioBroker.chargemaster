@@ -36,7 +36,8 @@ let BatSoC              = 0;
 let MinHomeBatVal       = 85;
 let TotalSetOptAmp      = 0;
 let TotalChargePower    = 0;
-let TotalMeasuredChargeCurrent  = 0;
+let TotalMeasuredChargeCurrent = 0;
+let maxCharger          = 0;
 
 
 class chargemaster extends utils.Adapter {
@@ -69,8 +70,36 @@ class chargemaster extends utils.Adapter {
         this.log.info('Cycletime set to: ' + (this.config.cycletime / 1000) + ' seconds');
 
         this.subscribeStates('Settings.*');
-        // this.subscribeStates('*'); // all states changes inside the adapters namespace are subscribed
         // this.subscribeForeignObjects('dwd.0.warning.*');
+
+
+
+        // verify amount of configured chargers
+        if ((this.config.StateHomeBatSoc != "") &&
+            (this.config.StateHomeSolarPower != "") &&
+            (this.config.StateHomePowerConsumption != "")) {
+            this.log.info(`Verified solar system states`);
+        } else {
+            this.log.error(`Solar system states not configured - shutting down adapter`);
+        }
+        if ((this.config.StateWallBox0ChargeCurrent != "") &&
+            (this.config.StateWallBox0ChargeAllowed != "") &&
+            (this.config.StateWallBox0ChargePower != "") &&
+            (this.config.StateWallBox0MeasuredMaxChargeAmp != "")) {
+            maxCharger = 0;
+        }
+        if ((this.config.StateWallBox1ChargeCurrent != "") &&
+            (this.config.StateWallBox1ChargeAllowed != "") &&
+            (this.config.StateWallBox1ChargePower != "") &&
+            (this.config.StateWallBox1MeasuredMaxChargeAmp != "")) {
+            maxCharger = 1;
+        }
+        if ((this.config.StateWallBox2ChargeCurrent != "") &&
+            (this.config.StateWallBox2ChargeAllowed != "") &&
+            (this.config.StateWallBox2ChargePower != "") &&
+            (this.config.StateWallBox2MeasuredMaxChargeAmp != "")) {
+            maxCharger = 2;
+        }
 
         try {
             MinHomeBatVal = await this.asyncGetStateVal('Settings.Setpoint_HomeBatSoC');
@@ -188,7 +217,7 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`StateMachine cycle started`);
         this.Calc_Total_Power();
 
-        for (i = 0; i <= 2; i++) {
+        for (i = 0; i <= maxCharger; i++) {
             if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
                 Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
                 Wallbox[i].SetOptAllow = true;
@@ -260,7 +289,7 @@ class chargemaster extends utils.Adapter {
     Charge_Limiter() {
         let i = 0;
         TotalSetOptAmp = 0;
-        for (i = 0; i <= 2; i++) { // switch of boxes and adjust local limits
+        for (i = 0; i <= maxCharger; i++) { // switch of boxes and adjust local limits
             if (Wallbox[i].SetOptAllow == false) { // Switch of imediately
                 Wallbox[i].SetAllow = false;
                 Wallbox[i].SetAmp = Wallbox[i].MinAmp;
@@ -281,7 +310,6 @@ class chargemaster extends utils.Adapter {
                     }
                 } 
             }
-
         }
     } // END Charge_Limiter
 
@@ -289,13 +317,13 @@ class chargemaster extends utils.Adapter {
     /*****************************************************************************************/
     Charge_Config() {
         let i = 0;
-        for (i = 0; i <= 2; i++) {
+        for (i = 0; i <= maxCharger; i++) {
             if (Wallbox[i].SetAllow == false) { // first switch off boxes
                 try {
                     switch (i) {
                         case 0:
-                                this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[i].SetAllow);
-                                this.setForeignState(this.config.StateWallBox0ChargeCurrent, Number(Wallbox[i].SetAmp));
+                            this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[i].SetAllow);
+                            this.setForeignState(this.config.StateWallBox0ChargeCurrent, Number(Wallbox[i].SetAmp));
                         case 1:
                             this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[i].SetAllow);
                             this.setForeignState(this.config.StateWallBox1ChargeCurrent, Number(Wallbox[i].SetAmp));
@@ -336,9 +364,7 @@ class chargemaster extends utils.Adapter {
     async Calc_Total_Power() {
         this.log.debug(`Get charge power of all wallboxes`);
         try {
-            if (this.VerConfig(this.config.StateWallBox0ChargePower)) {
-                Wallbox[0].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower);
-            }
+            Wallbox[0].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower);
             Wallbox[0].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox0MeasuredMaxChargeAmp);
             this.log.debug(`Got charge power of wallbox 0: ${Wallbox[0].ChargePower} W; ${Wallbox[0].MeasuredMaxChargeAmp} A`);
             Wallbox[1].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox1ChargePower);
@@ -356,21 +382,7 @@ class chargemaster extends utils.Adapter {
     } // END Calc_Total_Power
 
 
-    /**
-     * Verify for existance of a to be configured value
-     * @param {string}      configName  - Name of the config to be verified, like this.config.StateWallBox0ChargeAllowed
-     */
-    VerConfig(configName) {
-        if (configName) {
-            this.log.error(`Error in your configuration - Please verify!`);
-            return true;
-        } else {
-            return false;
-        }
-    } // END VerConfig
-
-
-    /**
+     /**
     * Get foreign state value
     * @param {string}      statePath  - Full path to state, like 0_userdata.0.other.isSummer
     * @return {Promise<*>}            - State value, or null if error

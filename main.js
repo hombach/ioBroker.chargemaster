@@ -73,8 +73,6 @@ class chargemaster extends utils.Adapter {
 
 
 
-
-
         async function stateTest(adapter, input) {
             try {
                 const ret = await adapter.getForeignObjectAsync(input);
@@ -87,7 +85,7 @@ class chargemaster extends utils.Adapter {
         }
 
 
-        if ((stateTest(this, this.config.StateHomeBatSoc)) && (stateTest(this, this.config.StateHomeBatSoc)) && (stateTest(this, this.config.StateHomeBatSoc))) {
+        if ((stateTest(this, this.config.StateHomeBatSoc)) && (stateTest(this, this.config.StateHomeSolarPower)) && (stateTest(this, this.config.StateHomePowerConsumption))) {
             this.log.info(`Verified solar system states`);
         } else {
             this.log.error(`Solar system states not configured or not reachable - shutting down adapter`);
@@ -103,7 +101,7 @@ class chargemaster extends utils.Adapter {
         {
             this.log.info(`Verified solar system states`);
         } else {
-            this.log.error(`Solar system states not configured or not reachable - shutting down adapter`);
+            this.log.error(`Solar system states not configured - shutting down adapter`);
             this.disable;
             return;
         }

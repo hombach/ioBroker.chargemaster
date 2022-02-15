@@ -76,30 +76,45 @@ class chargemaster extends utils.Adapter {
 
         // verify amount of configured chargers
         if ((this.config.StateHomeBatSoc != "") &&
-            (this.config.StateHomeSolarPower != "") &&
-            (this.config.StateHomePowerConsumption != "")) {
+                (this.config.StateHomeSolarPower != "") &&
+                (this.config.StateHomePowerConsumption != "")) {
             this.log.info(`Verified solar system states`);
         } else {
             this.log.error(`Solar system states not configured - shutting down adapter`);
         }
+
         if ((this.config.StateWallBox0ChargeCurrent != "") &&
-            (this.config.StateWallBox0ChargeAllowed != "") &&
-            (this.config.StateWallBox0ChargePower != "") &&
-            (this.config.StateWallBox0MeasuredMaxChargeAmp != "")) {
+                (this.config.StateWallBox0ChargeAllowed != "") &&
+                (this.config.StateWallBox0ChargePower != "") &&
+                (this.config.StateWallBox0MeasuredMaxChargeAmp != "")) {
+            this.log.info(`Charger 0 states verified`);
             maxCharger = 0;
+        } else {
+            this.log.error(`Charger 0 not configured - shutting down adapter`);
         }
+
         if ((this.config.StateWallBox1ChargeCurrent != "") &&
-            (this.config.StateWallBox1ChargeAllowed != "") &&
-            (this.config.StateWallBox1ChargePower != "") &&
-            (this.config.StateWallBox1MeasuredMaxChargeAmp != "")) {
+                (this.config.StateWallBox1ChargeAllowed != "") &&
+                (this.config.StateWallBox1ChargePower != "") &&
+                (this.config.StateWallBox1MeasuredMaxChargeAmp != "")) {
+            this.log.info(`Charger 1 states verified`);
             maxCharger = 1;
+        } else {
+            this.log.warn(`Charger 1 not configured`);
         }
+
         if ((this.config.StateWallBox2ChargeCurrent != "") &&
-            (this.config.StateWallBox2ChargeAllowed != "") &&
-            (this.config.StateWallBox2ChargePower != "") &&
-            (this.config.StateWallBox2MeasuredMaxChargeAmp != "")) {
+                (this.config.StateWallBox2ChargeAllowed != "") &&
+                (this.config.StateWallBox2ChargePower != "") &&
+                (this.config.StateWallBox2MeasuredMaxChargeAmp != "")) {
+            this.log.info(`Charger 2 states verified`);
             maxCharger = 2;
+        } else {
+            this.log.warn(`Charger 2 not configured`);
         }
+
+
+
 
         try {
             MinHomeBatVal = await this.asyncGetStateVal('Settings.Setpoint_HomeBatSoC');

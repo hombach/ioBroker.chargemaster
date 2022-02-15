@@ -64,20 +64,22 @@ class chargemaster extends utils.Adapter {
     async onReady() {
         let i = 0;
         if (!this.config.cycletime) {
-            this.log.warn('Cycletime not configured or zero - will be set to 10 seconds');
+            this.log.warn(`Cycletime not configured or zero - will be set to 10 seconds`);
             this.config.cycletime = 10000;
         }
-        this.log.info('Cycletime set to: ' + (this.config.cycletime / 1000) + ' seconds');
+        this.log.info(`Cycletime set to: ${this.config.cycletime / 1000} seconds`);
 
-        this.subscribeStates('Settings.*');
-        // this.subscribeForeignObjects('dwd.0.warning.*');
-
+        this.subscribeStates('Settings.*'); // this.subscribeForeignObjects('dwd.0.warning.*');
 
 
-        // verify amount of configured chargers
+
+        // verify configured foreign states chargers and amount of chargers
         if ((this.config.StateHomeBatSoc != "") &&
                 (this.config.StateHomeSolarPower != "") &&
                 (this.config.StateHomePowerConsumption != "")) {
+
+            this.log.warn(`TEST: ${await this.getObjectAsync(this.config.StateHomeBatSoc)}`);
+
             this.log.info(`Verified solar system states`);
         } else {
             this.log.error(`Solar system states not configured - shutting down adapter`);

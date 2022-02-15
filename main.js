@@ -85,6 +85,7 @@ class chargemaster extends utils.Adapter {
         }
 
 
+        // verify configured foreign states chargers and amount of chargers
         if ((stateTest(this, this.config.StateHomeBatSoc)) && (stateTest(this, this.config.StateHomeSolarPower)) && (stateTest(this, this.config.StateHomePowerConsumption))) {
             this.log.info(`Verified solar system states`);
         } else {
@@ -92,9 +93,7 @@ class chargemaster extends utils.Adapter {
             this.disable;
             return;
         }
-
-       
-        // verify configured foreign states chargers and amount of chargers
+    /*           
         if ((this.config.StateHomeBatSoc != "") && (await this.getForeignObjectAsync(this.config.StateHomeBatSoc)) &&
                 (this.config.StateHomeSolarPower != "") && (await this.getForeignObjectAsync(this.config.StateHomeSolarPower)) &&
                 (this.config.StateHomePowerConsumption != "") && (await this.getForeignObjectAsync(this.config.StateHomePowerConsumption)))
@@ -105,7 +104,20 @@ class chargemaster extends utils.Adapter {
             this.disable;
             return;
         }
-        
+     */   
+
+
+
+
+        if ((stateTest(this, this.config.StateWallBox0ChargeCurrent)) && (stateTest(this, this.config.StateWallBox0ChargeCurrent)) &&
+                (stateTest(this, this.config.StateWallBox0ChargePower)) && (stateTest(this, this.config.StateWallBox0MeasuredMaxChargeAmp))) {
+            this.log.info(`Charger 0 states verified`);
+        } else {
+            this.log.error(`Charger 0 not configured or not reachable - shutting down adapter`);
+            this.disable;
+            return;
+        }
+/*
         if ((this.config.StateWallBox0ChargeCurrent != "") && (await this.getForeignObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
                 (this.config.StateWallBox0ChargeCurrent != "") && (await this.getForeignObjectAsync(this.config.StateWallBox0ChargeCurrent)) &&
                 (this.config.StateWallBox0ChargePower != "") && (await this.getForeignObjectAsync(this.config.StateWallBox0ChargePower)) &&
@@ -118,6 +130,8 @@ class chargemaster extends utils.Adapter {
             this.disable;
             return;
         }
+*/
+
 
         if ((this.config.StateWallBox1ChargeCurrent != "") &&
                 (this.config.StateWallBox1ChargeAllowed != "") &&

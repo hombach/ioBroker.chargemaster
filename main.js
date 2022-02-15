@@ -75,6 +75,39 @@ class chargemaster extends utils.Adapter {
 
         this.log.warn(`TEST: ${await this.getForeignObjectAsync(this.config.StateHomeBatSoc)}`)
 
+
+            await test(this, '');
+            this.log.info('----------------------------------');
+            await test(this, 0);
+            this.log.info('----------------------------------');
+            await test(this, /hallo ioBroker/);
+            this.log.info('----------------------------------');
+            await test(this, '0_userdata.0.example_state');
+            this.log.info('----------------------------------');
+        await test(this, this.config.StateHomeBatSoc);
+        this.log.info('----------------------------------');
+
+
+
+            async function test(adapter, input) {
+                adapter.log.info(`Input: [${JSON.stringify(input)}]`);
+                try {
+                    const ret = await adapter.getForeignObjectAsync(input);
+                    adapter.log.info(`getForeignObjectAsync() returns ${ret}`);
+                    return;
+                } catch (error) {
+                    adapter.log.error(`=== CATCH === ${error.message}, stack: ${error.stack}`);
+                }
+            }
+
+
+
+
+
+
+
+
+
        
         // verify configured foreign states chargers and amount of chargers
         if ((this.config.StateHomeBatSoc != "") && (await this.getForeignObjectAsync(this.config.StateHomeBatSoc)) &&

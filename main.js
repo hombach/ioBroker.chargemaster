@@ -75,8 +75,11 @@ class chargemaster extends utils.Adapter {
         // verify configured foreign states chargers and amount of chargers *****************************************************************
         async function stateTest(adapter, input) {
             try {
-                let ret = await adapter.getForeignObjectAsync(input); // getForeignObjectAsync   asyncGetForeignStateVal
+                let ret = await adapter.getForeignObjectAsync(input);
                 adapter.log.debug(`Foreign state verification by getForeignObjectAsync() returns: ${ret}`);
+                if (ret = null) {
+                    throw new Error(`State "${input}" does not exist.`);
+                }
             } catch (e) {
                 adapter.log.error(`Configured state "${input}" is not OK and throws an error: "${e}"`);
                 return false;
@@ -86,7 +89,7 @@ class chargemaster extends utils.Adapter {
  
         if ((await stateTest(this, this.config.StateHomeBatSoc)) && (await stateTest(this, this.config.StateHomeSolarPower)) && (await stateTest(this, this.config.StateHomePowerConsumption)))
         {
-            this.log.info(`Verified solar system states ${stateTest(this, this.config.StateHomeBatSoc)} / ${stateTest(this, this.config.StateHomeSolarPower)} / ${stateTest(this, this.config.StateHomePowerConsumption)}`);
+            this.log.info(`Verified solar system states ${stateTest(this, this.config.StateHomeBatSoc)} / ${stateTest(this, this.config.StateHomeSolarPower)} / ${stateTest(this, this.config.StateHomePowerConsumption)}`); //DEBUG!!!
         } else {
             this.log.error(`Solar system states not correct configured or not reachable - shutting down adapter`);
             this.disable;
@@ -113,7 +116,7 @@ class chargemaster extends utils.Adapter {
             this.log.info(`Charger 2 states verified`);
             maxCharger = 2;
         } else {
-            this.log.warn(`Charger 2 not configured or not reachable - shutting down adapter`);
+            this.log.warn(`Charger 2 not configured or not reachable`);
         }
         // *********************************************************************************************************************************
 

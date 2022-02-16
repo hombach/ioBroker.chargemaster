@@ -72,12 +72,11 @@ class chargemaster extends utils.Adapter {
         this.subscribeStates('Settings.*'); // this.subscribeForeignObjects('dwd.0.warning.*');
 
 
-
         async function stateTest(adapter, input) {
             try {
-                let ret = await adapter.asyncGetForeignStateVal(input); //this.asyncGetForeignStateVal   getForeignStateAsync
-                adapter.log.debug(`State verification by getForeignObjectAsync() returns ${ret}`);
-                throw new Error("oops");
+                let ret = await adapter.asyncGetForeignStateVal(input);
+                adapter.log.debug(`Foreign state verification by asyncGetForeignStateVal() returns: ${ret}`);
+//                throw new Error("oops");
             } catch (e) {
                 adapter.log.error(`Configured state ${input} is not OK and throws an error: "${e.message}"`);
                 return false;
@@ -86,9 +85,9 @@ class chargemaster extends utils.Adapter {
         }
 
 
-
         // verify configured foreign states chargers and amount of chargers
-        if ((await stateTest(this, this.config.StateHomeBatSoc)) && (await stateTest(this, this.config.StateHomeSolarPower)) && (await stateTest(this, this.config.StateHomePowerConsumption))) {
+        if ((await stateTest(this, this.config.StateHomeBatSoc)) && (await stateTest(this, this.config.StateHomeSolarPower)) && (await stateTest(this, this.config.StateHomePowerConsumption)))
+        {
             this.log.info(`Verified solar system states ${stateTest(this, this.config.StateHomeBatSoc)} / ${stateTest(this, this.config.StateHomeSolarPower)} / ${stateTest(this, this.config.StateHomePowerConsumption)}`);
         } else {
             this.log.error(`Solar system states not configured or not reachable - shutting down adapter`);
@@ -108,11 +107,9 @@ class chargemaster extends utils.Adapter {
         }
      */   
 
-
-
-
-        if ((stateTest(this, this.config.StateWallBox0ChargeCurrent)) && (stateTest(this, this.config.StateWallBox0ChargeCurrent)) &&
-                (stateTest(this, this.config.StateWallBox0ChargePower)) && (stateTest(this, this.config.StateWallBox0MeasuredMaxChargeAmp))) {
+        if ((await stateTest(this, this.config.StateWallBox0ChargeCurrent)) && (await stateTest(this, this.config.StateWallBox0ChargeCurrent)) &&
+            (await stateTest(this, this.config.StateWallBox0ChargePower)) && (await stateTest(this, this.config.StateWallBox0MeasuredMaxChargeAmp)))
+        {
             this.log.info(`Charger 0 states verified`);
         } else {
             this.log.error(`Charger 0 not configured or not reachable - shutting down adapter`);

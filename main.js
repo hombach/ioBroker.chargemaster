@@ -74,16 +74,16 @@ class chargemaster extends utils.Adapter {
 
         async function stateTest(adapter, input) {
             try {
-                let ret = await adapter.asyncGetForeignStateVal(input);
-                adapter.log.debug(`Foreign state verification by asyncGetForeignStateVal() returns: ${ret}`);
+                let ret = await adapter.getForeignObjectAsync(input); // getForeignObjectAsync   asyncGetForeignStateVal
+                adapter.log.debug(`Foreign state verification by getForeignObjectAsync() returns: ${ret}`);
 //                throw new Error("oops");
             } catch (e) {
-                adapter.log.error(`Configured state ${input} is not OK and throws an error: "${e.message}"`);
+                adapter.log.error(`Configured state ${input} is not OK and throws an error: "${e}"`);
                 return false;
             }
             return true;
         }
-
+        this.getForeignObjectAsync(this.config.StateHomeBatSoc, );
 
         // verify configured foreign states chargers and amount of chargers
         if ((await stateTest(this, this.config.StateHomeBatSoc)) && (await stateTest(this, this.config.StateHomeSolarPower)) && (await stateTest(this, this.config.StateHomePowerConsumption)))

@@ -77,7 +77,7 @@ class chargemaster extends utils.Adapter {
             try {
                 let ret = await adapter.getForeignObjectAsync(input);
                 adapter.log.debug(`Foreign state verification by getForeignObjectAsync() returns: ${ret}`);
-                if (ret = null) {
+                if (ret == null) {
                     throw new Error(`State "${input}" does not exist.`);
                 }
             } catch (e) {

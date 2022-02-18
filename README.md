@@ -26,7 +26,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
-### 0.3.2 (14.02.2022)
+### 0.4.1 (18.02.2022)
+* (HombachC) fixed error in charger communication
+### 0.4.0 (14.02.2022)
 * (HombachC) introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config
 ### 0.3.2 (14.02.2022)
 * (HombachC) fixing test automation, several bugfixes for cleaner run without config

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.4.1": {
+        "en": "fixed error in charger communication"
+      },
       "0.4.0": {
         "en": "introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config"
       },

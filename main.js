@@ -99,6 +99,7 @@ class chargemaster extends utils.Adapter {
         if ((await stateTest(this, this.config.StateWallBox0ChargeCurrent)) && (await stateTest(this, this.config.StateWallBox0ChargeCurrent)) &&
             (await stateTest(this, this.config.StateWallBox0ChargePower)) && (await stateTest(this, this.config.StateWallBox0MeasuredMaxChargeAmp))) {
             this.log.info(`Charger 0 states verified`);
+            maxCharger = 0;
         } else {
             this.log.error(`Charger 0 not correct configured or not reachable - shutting down adapter`);
             this.disable;
@@ -344,12 +345,15 @@ class chargemaster extends utils.Adapter {
                         case 0:
                             this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[i].SetAllow);
                             this.setForeignState(this.config.StateWallBox0ChargeCurrent, Number(Wallbox[i].SetAmp));
+                            break;
                         case 1:
                             this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[i].SetAllow);
                             this.setForeignState(this.config.StateWallBox1ChargeCurrent, Number(Wallbox[i].SetAmp));
+                            break;
                         case 2:
                             this.setForeignState(this.config.StateWallBox2ChargeAllowed, Wallbox[i].SetAllow);
                             this.setForeignState(this.config.StateWallBox2ChargeCurrent, Number(Wallbox[i].SetAmp));
+                            break;
 // FEEDBACK ABFRAGEN!!!!
                     }
                 } catch (e) {
@@ -363,12 +367,15 @@ class chargemaster extends utils.Adapter {
                         case 0:
                             this.setForeignState(this.config.StateWallBox0ChargeCurrent, Number(Wallbox[i].SetAmp));
                             this.setForeignState(this.config.StateWallBox0ChargeAllowed, Wallbox[i].SetAllow);
+                            break;
                         case 1:
                             this.setForeignState(this.config.StateWallBox1ChargeCurrent, Number(Wallbox[i].SetAmp));
                             this.setForeignState(this.config.StateWallBox1ChargeAllowed, Wallbox[i].SetAllow);
+                            break;
                         case 2:
                             this.setForeignState(this.config.StateWallBox2ChargeCurrent, Number(Wallbox[i].SetAmp));
                             this.setForeignState(this.config.StateWallBox2ChargeAllowed, Wallbox[i].SetAllow);
+                            break;
                     }
                 } catch (e) {
                     this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);

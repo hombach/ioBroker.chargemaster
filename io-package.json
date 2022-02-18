@@ -44,7 +44,7 @@
     "dataSource": "poll",
     "news": {
       "0.4.1": {
-        "en": "fixed error in charger communication"
+        "en": "fixed error in charger communication; added ci test"
       },
       "0.4.0": {
         "en": "introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config"

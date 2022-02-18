@@ -92,7 +92,8 @@ class chargemaster extends utils.Adapter {
             this.log.info(`Verified solar system states`);
         } else {
             this.log.error(`Solar system states not correct configured or not reachable - shutting down adapter`);
-            this.disable;
+            //this.disable;
+            this.terminate
             return;
         }
 
@@ -102,7 +103,8 @@ class chargemaster extends utils.Adapter {
             maxCharger = 0;
         } else {
             this.log.error(`Charger 0 not correct configured or not reachable - shutting down adapter`);
-            this.disable;
+            this.terminate
+            //this.disable;
             return;
         }
         if ((await stateTest(this, this.config.StateWallBox1ChargeCurrent)) && (await stateTest(this, this.config.StateWallBox1ChargeCurrent)) &&

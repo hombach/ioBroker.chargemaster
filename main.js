@@ -74,6 +74,7 @@ class chargemaster extends utils.Adapter {
 
         // verify configured foreign states chargers and amount of chargers *****************************************************************
         async function stateTest(adapter, input) {
+            if (input == "") {return false}
             try {
                 let ret = await adapter.getForeignObjectAsync(input);
                 adapter.log.debug(`Foreign state verification by getForeignObjectAsync() returns: ${ret}`);

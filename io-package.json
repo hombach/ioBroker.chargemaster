@@ -44,7 +44,7 @@
     "dataSource": "poll",
     "news": {
       "0.4.2": {
-        "en": "changed statemachine to async"
+        "en": "changed statemachine to async; bumped dependencies"
       },
       "0.4.1": {
         "en": "fixed error in charger communication; added ci test"

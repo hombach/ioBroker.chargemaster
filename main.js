@@ -247,10 +247,7 @@ class chargemaster extends utils.Adapter {
             }
 
             else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
-                //BatSoC = this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
-                //BatSoC = Number(this.asyncGetForeignStateVal(this.config.StateHomeBatSoc));
                 BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
-                //BatSoC = Number(this.getForeignStates(this.config.StateHomeBatSoc));
                 this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
                 if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?
                     await this.Charge_Manager(i);
@@ -274,47 +271,6 @@ class chargemaster extends utils.Adapter {
         adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
     }
 
-    /*
-    StateMachine() {
-        let i = 0;
-        this.log.debug(`StateMachine cycle started`);
-        this.Calc_Total_Power();
-
-        for (i = 0; i <= maxCharger; i++) {
-            if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
-                Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
-                Wallbox[i].SetOptAllow = true;
-                this.log.debug(`Wallbox ${i} planned for charge with ${Wallbox[i].SetOptAmp}A`);
-            }
-
-            else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
-                //BatSoC = this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
-                //BatSoC = Number(this.asyncGetForeignStateVal(this.config.StateHomeBatSoc));
-                BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
-                //BatSoC = Number(this.getForeignStates(this.config.StateHomeBatSoc));
-                this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
-                if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?
-                    this.Charge_Manager(i);
-                } else { // FUTURE: time of day forces emptying of home battery
-                    Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
-                    Wallbox[i].SetOptAllow = false;
-                    this.log.debug(`Wait for home battery SoC of ${MinHomeBatVal}%`);
-                }
-            }
-
-            else { // switch OFF; set to min. current; 
-                Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
-                Wallbox[i].SetOptAllow = false;
-                this.log.debug(`Wallbox ${i} planned for switch off`);
-            }
-        }
-
-        this.Charge_Limiter()
-        this.Charge_Config()
-
-        adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
-    }
-*/
 
     /*****************************************************************************************/
     async Charge_Manager(i) {

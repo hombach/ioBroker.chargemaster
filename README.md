@@ -26,6 +26,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 0.4.2 (21.02.2022)
+* (HombachC) changed statemachine to async
 ### 0.4.1 (18.02.2022)
 * (HombachC) fixed error in charger communication; added ci test
 ### 0.4.0 (14.02.2022)

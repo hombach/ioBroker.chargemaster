@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.4.2": {
+        "en": "changed statemachine to async"
+      },
       "0.4.1": {
         "en": "fixed error in charger communication; added ci test"
       },

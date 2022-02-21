@@ -248,8 +248,8 @@ class chargemaster extends utils.Adapter {
 
             else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
                 //BatSoC = this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
-                BatSoC = Number(this.asyncGetForeignStateVal(this.config.StateHomeBatSoc));
-                //BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
+                //BatSoC = Number(this.asyncGetForeignStateVal(this.config.StateHomeBatSoc));
+                BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
                 //BatSoC = Number(this.getForeignStates(this.config.StateHomeBatSoc));
                 this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
                 if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?

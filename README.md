@@ -26,6 +26,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 0.4.3 (22.02.2022)
+* (HombachC) added github tests for MAC-OS and Windows
 ### 0.4.2 (21.02.2022)
 * (HombachC) changed statemachine to async; bumped dependencies
 ### 0.4.1 (18.02.2022)

@@ -15,10 +15,11 @@ on:
 jobs:
   build:
     name: test-build on node.js ${{ matrix.node_version }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node_version: ['12', '14', '16']
+        node-version: [12.x, 14.x, 16.x]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v2.3.4
       - uses: actions/setup-node@v2.5.1

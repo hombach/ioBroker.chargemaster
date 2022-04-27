@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.4.3",
+    "version": "0.4.4",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -43,6 +43,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.4.4": {
+        "en": "fixed vulnerability, bumped dependencies"
+      },
       "0.4.3": {
         "en": "added github tests for MAC-OS and Windows"
       },

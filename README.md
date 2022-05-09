@@ -26,6 +26,10 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+### 0.5.0 (09.05.2022)
+* (HombachC) BREAKING: dropped node.js 12 support
+* (HombachC) Add tests for node.js 18, removed for node.js 12
+* (HombachC) bumped dependencies to non node.js 12 support
 ### 0.4.4 (27.04.2022)
 * (HombachC) fixed vulnerability, bumped dependencies
 ### 0.4.3 (22.02.2022)

@@ -53,7 +53,7 @@
         "it": "ROTTURA: supporto node.js 12 abbandonato, aggiunta test per node.js 18, dipendenze modificate in supporto non node.js 12",
         "es": "ÚLTIMA HORA: se eliminó la compatibilidad con node.js 12, se agregaron pruebas para node.js 18, se cambiaron las dependencias para que no sean compatibles con node.js 12",
         "pl": "ZŁAMANIE: zrezygnowano z obsługi node.js 12, dodano testy dla node.js 18, zmieniono zależności na nie obsługujące node.js 12",
-        "zh-cn": "BREAKING：删除 node.js 12 支持，为 node.js 18 添加测试，将依赖项更改为非 node.js 12 支持",
+        "zh-cn": "BREAKING：删除 node.js 12 支持，为 node.js 18 添加测试，将依赖项更改为非 node.js 12 支持"
       },
       "0.4.4": {
         "en": "fixed vulnerability, bumped dependencies"

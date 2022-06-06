@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.5.0",
+    "version": "0.5.1",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -30,19 +30,27 @@
     "authors": [
       "Christian Hombach"
     ],
+    "keywords": [
+    	"chargemaster",
+    	"wallbox",
+    	"solar power"
+    ],
     "platform": "Javascript/Node.js",
-    "mode": "daemon",
-    "enabled": true,
-    "license": "MIT",
-    "loglevel": "info",
-    "readme": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/README.md",
+    "main": "main.js",
     "icon": "chargemaster.png",
+    "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
-    "keywords": [ "chargemaster", "wallbox", "solar power" ],
+    "readme": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
     "type": "vehicle",
+    "license": "MIT",
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.5.1": {
+        "en": "removed gulp, bumped dependencies, small code tweaks"
+      },
       "0.5.0": {
         "en": "BREAKING: dropped node.js 12 support, add tests for node.js 18, changed dependencies to non node.js 12 support",
         "de": "BREAKING: Node.js 12-Unterstützung wurde eingestellt, Tests für node.js 18 hinzugefügt, Abhängigkeiten auf Nicht-Node.js 12-Unterstützung geändert",
@@ -54,9 +62,6 @@
         "es": "ÚLTIMA HORA: se eliminó la compatibilidad con node.js 12, se agregaron pruebas para node.js 18, se cambiaron las dependencias para que no sean compatibles con node.js 12",
         "pl": "ZŁAMANIE: zrezygnowano z obsługi node.js 12, dodano testy dla node.js 18, zmieniono zależności na nie obsługujące node.js 12",
         "zh-cn": "BREAKING：删除 node.js 12 支持，为 node.js 18 添加测试，将依赖项更改为非 node.js 12 支持"
-      },
-      "0.4.4": {
-        "en": "fixed vulnerability, bumped dependencies"
       },
       "0.4.3": {
         "en": "added github tests for MAC-OS and Windows"

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.5.1",
+    "version": "0.6.0",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -48,6 +48,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.6.0": {
+        "en": "fix error in max total current"
+      },
       "0.5.1": {
         "en": "removed gulp, bumped dependencies, small code tweaks"
       },

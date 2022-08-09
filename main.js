@@ -329,6 +329,10 @@ class chargemaster extends utils.Adapter {
                         Wallbox[i].SetAllow = true;
                         this.log.debug(`Wallbox ${i} verified throttled charge with ${Wallbox[i].SetAmp}A`);
                         TotalSetOptAmp = TotalSetOptAmp + Wallbox[i].SetAmp;
+                    } else { // not enough above min current -> switch off charger
+                        Wallbox[i].SetAmp = Wallbox[i].MinAmp;
+                        Wallbox[i].SetAllow = false;
+                        this.log.debug(`Wallbox ${i} switched off due to not enough remaining total current`);
                     }
                 } 
             }

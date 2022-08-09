@@ -243,25 +243,25 @@ class chargemaster extends utils.Adapter {
             if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
                 Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
                 Wallbox[i].SetOptAllow = true;
-                this.log.debug(`Wallbox ${i} planned for charge with ${Wallbox[i].SetOptAmp}A`);
+                this.log.debug(`State machine: Wallbox ${i} planned for charge-now with ${Wallbox[i].SetOptAmp}A`);
             }
 
             else if (Wallbox[i].ChargeManager) { // Charge-Manager is enabled for this wallbox
                 BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
-                this.log.debug(`Got external state of battery SoC: ${BatSoC}%`);
+                this.log.debug(`State machine: Got external state of battery SoC: ${BatSoC}%`);
                 if (BatSoC >= MinHomeBatVal) { // SoC of home battery sufficient?
                     await this.Charge_Manager(i);
                 } else { // FUTURE: time of day forces emptying of home battery
                     Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
                     Wallbox[i].SetOptAllow = false;
-                    this.log.debug(`Wait for home battery SoC of ${MinHomeBatVal}%`);
+                    this.log.debug(`State machine: Wait for home battery SoC of ${MinHomeBatVal}%`);
                 }
             }
 
             else { // switch OFF; set to min. current; 
                 Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
                 Wallbox[i].SetOptAllow = false;
-                this.log.debug(`Wallbox ${i} planned for switch off`);
+                this.log.debug(`State machine: Wallbox ${i} planned for switch off`);
             }
         }
 
@@ -297,8 +297,8 @@ class chargemaster extends utils.Adapter {
             Wallbox[i].SetOptAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
         } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
             OffVerzoegerung++;
-            if (OffVerzoegerung > 12) {
-                Wallbox[i].SetOptAllow = false; // Aus und Zielstrom
+            if (OffVerzoegerung > 15) {
+                Wallbox[i].SetOptAllow = false; // Off
                 OffVerzoegerung = 0;
             }
         }

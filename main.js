@@ -239,7 +239,7 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`StateMachine cycle started`);
         await this.Calc_Total_Power();
 
-        for (i = 0; i = maxCharger; i++) {
+        for (i = 0; i <= maxCharger; i++) {
             if (Wallbox[i].ChargeNOW) { // Charge-NOW is enabled
                 Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent;  // keep active charging current!!
                 Wallbox[i].SetOptAllow = true;
@@ -311,7 +311,7 @@ class chargemaster extends utils.Adapter {
     Charge_Limiter() {
         let i = 0;
         TotalSetOptAmp = 0;
-        for (i = 0; i = maxCharger; i++) { // switch of boxes and adjust local limits
+        for (i = 0; i <= maxCharger; i++) { // switch of boxes and adjust local limits
             if (Wallbox[i].SetOptAllow == false) { // Switch of imediately
                 Wallbox[i].SetAllow = false;
                 Wallbox[i].SetAmp = Wallbox[i].MinAmp;
@@ -339,7 +339,7 @@ class chargemaster extends utils.Adapter {
     /*****************************************************************************************/
     Charge_Config() {
         let i = 0;
-        for (i = 0; i = maxCharger; i++) {
+        for (i = 0; i <= maxCharger; i++) {
             if (Wallbox[i].SetAllow == false) { // first switch off boxes
                 try {
                     switch (i) {
@@ -357,8 +357,8 @@ class chargemaster extends utils.Adapter {
                             break;
 // FEEDBACK ABFRAGEN!!!!
                     }
-                } catch (e) {
-                    this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
+                } catch (err) {
+                    this.log.error(`Error in setting values for wallbox ${i}: ${err}`);
                 } // END try-catch
                 this.log.debug(`Shutdown Wallbox ${i} - ${Wallbox[i].SetAmp} Ampere`);
             } else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {

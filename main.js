@@ -284,23 +284,23 @@ class chargemaster extends utils.Adapter {
             (SolarPower - HouseConsumption + TotalChargePower - 100
                 + ((2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal))) / 230)); // -100 W Reserve + max. 2000 fÜr Batterieleerung
         if (OptAmpere > Wallbox[i].MaxAmp) OptAmpere = Wallbox[i].MaxAmp; // limiting to max current of single box - global will be limited later
-        this.log.debug(`Optimal charging current would be: ${OptAmpere} A`);
+        this.log.debug(`Optimal charging current of Wallbox ${i} would be: ${OptAmpere} A`);
 
-        if (Wallbox[i].SetPointAmp < OptAmpere) {
-            Wallbox[i].SetPointAmp++;
-        } else if (Wallbox[i].SetPointAmp > OptAmpere) Wallbox[i].SetPointAmp--;
+        if (Wallbox[i].SetOptAmp < OptAmpere) {
+            Wallbox[i].SetOptAmp++;
+        } else if (Wallbox[i].SetOptAmp > OptAmpere) Wallbox[i].SetOptAmp--;
 
-        this.log.debug(`Wallbox: ${i} ZielAmpere: ${Wallbox[i].SetPointAmp} Ampere; Leistung DC: ${SolarPower} W; `
+        this.log.debug(`Wallbox ${i} opt. current: ${Wallbox[i].SetOptAmp} Ampere; Leistung DC: ${SolarPower} W; `
             + `Hausverbrauch: ${HouseConsumption} W; Gesamtleistung alle Charger: ${TotalChargePower} W`);
 
-        if (Wallbox[i].SetPointAmp >= (Wallbox[i].MinAmp + 4)) {
+        if (Wallbox[i].SetOptAmp >= (Wallbox[i].MinAmp + 4)) {
 //            this.Charge_Config('1', ZielAmpere, `Charging current: ${ZielAmpere} A`);
-            Wallbox[i].SetPointAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
-        } else if (Wallbox[i].SetPointAmp < Wallbox[i].MinAmp) {
+            Wallbox[i].SetOptAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
+        } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
             OffVerzoegerung++;
             if (OffVerzoegerung > 12) {
 //                this.Charge_Config('0', ZielAmpere, `zu wenig Überschuss`); // Aus und Zielstrom
-                Wallbox[i].SetPointAllow = false; // Aus und Zielstrom
+                Wallbox[i].SetOptAllow = false; // Aus und Zielstrom
                 OffVerzoegerung = 0;
             }
         }

@@ -295,7 +295,9 @@ class chargemaster extends utils.Adapter {
 
         this.log.debug(`Charge Manager 1: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}; OffV ${OffVerzoegerung}`);
 
-        if (Wallbox[i].SetOptAmp > (Wallbox[i].MinAmp + 3)) {
+        let jantiberius = (Wallbox[i].MinAmp + 3);
+
+        if (Wallbox[i].SetOptAmp > jantiberius) {
             Wallbox[i].SetOptAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
             this.log.debug(`Charge Manager: Wallbox ${i} planned to charge`);
 //        } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {

@@ -296,7 +296,7 @@ class chargemaster extends utils.Adapter {
             + `Haus consumption: ${HouseConsumption} W; Total charger power: ${TotalChargePower} W`);
 
         // @ts-ignore
-        let jantiberius = OffHysterese + Wallbox[i].MinAmp.valueOf;
+        let jantiberius = OffHysterese + Wallbox[i].MinAmp.value;
 
         this.log.debug(`Charge Manager 1: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}; OffV ${OffVerzoegerung}; Jan ${jantiberius}`);
 
@@ -305,8 +305,6 @@ class chargemaster extends utils.Adapter {
             this.log.debug(`Charge Manager: Wallbox ${i} planned to charge`);
 //        } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
         }
-
-        this.log.debug(`Charge Manager 2: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}; OffV ${OffVerzoegerung}`);
 
         if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
             OffVerzoegerung++;

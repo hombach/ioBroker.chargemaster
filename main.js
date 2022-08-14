@@ -295,7 +295,9 @@ class chargemaster extends utils.Adapter {
 
         if (Wallbox[i].SetOptAmp >= (Wallbox[i].MinAmp + 4)) {
             Wallbox[i].SetOptAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
-        } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
+//        } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
+        }
+        if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
             OffVerzoegerung++;
             if (OffVerzoegerung > 15) {
                 Wallbox[i].SetOptAllow = false; // Off

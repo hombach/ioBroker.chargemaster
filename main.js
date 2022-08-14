@@ -290,7 +290,7 @@ class chargemaster extends utils.Adapter {
             Wallbox[i].SetOptAmp++;
         } else if (Wallbox[i].SetOptAmp > OptAmpere) Wallbox[i].SetOptAmp--;
 
-        this.log.debug(`Charge Manager: Wallbox ${i} opt. current: ${Wallbox[i].SetOptAmp} A; Solar power: ${SolarPower} W; `
+        this.log.debug(`Charge Manager: Wallbox ${i} blended current: ${Wallbox[i].SetOptAmp} A; Solar power: ${SolarPower} W; `
             + `Haus consumption: ${HouseConsumption} W; Total charger power: ${TotalChargePower} W`);
 
         if (Wallbox[i].SetOptAmp >= (Wallbox[i].MinAmp + 4)) {
@@ -302,7 +302,7 @@ class chargemaster extends utils.Adapter {
                 OffVerzoegerung = 0;
             }
         }
-        this.log.debug(`Charge Manager: Wallbox ${i} opt. state: ${Wallbox[i].SetOptAllow}`);
+        this.log.debug(`Charge Manager: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}`);
 
     } // END Charge_Manager
 

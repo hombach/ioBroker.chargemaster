@@ -295,7 +295,8 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`Charge Manager: Wallbox ${i} blended current: ${Wallbox[i].SetOptAmp} A; Solar power: ${SolarPower} W; `
             + `Haus consumption: ${HouseConsumption} W; Total charger power: ${TotalChargePower} W`);
 
-        let jantiberius = (OffHysterese + Wallbox[i].MinAmp);
+        // @ts-ignore
+        let jantiberius = OffHysterese + Wallbox[i].MinAmp.valueOf;
 
         this.log.debug(`Charge Manager 1: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}; OffV ${OffVerzoegerung}; Jan ${jantiberius}`);
 

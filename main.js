@@ -295,25 +295,22 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`Charge Manager: Wallbox ${i} blended current: ${Wallbox[i].SetOptAmp} A; Solar power: ${SolarPower} W; `
             + `Haus consumption: ${HouseConsumption} W; Total charger power: ${TotalChargePower} W`);
 
-        // @ts-ignore
-        let jantiberius = parseInt(OffHysterese) + parseInt(Wallbox[i].MinAmp);
+        //let jantiberius = parseInt(OffHysterese) + parseInt(Wallbox[i].MinAmp);
+        let jantiberius = Number(OffHysterese) + Number(Wallbox[i].MinAmp);
 
         this.log.debug(`Charge Manager 1: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}; OffV ${OffVerzoegerung}; Jan ${jantiberius}`);
 
         if (Wallbox[i].SetOptAmp > jantiberius) {
             Wallbox[i].SetOptAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
             this.log.debug(`Charge Manager: Wallbox ${i} planned to charge`);
-//        } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
-        }
-
-        if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
+        } else if (Wallbox[i].SetOptAmp < Wallbox[i].MinAmp) {
             OffVerzoegerung++;
             if (OffVerzoegerung > 15) {
                 Wallbox[i].SetOptAllow = false; // Off
                 OffVerzoegerung = 0;
             }
         }
-        this.log.debug(`Charge Manager: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}; OffV ${OffVerzoegerung}`);
+        this.log.debug(`Charge Manager: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}`);
 
     } // END Charge_Manager
 

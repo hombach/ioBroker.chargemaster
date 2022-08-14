@@ -7,6 +7,8 @@ const utils = require('@iobroker/adapter-core');
 // const schedule = require('node-schedule');
 const adapterIntervals = {};
 
+const OffHysterese = 3;
+
 // Variablen
 let OptAmpere        = 6;
 let OffVerzoegerung  = 0;
@@ -293,7 +295,7 @@ class chargemaster extends utils.Adapter {
         this.log.debug(`Charge Manager: Wallbox ${i} blended current: ${Wallbox[i].SetOptAmp} A; Solar power: ${SolarPower} W; `
             + `Haus consumption: ${HouseConsumption} W; Total charger power: ${TotalChargePower} W`);
 
-        let jantiberius = (3 + Wallbox[i].MinAmp);
+        let jantiberius = (OffHysterese + Wallbox[i].MinAmp);
 
         this.log.debug(`Charge Manager 1: Wallbox ${i} planned state: ${Wallbox[i].SetOptAllow}; cur ${Wallbox[i].SetOptAmp}; min ${Wallbox[i].MinAmp}; OffV ${OffVerzoegerung}; Jan ${jantiberius}`);
 

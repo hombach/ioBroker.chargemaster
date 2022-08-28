@@ -26,6 +26,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+
+### 0.6.1 (28.08.2022)
+* (HombachC) bump @iobroker/testing from 3.0.2 to 4.0.0
 ### 0.6.0 (09.08.2022)
 * (HombachC) fix error in max total current, fix error in charge manager
 ### 0.5.1 (06.06.2022)

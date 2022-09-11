@@ -396,24 +396,26 @@ class chargemaster extends utils.Adapter {
 
     /*****************************************************************************************/
     async Calc_Total_Power() {
-        this.log.debug(`Get charge power of all wallboxes`);
+//        this.log.debug(`Get charge power of all wallboxes`);
         try {
             Wallbox[0].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower);
             Wallbox[0].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox0MeasuredMaxChargeAmp);
-            this.log.debug(`Got charge power of wallbox 0: ${Wallbox[0].ChargePower} W; ${Wallbox[0].MeasuredMaxChargeAmp} A`);
+//            this.log.debug(`Got charge power of wallbox 0: ${Wallbox[0].ChargePower} W; ${Wallbox[0].MeasuredMaxChargeAmp} A`);
             if (maxCharger > 0) {
                 Wallbox[1].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox1ChargePower);
                 Wallbox[1].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox1MeasuredMaxChargeAmp);
-                this.log.debug(`Got charge power of wallbox 1: ${Wallbox[1].ChargePower} W; ${Wallbox[1].MeasuredMaxChargeAmp} A`);
+//                this.log.debug(`Got charge power of wallbox 1: ${Wallbox[1].ChargePower} W; ${Wallbox[1].MeasuredMaxChargeAmp} A`);
                 if (maxCharger > 1) {
                     Wallbox[2].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox2ChargePower);
                     Wallbox[2].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox2MeasuredMaxChargeAmp);
-                    this.log.debug(`Got charge power of wallbox 2: ${Wallbox[2].ChargePower} W; ${Wallbox[2].MeasuredMaxChargeAmp} A`);
+//                    this.log.debug(`Got charge power of wallbox 2: ${Wallbox[2].ChargePower} W; ${Wallbox[2].MeasuredMaxChargeAmp} A`);
                 }
             }
             TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
             this.setStateAsync('Power.Charge', TotalChargePower, true); // trim to Watt
             TotalMeasuredChargeCurrent = Math.ceil(Wallbox[0].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[1].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[2].MeasuredMaxChargeAmp);
+            this.log.debug(`Got charge power of all wallboxes - 0: ${Wallbox[0].ChargePower}W; ${Wallbox[0].MeasuredMaxChargeAmp}A - 1: ${Wallbox[1].ChargePower}W; ${Wallbox[1].MeasuredMaxChargeAmp}A - 2: ${Wallbox[2].ChargePower}W; ${Wallbox[2].MeasuredMaxChargeAmp}A`);
+            this.log.debug(`Total measured charge power: ${TotalChargePower}W - Total measured charge current: ${TotalMeasuredChargeCurrent}A`);
         } catch (e) {
             this.log.error(`Error in reading charge power of wallboxes: ${e}`);
         } // END catch

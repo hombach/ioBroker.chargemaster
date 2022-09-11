@@ -368,7 +368,7 @@ class chargemaster extends utils.Adapter {
                 } // END try-catch
                 this.log.debug(`Charger Config: Shutdown Wallbox ${i} - ${Wallbox[i].SetAmp} Ampere`);
             } else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
-                //HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
+// HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
                 try {
                     switch (i) {
                         case 0:
@@ -389,7 +389,7 @@ class chargemaster extends utils.Adapter {
                 } // END try-catch
                 this.log.debug(`Wallbox ${i} switched on for charge with ${Wallbox[i].SetAmp}A`);
             }
-        }
+        } // END for
 
     } // END Charge_Config
 

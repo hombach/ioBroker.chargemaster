@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.6.1",
+    "version": "0.6.2",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -48,6 +48,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.6.2": {
+        "en": "fixed error in calc with active charge current"
+      },
       "0.6.1": {
         "en": "bump @iobroker/testing from 3.0.2 to 4.1.0"
       },

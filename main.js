@@ -361,7 +361,7 @@ class chargemaster extends utils.Adapter {
                             this.setForeignState(this.config.StateWallBox2ChargeAllowed, Wallbox[i].SetAllow);
                             this.setForeignState(this.config.StateWallBox2ChargeCurrent, Number(Wallbox[i].SetAmp));
                             break;
-// FEEDBACK ABFRAGEN!!!!
+                    // evtl. FEEDBACK ABFRAGEN!
                     }
                 } catch (err) {
                     this.log.error(`Charger Config: Error in setting values for wallbox ${i}: ${err}`);
@@ -385,9 +385,9 @@ class chargemaster extends utils.Adapter {
                             break;
                     }
                 } catch (e) {
-                    this.log.error(`Error in setting charging for wallbox ${i}: ${e}`);
+                    this.log.error(`Charger Config: Error in setting charging for wallbox ${i}: ${e}`);
                 } // END try-catch
-                this.log.debug(`Wallbox ${i} switched on for charge with ${Wallbox[i].SetAmp}A`);
+                this.log.debug(`Charger Config: Wallbox ${i} switched on for charge with ${Wallbox[i].SetAmp}A`);
             }
         } // END for
 

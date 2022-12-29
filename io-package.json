@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.6.2",
+    "version": "0.6.3",
     "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
@@ -48,6 +48,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.6.3": {
+        "en": "bumped dependencies and year 2023 changes"
+      },
       "0.6.2": {
         "en": "fixed error in calc with active charge current"
       },
@@ -95,9 +98,6 @@
       },
       "0.2.0": {
         "en": "dropped node.js 10 support; bumped dependencies"
-      },
-      "0.1.2": {
-        "en": "code cleanup and optimization, fixed onStateChange"
       },
       "0.1.1": {
         "en": "fixed errors with js-controller 3.3.x, bumped dependencies"

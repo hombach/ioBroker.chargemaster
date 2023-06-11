@@ -63,19 +63,69 @@
         "zh-cn": "BREAKRE:撤除不de.js 14支持,增加20js,降水箱。 附录4"
       },
       "0.6.3": {
-        "en": "bumped dependencies and year 2023 changes"
+        "en": "bumped dependencies and year 2023 changes",
+        "de": "Aabhängigkeiten aktualisiert und Jahr 2023 Änderungen",
+        "ru": "сбитые зависимости и год 2023 изменения",
+        "pt": "dependências acidentadas e mudanças de ano 2023",
+        "nl": "quality over quantity (qoq) releases vertaling:",
+        "fr": "dépendances et changements de l'année 2023",
+        "it": "urtato dipendenze e anno 2023 modifiche",
+        "es": "dependencia y cambios del año 2023",
+        "pl": "w zależności od miejsca i roku 2023 zmiany",
+        "uk": "погані залежності і 2023 зміни",
+        "zh-cn": "b 倾销的属地和年 2023个变化"
       },
       "0.6.2": {
-        "en": "fixed error in calc with active charge current"
+        "en": "fixed error in calc with active charge current",
+        "de": "Fehler in Berechnung des aktiven Ladestroms beseitigt",
+        "ru": "исправленная ошибка в кальке с активным зарядным течением",
+        "pt": "erro fixo no calcário com corrente de carga ativa",
+        "nl": "calc met actieve lading",
+        "fr": "erreur fixe en calc avec courant de charge actif",
+        "it": "errore fisso in calc con corrente di carica attiva",
+        "es": "error fijo en calc con corriente de carga activa",
+        "pl": "uruchomiony błąd obliczeniowy",
+        "uk": "виправлена помилка в кальці з струмом активного заряду",
+        "zh-cn": "目前积极指控的固定缺陷"
       },
       "0.6.1": {
-        "en": "bump @iobroker/testing from 3.0.2 to 4.1.0"
+        "en": "bump @iobroker/testing from 3.0.2 to 4.1.0",
+        "de": "update @iobroker/test von 3.0.2 auf 4.1.0",
+        "ru": "bump @iobroker/тестирование с 3.0.2 до 4.1.0",
+        "pt": "bump @iobroker/testando de 3.0.2 para 4.1.0",
+        "nl": "quality over quantity (qoq) releases vertaling:",
+        "fr": "bosse @iobroker/essai de 3.0.2 à 4.1.0",
+        "it": "urto @iobroker / test da 3.0.2 a 4.1.0",
+        "es": "tope @iobroker/testing de 3.0.2 a 4.1.0",
+        "pl": "@iobroker/testowanie od 3.0.2 do 4.1.0",
+        "uk": "bump @iobroker/testing від 3.0.2 до 4.1.0",
+        "zh-cn": "b 倾销@iobroker/test from 3.0.2 to 4"
       },
       "0.6.0": {
-        "en": "fix error in max total current; fix error in charge manager"
+        "en": "fix error in max total current; fix error in charge manager",
+        "de": "Fehler in max Gesamtstrom behoben; Fehler im Lademanager behoben",
+        "ru": "исправьте ошибку в максимальном текущем; исправьте ошибку в зарядном менеджере",
+        "pt": "corrigir erro na corrente total máxima; corrigir erro no gerenciador de carga",
+        "nl": "vergissing in max totale stroming",
+        "fr": "corriger l'erreur dans le courant total max; corriger l'erreur dans le gestionnaire de charge",
+        "it": "correggere errore nella corrente totale massima; correggere errore in responsabile",
+        "es": "corregir error en la corriente máxima total; corregir error en el administrador de cargo",
+        "pl": "ustępowanie błędów w maksimum całkowitego prądu; naprawa błędów w menedżerze zadań",
+        "uk": "виправлено помилку в максимальному обсязі; виправлено помилку в управлінні зарядами",
+        "zh-cn": "f 现有最高数的错误; 主管管理人员的错误"
       },
       "0.5.1": {
-        "en": "removed gulp, bumped dependencies, small code tweaks"
+        "en": "removed gulp, bumped dependencies, small code tweaks",
+        "de": "gulp entfernt, update der Abhängigkeiten, kleine code Verbesserungen",
+        "ru": "удалили гульптуру, прыгнувшие зависимости, мелкие кодовые твики",
+        "pt": "gulp removido, dependências colhidas, pequenos ajustes de código",
+        "nl": "verwijderde gulp, buigde afhankelijkheid, kleine code tweaks",
+        "fr": "gulpe enlevée, dépendances par bosse, petits tweaks de code",
+        "it": "gulp rimosso, interrotte dipendenze, piccole modifiche di codice",
+        "es": "golpes eliminados, dependencias parachoques, pequeños ajustes de código",
+        "pl": "usunięta gulp, zderzone zależności, małe poprawki kodu",
+        "uk": "видалені гельпи, погані залежності, невеликі кодові палички",
+        "zh-cn": "删除古帕、倾销的依赖性、小法典的瓦克s"
       },
       "0.5.0": {
         "en": "BREAKING: dropped node.js 12 support, add tests for node.js 18, changed dependencies to non node.js 12 support",
@@ -142,9 +192,6 @@
         "es": "colección agregada y cálculo de la potencia de carga total",
         "pl": "dodano zbieranie i obliczanie całkowitej mocy ładowania",
         "zh-cn": "增加了总充电功率的收集和计算"
-      },
-      "0.0.1": {
-        "en": "initial release"
       }
     },
     "compact": true,

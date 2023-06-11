@@ -1,6 +1,6 @@
 {
   "name": "iobroker.chargemaster",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "description": "Adapter for managing of multi EV-chargers with use of PV-energy",
   "author": "hombach <NPM@Homba.ch>",
   "homepage": "https://github.com/hombach/ioBroker.chargemaster",
@@ -18,7 +18,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "engines": {
-    "node": ">= 14.0.0"
+    "node": ">= 16.0.0"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.6.8"

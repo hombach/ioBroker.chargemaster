@@ -2,7 +2,6 @@
   "common": {
     "name": "chargemaster",
     "version": "0.7.0",
-    "title": "chargemaster",
     "titleLang": {
       "en": "ChargeMaster",
       "de": "ChargeMaster",

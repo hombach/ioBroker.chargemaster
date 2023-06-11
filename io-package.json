@@ -12,6 +12,7 @@
       "it": "ChargeMaster",
       "es": "ChargeMaster",
       "pl": "ChargeMaster",
+      "uk": "ChargeMaster",
       "zh-cn": "ChargeMaster"
     },
     "desc": {
@@ -24,6 +25,7 @@
       "it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
       "es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
       "pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
+      "uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
       "zh-cn": "使用PV能源管理多个EV充电器的适配器"
     },
     "authors": [

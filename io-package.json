@@ -180,22 +180,82 @@
         "zh-cn": "a. 改变州对英恩;倾弃的依赖"
       },
       "0.4.1": {
-        "en": "fixed error in charger communication; added ci test"
+        "en": "fixed error in charger communication; added ci test",
+        "de": "Fehler in der Ladegerät-Kommunikation korrigiert; ci-Tests hinzugefügt",
+        "ru": "исправлена ошибка в заряженном общении; добавлено ci test",
+        "pt": "erro fixo na comunicação do carregador; teste ci adicionado",
+        "nl": "gerepareerde fout in oplader communicatie",
+        "fr": "erreur fixe dans la communication du chargeur; ajout ci test",
+        "it": "errore fisso nella comunicazione del caricabatterie; aggiunto ci test",
+        "es": "error fijo en la comunicación del cargador; prueba ci",
+        "pl": "uruchomiony błąd w komunikacjach ładowania, dodał mi testy",
+        "uk": "виправлена помилка в зв'язку з зарядним пристроєм; додано тест ci",
+        "zh-cn": "指控通信的固定错误;附加的试验"
       },
       "0.4.0": {
-        "en": "introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config"
+        "en": "introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config",
+        "de": "automatische Anpassung an die Menge der konfigurierten Ladegeräte; bugfixes für sauberen Lauf ohne Konfig",
+        "ru": "введена автоматическая адаптация к количеству настраиваемых зарядных устройств; багфиксы для более чистого бега без конфига",
+        "pt": "introduzida adaptação automática à quantidade de carregadores configurados; correções de bugs para execução mais limpa sem configuração",
+        "nl": "geïntroduceerde automatische aanpassing aan de hoeveelheid inbeslagnames, insecten voor reinigers zonder configuur",
+        "fr": "a introduit l'adaptation automatique à la quantité de chargeurs configurés; bugfixes for cleaner run without config",
+        "it": "ha introdotto l'adattamento automatico alla quantità di caricabatterie configurati; bugfix per eseguire più pulito senza configurazione",
+        "es": "introdujo la adaptación automática a la cantidad de cargadores configurados; bugfixes para un funcionamiento limpio sin config",
+        "pl": "wprowadzono automatyczną adaptację do ilości ładowanych ładunków konfigurowanych; bugfixes for cleaner run without configigigig",
+        "uk": "введена автоматична адаптація до кількості налаштованих зарядних пристроїв; виправлення помилок для чищення запуску без налаштування",
+        "zh-cn": "采用自动调整,以配置的收费者的数额; 清洁经营的奖励,而没有混凝土。"
       },
       "0.3.2": {
-        "en": "fixing test automation, several bugfixes for cleaner run without config"
+        "en": "fixing test automation, several bugfixes for cleaner run without config",
+        "de": "Korrektur der Testautomation, mehrere bugfixes für sauberen Lauf ohne Konfig",
+        "ru": "фиксация автоматизации тестирования, несколько исправлений для более чистого бега без конфига",
+        "pt": "fixação de automação de teste, vários correções de bugs para execução mais limpa sem configuração",
+        "nl": "verschillende testautomaten voor reinigers zonder configuur",
+        "fr": "correction de l'automatisation de test, plusieurs bugfix pour une course plus propre sans config",
+        "it": "fissaggio dell'automazione dei test, diversi bugfix per un funzionamento più pulito senza configurazione",
+        "es": "automatización de pruebas de fijación, varios bugfixes para un funcionamiento limpio sin config",
+        "pl": "naprawić automaty testowe, kilka błędów do czystego uruchamiania bez konfigurowizacji",
+        "uk": "фіксація тестової автоматики, кілька фіксаторів для очищення без налаштування",
+        "zh-cn": "f 固定试验自动化,供清洁经营的几块纤维,而不混凝土。"
       },
       "0.3.1": {
-        "en": "added sentry statistics; optimized logging; fixed type conversion bug"
+        "en": "added sentry statistics; optimized logging; fixed type conversion bug",
+        "de": "erweiterte sentry-Statistik; optimiertes Logging; Fehler in Typkonvertierung bereinigt",
+        "ru": "добавлена статистика отправлений; оптимизирована логовка; исправлена ошибка преобразования типа",
+        "pt": "estatísticas de sentinela adicionadas; registro otimizado; bug de conversão de tipo fixo",
+        "nl": "vertaling:",
+        "fr": "statistiques des sentinelles ajoutées; logging optimisé; bug de conversion de type fixe",
+        "it": "aggiunto statistiche della miriade; registrazione ottimizzata; bug di conversione del tipo fisso",
+        "es": "estadísticas agregadas de centinelas; logging optimizado; bug de conversión de tipo fijo",
+        "pl": "dodatki statystyki: zoptymalizowana logika; uaktualniona odmiana bug",
+        "uk": "додана статистика відправників; оптимізована логістика; виправлена помилка перетворення типу",
+        "zh-cn": "寄发的统计数字;优化伐木;固定类型的转换"
       },
       "0.3.0": {
-        "en": "first public release for iOBroker latest repo; added sentry support"
+        "en": "first public release for iOBroker latest repo; added sentry support",
+        "de": "erste öffentliche Version für iOBroker Beta Repo; Unterstützung für Sentry",
+        "ru": "первый публичный релиз для iOBroker latest repo; добавлена поддержка",
+        "pt": "primeiro lançamento público para iOBroker mais recente repo; suporte de sentinela adicionado",
+        "nl": "eerste openbare vrijlating voor iOBroker laatste repo, toegevoegde sentimentele steun",
+        "fr": "premier communiqué public pour iOBroker dernière repo; support de sentinelle ajouté",
+        "it": "primo rilascio pubblico per iOBroker ultima repo; aggiunto supporto di sentina",
+        "es": "primer lanzamiento público para iOBroker último repo; apoyo enviado",
+        "pl": "pierwsze publiczne wydanie iOBrokera, dodanie wsparcia dla poczty",
+        "uk": "перший публічний реліз для iOBroker останнього репо; додано",
+        "zh-cn": "首次公开释放最近一波罗克人;增派了寄托支助"
       },
       "0.2.0": {
-        "en": "dropped node.js 10 support; bumped dependencies"
+        "en": "dropped node.js 10 support; bumped dependencies",
+        "de": "node.js 10 Support entfernt; aktualisierte Abhängigkeiten",
+        "ru": "опустил поддержку node.js 10; побитые зависимости",
+        "pt": "drop node.js 10 suporte; dependências colhidas",
+        "nl": "hij liet node vallen",
+        "fr": "abandonné node.js 10 support; dépendances paressées",
+        "it": "ha abbandonato node.js 10 supporto; dipendenze urtate",
+        "es": "drop node.js 10 support; bulled dependencies",
+        "pl": "zrzucane węzełki 10; zderzeniowe zależności",
+        "uk": "javascript licenses api веб-сайт go1.13.8",
+        "zh-cn": "删除第10号支助;倾弃的依赖"
       },
       "0.1.0": {
         "en": "first running version, fixed to 3 boxes",

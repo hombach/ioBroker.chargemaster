@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "titleLang": {
       "en": "ChargeMaster",
       "de": "ChargeMaster",
@@ -49,6 +49,19 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.7.1": {
+        "en": "Fixed typo in docu, added translations",
+        "de": "Tippfehler in doku korrigiert, zusätzliche Übersetzungen",
+        "ru": "Исправлена typo в docu, добавлены переводы",
+        "pt": "Tipo fixo em docu, traduções adicionadas",
+        "nl": "Vertaling:",
+        "fr": "Correction du typo dans docu, traductions ajoutées",
+        "it": "Typo fisso in docu, traduzioni aggiuntive",
+        "es": "Tipología fija en docu, traducciones agregadas",
+        "pl": "Fixed typo in docu, dodał tłumaczenia",
+        "uk": "Фіксований тип у доку, додано переклади",
+        "zh-cn": "档案中的固定型号,加上翻译"
+      },
       "0.7.0": {
         "en": "BREAKING: dropped node.js 14 support, add tests for node.js 20, dropped ioBroker.admin 4 support",
         "de": "BREAKING: Node.js 14-Unterstützung wurde eingestellt, tests für node.js 20 hinzugefügt, ioBroker.admin 4 Unterstützung entfernt",
@@ -137,13 +150,34 @@
         "it": "ROTTURA: supporto node.js 12 abbandonato, aggiunta test per node.js 18, dipendenze modificate in supporto non node.js 12",
         "es": "ÚLTIMA HORA: se eliminó la compatibilidad con node.js 12, se agregaron pruebas para node.js 18, se cambiaron las dependencias para que no sean compatibles con node.js 12",
         "pl": "ZŁAMANIE: zrezygnowano z obsługi node.js 12, dodano testy dla node.js 18, zmieniono zależności na nie obsługujące node.js 12",
+        "uk": "BREAKING: скидати node.js 12 підтримка, додати тести для node.js 18, змінені залежності до не node.js 12 підтримка",
         "zh-cn": "BREAKING：删除 node.js 12 支持，为 node.js 18 添加测试，将依赖项更改为非 node.js 12 支持"
       },
       "0.4.3": {
-        "en": "added github tests for MAC-OS and Windows"
+        "en": "added github tests for MAC-OS and Windows",
+        "de": "github Tests für MAC-OS und Windows hinzugefügt",
+        "ru": "добавлены github тесты для MAC-OS и Windows",
+        "pt": "adicionado github testes para MAC-OS e Windows",
+        "nl": "voegde github testen toe voor MAC-OS en Windows",
+        "fr": "des tests github pour MAC-OS et Windows",
+        "it": "test github aggiunti per MAC-OS e Windows",
+        "es": "añadidas pruebas de github para MAC-OS y Windows",
+        "pl": "dodano testy MAC-OS i Windows",
+        "uk": "додано тести github для MAC-OS та Windows",
+        "zh-cn": "综合安全分会和视窗的试验"
       },
       "0.4.2": {
-        "en": "changed statemachine to async; bumped dependencies"
+        "en": "changed statemachine to async; bumped dependencies",
+        "de": "Änderung Zustandsmaschine auf async; aktualisierte Abhängigkeiten",
+        "ru": "изменена государственная машина в async; bumped зависимости",
+        "pt": "mudou statemachine para async; dependências colididas",
+        "nl": "veranderde staatsmachine naar async:",
+        "fr": "changement d'état à async; dépendances paressées",
+        "it": "cambiato statemachine in asincrona; interrotte dipendenze",
+        "es": "cambió el estadomachine al asinc; las dependencias con problemas",
+        "pl": "zmieniła się maszyna stanowa, zależność od zderzenia",
+        "uk": "змінений стан машини для асинхронізації",
+        "zh-cn": "a. 改变州对英恩;倾弃的依赖"
       },
       "0.4.1": {
         "en": "fixed error in charger communication; added ci test"
@@ -163,11 +197,18 @@
       "0.2.0": {
         "en": "dropped node.js 10 support; bumped dependencies"
       },
-      "0.1.1": {
-        "en": "fixed errors with js-controller 3.3.x, bumped dependencies"
-      },
       "0.1.0": {
-        "en": "first running version, fixed to 3 boxes"
+        "en": "first running version, fixed to 3 boxes",
+        "de": "erste lauffähige Version, auf 3 boxen fixiert",
+        "ru": "первая ходовая версия, фиксированная до 3 коробок",
+        "pt": "primeira versão em execução, fixo para 3 caixas",
+        "nl": "eerste draaiende versie, gemaakt tot drie dozen",
+        "fr": "première version d'exécution, fixée à 3 boîtes",
+        "it": "prima versione in esecuzione, fissata a 3 scatole",
+        "es": "primera versión de ejecución, fija a 3 cajas",
+        "pl": "pierwsza wersja startowa została umieszczona na 3 boxach",
+        "uk": "версія першого ходу, фіксована до 3 ящиків",
+        "zh-cn": "第一个操作版本,固定至3箱"
       },
       "0.0.7": {
         "en": "added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",

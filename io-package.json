@@ -280,6 +280,7 @@
         "it": "aggiunti MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
         "es": "agregó MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
         "pl": "dodano MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
+        "uk": "доданий MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox",
         "zh-cn": "添加了 MaxAmpTotal、MinAmpWallBox、MaxAmpWallBox"
       },
       "0.0.6": {
@@ -292,6 +293,7 @@
         "it": "aggiunta raccolta e calcolo della potenza di carica totale",
         "es": "colección agregada y cálculo de la potencia de carga total",
         "pl": "dodano zbieranie i obliczanie całkowitej mocy ładowania",
+        "uk": "додано збір та калібр загальної зарядної потужності",
         "zh-cn": "增加了总充电功率的收集和计算"
       }
     },

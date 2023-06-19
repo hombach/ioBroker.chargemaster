@@ -50,7 +50,17 @@
     "dataSource": "poll",
     "news": {
       "0.7.2": {
-        "en": "Removed Travis"
+        "en": "Removed Travis",
+        "de": "Entfernen von Travis",
+        "ru": "Удаленный Travis",
+        "pt": "Remover Travis",
+        "nl": "Verwijder Travis",
+        "fr": "Enlevé Travis",
+        "it": "Rimuovi Travis",
+        "es": "Travis eliminado",
+        "pl": "Remove Travis",
+        "uk": "Видалити Travis",
+        "zh-cn": "撤职训练"
       },
       "0.7.1": {
         "en": "Fixed typo in docu, added translations",

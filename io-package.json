@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.7.1",
+    "version": "0.7.2",
     "titleLang": {
       "en": "ChargeMaster",
       "de": "ChargeMaster",
@@ -49,6 +49,9 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.7.2": {
+        "en": "Removed Travis"
+      },
       "0.7.1": {
         "en": "Fixed typo in docu, added translations",
         "de": "Tippfehler in doku korrigiert, zusätzliche Übersetzungen",

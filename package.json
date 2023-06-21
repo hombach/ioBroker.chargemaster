@@ -55,6 +55,15 @@
   "bugs": {
     "url": "https://github.com/hombach/ioBroker.chargemaster/issues"
   },
+  "files": [
+    "admin{,/!(src)/**}/!(tsconfig|tsconfig.*).json",
+    "admin{,/!(src)/**}/*.{html,css,png,svg,jpg,js}",
+    "lib/",
+    "www/",
+    "io-package.json",
+    "LICENSE",
+    "main.js"
+  ],
   "directories": {
     "lib": "lib",
     "test": "test"

@@ -1,12 +1,203 @@
 {
-  "requestTimeout": {
-    "type": "number",
-    "min": 1,
-    "max": 120,
-    "sm": 12,
-    "md": 6,
-    "lg": 6,
-    "label": "Request Timeout",
-    "help": "Time in Seconds"
+	"i18n": true,
+
+  "cycletime": {
+  		"type": "number",
+			"label": "cycletime",
+			"min": 1000,
+			"step": 1,
+			"sm": 6,
+			"md": 6,
+			"lg": 6,
+			"newLine": false
+  },
+  "MaxAmpTotal": {
+  		"type": "number",
+			"label": "MaxAmpTotal",
+			"min": 1,
+			"step": 1,
+			"sm": 6,
+			"md": 6,
+			"lg": 6,
+			"newLine": false
   }
+
+  "StateWallBox0Headline": {
+			"type": "header",
+			"text": "StateWallBox0Headline",
+			"size": 3
+	},
+
+  
 }
+
+
+
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateHomeSolarPower" />
+                <label for="StateHomeSolarPower" class="translate">StateHomeSolarPower</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateHomeSolarPowerPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateHomePowerConsumption" />
+                <label for="StateHomePowerConsumption" class="translate">StateHomePowerConsumption</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateHomePowerConsumptionPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateHomeBatSoc" />
+                <label for="StateHomeBatSoc" class="translate">StateHomeBatSoc</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateHomeBatSocPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <h6 class="translate title" style="background-color:#174475; font-size: 0.9rem; border-radius: 4px;">StateWallBox0Headline</h6>
+        </div>
+
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox0ChargeCurrent" />
+                <label for="StateWallBox0ChargeCurrent" class="translate">StateWallBox0ChargeCurrent</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox0ChargeCurrentPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox0ChargeAllowed" />
+                <label for="StateWallBox0ChargeAllowed" class="translate">StateWallBox0ChargeAllowed</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox0ChargeAllowedPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox0ChargePower" />
+                <label for="StateWallBox0ChargePower" class="translate">StateWallBox0ChargePower</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox0ChargePowerPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox0MeasuredMaxChargeAmp" />
+                <label for="StateWallBox0MeasuredMaxChargeAmp" class="translate">StateWallBox0MeasuredMaxChargeAmp</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox0MeasuredMaxChargeAmpPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="number" class="value" id="MinAmpWallBox0" />
+                <label for="MinAmpWallBox0" class="translate">MinAmpWallBox0</label>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="number" class="value" id="MaxAmpWallBox0" />
+                <label for="MaxAmpWallBox0" class="translate">MaxAmpWallBox0</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <h6 class="translate title" style="background-color:#174475; font-size: 0.9rem; border-radius: 4px;">StateWallBox1Headline</h6>
+        </div>
+
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox1ChargeCurrent" />
+                <label for="StateWallBox1ChargeCurrent" class="translate">StateWallBox1ChargeCurrent</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox1ChargeCurrentPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox1ChargeAllowed" />
+                <label for="StateWallBox1ChargeAllowed" class="translate">StateWallBox1ChargeAllowed</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox1ChargeAllowedPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox1ChargePower" />
+                <label for="StateWallBox1ChargePower" class="translate">StateWallBox1ChargePower</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox1ChargePowerPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox1MeasuredMaxChargeAmp" />
+                <label for="StateWallBox1MeasuredMaxChargeAmp" class="translate">StateWallBox1MeasuredMaxChargeAmp</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox1MeasuredMaxChargeAmpPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="number" class="value" id="MinAmpWallBox1" />
+                <label for="MinAmpWallBox1" class="translate">MinAmpWallBox1</label>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="number" class="value" id="MaxAmpWallBox1" />
+                <label for="MaxAmpWallBox1" class="translate">MaxAmpWallBox1</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <h6 class="translate title" style="background-color:#174475; font-size: 0.9rem; border-radius: 4px;">StateWallBox2Headline</h6>
+        </div>
+
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox2ChargeCurrent" />
+                <label for="StateWallBox2ChargeCurrent" class="translate">StateWallBox2ChargeCurrent</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox2ChargeCurrentPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox2ChargeAllowed" />
+                <label for="StateWallBox2ChargeAllowed" class="translate">StateWallBox2ChargeAllowed</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox2ChargeAllowedPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox2ChargePower" />
+                <label for="StateWallBox2ChargePower" class="translate">StateWallBox2ChargePower</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox2ChargePowerPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="text" class="value" id="StateWallBox2MeasuredMaxChargeAmp" />
+                <label for="StateWallBox2MeasuredMaxChargeAmp" class="translate">StateWallBox2MeasuredMaxChargeAmp</label>
+            </div>
+            <div class="col s1 m1 l1">
+                <a id="StateWallBox2MeasuredMaxChargeAmpPopUp" class="btn"><i class="material-icons">settings</i><span></span></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s5 m5 l5 input-field">
+                <input type="number" class="value" id="MinAmpWallBox2" />
+                <label for="MinAmpWallBox2" class="translate">MinAmpWallBox2</label>
+            </div>
+            <div class="col s5 m5 l5 input-field">
+                <input type="number" class="value" id="MaxAmpWallBox2" />
+                <label for="MaxAmpWallBox2" class="translate">MaxAmpWallBox2</label>
+            </div>
+        </div>

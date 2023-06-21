@@ -312,6 +312,9 @@
     },
     "compact": true,
     "materialize": true,
+    "adminUI": {
+      "config": "json"
+    },
     "supportCustoms": false,
     "globalDependencies": [
       {

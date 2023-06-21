@@ -7,6 +7,6 @@
     "md": 6,
     "lg": 6,
     "label": "Request Timeout",
-    "help": "in Seconds"
+    "help": "Time in Seconds"
   }
 }

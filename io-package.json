@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.7.2",
+    "version": "0.8.0",
     "titleLang": {
       "en": "ChargeMaster",
       "de": "ChargeMaster",
@@ -49,6 +49,19 @@
     "connectionType": "local",
     "dataSource": "poll",
     "news": {
+      "0.8.0": {
+        "en": "changed config screen to admin 5 solution",
+        "de": "geänderter Konfig-Bildschirm mit admin 5 Version",
+        "ru": "изменен экран config для admin 5 решение",
+        "pt": "tela de configuração alterada para solução admin 5",
+        "nl": "veranderde configuur naar administratie 5",
+        "fr": "changé d'écran de configuration pour admin 5 solution",
+        "it": "modificato schermo di configurazione per la soluzione admin 5",
+        "es": "cambiar la pantalla de configuración para admin 5 solución",
+        "pl": "zmieniono ekran konfiguracyjny 5",
+        "uk": "змінений екран налаштування до рішення адміністратора 5",
+        "zh-cn": "b. 压缩5个解决办法的概略筛选"
+      },
       "0.7.2": {
         "en": "Removed Travis",
         "de": "Entfernen von Travis",

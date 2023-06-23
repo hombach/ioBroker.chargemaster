@@ -1,6 +1,18 @@
 {
 	"i18n": false,
 
+
+	
+	"type": "tabs",
+	"items":  {
+	    "_StandardTab": {
+       		"type": "panel",
+		"label": "Standard settings",
+	        "items": {
+
+	
+	
+	
 	"cycletime": {
   		"type": "number",
 		"label": "cycletime",
@@ -230,5 +242,5 @@
 		"lg": 6,
 		"newLine": false
 	}
-	
+		}}}
 }

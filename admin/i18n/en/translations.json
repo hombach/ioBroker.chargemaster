@@ -12,18 +12,6 @@
 
 
 {
-    "template adapter settings": {
-        "en": "Adapter settings for ChargeMaster",
-        "de": "Adaptereinstellungen für ChargeMaster",
-        "ru": "Настройки адаптера для ChargeMaster",
-        "pt": "Configurações do adaptador para ChargeMaster",
-        "nl": "Adapterinstellingen voor ChargeMaster",
-        "fr": "Paramètres de l'adaptateur pour ChargeMaster",
-        "it": "Impostazioni dell'adattatore per ChargeMaster",
-        "es": "Configuración del adaptador para ChargeMaster",
-        "pl": "Ustawienia adaptera dla ChargeMaster",
-        "zh-cn": "ChargeMaster的适配器设置"
-    },
     "cycletime": {
         "en": "Cycletime for chargemanager [ms] - (default 10000)",
         "de": "Zykluszeit für Chargemanager [ms] - (Standard 10000)",

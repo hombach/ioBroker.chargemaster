@@ -1,131 +1,105 @@
 {
     "cycletime":
-        "fr": "Temps de cycle pour chargemanager [ms] - (par défaut 10000)",
         "it": "Tempo di ciclo per chargemanager [ms] - (predefinito 10000)",
         "pl": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
         "zh-cn": "Chargemanager 的周期时间 [ms] -（默认 10000)",
     "MaxAmpTotal":
-        "fr": "Somme maximale autorisée des courants pour le système complet [A]",
         "it": "Somma massima consentita delle correnti per l'intero sistema [A]",
         "pl": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
         "zh-cn": "整个系统的最大允许电流总和[A]",
     "StateHomeSolarPower":
-        "fr": "object-id pour l'énergie solaire actuellement disponible [W]",
         "it": "ID oggetto per l'energia solare attualmente disponibile [W]",
         "pl": "id obiektu dla aktualnie dostępnej energii słonecznej [W]",
         "zh-cn": "当前可用太阳能的对象ID [W]",
     "StateHomeBatSoc":
-        "fr": "object-id pour l'état de charge actuel de la batterie domestique [%]",
         "it": "object-id per l'attuale stato di carica della batteria domestica [%]",
         "pl": "id obiektu dla aktualnego stanu naładowania akumulatora w domu [%]",
         "zh-cn": "当前家用电池充电状态的对象ID [％]",
     "StateHomePowerConsumption":
-        "fr": "object-id pour la consommation électrique actuelle du domicile [W]",
         "it": "object-id per il consumo energetico domestico corrente [W]",
         "pl": "id obiektu dla bieżącego zużycia energii w domu [W]",
         "zh-cn": "当前家庭功耗的对象ID [W]",
     "StateWallBox0Headline":
-        "fr": "Connexions de données pour WallBox 0",
         "it": "Connessioni dati per WallBox 0",
         "pl": "Połączenia danych dla WallBox 0",
         "zh-cn": "WallBox 0 的数据连接",
     "StateWallBox0ChargeCurrent":
-        "fr": "object-id pour régler le courant de charge de la Wallbox 0 [A]",
         "it": "object-id per l'impostazione della corrente di carica della wallbox 0 [A]",
         "pl": "id obiektu do ustawiania prądu ładowania wallbox 0 [A]",
         "zh-cn": "用于设置墙盒0充电电流[A]的对象ID",
     "StateWallBox0ChargeAllowed":
-        "fr": "object-id pour activer le chargement de la Wallbox 0 [true/false]",
         "it": "ID oggetto per abilitare la ricarica della wallbox 0 [true/false]",
         "pl": "identyfikator obiektu do włączenia ładowania Wallbox 0 [true/false]",
         "zh-cn": "启用Wallbox 0收费的对象ID [true/false]",
     "StateWallBox0ChargePower":
-        "fr": "object-id pour lire la puissance de charge de la wallbox 0 [W]",
         "it": "object-id per la lettura della potenza di carica della wallbox 0 [W]",
         "pl": "object-id do odczytu mocy ładowania wallbox 0 [W]",
         "zh-cn": "读取Wallbox 0充电功率的对象ID [W]",
     "StateWallBox0MeasuredMaxChargeAmp":
-        "fr": "object-id pour la lecture du courant de phase max mesuré de la Wallbox 0 [A]",
         "it": "object-id per la lettura della corrente di fase massima misurata della wallbox 0 [A]",
         "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 0 [A]",
         "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 0 [A]",
     "MinAmpWallBox0":
-        "fr": "Courant minimum autorisé pour Wallbox 0 [A]",
         "it": "Corrente minima consentita per Wallbox 0 [A]",
         "pl": "Minimalny dopuszczalny prąd dla Wallbox 0 [A]",
         "zh-cn": "Wallbox 0的最小允许电流[A]",
     "MaxAmpWallBox0":
-        "fr": "Courant maximal autorisé pour la Wallbox 0 [A]",
         "it": "Corrente massima consentita per Wallbox 0 [A]",
         "pl": "Maksymalny dopuszczalny prąd dla Wallbox 0 [A]",
         "zh-cn": "Wallbox 0的最大允许电流[A]",
     "StateWallBox1Headline":
-        "fr": "Connexions de données pour WallBox 1",
         "it": "Connessioni dati per WallBox 1",
         "pl": "Połączenia danych dla WallBox 1",
         "zh-cn": "WallBox 1 的数据连接",
     "StateWallBox1ChargeCurrent":
-        "fr": "object-id pour régler le courant de charge de la Wallbox 1 [A]",
         "it": "object-id per l'impostazione della corrente di carica della wallbox 1 [A]",
         "pl": "id obiektu do ustawiania prądu ładowania wallbox 1 [A]",
         "zh-cn": "用于设置墙盒1充电电流[A]的对象ID",
     "StateWallBox1ChargeAllowed":
-        "fr": "object-id pour activer le chargement de la Wallbox 1 [true/false]",
         "it": "ID oggetto per abilitare la ricarica della wallbox 1 [true/false]",
         "pl": "identyfikator obiektu do włączenia ładowania Wallbox 1 [true/false]",
         "zh-cn": "启用Wallbox 1收费的对象ID [true/false]",
     "StateWallBox1ChargePower":
-        "fr": "object-id pour lire la puissance de charge de la wallbox 1 [W]",
         "it": "object-id per la lettura della potenza di carica della wallbox 1 [W]",
         "pl": "object-id do odczytu mocy ładowania wallbox 1 [W]",
         "zh-cn": "读取Wallbox 1充电功率的对象ID [W]",
     "StateWallBox1MeasuredMaxChargeAmp":
-        "fr": "object-id pour la lecture du courant de phase max mesuré de la Wallbox 1 [A]",
         "it": "object-id per la lettura della corrente di fase massima misurata della wallbox 1 [A]",
         "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 1 [A]",
         "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 1 [A]",
     "MinAmpWallBox1":
-        "fr": "Courant minimum autorisé pour Wallbox 1 [A]",
         "it": "Corrente minima consentita per Wallbox 1 [A]",
         "pl": "Minimalny dopuszczalny prąd dla Wallbox 1 [A]",
         "zh-cn": "Wallbox 1的最小允许电流[A]",
     "MaxAmpWallBox1":
-        "fr": "Courant maximal autorisé pour la Wallbox 1 [A]",
         "it": "Corrente massima consentita per Wallbox 1 [A]",
         "pl": "Maksymalny dopuszczalny prąd dla Wallbox 1 [A]",
         "zh-cn": "Wallbox 1的最大允许电流[A]",
     "StateWallBox2Headline":
-        "fr": "Connexions de données pour WallBox 2",
         "it": "Connessioni dati per WallBox 2",
         "pl": "Połączenia danych dla WallBox 2",
         "zh-cn": "WallBox 2 的数据连接",
     "StateWallBox2ChargeCurrent":
-        "fr": "object-id pour régler le courant de charge de la Wallbox 2 [A]",
         "it": "object-id per l'impostazione della corrente di carica della wallbox 2 [A]",
         "pl": "id obiektu do ustawiania prądu ładowania wallbox 2 [A]",
         "zh-cn": "用于设置墙盒2充电电流[A]的对象ID",
     "StateWallBox2ChargeAllowed":
-        "fr": "object-id pour activer le chargement de la Wallbox 2 [true/false]",
         "it": "ID oggetto per abilitare la ricarica della wallbox 2 [true/false]",
         "pl": "identyfikator obiektu do włączenia ładowania Wallbox 2 [true/false]",
         "zh-cn": "启用Wallbox 2收费的对象ID [true/false]",
     "StateWallBox2ChargePower":
-        "fr": "object-id pour lire la puissance de charge de la wallbox 2 [W]",
         "it": "object-id per la lettura della potenza di carica della wallbox 2 [W]",
         "pl": "object-id do odczytu mocy ładowania wallbox 2 [W]",
         "zh-cn": "读取Wallbox 2充电功率的对象ID [W]",
     "StateWallBox2MeasuredMaxChargeAmp":
-        "fr": "object-id pour la lecture du courant de phase max mesuré de la Wallbox 2 [A]",
         "it": "object-id per la lettura della corrente di fase massima misurata della wallbox 2 [A]",
         "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 2 [A]",
         "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 2 [A]",
     "MinAmpWallBox2":
-        "fr": "Courant minimum autorisé pour Wallbox 2 [A]",
         "it": "Corrente minima consentita per Wallbox 2 [A]",
         "pl": "Minimalny dopuszczalny prąd dla Wallbox 2 [A]",
         "zh-cn": "Wallbox 2的最小允许电流[A]",
     "MaxAmpWallBox2":
-        "fr": "Courant maximal autorisé pour la Wallbox 2 [A]"
         "it": "Corrente massima consentita per Wallbox 2 [A]"
         "pl": "Maksymalny dopuszczalny prąd dla Wallbox 2 [A]"
         "zh-cn": "Wallbox 2的最大允许电流[A]"

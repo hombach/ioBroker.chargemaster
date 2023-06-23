@@ -2,52 +2,6 @@
   "common": {
     "name": "chargemaster",
     "version": "0.8.0",
-    "titleLang": {
-      "en": "ChargeMaster",
-      "de": "ChargeMaster",
-      "ru": "ChargeMaster",
-      "pt": "ChargeMaster",
-      "nl": "ChargeMaster",
-      "fr": "ChargeMaster",
-      "it": "ChargeMaster",
-      "es": "ChargeMaster",
-      "pl": "ChargeMaster",
-      "uk": "ChargeMaster",
-      "zh-cn": "ChargeMaster"
-    },
-    "desc": {
-      "en": "Adapter for managing of multi EV-chargers with use of PV-energy",
-      "de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
-      "ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
-      "pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
-      "nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
-      "fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
-      "it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
-      "es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
-      "pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
-      "uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
-      "zh-cn": "使用PV能源管理多个EV充电器的适配器"
-    },
-    "authors": [
-      "Christian Hombach"
-    ],
-    "keywords": [
-    	"chargemaster",
-    	"wallbox",
-    	"solar power"
-    ],
-    "platform": "Javascript/Node.js",
-    "main": "main.js",
-    "icon": "chargemaster.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
-    "readme": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/README.md",
-    "loglevel": "info",
-    "mode": "daemon",
-    "type": "vehicle",
-    "license": "MIT",
-    "connectionType": "local",
-    "dataSource": "poll",
     "news": {
       "0.8.0": {
         "en": "changed config screen to admin 5 solution",
@@ -244,19 +198,6 @@
         "uk": "фіксація тестової автоматики, кілька фіксаторів для очищення без налаштування",
         "zh-cn": "f 固定试验自动化,供清洁经营的几块纤维,而不混凝土。"
       },
-      "0.3.1": {
-        "en": "added sentry statistics; optimized logging; fixed type conversion bug",
-        "de": "erweiterte sentry-Statistik; optimiertes Logging; Fehler in Typkonvertierung bereinigt",
-        "ru": "добавлена статистика отправлений; оптимизирована логовка; исправлена ошибка преобразования типа",
-        "pt": "estatísticas de sentinela adicionadas; registro otimizado; bug de conversão de tipo fixo",
-        "nl": "vertaling:",
-        "fr": "statistiques des sentinelles ajoutées; logging optimisé; bug de conversion de type fixe",
-        "it": "aggiunto statistiche della miriade; registrazione ottimizzata; bug di conversione del tipo fisso",
-        "es": "estadísticas agregadas de centinelas; logging optimizado; bug de conversión de tipo fijo",
-        "pl": "dodatki statystyki: zoptymalizowana logika; uaktualniona odmiana bug",
-        "uk": "додана статистика відправників; оптимізована логістика; виправлена помилка перетворення типу",
-        "zh-cn": "寄发的统计数字;优化伐木;固定类型的转换"
-      },
       "0.3.0": {
         "en": "first public release for iOBroker latest repo; added sentry support",
         "de": "erste öffentliche Version für iOBroker Beta Repo; Unterstützung für Sentry",
@@ -297,27 +238,70 @@
         "zh-cn": "第一个操作版本,固定至3箱"
       }
     },
+    "titleLang": {
+      "en": "ChargeMaster",
+      "de": "ChargeMaster",
+      "ru": "ChargeMaster",
+      "pt": "ChargeMaster",
+      "nl": "ChargeMaster",
+      "fr": "ChargeMaster",
+      "it": "ChargeMaster",
+      "es": "ChargeMaster",
+      "pl": "ChargeMaster",
+      "uk": "ChargeMaster",
+      "zh-cn": "ChargeMaster"
+    },
+    "desc": {
+      "en": "Adapter for managing multi EV-chargers with use of PV-energy",
+      "de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
+      "ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
+      "pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
+      "nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
+      "fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
+      "it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
+      "es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
+      "pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
+      "uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
+      "zh-cn": "使用PV能源管理多个EV充电器的适配器"
+    },
+    "authors": [
+      "Christian Hombach <ChargeMaster@homba.ch>"
+    ],
+    "keywords": [
+      "chargemaster", "wallbox", "solar power", "charger", "EV"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "icon": "chargemaster.png",
+    "extIcon": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
+    "enabled": true,
+    "readme": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "vehicle",
     "compact": true,
-    "materialize": true,
+    "connectionType": "local",
+    "dataSource": "poll",
     "adminUI": {
       "config": "json"
     },
-    "supportCustoms": false,
-    "globalDependencies": [
-      {
-        "admin": ">=5.0.0"
-      }
-    ],
     "dependencies": [
       {
         "js-controller": ">=3.2.16"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=5.0.0"
       }
     ],
     "plugins": {
       "sentry": {
         "dsn": "https://0e33dc63a0e34165850d97add3cc3684@o415875.ingest.sentry.io/5307610"
       }
-    }
+    },
+
+    "supportCustoms": false
   },
 
   "native": {
@@ -382,7 +366,7 @@
       "type": "state",
       "common": {
         "role": "value",
-        "name": "Totally charged sum all wallboxes",
+        "name": "Total charged sum all wallboxes",
         "type": "number",
         "unit": "kWh",
         "read": true,

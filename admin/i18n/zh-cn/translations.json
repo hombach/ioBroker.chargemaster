@@ -1,80 +1,28 @@
 {
-    "cycletime":
-        "pl": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
-        "zh-cn": "Chargemanager 的周期时间 [ms] -（默认 10000)",
-    "MaxAmpTotal":
-        "pl": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
-        "zh-cn": "整个系统的最大允许电流总和[A]",
-    "StateHomeSolarPower":
-        "pl": "id obiektu dla aktualnie dostępnej energii słonecznej [W]",
-        "zh-cn": "当前可用太阳能的对象ID [W]",
-    "StateHomeBatSoc":
-        "pl": "id obiektu dla aktualnego stanu naładowania akumulatora w domu [%]",
-        "zh-cn": "当前家用电池充电状态的对象ID [％]",
-    "StateHomePowerConsumption":
-        "pl": "id obiektu dla bieżącego zużycia energii w domu [W]",
-        "zh-cn": "当前家庭功耗的对象ID [W]",
-    "StateWallBox0Headline":
-        "pl": "Połączenia danych dla WallBox 0",
-        "zh-cn": "WallBox 0 的数据连接",
-    "StateWallBox0ChargeCurrent":
-        "pl": "id obiektu do ustawiania prądu ładowania wallbox 0 [A]",
-        "zh-cn": "用于设置墙盒0充电电流[A]的对象ID",
-    "StateWallBox0ChargeAllowed":
-        "pl": "identyfikator obiektu do włączenia ładowania Wallbox 0 [true/false]",
-        "zh-cn": "启用Wallbox 0收费的对象ID [true/false]",
-    "StateWallBox0ChargePower":
-        "pl": "object-id do odczytu mocy ładowania wallbox 0 [W]",
-        "zh-cn": "读取Wallbox 0充电功率的对象ID [W]",
-    "StateWallBox0MeasuredMaxChargeAmp":
-        "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 0 [A]",
-        "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 0 [A]",
-    "MinAmpWallBox0":
-        "pl": "Minimalny dopuszczalny prąd dla Wallbox 0 [A]",
-        "zh-cn": "Wallbox 0的最小允许电流[A]",
-    "MaxAmpWallBox0":
-        "pl": "Maksymalny dopuszczalny prąd dla Wallbox 0 [A]",
-        "zh-cn": "Wallbox 0的最大允许电流[A]",
-    "StateWallBox1Headline":
-        "pl": "Połączenia danych dla WallBox 1",
-        "zh-cn": "WallBox 1 的数据连接",
-    "StateWallBox1ChargeCurrent":
-        "pl": "id obiektu do ustawiania prądu ładowania wallbox 1 [A]",
-        "zh-cn": "用于设置墙盒1充电电流[A]的对象ID",
-    "StateWallBox1ChargeAllowed":
-        "pl": "identyfikator obiektu do włączenia ładowania Wallbox 1 [true/false]",
-        "zh-cn": "启用Wallbox 1收费的对象ID [true/false]",
-    "StateWallBox1ChargePower":
-        "pl": "object-id do odczytu mocy ładowania wallbox 1 [W]",
-        "zh-cn": "读取Wallbox 1充电功率的对象ID [W]",
-    "StateWallBox1MeasuredMaxChargeAmp":
-        "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 1 [A]",
-        "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 1 [A]",
-    "MinAmpWallBox1":
-        "pl": "Minimalny dopuszczalny prąd dla Wallbox 1 [A]",
-        "zh-cn": "Wallbox 1的最小允许电流[A]",
-    "MaxAmpWallBox1":
-        "pl": "Maksymalny dopuszczalny prąd dla Wallbox 1 [A]",
-        "zh-cn": "Wallbox 1的最大允许电流[A]",
-    "StateWallBox2Headline":
-        "pl": "Połączenia danych dla WallBox 2",
-        "zh-cn": "WallBox 2 的数据连接",
-    "StateWallBox2ChargeCurrent":
-        "pl": "id obiektu do ustawiania prądu ładowania wallbox 2 [A]",
-        "zh-cn": "用于设置墙盒2充电电流[A]的对象ID",
-    "StateWallBox2ChargeAllowed":
-        "pl": "identyfikator obiektu do włączenia ładowania Wallbox 2 [true/false]",
-        "zh-cn": "启用Wallbox 2收费的对象ID [true/false]",
-    "StateWallBox2ChargePower":
-        "pl": "object-id do odczytu mocy ładowania wallbox 2 [W]",
-        "zh-cn": "读取Wallbox 2充电功率的对象ID [W]",
-    "StateWallBox2MeasuredMaxChargeAmp":
-        "pl": "id obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 2 [A]",
-        "zh-cn": "用于读取墙盒测得的最大相电流的对象ID 2 [A]",
-    "MinAmpWallBox2":
-        "pl": "Minimalny dopuszczalny prąd dla Wallbox 2 [A]",
-        "zh-cn": "Wallbox 2的最小允许电流[A]",
-    "MaxAmpWallBox2":
-        "pl": "Maksymalny dopuszczalny prąd dla Wallbox 2 [A]"
-        "zh-cn": "Wallbox 2的最大允许电流[A]"
+    "cycletime": "Chargemanager 的周期时间 [ms] -（默认 10000)",
+    "MaxAmpTotal": "整个系统的最大允许电流总和[A]",
+    "StateHomeSolarPower": "当前可用太阳能的对象ID [W]",
+    "StateHomeBatSoc": "当前家用电池充电状态的对象ID [％]",
+    "StateHomePowerConsumption": "当前家庭功耗的对象ID [W]",
+    "StateWallBox0Headline": "WallBox 0 的数据连接",
+    "StateWallBox0ChargeCurrent": "用于设置墙盒0充电电流[A]的对象ID",
+    "StateWallBox0ChargeAllowed": "启用Wallbox 0收费的对象ID [true/false]",
+    "StateWallBox0ChargePower": "读取Wallbox 0充电功率的对象ID [W]",
+    "StateWallBox0MeasuredMaxChargeAmp": "用于读取墙盒测得的最大相电流的对象ID 0 [A]",
+    "MinAmpWallBox0": "Wallbox 0的最小允许电流[A]",
+    "MaxAmpWallBox0": "Wallbox 0的最大允许电流[A]",
+    "StateWallBox1Headline": "WallBox 1 的数据连接",
+    "StateWallBox1ChargeCurrent": "用于设置墙盒1充电电流[A]的对象ID",
+    "StateWallBox1ChargeAllowed": "启用Wallbox 1收费的对象ID [true/false]",
+    "StateWallBox1ChargePower": "读取Wallbox 1充电功率的对象ID [W]",
+    "StateWallBox1MeasuredMaxChargeAmp": "用于读取墙盒测得的最大相电流的对象ID 1 [A]",
+    "MinAmpWallBox1": "Wallbox 1的最小允许电流[A]",
+    "MaxAmpWallBox1": "Wallbox 1的最大允许电流[A]",
+    "StateWallBox2Headline": "WallBox 2 的数据连接",
+    "StateWallBox2ChargeCurrent": "用于设置墙盒2充电电流[A]的对象ID",
+    "StateWallBox2ChargeAllowed": "启用Wallbox 2收费的对象ID [true/false]",
+    "StateWallBox2ChargePower": "读取Wallbox 2充电功率的对象ID [W]",
+    "StateWallBox2MeasuredMaxChargeAmp": "用于读取墙盒测得的最大相电流的对象ID 2 [A]",
+    "MinAmpWallBox2": "Wallbox 2的最小允许电流[A]",
+    "MaxAmpWallBox2": "Wallbox 2的最大允许电流[A]"
 }

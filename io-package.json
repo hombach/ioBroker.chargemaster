@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "news": {
+      "0.8.1": {
+        "en": "bumped dependencies, added min/max to settings state defaults",
+        "de": "update Abhängigkeiten, min/max zu Settings States hinzugefügt",
+        "ru": "bumped зависимости, добавлены мин/макс для настроек государственных дефолтов",
+        "pt": "dependências colhidas, adicionado min/max para configurações padrão de estado",
+        "nl": "quality over quantity (qoq) releases vertaling:",
+        "fr": "dépendances par bosse, ajouté min/max aux paramètres par défaut",
+        "it": "urtato dipendenze, aggiunto min/max alle impostazioni predefinite dello stato",
+        "es": "dependencias parachoques, añadido min/max a ajustes predeterminados del estado",
+        "pl": "w zależności od miejsca dodawania min/max do do domyślności państwa",
+        "uk": "bumped залежності, додано min/max для налаштування державних за замовчуванням",
+        "zh-cn": "b 倾销的受扶养人,在国家违约情况下增加了min/max"
+      },
       "0.8.0": {
         "en": "changed config screen to admin 5 solution",
         "de": "geänderter Konfig-Bildschirm mit admin 5 Version",
@@ -223,19 +236,6 @@
         "pl": "zrzucane węzełki 10; zderzeniowe zależności",
         "uk": "javascript licenses api веб-сайт go1.13.8",
         "zh-cn": "删除第10号支助;倾弃的依赖"
-      },
-      "0.1.0": {
-        "en": "first running version, fixed to 3 boxes",
-        "de": "erste lauffähige Version, auf 3 boxen fixiert",
-        "ru": "первая ходовая версия, фиксированная до 3 коробок",
-        "pt": "primeira versão em execução, fixo para 3 caixas",
-        "nl": "eerste draaiende versie, gemaakt tot drie dozen",
-        "fr": "première version d'exécution, fixée à 3 boîtes",
-        "it": "prima versione in esecuzione, fissata a 3 scatole",
-        "es": "primera versión de ejecución, fija a 3 cajas",
-        "pl": "pierwsza wersja startowa została umieszczona na 3 boxach",
-        "uk": "версія першого ходу, фіксована до 3 ящиків",
-        "zh-cn": "第一个操作版本,固定至3箱"
       }
     },
     "titleLang": {
@@ -393,7 +393,9 @@
         "unit": "%",
         "read": true,
         "write": true,
-        "def": 80
+        "def": 80,
+        "max": 100,
+        "min": 0
       },
       "native": {}
     },
@@ -428,7 +430,9 @@
         "unit": "A",
         "read": true,
         "write": true,
-        "def": 6
+        "def": 6,
+        "min": 1,
+        "max": 32
       },
       "native": {}
     },
@@ -477,7 +481,9 @@
         "unit": "A",
         "read": true,
         "write": true,
-        "def": 6
+        "def": 6,
+        "min": 1,
+        "max": 32
       },
       "native": {}
     },
@@ -526,7 +532,9 @@
         "unit": "A",
         "read": true,
         "write": true,
-        "def": 6
+        "def": 6,
+        "min": 1,
+        "max": 32
       },
       "native": {}
     },

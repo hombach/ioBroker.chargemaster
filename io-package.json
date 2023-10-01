@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.8.1",
+    "version": "0.8.2",
     "news": {
+      "0.8.2": {
+        "en": "Several dependency updates",
+        "de": "Mehrere Aktualisierungen von Abhängigkeiten",
+        "ru": "Несколько обновлений зависимостей",
+        "pt": "Várias atualizações de dependências",
+        "nl": "Diverse afhankelijkheidsupdates",
+        "fr": "Plusieurs mises à jour de dépendances",
+        "it": "Diverse aggiornamenti delle dipendenze",
+        "es": "Varias actualizaciones de dependencias",
+        "pl": "Kilka aktualizacji zależności",
+        "uk": "Декілька оновлень залежностей",
+        "zh-cn": "多个依赖项更新"
+      },
       "0.8.1": {
         "en": "bumped dependencies, added min/max to settings state defaults",
         "de": "update Abhängigkeiten, min/max zu Settings States hinzugefügt",
@@ -172,19 +185,6 @@
         "uk": "змінений стан машини для асинхронізації",
         "zh-cn": "a. 改变州对英恩;倾弃的依赖"
       },
-      "0.4.1": {
-        "en": "fixed error in charger communication; added ci test",
-        "de": "Fehler in der Ladegerät-Kommunikation korrigiert; ci-Tests hinzugefügt",
-        "ru": "исправлена ошибка в заряженном общении; добавлено ci test",
-        "pt": "erro fixo na comunicação do carregador; teste ci adicionado",
-        "nl": "gerepareerde fout in oplader communicatie",
-        "fr": "erreur fixe dans la communication du chargeur; ajout ci test",
-        "it": "errore fisso nella comunicazione del caricabatterie; aggiunto ci test",
-        "es": "error fijo en la comunicación del cargador; prueba ci",
-        "pl": "uruchomiony błąd w komunikacjach ładowania, dodał mi testy",
-        "uk": "виправлена помилка в зв'язку з зарядним пристроєм; додано тест ci",
-        "zh-cn": "指控通信的固定错误;附加的试验"
-      },
       "0.4.0": {
         "en": "introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config",
         "de": "automatische Anpassung an die Menge der konfigurierten Ladegeräte; bugfixes für sauberen Lauf ohne Konfig",
@@ -197,19 +197,6 @@
         "pl": "wprowadzono automatyczną adaptację do ilości ładowanych ładunków konfigurowanych; bugfixes for cleaner run without configigigig",
         "uk": "введена автоматична адаптація до кількості налаштованих зарядних пристроїв; виправлення помилок для чищення запуску без налаштування",
         "zh-cn": "采用自动调整,以配置的收费者的数额; 清洁经营的奖励,而没有混凝土。"
-      },
-      "0.3.2": {
-        "en": "fixing test automation, several bugfixes for cleaner run without config",
-        "de": "Korrektur der Testautomation, mehrere bugfixes für sauberen Lauf ohne Konfig",
-        "ru": "фиксация автоматизации тестирования, несколько исправлений для более чистого бега без конфига",
-        "pt": "fixação de automação de teste, vários correções de bugs para execução mais limpa sem configuração",
-        "nl": "verschillende testautomaten voor reinigers zonder configuur",
-        "fr": "correction de l'automatisation de test, plusieurs bugfix pour une course plus propre sans config",
-        "it": "fissaggio dell'automazione dei test, diversi bugfix per un funzionamento più pulito senza configurazione",
-        "es": "automatización de pruebas de fijación, varios bugfixes para un funcionamiento limpio sin config",
-        "pl": "naprawić automaty testowe, kilka błędów do czystego uruchamiania bez konfigurowizacji",
-        "uk": "фіксація тестової автоматики, кілька фіксаторів для очищення без налаштування",
-        "zh-cn": "f 固定试验自动化,供清洁经营的几块纤维,而不混凝土。"
       },
       "0.3.0": {
         "en": "first public release for iOBroker latest repo; added sentry support",

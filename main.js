@@ -181,33 +181,43 @@ class chargemaster extends utils.Adapter {
                 switch (subId) {
                     case 'Settings.Setpoint_HomeBatSoC':
                         MinHomeBatVal = await this.asyncGetStateVal('Settings.Setpoint_HomeBatSoC');
+                        this.setStateAsync('Settings.Setpoint_HomeBatSoC', MinHomeBatVal, true);
                         break;
                     case 'Settings.WB_0.ChargeNOW':
                         Wallbox[0].ChargeNOW = await this.asyncGetStateVal('Settings.WB_0.ChargeNOW');
+                        this.setStateAsync('Settings.WB_0.ChargeNOW', Wallbox[0].ChargeNOW, true);
                         break;
                     case 'Settings.WB_0.ChargeManager':
                         Wallbox[0].ChargeManager = await this.asyncGetStateVal('Settings.WB_0.ChargeManager');
+                        this.setStateAsync('Settings.WB_0.ChargeManager', Wallbox[0].ChargeManager, true);
                         break;
                     case 'Settings.WB_0.ChargeCurrent':
                         Wallbox[0].ChargeCurrent = await this.asyncGetStateVal('Settings.WB_0.ChargeCurrent');
+                        this.setStateAsync('Settings.WB_0.ChargeCurrent', Wallbox[0].ChargeCurrent, true);
                         break;
                     case 'Settings.WB_1.ChargeNOW':
                         Wallbox[1].ChargeNOW = await this.asyncGetStateVal('Settings.WB_1.ChargeNOW');
+                        this.setStateAsync('Settings.WB_1.ChargeNOW', Wallbox[1].ChargeNOW, true);
                         break;
                     case 'Settings.WB_1.ChargeManager':
                         Wallbox[1].ChargeManager = await this.asyncGetStateVal('Settings.WB_1.ChargeManager');
+                        this.setStateAsync('Settings.WB_1.ChargeManager', Wallbox[1].ChargeManager, true);
                         break;
                     case 'Settings.WB_1.ChargeCurrent':
                         Wallbox[1].ChargeCurrent = await this.asyncGetStateVal('Settings.WB_1.ChargeCurrent');
+                        this.setStateAsync('Settings.WB_1.ChargeCurrent', Wallbox[1].ChargeCurrent, true);
                         break;
                     case 'Settings.WB_2.ChargeNOW':
                         Wallbox[2].ChargeNOW = await this.asyncGetStateVal('Settings.WB_2.ChargeNOW');
+                        this.setStateAsync('Settings.WB_2.ChargeNOW', Wallbox[2].ChargeNOW, true);
                         break;
                     case 'Settings.WB_2.ChargeManager':
                         Wallbox[2].ChargeManager = await this.asyncGetStateVal('Settings.WB_2.ChargeManager');
+                        this.setStateAsync('Settings.WB_2.ChargeManager', Wallbox[2].ChargeManager, true);
                         break;
                     case 'Settings.WB_2.ChargeCurrent':
                         Wallbox[2].ChargeCurrent = await this.asyncGetStateVal('Settings.WB_2.ChargeCurrent');
+                        this.setStateAsync('Settings.WB_2.ChargeCurrent', Wallbox[2].ChargeCurrent, true);
                         break;
                 }
             } else {     // The state was deleted

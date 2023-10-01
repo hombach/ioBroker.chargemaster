@@ -29,6 +29,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ### 0.8.2 (01.10.2023)
 * (HombachC) Several dependency updates
+* (HombachC) Fixed acknowledging of state changes (#339)
 ### 0.8.1 (29.08.2023)
 * (HombachC) bumped dependencies, added min/max to settings state defaults
 ### 0.8.0 (23.06.2023)

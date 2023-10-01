@@ -4,17 +4,17 @@
     "version": "0.8.2",
     "news": {
       "0.8.2": {
-        "en": "Several dependency updates",
-        "de": "Mehrere Aktualisierungen von Abhängigkeiten",
-        "ru": "Несколько обновлений зависимостей",
-        "pt": "Várias atualizações de dependências",
-        "nl": "Diverse afhankelijkheidsupdates",
-        "fr": "Plusieurs mises à jour de dépendances",
-        "it": "Diverse aggiornamenti delle dipendenze",
-        "es": "Varias actualizaciones de dependencias",
-        "pl": "Kilka aktualizacji zależności",
-        "uk": "Декілька оновлень залежностей",
-        "zh-cn": "多个依赖项更新"
+        "en": "Several dependency updates; Fixed acknowledging of state changes (#339)",
+        "de": "Mehrere Aktualisierungen von Abhängigkeiten; Behobene Anerkennung von Statusänderungen (#339)",
+        "ru": "Несколько обновлений зависимостей; Исправлена подтверждение изменений состояния (#339)",
+        "pt": "Várias atualizações de dependências; Corrigida a confirmação de mudanças de estado (#339)",
+        "nl": "Diverse afhankelijkheidsupdates; Herstelde erkenning van statuswijzigingen (#339)",
+        "fr": "Plusieurs mises à jour de dépendances ; Correction de la reconnaissance des changements d'état (#339)",
+        "it": "Diverse aggiornamenti delle dipendenze; Correzione del riconoscimento dei cambiamenti di stato (#339)",
+        "es": "Varias actualizaciones de dependencias; Corregida la confirmación de cambios de estado (#339)",
+        "pl": "Kilka aktualizacji zależności; Naprawiono potwierdzanie zmian stanu (#339)",
+        "uk": "Декілька оновлень залежностей; Виправлено підтвердження змін стану (#339)",
+        "zh-cn": "多个依赖项更新；修复状态更改的确认问题 (#339)"
       },
       "0.8.1": {
         "en": "bumped dependencies, added min/max to settings state defaults",

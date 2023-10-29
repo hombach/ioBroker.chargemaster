@@ -35,6 +35,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ### 0.8.3 (29.10.2023)
 * (HombachC) Bumb adapter core to 3.x
+* (HombachC) Bump axios to 1.6.0 because of vulnerability
 ### 0.8.2 (01.10.2023)
 * (HombachC) Several dependency updates
 * (HombachC) Fixed acknowledging of state changes (#339)

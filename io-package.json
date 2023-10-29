@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.8.2",
+    "version": "0.8.3",
     "news": {
+      "0.8.3": {
+      	"en": "Bump adapter core to 3.x",
+      	"de": "Adapterkern auf 3.x aktualisieren",
+      	"ru": "Поднять ядро адаптера до версии 3.x",
+      	"pt": "Atualizar o núcleo do adaptador para 3.x",
+      	"nl": "Adapterkern bijwerken naar 3.x",
+      	"fr": "Mettre à jour le noyau de l'adaptateur vers 3.x",
+      	"it": "Aggiorna il core dell'adattatore a 3.x",
+      	"es": "Actualizar el núcleo del adaptador a 3.x",
+      	"pl": "Zaktualizuj rdzeń adaptera do wersji 3.x",
+      	"uk": "Підняти ядро адаптера до 3.x",
+      	"zh-cn": "将适配器核心升级到3.x"
+      },
       "0.8.2": {
         "en": "Several dependency updates; Fixed acknowledging of state changes (#339)",
         "de": "Mehrere Aktualisierungen von Abhängigkeiten; Behobene Anerkennung von Statusänderungen (#339)",
@@ -210,19 +223,6 @@
         "pl": "pierwsze publiczne wydanie iOBrokera, dodanie wsparcia dla poczty",
         "uk": "перший публічний реліз для iOBroker останнього репо; додано",
         "zh-cn": "首次公开释放最近一波罗克人;增派了寄托支助"
-      },
-      "0.2.0": {
-        "en": "dropped node.js 10 support; bumped dependencies",
-        "de": "node.js 10 Support entfernt; aktualisierte Abhängigkeiten",
-        "ru": "опустил поддержку node.js 10; побитые зависимости",
-        "pt": "drop node.js 10 suporte; dependências colhidas",
-        "nl": "hij liet node vallen",
-        "fr": "abandonné node.js 10 support; dépendances paressées",
-        "it": "ha abbandonato node.js 10 supporto; dipendenze urtate",
-        "es": "drop node.js 10 support; bulled dependencies",
-        "pl": "zrzucane węzełki 10; zderzeniowe zależności",
-        "uk": "javascript licenses api веб-сайт go1.13.8",
-        "zh-cn": "删除第10号支助;倾弃的依赖"
       }
     },
     "titleLang": {

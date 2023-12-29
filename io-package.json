@@ -1,8 +1,11 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.8.3",
+    "version": "0.8.4",
     "news": {
+      "0.8.4": {
+      	"en": "WiP"
+      },
       "0.8.3": {
       	"en": "Bump adapter core to 3.x",
       	"de": "Adapterkern auf 3.x aktualisieren",

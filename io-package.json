@@ -4,7 +4,17 @@
     "version": "0.8.4",
     "news": {
       "0.8.4": {
-      	"en": "WiP"
+      	"en": "BREAKING: dropped support for js-controller 3.x\nyear 2024 changes\nbump axios to 1.6.3 because of vulnerability",
+      	"de": "WICHTIG: Unterstützung für js-controller 3.x wurde eingestellt\nÄnderungen für das Jahr 2024\naxios auf 1.6.3 aktualisiert wegen Sicherheitslücke",
+      	"ru": "ВАЖНО: Прекращена поддержка js-controller 3.x\nизменения на 2024 год\nповышение версии axios до 1.6.3 из-за уязвимости",
+      	"pt": "IMPORTANTE: Suporte interrompido para js-controller 3.x\nmudanças para o ano de 2024\natualizado o axios para 1.6.3 devido a vulnerabilidade",
+      	"nl": "BELANGRIJK: Ondersteuning voor js-controller 3.x is stopgezet\nwijzigingen voor het jaar 2024\naxios verhoogd naar 1.6.3 vanwege kwetsbaarheid",
+      	"fr": "IMPORTANT : Prise en charge abandonnée pour js-controller 3.x\nchangements pour l'année 2024\nmise à jour d'axios vers 1.6.3 en raison d'une vulnérabilité",
+      	"it": "IMPORTANTE: Supporto interrotto per js-controller 3.x\nmodifiche per l'anno 2024\naxios aggiornato a 1.6.3 a causa di una vulnerabilità",
+      	"es": "¡IMPORTANTE! Soporte discontinuado para js-controller 3.x\ncambios para el año 2024\nactualización de axios a 1.6.3 debido a una vulnerabilidad",
+      	"pl": "WAŻNE: Zakończono wsparcie dla js-controller 3.x\nzmiany na rok 2024\naxios podniesiony do wersji 1.6.3 z powodu podatności",
+      	"uk": "ВАЖЛИВО: Підтримка js-controller 3.x припинена\nзміни на 2024 рік\nпідняття axios до 1.6.3 через вразливість",
+      	"zh-cn": "重大变更：不再支持 js-controller 3.x\n2024年变更\n升级axios到1.6.3以解决漏洞"
       },
       "0.8.3": {
       	"en": "Bump adapter core to 3.x",
@@ -277,7 +287,7 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=3.2.16"
+        "js-controller": ">=4.0.15"
       }
     ],
     "globalDependencies": [

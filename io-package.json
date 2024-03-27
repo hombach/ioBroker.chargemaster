@@ -4,7 +4,17 @@
     "version": "0.8.5",
     "news": {
       "0.8.5": {
-      	"en": "updated CI definitions, switched to node 20 as main test scenario"
+        "en": "updated CI definitions, switched to Node.js 20 as the main test scenario\ncorrected io-package.json according to the new schema\nbumped dependencies",
+        "de": "CI-Definitionen aktualisiert, Wechsel zu Node.js 20 als Haupttest-Szenario durchgeführt\nio-package.json entsprechend dem neuen Schema korrigiert\nAbhängigkeiten aktualisiert",
+        "ru": "обновлены определения CI, переключились на Node.js 20 как основной тестовый сценарий\nисправлен файл io-package.json в соответствии с новой схемой\nобновлены зависимости",
+        "pt": "definições de CI atualizadas, mudança para o Node.js 20 como o cenário de teste principal\ncorrigido io-package.json de acordo com o novo esquema\natualizadas as dependências",
+        "nl": "bijgewerkte CI-definities, overgestapt naar Node.js 20 als het belangrijkste testsenario\ncorrectie van io-package.json volgens het nieuwe schema\nbijgewerkte afhankelijkheden",
+        "fr": "définitions CI mises à jour, passage à Node.js 20 comme scénario de test principal\ncorrigé io-package.json selon le nouveau schéma\nmises à jour des dépendances",
+        "it": "definizioni CI aggiornate, passaggio a Node.js 20 come scenario di test principale\ncorretto io-package.json secondo il nuovo schema\naggiornate le dipendenze",
+        "es": "definiciones de CI actualizadas, cambio a Node.js 20 como el escenario de prueba principal\ncorregido io-package.json según el nuevo esquema\nactualizadas las dependencias",
+        "pl": "zaktualizowane definicje CI, zmiana na Node.js 20 jako główny scenariusz testowy\npoprawiono plik io-package.json zgodnie z nowym schematem\nzaktualizowane zależności",
+        "uk": "оновлені визначення CI, переключено на Node.js 20 як основний тестовий сценарій\nвиправлено файл io-package.json відповідно до нової схеми\nоновлено залежності",
+        "zh-cn": "更新了 CI 定义，将 Node.js 20 切换为主要测试方案\n根据新模式更正了 io-package.json\n更新了依赖项"
       },
       "0.8.4": {
       	"en": "BREAKING: dropped support for js-controller 3.x\nyear 2024 changes\nbump axios to 1.6.3 because of vulnerability",

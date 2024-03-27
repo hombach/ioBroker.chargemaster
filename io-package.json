@@ -1,8 +1,11 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.8.4",
+    "version": "0.8.5",
     "news": {
+      "0.8.5": {
+      	"en": "updated CI definitions, switched to node 20 as main test scenario"
+      },
       "0.8.4": {
       	"en": "BREAKING: dropped support for js-controller 3.x\nyear 2024 changes\nbump axios to 1.6.3 because of vulnerability",
       	"de": "WICHTIG: Unterstützung für js-controller 3.x wurde eingestellt\nÄnderungen für das Jahr 2024\naxios auf 1.6.3 aktualisiert wegen Sicherheitslücke",
@@ -223,19 +226,6 @@
         "pl": "wprowadzono automatyczną adaptację do ilości ładowanych ładunków konfigurowanych; bugfixes for cleaner run without configigigig",
         "uk": "введена автоматична адаптація до кількості налаштованих зарядних пристроїв; виправлення помилок для чищення запуску без налаштування",
         "zh-cn": "采用自动调整,以配置的收费者的数额; 清洁经营的奖励,而没有混凝土。"
-      },
-      "0.3.0": {
-        "en": "first public release for iOBroker latest repo; added sentry support",
-        "de": "erste öffentliche Version für iOBroker Beta Repo; Unterstützung für Sentry",
-        "ru": "первый публичный релиз для iOBroker latest repo; добавлена поддержка",
-        "pt": "primeiro lançamento público para iOBroker mais recente repo; suporte de sentinela adicionado",
-        "nl": "eerste openbare vrijlating voor iOBroker laatste repo, toegevoegde sentimentele steun",
-        "fr": "premier communiqué public pour iOBroker dernière repo; support de sentinelle ajouté",
-        "it": "primo rilascio pubblico per iOBroker ultima repo; aggiunto supporto di sentina",
-        "es": "primer lanzamiento público para iOBroker último repo; apoyo enviado",
-        "pl": "pierwsze publiczne wydanie iOBrokera, dodanie wsparcia dla poczty",
-        "uk": "перший публічний реліз для iOBroker останнього репо; додано",
-        "zh-cn": "首次公开释放最近一波罗克人;增派了寄托支助"
       }
     },
     "titleLang": {
@@ -268,9 +258,17 @@
       "Christian Hombach <ChargeMaster@homba.ch>"
     ],
     "keywords": [
-      "chargemaster", "wallbox", "solar power", "charger", "EV"
+      "chargemaster",
+      "wallbox",
+      "solar power",
+      "charger",
+      "EV"
     ],
-    "license": "MIT",
+    "tier": 3,
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
     "platform": "Javascript/Node.js",
     "icon": "chargemaster.png",
     "extIcon": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/admin/chargemaster.png",

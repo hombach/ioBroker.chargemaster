@@ -1,3 +1,4 @@
+// eslint.config.js
 module.exports = {
 	root: true, // Don't look outside this project for inherited configs
     parserOptions: {

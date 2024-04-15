@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.8.5",
+    "version": "0.9.0",
     "news": {
+      "0.9.0": {
+        "en": "BREAKING: dropped support for Node.js 16 (#455)\nBREAKING: js-controller >= 5 is required (#456)",
+        "de": "WICHTIG: Unterstützung für Node.js 16 wurde eingestellt (#455)\nWICHTIG: js-controller >= 5 ist erforderlich (#456)",
+        "ru": "ВАЖНО: прекращена поддержка Node.js 16 (#455)\nВАЖНО: требуется js-controller >= 5 (#456)",
+        "pt": "IMPORTANTE: suporte para Node.js 16 foi removido (#455)\nIMPORTANTE: js-controller >= 5 é necessário (#456)",
+        "nl": "BELANGRIJK: ondersteuning voor Node.js 16 is verwijderd (#455)\nBELANGRIJK: js-controller >= 5 is vereist (#456)",
+        "fr": "IMPORTANT : prise en charge de Node.js 16 abandonnée (#455)\nIMPORTANT : js-controller >= 5 est requis (#456)",
+        "it": "IMPORTANTE: supporto per Node.js 16 eliminato (#455)\nIMPORTANTE: js-controller >= 5 è richiesto (#456)",
+        "es": "IMPORTANTE: se eliminó el soporte para Node.js 16 (#455)\nIMPORTANTE: se requiere js-controller >= 5 (#456)",
+        "pl": "WAŻNE: wsparcie dla Node.js 16 zostało usunięte (#455)\nWAŻNE: wymagane jest js-controller >= 5 (#456)",
+        "uk": "ВАЖЛИВО: підтримка Node.js 16 скасована (#455)\nВАЖЛИВО: потрібен js-controller >= 5 (#456)",
+        "zh-cn": "重要: 放弃对 Node.js 16 的支持 (#455)\n重要: js-controller >= 5 已必需 (#456)"
+      },
       "0.8.5": {
         "en": "updated CI definitions, switched to Node.js 20 as the main test scenario\ncorrected io-package.json according to the new schema\nbumped dependencies",
         "de": "CI-Definitionen aktualisiert, Wechsel zu Node.js 20 als Haupttest-Szenario durchgeführt\nio-package.json entsprechend dem neuen Schema korrigiert\nAbhängigkeiten aktualisiert",
@@ -295,7 +308,7 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=4.0.15"
+        "js-controller": ">=5.0.0"
       }
     ],
     "globalDependencies": [

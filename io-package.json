@@ -133,19 +133,6 @@
         "uk": "BREAKING: скидати node.js 14 підтримка, додати тести для node.js 20, скидати ioBroker. Підтримка адміністратора 4",
         "zh-cn": "BREAKRE:撤除不de.js 14支持,增加20js,降水箱。 附录4"
       },
-      "0.6.3": {
-        "en": "bumped dependencies and year 2023 changes",
-        "de": "Aabhängigkeiten aktualisiert und Jahr 2023 Änderungen",
-        "ru": "сбитые зависимости и год 2023 изменения",
-        "pt": "dependências acidentadas e mudanças de ano 2023",
-        "nl": "quality over quantity (qoq) releases vertaling:",
-        "fr": "dépendances et changements de l'année 2023",
-        "it": "urtato dipendenze e anno 2023 modifiche",
-        "es": "dependencia y cambios del año 2023",
-        "pl": "w zależności od miejsca i roku 2023 zmiany",
-        "uk": "погані залежності і 2023 зміни",
-        "zh-cn": "b 倾销的属地和年 2023个变化"
-      },
       "0.6.2": {
         "en": "fixed error in calc with active charge current",
         "de": "Fehler in Berechnung des aktiven Ladestroms beseitigt",

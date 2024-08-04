@@ -14,7 +14,7 @@ let OptAmpere        = 6;
 let OffVerzoegerung  = 0;
 
 
-var Wallbox = [
+const Wallbox = [
     {   ChargeNOW: false, ChargeManager: false,
         ChargeCurrent: 0, ChargePower: 0, MeasuredMaxChargeAmp: 0,
         MinAmp: 6, MaxAmp: 8,
@@ -64,7 +64,6 @@ class chargemaster extends utils.Adapter {
     * Is called when databases are connected and adapter received configuration.
     */
     async onReady() {
-        let i = 0;
         if (!this.config.cycletime) {
             this.log.warn(`Cycletime not configured or zero - will be set to 10 seconds`);
             this.config.cycletime = 10000;
@@ -76,9 +75,9 @@ class chargemaster extends utils.Adapter {
 
         // verify configured foreign states chargers and amount of chargers *****************************************************************
         async function stateTest(adapter, input) {
-            if (input == "") {return false}
+            if (input == '') {return false;}
             try {
-                let ret = await adapter.getForeignObjectAsync(input);
+                const ret = await adapter.getForeignObjectAsync(input);
                 adapter.log.debug(`Foreign state verification by getForeignObjectAsync() returns: ${ret}`);
                 if (ret == null) {
                     throw new Error(`State "${input}" does not exist.`);
@@ -89,13 +88,13 @@ class chargemaster extends utils.Adapter {
             }
             return true;
         }
- 
+
         if ((await stateTest(this, this.config.StateHomeBatSoc)) && (await stateTest(this, this.config.StateHomeSolarPower)) && (await stateTest(this, this.config.StateHomePowerConsumption)))
         {
             this.log.info(`Verified solar system states`);
         } else {
             this.log.error(`Solar system states not correct configured or not reachable - shutting down adapter`);
-            this.terminate
+            this.terminate;
             return;
         }
 
@@ -105,7 +104,7 @@ class chargemaster extends utils.Adapter {
             maxCharger = 0;
         } else {
             this.log.error(`Charger 0 not correct configured or not reachable - shutting down adapter`);
-            this.terminate
+            this.terminate;
             return;
         }
         if ((await stateTest(this, this.config.StateWallBox1ChargeCurrent)) && (await stateTest(this, this.config.StateWallBox1ChargeCurrent)) &&
@@ -177,7 +176,7 @@ class chargemaster extends utils.Adapter {
         try {
             if (state) { // The state was changed
                 this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
-                let subId = id.substring(id.indexOf("Settings."))
+                const subId = id.substring(id.indexOf(`Settings.`));
                 switch (subId) {
                     case 'Settings.Setpoint_HomeBatSoC':
                         MinHomeBatVal = await this.asyncGetStateVal('Settings.Setpoint_HomeBatSoC');
@@ -244,7 +243,7 @@ class chargemaster extends utils.Adapter {
         }
     }
 
-    
+
     /*****************************************************************************************/
     async StateMachine() {
         let i = 0;
@@ -270,15 +269,15 @@ class chargemaster extends utils.Adapter {
                 }
             }
 
-            else { // switch OFF; set to min. current; 
+            else { // switch OFF; set to min. current;
                 Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
                 Wallbox[i].SetOptAllow = false;
                 this.log.debug(`State machine: Wallbox ${i} planned for switch off`);
             }
         }
 
-        await this.Charge_Limiter()
-        await this.Charge_Config()
+        await this.Charge_Limiter();
+        await this.Charge_Config();
 
         adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
     }
@@ -329,7 +328,7 @@ class chargemaster extends utils.Adapter {
                 Wallbox[i].SetAmp = Wallbox[i].MinAmp;
                 this.log.debug(`Charge Limiter: Wallbox ${i} verified for switch off`);
             } else { // verify SetOptAmp against total current
-                if (Wallbox[i].SetOptAmp > this.config.MaxAmpTotal) { Wallbox[i].SetOptAmp = this.config.MaxAmpTotal }
+                if (Wallbox[i].SetOptAmp > this.config.MaxAmpTotal) { Wallbox[i].SetOptAmp = this.config.MaxAmpTotal; }
                 if (TotalSetOptAmp + Wallbox[i].SetOptAmp <= this.config.MaxAmpTotal) { // enough current available
                     Wallbox[i].SetAmp = Wallbox[i].SetOptAmp;
                     Wallbox[i].SetAllow = true;
@@ -346,7 +345,7 @@ class chargemaster extends utils.Adapter {
                         Wallbox[i].SetAllow = false;
                         this.log.debug(`Charge Limiter: Wallbox ${i} switched off due to not enough remaining total current`);
                     }
-                } 
+                }
             }
         }
     } // END Charge_Limiter
@@ -378,7 +377,7 @@ class chargemaster extends utils.Adapter {
                 } // END try-catch
                 this.log.debug(`Charger Config: Shutdown Wallbox ${i} - ${Wallbox[i].SetAmp} Ampere`);
             } else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
-// HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
+                // HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
                 try {
                     switch (i) {
                         case 0:
@@ -406,19 +405,19 @@ class chargemaster extends utils.Adapter {
 
     /*****************************************************************************************/
     async Calc_Total_Power() {
-//        this.log.debug(`Get charge power of all wallboxes`);
+        //this.log.debug(`Get charge power of all wallboxes`);
         try {
             Wallbox[0].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox0ChargePower);
             Wallbox[0].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox0MeasuredMaxChargeAmp);
-//            this.log.debug(`Got charge power of wallbox 0: ${Wallbox[0].ChargePower} W; ${Wallbox[0].MeasuredMaxChargeAmp} A`);
+            //this.log.debug(`Got charge power of wallbox 0: ${Wallbox[0].ChargePower} W; ${Wallbox[0].MeasuredMaxChargeAmp} A`);
             if (maxCharger > 0) {
                 Wallbox[1].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox1ChargePower);
                 Wallbox[1].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox1MeasuredMaxChargeAmp);
-//                this.log.debug(`Got charge power of wallbox 1: ${Wallbox[1].ChargePower} W; ${Wallbox[1].MeasuredMaxChargeAmp} A`);
+                //this.log.debug(`Got charge power of wallbox 1: ${Wallbox[1].ChargePower} W; ${Wallbox[1].MeasuredMaxChargeAmp} A`);
                 if (maxCharger > 1) {
                     Wallbox[2].ChargePower = await this.asyncGetForeignStateVal(this.config.StateWallBox2ChargePower);
                     Wallbox[2].MeasuredMaxChargeAmp = await this.asyncGetForeignStateVal(this.config.StateWallBox2MeasuredMaxChargeAmp);
-//                    this.log.debug(`Got charge power of wallbox 2: ${Wallbox[2].ChargePower} W; ${Wallbox[2].MeasuredMaxChargeAmp} A`);
+                    //this.log.debug(`Got charge power of wallbox 2: ${Wallbox[2].ChargePower} W; ${Wallbox[2].MeasuredMaxChargeAmp} A`);
                 }
             }
             TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
@@ -432,14 +431,14 @@ class chargemaster extends utils.Adapter {
     } // END Calc_Total_Power
 
 
-     /**
-    * Get foreign state value
-    * @param {string}      statePath  - Full path to state, like 0_userdata.0.other.isSummer
-    * @return {Promise<*>}            - State value, or null if error
-    */
-     async asyncGetForeignStateVal(statePath) {
+    /**
+     * Get foreign state value
+     * @param {string}      statePath  - Full path to state, like 0_userdata.0.other.isSummer
+     * @return {Promise<*>}            - State value, or null if error
+     */
+    async asyncGetForeignStateVal(statePath) {
         try {
-            let stateObject = await this.asyncGetForeignState(statePath);
+            const stateObject = await this.asyncGetForeignState(statePath);
             if (stateObject == null) return null; // errors thrown already in asyncGetForeignState()
             return stateObject.val;
         } catch (e) {
@@ -449,14 +448,14 @@ class chargemaster extends utils.Adapter {
     }
 
     /**
-    * Get foreign state
-    * 
-    * @param {string}      statePath  - Full path to state, like 0_userdata.0.other.isSummer
-    * @return {Promise<object>}       - State object: {val: false, ack: true, ts: 1591117034451, …}, or null if error
-    */
+     * Get foreign state
+     *
+     * @param {string}      statePath  - Full path to state, like 0_userdata.0.other.isSummer
+     * @return {Promise<object>}       - State object: {val: false, ack: true, ts: 1591117034451, …}, or null if error
+     */
     async asyncGetForeignState(statePath) {
         try {
-            let stateObject = await this.getForeignObjectAsync(statePath); // Check state existence
+            const stateObject = await this.getForeignObjectAsync(statePath); // Check state existence
             if (!stateObject) {
                 throw (`State '${statePath}' does not exist.`);
             } else { // Get state value, so like: {val: false, ack: true, ts: 1591117034451, …}
@@ -480,7 +479,7 @@ class chargemaster extends utils.Adapter {
     */
     async asyncGetStateVal(statePath) {
         try {
-            let stateObject = await this.asyncGetState(statePath);
+            const stateObject = await this.asyncGetState(statePath);
             if (stateObject == null) return null; // errors thrown already in asyncGetState()
             return stateObject.val;
         } catch (e) {
@@ -491,13 +490,13 @@ class chargemaster extends utils.Adapter {
 
     /**
     * Get state
-    * 
+    *
     * @param {string}      statePath  - Path to state, like other.isSummer
     * @return {Promise<object>}       - State object: {val: false, ack: true, ts: 1591117034451, …}, or null if error
     */
     async asyncGetState(statePath) {
         try {
-            let stateObject = await this.getObjectAsync(statePath); // Check state existence
+            const stateObject = await this.getObjectAsync(statePath); // Check state existence
             if (!stateObject) {
                 throw (`State '${statePath}' does not exist.`);
             } else { // Get state value, so like: {val: false, ack: true, ts: 1591117034451, …}
@@ -534,7 +533,6 @@ class chargemaster extends utils.Adapter {
         }
     }
 
-       
 } // END Class
 
 

@@ -1,8 +1,11 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.9.0",
+    "version": "0.9.1",
     "news": {
+      "0.9.1": {
+        "en": "WiP"
+      },
       "0.9.0": {
         "en": "BREAKING: dropped support for Node.js 16 (#455)\nBREAKING: js-controller >= 5 is required (#456)",
         "de": "WICHTIG: Unterstützung für Node.js 16 wurde eingestellt (#455)\nWICHTIG: js-controller >= 5 ist erforderlich (#456)",
@@ -94,32 +97,6 @@
         "uk": "змінений екран налаштування до рішення адміністратора 5",
         "zh-cn": "b. 压缩5个解决办法的概略筛选"
       },
-      "0.7.2": {
-        "en": "Removed Travis",
-        "de": "Entfernen von Travis",
-        "ru": "Удаленный Travis",
-        "pt": "Remover Travis",
-        "nl": "Verwijder Travis",
-        "fr": "Enlevé Travis",
-        "it": "Rimuovi Travis",
-        "es": "Travis eliminado",
-        "pl": "Remove Travis",
-        "uk": "Видалити Travis",
-        "zh-cn": "撤职训练"
-      },
-      "0.7.1": {
-        "en": "Fixed typo in docu, added translations",
-        "de": "Tippfehler in doku korrigiert, zusätzliche Übersetzungen",
-        "ru": "Исправлена typo в docu, добавлены переводы",
-        "pt": "Tipo fixo em docu, traduções adicionadas",
-        "nl": "Vertaling:",
-        "fr": "Correction du typo dans docu, traductions ajoutées",
-        "it": "Typo fisso in docu, traduzioni aggiuntive",
-        "es": "Tipología fija en docu, traducciones agregadas",
-        "pl": "Fixed typo in docu, dodał tłumaczenia",
-        "uk": "Фіксований тип у доку, додано переклади",
-        "zh-cn": "档案中的固定型号,加上翻译"
-      },
       "0.7.0": {
         "en": "BREAKING: dropped node.js 14 support, add tests for node.js 20, dropped ioBroker.admin 4 support",
         "de": "BREAKING: Node.js 14-Unterstützung wurde eingestellt, tests für node.js 20 hinzugefügt, ioBroker.admin 4 Unterstützung entfernt",
@@ -132,32 +109,6 @@
         "pl": "BREAKING: Uruchomiona obsługa węzła.js 14, dodaje testy dla węzła.js 20, zrzucił ioBrokera. Administracja 4",
         "uk": "BREAKING: скидати node.js 14 підтримка, додати тести для node.js 20, скидати ioBroker. Підтримка адміністратора 4",
         "zh-cn": "BREAKRE:撤除不de.js 14支持,增加20js,降水箱。 附录4"
-      },
-      "0.6.2": {
-        "en": "fixed error in calc with active charge current",
-        "de": "Fehler in Berechnung des aktiven Ladestroms beseitigt",
-        "ru": "исправленная ошибка в кальке с активным зарядным течением",
-        "pt": "erro fixo no calcário com corrente de carga ativa",
-        "nl": "calc met actieve lading",
-        "fr": "erreur fixe en calc avec courant de charge actif",
-        "it": "errore fisso in calc con corrente di carica attiva",
-        "es": "error fijo en calc con corriente de carga activa",
-        "pl": "uruchomiony błąd obliczeniowy",
-        "uk": "виправлена помилка в кальці з струмом активного заряду",
-        "zh-cn": "目前积极指控的固定缺陷"
-      },
-      "0.6.1": {
-        "en": "bump @iobroker/testing from 3.0.2 to 4.1.0",
-        "de": "update @iobroker/test von 3.0.2 auf 4.1.0",
-        "ru": "bump @iobroker/тестирование с 3.0.2 до 4.1.0",
-        "pt": "bump @iobroker/testando de 3.0.2 para 4.1.0",
-        "nl": "quality over quantity (qoq) releases vertaling:",
-        "fr": "bosse @iobroker/essai de 3.0.2 à 4.1.0",
-        "it": "urto @iobroker / test da 3.0.2 a 4.1.0",
-        "es": "tope @iobroker/testing de 3.0.2 a 4.1.0",
-        "pl": "@iobroker/testowanie od 3.0.2 do 4.1.0",
-        "uk": "bump @iobroker/testing від 3.0.2 до 4.1.0",
-        "zh-cn": "b 倾销@iobroker/test from 3.0.2 to 4"
       },
       "0.6.0": {
         "en": "fix error in max total current; fix error in charge manager",
@@ -172,19 +123,6 @@
         "uk": "виправлено помилку в максимальному обсязі; виправлено помилку в управлінні зарядами",
         "zh-cn": "f 现有最高数的错误; 主管管理人员的错误"
       },
-      "0.5.1": {
-        "en": "removed gulp, bumped dependencies, small code tweaks",
-        "de": "gulp entfernt, update der Abhängigkeiten, kleine code Verbesserungen",
-        "ru": "удалили гульптуру, прыгнувшие зависимости, мелкие кодовые твики",
-        "pt": "gulp removido, dependências colhidas, pequenos ajustes de código",
-        "nl": "verwijderde gulp, buigde afhankelijkheid, kleine code tweaks",
-        "fr": "gulpe enlevée, dépendances par bosse, petits tweaks de code",
-        "it": "gulp rimosso, interrotte dipendenze, piccole modifiche di codice",
-        "es": "golpes eliminados, dependencias parachoques, pequeños ajustes de código",
-        "pl": "usunięta gulp, zderzone zależności, małe poprawki kodu",
-        "uk": "видалені гельпи, погані залежності, невеликі кодові палички",
-        "zh-cn": "删除古帕、倾销的依赖性、小法典的瓦克s"
-      },
       "0.5.0": {
         "en": "BREAKING: dropped node.js 12 support, add tests for node.js 18, changed dependencies to non node.js 12 support",
         "de": "BREAKING: Node.js 12-Unterstützung wurde eingestellt, Tests für node.js 18 hinzugefügt, Abhängigkeiten auf Nicht-Node.js 12-Unterstützung geändert",
@@ -198,19 +136,6 @@
         "uk": "BREAKING: скидати node.js 12 підтримка, додати тести для node.js 18, змінені залежності до не node.js 12 підтримка",
         "zh-cn": "BREAKING：删除 node.js 12 支持，为 node.js 18 添加测试，将依赖项更改为非 node.js 12 支持"
       },
-      "0.4.3": {
-        "en": "added github tests for MAC-OS and Windows",
-        "de": "github Tests für MAC-OS und Windows hinzugefügt",
-        "ru": "добавлены github тесты для MAC-OS и Windows",
-        "pt": "adicionado github testes para MAC-OS e Windows",
-        "nl": "voegde github testen toe voor MAC-OS en Windows",
-        "fr": "des tests github pour MAC-OS et Windows",
-        "it": "test github aggiunti per MAC-OS e Windows",
-        "es": "añadidas pruebas de github para MAC-OS y Windows",
-        "pl": "dodano testy MAC-OS i Windows",
-        "uk": "додано тести github для MAC-OS та Windows",
-        "zh-cn": "综合安全分会和视窗的试验"
-      },
       "0.4.2": {
         "en": "changed statemachine to async; bumped dependencies",
         "de": "Änderung Zustandsmaschine auf async; aktualisierte Abhängigkeiten",
@@ -223,19 +148,6 @@
         "pl": "zmieniła się maszyna stanowa, zależność od zderzenia",
         "uk": "змінений стан машини для асинхронізації",
         "zh-cn": "a. 改变州对英恩;倾弃的依赖"
-      },
-      "0.4.0": {
-        "en": "introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config",
-        "de": "automatische Anpassung an die Menge der konfigurierten Ladegeräte; bugfixes für sauberen Lauf ohne Konfig",
-        "ru": "введена автоматическая адаптация к количеству настраиваемых зарядных устройств; багфиксы для более чистого бега без конфига",
-        "pt": "introduzida adaptação automática à quantidade de carregadores configurados; correções de bugs para execução mais limpa sem configuração",
-        "nl": "geïntroduceerde automatische aanpassing aan de hoeveelheid inbeslagnames, insecten voor reinigers zonder configuur",
-        "fr": "a introduit l'adaptation automatique à la quantité de chargeurs configurés; bugfixes for cleaner run without config",
-        "it": "ha introdotto l'adattamento automatico alla quantità di caricabatterie configurati; bugfix per eseguire più pulito senza configurazione",
-        "es": "introdujo la adaptación automática a la cantidad de cargadores configurados; bugfixes para un funcionamiento limpio sin config",
-        "pl": "wprowadzono automatyczną adaptację do ilości ładowanych ładunków konfigurowanych; bugfixes for cleaner run without configigigig",
-        "uk": "введена автоматична адаптація до кількості налаштованих зарядних пристроїв; виправлення помилок для чищення запуску без налаштування",
-        "zh-cn": "采用自动调整,以配置的收费者的数额; 清洁经营的奖励,而没有混凝土。"
       }
     },
     "titleLang": {
@@ -295,7 +207,7 @@
     },
     "dependencies": [
       {
-        "js-controller": ">=5.0.0"
+        "js-controller": ">=5.0.19"
       }
     ],
     "globalDependencies": [

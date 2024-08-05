@@ -55,8 +55,16 @@
   "bugs": {
     "url": "https://github.com/hombach/ioBroker.chargemaster/issues"
   },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  }
+  "files": [
+      ".github/",
+      "admin/",
+      "lib/",
+      "CODE_OF_CONDUCT.md",
+      "io-package.json",
+      "LICENSE",
+      "main.js",
+      "main.test.js",
+      "package.json",
+      "README.md"
+  ]
 }

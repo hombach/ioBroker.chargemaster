@@ -4,7 +4,17 @@
     "version": "0.9.1",
     "news": {
       "0.9.1": {
-        "en": "WiP"
+        "en": "fixed issues detected by repository checker (#494)\ncode cleanups",
+        "de": "Behobene Probleme, die vom Repository-Checker erkannt wurden (#494)\nCode-Bereinigungen",
+        "ru": "исправлены проблемы, обнаруженные проверяющим репозитория (#494)\nочистка кода",
+        "pt": "corrigidos problemas detectados pelo verificador de repositório (#494)\nlimpeza de código",
+        "nl": "opgeloste problemen gedetecteerd door de repository-checker (#494)\ncode opruimen",
+        "fr": "correction des problèmes détectés par le vérificateur de dépôt (#494)\nnettoyage du code",
+        "it": "corretti problemi rilevati dal controllo del repository (#494)\npulizia del codice",
+        "es": "solucionados problemas detectados por el verificador de repositorios (#494)\nlimpieza de código",
+        "pl": "naprawione problemy wykryte przez sprawdzanie repozytorium (#494)\nczyszczenie kodu",
+        "uk": "виправлено проблеми, виявлені перевіряючим репозиторію (#494)\nочищення коду",
+        "zh-cn": "修复了存储库检查器检测到的问题 (#494)\n代码清理"
       },
       "0.9.0": {
         "en": "BREAKING: dropped support for Node.js 16 (#455)\nBREAKING: js-controller >= 5 is required (#456)",
@@ -57,32 +67,6 @@
       	"pl": "Zaktualizuj rdzeń adaptera do wersji 3.x",
       	"uk": "Підняти ядро адаптера до 3.x",
       	"zh-cn": "将适配器核心升级到3.x"
-      },
-      "0.8.2": {
-        "en": "Several dependency updates; Fixed acknowledging of state changes (#339)",
-        "de": "Mehrere Aktualisierungen von Abhängigkeiten; Behobene Anerkennung von Statusänderungen (#339)",
-        "ru": "Несколько обновлений зависимостей; Исправлена подтверждение изменений состояния (#339)",
-        "pt": "Várias atualizações de dependências; Corrigida a confirmação de mudanças de estado (#339)",
-        "nl": "Diverse afhankelijkheidsupdates; Herstelde erkenning van statuswijzigingen (#339)",
-        "fr": "Plusieurs mises à jour de dépendances ; Correction de la reconnaissance des changements d'état (#339)",
-        "it": "Diverse aggiornamenti delle dipendenze; Correzione del riconoscimento dei cambiamenti di stato (#339)",
-        "es": "Varias actualizaciones de dependencias; Corregida la confirmación de cambios de estado (#339)",
-        "pl": "Kilka aktualizacji zależności; Naprawiono potwierdzanie zmian stanu (#339)",
-        "uk": "Декілька оновлень залежностей; Виправлено підтвердження змін стану (#339)",
-        "zh-cn": "多个依赖项更新；修复状态更改的确认问题 (#339)"
-      },
-      "0.8.1": {
-        "en": "bumped dependencies, added min/max to settings state defaults",
-        "de": "update Abhängigkeiten, min/max zu Settings States hinzugefügt",
-        "ru": "bumped зависимости, добавлены мин/макс для настроек государственных дефолтов",
-        "pt": "dependências colhidas, adicionado min/max para configurações padrão de estado",
-        "nl": "quality over quantity (qoq) releases vertaling:",
-        "fr": "dépendances par bosse, ajouté min/max aux paramètres par défaut",
-        "it": "urtato dipendenze, aggiunto min/max alle impostazioni predefinite dello stato",
-        "es": "dependencias parachoques, añadido min/max a ajustes predeterminados del estado",
-        "pl": "w zależności od miejsca dodawania min/max do do domyślności państwa",
-        "uk": "bumped залежності, додано min/max для налаштування державних за замовчуванням",
-        "zh-cn": "b 倾销的受扶养人,在国家违约情况下增加了min/max"
       },
       "0.8.0": {
         "en": "changed config screen to admin 5 solution",

@@ -33,7 +33,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
 
-### 0.9.1 (xx.08.2024)
+### 0.9.1 (06.08.2024)
 
 * (HombachC) fixed issues detected by repository checker (#494)
 * (HombachC) code cleanups

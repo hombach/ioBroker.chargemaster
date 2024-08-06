@@ -93,45 +93,6 @@
         "pl": "BREAKING: Uruchomiona obsługa węzła.js 14, dodaje testy dla węzła.js 20, zrzucił ioBrokera. Administracja 4",
         "uk": "BREAKING: скидати node.js 14 підтримка, додати тести для node.js 20, скидати ioBroker. Підтримка адміністратора 4",
         "zh-cn": "BREAKRE:撤除不de.js 14支持,增加20js,降水箱。 附录4"
-      },
-      "0.6.0": {
-        "en": "fix error in max total current; fix error in charge manager",
-        "de": "Fehler in max Gesamtstrom behoben; Fehler im Lademanager behoben",
-        "ru": "исправьте ошибку в максимальном текущем; исправьте ошибку в зарядном менеджере",
-        "pt": "corrigir erro na corrente total máxima; corrigir erro no gerenciador de carga",
-        "nl": "vergissing in max totale stroming",
-        "fr": "corriger l'erreur dans le courant total max; corriger l'erreur dans le gestionnaire de charge",
-        "it": "correggere errore nella corrente totale massima; correggere errore in responsabile",
-        "es": "corregir error en la corriente máxima total; corregir error en el administrador de cargo",
-        "pl": "ustępowanie błędów w maksimum całkowitego prądu; naprawa błędów w menedżerze zadań",
-        "uk": "виправлено помилку в максимальному обсязі; виправлено помилку в управлінні зарядами",
-        "zh-cn": "f 现有最高数的错误; 主管管理人员的错误"
-      },
-      "0.5.0": {
-        "en": "BREAKING: dropped node.js 12 support, add tests for node.js 18, changed dependencies to non node.js 12 support",
-        "de": "BREAKING: Node.js 12-Unterstützung wurde eingestellt, Tests für node.js 18 hinzugefügt, Abhängigkeiten auf Nicht-Node.js 12-Unterstützung geändert",
-        "ru": "BREAKING: удалена поддержка node.js 12, добавлены тесты для node.js 18, изменены зависимости на поддержку без node.js 12",
-        "pt": "URGENTE: abandonou o suporte ao node.js 12, adicione testes para o node.js 18, alterou as dependências para o suporte não ao node.js 12",
-        "nl": "BREAKING: ondersteuning voor node.js 12 verwijderd, tests voor node.js 18 toegevoegd, afhankelijkheden gewijzigd in niet-node.js 12-ondersteuning",
-        "fr": "BREAKING : suppression de la prise en charge de node.js 12, ajout de tests pour node.js 18, modification des dépendances pour la prise en charge non node.js 12",
-        "it": "ROTTURA: supporto node.js 12 abbandonato, aggiunta test per node.js 18, dipendenze modificate in supporto non node.js 12",
-        "es": "ÚLTIMA HORA: se eliminó la compatibilidad con node.js 12, se agregaron pruebas para node.js 18, se cambiaron las dependencias para que no sean compatibles con node.js 12",
-        "pl": "ZŁAMANIE: zrezygnowano z obsługi node.js 12, dodano testy dla node.js 18, zmieniono zależności na nie obsługujące node.js 12",
-        "uk": "BREAKING: скидати node.js 12 підтримка, додати тести для node.js 18, змінені залежності до не node.js 12 підтримка",
-        "zh-cn": "BREAKING：删除 node.js 12 支持，为 node.js 18 添加测试，将依赖项更改为非 node.js 12 支持"
-      },
-      "0.4.2": {
-        "en": "changed statemachine to async; bumped dependencies",
-        "de": "Änderung Zustandsmaschine auf async; aktualisierte Abhängigkeiten",
-        "ru": "изменена государственная машина в async; bumped зависимости",
-        "pt": "mudou statemachine para async; dependências colididas",
-        "nl": "veranderde staatsmachine naar async:",
-        "fr": "changement d'état à async; dépendances paressées",
-        "it": "cambiato statemachine in asincrona; interrotte dipendenze",
-        "es": "cambió el estadomachine al asinc; las dependencias con problemas",
-        "pl": "zmieniła się maszyna stanowa, zależność od zderzenia",
-        "uk": "змінений стан машини для асинхронізації",
-        "zh-cn": "a. 改变州对英恩;倾弃的依赖"
       }
     },
     "titleLang": {

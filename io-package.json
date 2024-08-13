@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "news": {
+      "0.9.2": {
+        "en": "fixed vulnerability in dependency",
+        "de": "Schwachstelle in Abhängigkeit behoben",
+        "ru": "устранена уязвимость в зависимости",
+        "pt": "vulnerabilidade corrigida na dependência",
+        "nl": "kwetsbaarheid in afhankelijkheid opgelost",
+        "fr": "vulnérabilité corrigée dans la dépendance",
+        "it": "corretta vulnerabilità nella dipendenza",
+        "es": "vulnerabilidad solucionada en la dependencia",
+        "pl": "usunięto lukę w zależności",
+        "uk": "виправлено уразливість у залежності",
+        "zh-cn": "修复了依赖项中的漏洞"
+      },
       "0.9.1": {
         "en": "fixed issues detected by repository checker (#494)\ncode cleanups",
         "de": "Behobene Probleme, die vom Repository-Checker erkannt wurden (#494)\nCode-Bereinigungen",
@@ -54,19 +67,6 @@
       	"pl": "WAŻNE: Zakończono wsparcie dla js-controller 3.x\nzmiany na rok 2024\naxios podniesiony do wersji 1.6.3 z powodu podatności",
       	"uk": "ВАЖЛИВО: Підтримка js-controller 3.x припинена\nзміни на 2024 рік\nпідняття axios до 1.6.3 через вразливість",
       	"zh-cn": "重大变更：不再支持 js-controller 3.x\n2024年变更\n升级axios到1.6.3以解决漏洞"
-      },
-      "0.8.3": {
-      	"en": "Bump adapter core to 3.x",
-      	"de": "Adapterkern auf 3.x aktualisieren",
-      	"ru": "Поднять ядро адаптера до версии 3.x",
-      	"pt": "Atualizar o núcleo do adaptador para 3.x",
-      	"nl": "Adapterkern bijwerken naar 3.x",
-      	"fr": "Mettre à jour le noyau de l'adaptateur vers 3.x",
-      	"it": "Aggiorna il core dell'adattatore a 3.x",
-      	"es": "Actualizar el núcleo del adaptador a 3.x",
-      	"pl": "Zaktualizuj rdzeń adaptera do wersji 3.x",
-      	"uk": "Підняти ядро адаптера до 3.x",
-      	"zh-cn": "将适配器核心升级到3.x"
       },
       "0.8.0": {
         "en": "changed config screen to admin 5 solution",

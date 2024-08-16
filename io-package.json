@@ -4,17 +4,17 @@
     "version": "0.9.2",
     "news": {
       "0.9.2": {
-        "en": "fixed vulnerability in dependency",
-        "de": "Schwachstelle in Abhängigkeit behoben",
-        "ru": "устранена уязвимость в зависимости",
-        "pt": "vulnerabilidade corrigida na dependência",
-        "nl": "kwetsbaarheid in afhankelijkheid opgelost",
-        "fr": "vulnérabilité corrigée dans la dépendance",
-        "it": "corretta vulnerabilità nella dipendenza",
-        "es": "vulnerabilidad solucionada en la dependencia",
-        "pl": "usunięto lukę w zależności",
-        "uk": "виправлено уразливість у залежності",
-        "zh-cn": "修复了依赖项中的漏洞"
+        "en": "fixed vulnerability in dependency\nadded tests for Node.js 22",
+        "de": "Schwachstelle in Abhängigkeit behoben\nTests für Node.js 22 hinzugefügt",
+        "ru": "устранена уязвимость в зависимости\nдобавлены тесты для Node.js 22",
+        "pt": "vulnerabilidade corrigida na dependência\nadicionados testes para Node.js 22",
+        "nl": "kwetsbaarheid in afhankelijkheid opgelost\ntests toegevoegd voor Node.js 22",
+        "fr": "vulnérabilité corrigée dans la dépendance\najouté des tests pour Node.js 22",
+        "it": "corretta vulnerabilità nella dipendenza\naggiunti test per Node.js 22",
+        "es": "vulnerabilidad solucionada en la dependencia\nse añadieron pruebas para Node.js 22",
+        "pl": "usunięto lukę w zależności\ndodano testy dla Node.js 22",
+        "uk": "виправлено уразливість у залежності\nдодано тести для Node.js 22",
+        "zh-cn": "修复了依赖项中的漏洞\n添加了 Node.js 22 的测试"
       },
       "0.9.1": {
         "en": "fixed issues detected by repository checker (#494)\ncode cleanups",

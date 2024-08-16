@@ -36,6 +36,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 0.9.2 (16.08.2024)
 
 * (HombachC) fixed vulnerability in dependency
+* (HombachC) added tests for node 22
 
 ### 0.9.1 (06.08.2024)
 

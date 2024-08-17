@@ -1,9 +1,4 @@
 {
-    "cycletime": "Cyclustijd voor chargemanager [ms] - (standaard 10000)",
-    "MaxAmpTotal": "Maximaal toegestane som van stromen voor compleet systeem [A]",
-    "StateHomeSolarPower": "object-id voor momenteel beschikbare zonne-energie [W]",
-    "StateHomeBatSoc": "object-ID voor de huidige laadtoestand van de thuisbatterij [%]",
-    "StateHomePowerConsumption": "object-id voor huidig energieverbruik thuis [W]",
     "StateWallBox0Headline": "Dataverbindingen voor WallBox 0",
     "StateWallBox0ChargeCurrent": "object-id voor het instellen van de laadstroom in wallbox 0 [A]",
     "StateWallBox0ChargeAllowed": "object-id voor inschakelen wallbox 0 opladen [true/false]",

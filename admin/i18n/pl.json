@@ -1,9 +1,4 @@
 {
-    "cycletime": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
-    "MaxAmpTotal": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
-    "StateHomeSolarPower": "id obiektu dla aktualnie dostępnej energii słonecznej [W]",
-    "StateHomeBatSoc": "id obiektu dla aktualnego stanu naładowania akumulatora w domu [%]",
-    "StateHomePowerConsumption": "id obiektu dla bieżącego zużycia energii w domu [W]",
     "StateWallBox0Headline": "Połączenia danych dla WallBox 0",
     "StateWallBox0ChargeCurrent": "id obiektu do ustawiania prądu ładowania wallbox 0 [A]",
     "StateWallBox0ChargeAllowed": "identyfikator obiektu do włączenia ładowania Wallbox 0 [true/false]",

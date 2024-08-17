@@ -1,9 +1,4 @@
 {
-    "cycletime": "Cycletime for chargemanager [ms] - (predeterminado 10000)",
-    "MaxAmpTotal": "Suma máxima permitida de corrientes para el sistema completo [A]",
-    "StateHomeSolarPower": "ID de objeto para la energía solar disponible actualmente [W]",
-    "StateHomeBatSoc": "ID de objeto para el estado de carga actual de la batería doméstica [%]",
-    "StateHomePowerConsumption": "ID de objeto para el consumo actual de energía en el hogar [W]",
     "StateWallBox0Headline": "Conexiones de datos para WallBox 0",
     "StateWallBox0ChargeCurrent": "ID de objeto para configurar la corriente de carga de la caja de pared 0 [A]",
     "StateWallBox0ChargeAllowed": "ID de objeto para habilitar la carga de Wallbox 0 [true/false]",

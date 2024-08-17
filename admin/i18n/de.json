@@ -1,9 +1,4 @@
 {
-    "cycletime": "Zykluszeit für Chargemanager [ms] - (Standard 10000)",
-    "MaxAmpTotal": "Maximal zulässige Summe der Ströme für das gesamte System [A]",
-    "StateHomeSolarPower": "Objekt-ID für derzeit verfügbare Solarenergie [W]",
-    "StateHomeBatSoc": "Objekt-ID für den aktuellen Ladezustand der Heimbatterie [%]",
-    "StateHomePowerConsumption": "Objekt-ID für den aktuellen Stromverbrauch zu Hause [W]",
     "StateWallBox0Headline": "Datenverbindungen für WallBox 0",
     "StateWallBox0ChargeCurrent": "Objekt-ID zum Einstellen des Ladestroms von Wallbox 0 [A]",
     "StateWallBox0ChargeAllowed": "Objekt-ID zum Aktivieren des Ladens von Wallbox 0 [true/false]",

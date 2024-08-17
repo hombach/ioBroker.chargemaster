@@ -1,9 +1,4 @@
 {
-    "cycletime": "Chargemanager 的周期时间 [ms] -（默认 10000)",
-    "MaxAmpTotal": "整个系统的最大允许电流总和[A]",
-    "StateHomeSolarPower": "当前可用太阳能的对象ID [W]",
-    "StateHomeBatSoc": "当前家用电池充电状态的对象ID [％]",
-    "StateHomePowerConsumption": "当前家庭功耗的对象ID [W]",
     "StateWallBox0Headline": "WallBox 0 的数据连接",
     "StateWallBox0ChargeCurrent": "用于设置墙盒0充电电流[A]的对象ID",
     "StateWallBox0ChargeAllowed": "启用Wallbox 0收费的对象ID [true/false]",

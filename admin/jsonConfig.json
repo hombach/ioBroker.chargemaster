@@ -4,11 +4,35 @@
 	"items":  {
 	    "_StandardTab": {
        		"type": "panel",
-		"label": "Standard settings",
+		"label": {
+			"en": "Standard settings",
+			"de": "Standard-Einstellungen",
+			"ru": "Стандартные настройки",
+			"pt": "Configurações padrão",
+			"nl": "Standaardinstellingen",
+			"fr": "Paramètres standard",
+			"it": "Impostazioni predefinite",
+			"es": "Configuración estándar",
+			"pl": "Ustawienia standardowe",
+			"uk": "Стандартні налаштування",
+			"zh-cn": "标准设置"
+		},
 	        "items": {
 			"cycletime": {
   				"type": "number",
-				"label": "cycletime",
+				"label": {
+					"en": "Cycletime for chargemanager [ms] - (default 10000)",
+					"de": "Zykluszeit für den Lademanager [ms] - (Standard 10000)",
+					"ru": "Цикл времени для менеджера зарядки [мс] - (по умолчанию 10000)",
+					"pt": "Tempo de ciclo para o gerenciador de carga [ms] - (padrão 10000)",
+					"nl": "Cyclustijd voor laadbeheer [ms] - (standaard 10000)",
+					"fr": "Temps de cycle pour le gestionnaire de charge [ms] - (par défaut 10000)",
+					"it": "Tempo di ciclo per il gestore di carica [ms] - (predefinito 10000)",
+					"es": "Tiempo de ciclo para el gestor de carga [ms] - (por defecto 10000)",
+					"pl": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
+					"uk": "Час циклу для керуючого зарядкою [мс] - (за замовчуванням 10000)",
+					"zh-cn": "充电管理器的循环时间 [ms] -（默认 10000）"
+				},
 				"min": 1000,
 				"step": 1,
 				"sm": 6,
@@ -18,7 +42,19 @@
   			},
 			"MaxAmpTotal": {
   				"type": "number",
-				"label": "MaxAmpTotal",
+				"label": {
+					"en": "Maximum allowed sum of currents for complete system [A]",
+					"de": "Maximal zulässige Summe der Ströme für das gesamte System [A]",
+					"ru": "Максимально допустимая сумма токов для всей системы [A]",
+					"pt": "Soma máxima permitida de correntes para o sistema completo [A]",
+					"nl": "Maximale toegestane som van stromen voor het volledige systeem [A]",
+					"fr": "Somme maximale autorisée des courants pour le système complet [A]",
+					"it": "Somma massima consentita delle correnti per l'intero sistema [A]",
+					"es": "Suma máxima permitida de corrientes para todo el sistema [A]",
+					"pl": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
+					"uk": "Максимально допустима сума струмів для всієї системи [A]",
+					"zh-cn": "整个系统允许的最大电流总和 [A]"
+				},
 				"min": 1,
 				"step": 1,
 				"sm": 6,
@@ -29,7 +65,19 @@
 
 			"StateHomeSolarPower": {
   				"type": "objectId",
-				"label": "StateHomeSolarPower",
+				"label": {
+					"en": "object-id for currently available solar power [W]",
+					"de": "Objekt-ID für derzeit verfügbare Solarenergie [W]",
+					"ru": "ID объекта для доступной солнечной энергии [Вт]",
+					"pt": "ID de objeto para potência solar disponível atualmente [W]",
+					"nl": "object-id voor momenteel beschikbare zonne-energie [W]",
+					"fr": "ID d'objet pour la puissance solaire actuellement disponible [W]",
+					"it": "ID oggetto per l'energia solare attualmente disponibile [W]",
+					"es": "ID de objeto para la energía solar actualmente disponible [W]",
+					"pl": "identyfikator obiektu dla aktualnie dostępnej energii słonecznej [W]",
+					"uk": "ідентифікатор об'єкта для доступної сонячної енергії [Вт]",
+					"zh-cn": "当前可用太阳能的对象 ID [W]"
+				},
 				"sm": 6,
 				"md": 6,
 				"lg": 6,
@@ -37,7 +85,19 @@
 			},
 			"StateHomePowerConsumption": {
   				"type": "objectId",
-				"label": "StateHomePowerConsumption",
+				"label": {
+					"en": "object-id for current home power consumption [W]",
+					"de": "Objekt-ID für den aktuellen Stromverbrauch des Haushalts [W]",
+					"ru": "ID объекта для текущего энергопотребления дома [Вт]",
+					"pt": "ID de objeto para o consumo de energia doméstico atual [W]",
+					"nl": "object-id voor huidig stroomverbruik thuis [W]",
+					"fr": "ID d'objet pour la consommation d'énergie domestique actuelle [W]",
+					"it": "ID oggetto per il consumo energetico attuale della casa [W]",
+					"es": "ID de objeto para el consumo eléctrico actual del hogar [W]",
+					"pl": "identyfikator obiektu dla bieżącego zużycia energii w domu [W]",
+					"uk": "ідентифікатор об'єкта для поточного споживання електроенергії в домогосподарстві [Вт]",
+					"zh-cn": "当前家庭电力消耗的对象 ID [W]"
+				},
 				"sm": 6,
 				"md": 6,
 				"lg": 6,
@@ -46,14 +106,26 @@
 
 			"StateHomeBatSoc": {
   				"type": "objectId",
-				"label": "StateHomeBatSoc",
+				"label": {
+					"en": "object-id for current home battery state of charge [%]",
+					"de": "Objekt-ID für den aktuellen Ladezustand der Hausbatterie [%]",
+					"ru": "ID объекта для текущего уровня заряда домашней батареи [%]",
+					"pt": "ID de objeto para o estado atual de carga da bateria doméstica [%]",
+					"nl": "object-id voor de huidige laadstatus van de thuisbatterij [%]",
+					"fr": "ID d'objet pour l'état de charge actuel de la batterie domestique [%]",
+					"it": "ID oggetto per lo stato di carica attuale della batteria domestica [%]",
+					"es": "ID de objeto para el estado de carga actual de la batería doméstica [%]",
+					"pl": "identyfikator obiektu dla bieżącego stanu naładowania baterii domowej [%]",
+					"uk": "ідентифікатор об'єкта для поточного рівня заряду домашньої батареї [%]",
+					"zh-cn": "当前家庭电池充电状态的对象 ID [%]"
+				},
 				"sm": 6,
 				"md": 6,
 				"lg": 6,
 				"newLine": true
 			},
 	
-			"StateWallBox0Headline": {
+			"_StateWallBox0Headline": {
 				"type": "header",
 				"text": "StateWallBox0Headline",
 				"size": 3

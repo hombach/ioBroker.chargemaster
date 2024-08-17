@@ -1,9 +1,12 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.9.2",
+    "version": "0.9.3",
     "news": {
-      "0.9.2": {
+      "0.9.3": {
+        "en": "change translation handling"
+      },
+        "0.9.2": {
         "en": "fixed vulnerability in dependency\nadded tests for Node.js 22",
         "de": "Schwachstelle in Abhängigkeit behoben\nTests für Node.js 22 hinzugefügt",
         "ru": "устранена уязвимость в зависимости\nдобавлены тесты для Node.js 22",

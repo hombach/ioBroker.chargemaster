@@ -4,7 +4,7 @@
     "version": "0.9.3",
     "news": {
       "0.9.3": {
-        "en": "change translation handling"
+        "en": "change translation handling\ncode and repository cleanup"
       },
         "0.9.2": {
         "en": "fixed vulnerability in dependency\nadded tests for Node.js 22",

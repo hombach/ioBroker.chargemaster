@@ -46,7 +46,8 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 
 ### 0.10.0 (2024-08-xx)
 
--   (HombachC) WiP - switch to Typescript
+-   (HombachC) switch to Typescript
+-   (HombachC) change adapter type to "energy"
 
 ### 0.9.3 (2024-08-18)
 

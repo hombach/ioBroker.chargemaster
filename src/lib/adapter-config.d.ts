@@ -1,18 +1,34 @@
 // This file extends the AdapterConfig type from "@types/iobroker"
-// using the actual properties present in io-package.json
-// in order to provide typings for adapter.config properties
-
-import { native } from '../io-package.json';
-
-type _AdapterConfig = typeof native;
 
 // Augment the globally declared type ioBroker.AdapterConfig
 declare global {
-    namespace ioBroker {
-        interface AdapterConfig extends _AdapterConfig {
-            // Do not enter anything here!
-        }
-    }
+	namespace ioBroker {
+		interface AdapterConfig {
+			cycletime: number;
+			MaxAmpTotal: number;
+			StateHomeBatSoc: string;
+			StateHomeSolarPower: string;
+			StateHomePowerConsumption: string;
+			StateWallBox0ChargeCurrent: string;
+			StateWallBox0ChargeAllowed: string;
+			StateWallBox0ChargePower: string;
+			StateWallBox0MeasuredMaxChargeAmp: string;
+			MinAmpWallBox0: number;
+			MaxAmpWallBox0: number;
+			StateWallBox1ChargeCurrent: string;
+			StateWallBox1ChargeAllowed: string;
+			StateWallBox1ChargePower: string;
+			StateWallBox1MeasuredMaxChargeAmp: string;
+			MinAmpWallBox1: number;
+			MaxAmpWallBox1: number;
+			StateWallBox2ChargeCurrent: string;
+			StateWallBox2ChargeAllowed: string;
+			StateWallBox2ChargePower: string;
+			StateWallBox2MeasuredMaxChargeAmp: string;
+			MinAmpWallBox2: number;
+			MaxAmpWallBox2: number;
+		}
+	}
 }
 
 // this is required so the above AdapterConfig is found by TypeScript / type checking

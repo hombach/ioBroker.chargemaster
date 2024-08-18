@@ -48,6 +48,7 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 
 -   (HombachC) change translation handling
 -   (HombachC) code and repository cleanup
+-   (HombachC) prepare switch to Typescript
 
 ### 0.9.2 (2024-08-16)
 

@@ -58,25 +58,25 @@
     "glob-parent": "^6.0.2",
     "set-value": "^4.0.1"
   },
-  "main": "main.js",
+  "main": "build/main.js",
   "files": [
-    ".github/",
     "admin/",
     "build/",
     "io-package.json",
     "LICENSE",
-    "main.js",
-    "main.test.js",
     "package.json"
   ],
   "scripts": {
+    "build:ts": "tsc -p tsconfig.build.json",
+    "build": "npm run build:ts",
     "watch:ts": "tsc -p tsconfig.build.json --watch",
     "watch": "npm run watch:ts",
     "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
     "test:package": "mocha test/package --exit",
     "test:integration": "mocha test/integration --exit",
-    "test": "npm run test:js && npm run test:package",
-    "lint": "eslint"
+    "test": "npm run test:ts && npm run test:package",
+    "check": "tsc --noEmit",
+    "lint": "eslint --ext .ts src/"
   },
   "bugs": {
     "url": "https://github.com/Hombach/ioBroker.chargemaster/issues"

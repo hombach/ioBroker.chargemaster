@@ -7,6 +7,12 @@
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
 
+![GitHub](https://img.shields.io/github/license/hombach/iobroker.chargemaster?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/hombach/iobroker.chargemaster?logo=github&style=flat-square)
+
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.chargemaster/test-and-release.yml?branch=main&logo=github&style=flat-square)
 [![CodeQL](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml)
 [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-chargemaster)
@@ -21,15 +27,18 @@
 [![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)](https://nodei.co/npm/iobroker.chargemaster/)
 
 ## Adapter to manage one or multiple EV-chargers with use of PV-energy
+
 **!!! THIS ADAPTER IS STILL REPRESENTING AN DEVELOPMENT STATE !!!**
 
 Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy. Adapter currently handles with up to 3 EV wallboxes to manage charging available grid power  with potential use of PV surplus energy. 
 
 ## Settings
+
 To connect to the wallboxes type in the states with needed data in the config.
 
-## Notes
-This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+## Sentry
+
+This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
 
 ## Changelog
 
@@ -37,67 +46,67 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ### 0.9.3 (2024-08-xx)
 
-* (HombachC) change translation handling
-* (HombachC) code and repository cleanup
+-   (HombachC) change translation handling
+-   (HombachC) code and repository cleanup
 
 ### 0.9.2 (2024-08-16)
 
-* (HombachC) fixed vulnerability in dependency
-* (HombachC) added tests for node 22
+-   (HombachC) fixed vulnerability in dependency
+-   (HombachC) added tests for node 22
 
 ### 0.9.1 (2024-08-06)
 
-* (HombachC) fixed issues detected by repository checker (#494)
-* (HombachC) code cleanups
+-   (HombachC) fixed issues detected by repository checker (#494)
+-   (HombachC) code cleanups
 
 ### 0.9.0 (2024-04-20)
 
-* (HombachC) BREAKING: dropped support for node.js 16 (#455)
-* (HombachC) BREAKING: js-controller >= 5 is required (#456)
+-   (HombachC) BREAKING: dropped support for node.js 16 (#455)
+-   (HombachC) BREAKING: js-controller >= 5 is required (#456)
 
 ### 0.8.5 (2024-03-27)
 
-* (HombachC) updated CI definitions, switched to node 20 as main test scenario
-* (HombachC) corrected io-package.json according to new schema
-* (HombachC) bumped dependencies
+-   (HombachC) updated CI definitions, switched to node 20 as main test scenario
+-   (HombachC) corrected io-package.json according to new schema
+-   (HombachC) bumped dependencies
 
-### 0.8.4 (29.12.2023)
+### 0.8.4 (2023-12-29)
 
-* (HombachC) BREAKING: dropped support for js-controller 3.x
-* (HombachC) Year 2024 changes
-* (HombachC) Bump axios to 1.6.3 because of vulnerability
+-   (HombachC) BREAKING: dropped support for js-controller 3.x
+-   (HombachC) Year 2024 changes
+-   (HombachC) Bump axios to 1.6.3 because of vulnerability
 
-### 0.8.3 (29.10.2023)
+### 0.8.3 (2023-10-29)
 
-* (HombachC) Bumb adapter core to 3.x
-* (HombachC) Bump axios to 1.6.0 because of vulnerability
+-   (HombachC) Bumb adapter core to 3.x
+-   (HombachC) Bump axios to 1.6.0 because of vulnerability
 
-### 0.8.2 (01.10.2023)
+### 0.8.2 (2023-10-01)
 
-* (HombachC) Several dependency updates
-* (HombachC) Fixed acknowledging of state changes (#339)
+-   (HombachC) Several dependency updates
+-   (HombachC) Fixed acknowledging of state changes (#339)
 
-### 0.8.1 (29.08.2023)
+### 0.8.1 (2023-08-29)
 
-* (HombachC) bumped dependencies, added min/max to settings state defaults
+-   (HombachC) bumped dependencies, added min/max to settings state defaults
 
-### 0.8.0 (23.06.2023)
+### 0.8.0 (2023-06-23)
 
-* (HombachC) changed config screen to admin 5 solution
+-   (HombachC) changed config screen to admin 5 solution
 
-### 0.7.2 (19.06.2023)
+### 0.7.2 (2023-06-19)
 
-* (HombachC) Removed Travis 
+-   (HombachC) Removed Travis 
 
-### 0.7.1 (13.06.2023)
+### 0.7.1 (2023-06-13)
 
-* (HombachC) Fixed typo in docu, added translations 
+-   (HombachC) Fixed typo in docu, added translations 
 
-### 0.7.0 (11.06.2023)
+### 0.7.0 (2023-06-11)
 
-* (HombachC) BREAKING: dropped node.js 14 support
-* (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
-* (HombachC) BREAKING: dropped ioBroker.admin 4 support
+-   (HombachC) BREAKING: dropped node.js 14 support
+-   (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
+-   (HombachC) BREAKING: dropped ioBroker.admin 4 support
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

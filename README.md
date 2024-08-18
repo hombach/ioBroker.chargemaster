@@ -44,6 +44,10 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.10.0 (2024-08-xx)
+
+-   (HombachC) WiP - switch to Typescript
+
 ### 0.9.3 (2024-08-18)
 
 -   (HombachC) change translation handling

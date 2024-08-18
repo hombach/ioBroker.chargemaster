@@ -1,8 +1,11 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.9.3",
+    "version": "0.10.0",
     "news": {
+      "0.10.0": {
+        "en": "WiP - switch to Typescript"
+      },
       "0.9.3": {
         "en": "change translation handling\ncode and repository cleanup\nprepare switch to Typescript",
         "de": "Änderung der Übersetzungsverwaltung\nCode- und Repository-Bereinigung\nVorbereitung auf den Wechsel zu Typescript",

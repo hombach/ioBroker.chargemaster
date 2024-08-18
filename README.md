@@ -44,6 +44,10 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.10.1 (2024-08-xx)
+
+-   (HombachC) WiP implement variable wallbox amount 
+
 ### 0.10.0 (2024-08-18)
 
 -   (HombachC) switch to Typescript

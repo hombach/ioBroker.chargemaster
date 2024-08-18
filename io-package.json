@@ -1,8 +1,11 @@
 {
 	"common": {
 		"name": "chargemaster",
-		"version": "0.10.0",
+		"version": "0.10.1",
 		"news": {
+			"0.10.1": {
+        "en": "WiP implement variable wallbox amount"
+      },
 			"0.10.0": {
         "en": "switch to Typescript\nchange adapter type to 'energy'\nreplace deprecated setStateAsync",
         "de": "Wechsel zu Typescript\nÄndern des Adaptertyps in 'energy'\nErsetzen des veralteten setStateAsync",

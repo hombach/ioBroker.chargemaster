@@ -4,562 +4,702 @@
 	"items":  {
 	    "_StandardTab": {
        		"type": "panel",
-		"label": {
-			"en": "Standard settings",
-			"de": "Standard-Einstellungen",
-			"ru": "Стандартные настройки",
-			"pt": "Configurações padrão",
-			"nl": "Standaardinstellingen",
-			"fr": "Paramètres standard",
-			"it": "Impostazioni predefinite",
-			"es": "Configuración estándar",
-			"pl": "Ustawienia standardowe",
-			"uk": "Стандартні налаштування",
-			"zh-cn": "标准设置"
-		},
+			"label": {
+				"en": "Standard settings",
+				"de": "Standard-Einstellungen",
+				"ru": "Стандартные настройки",
+				"pt": "Configurações padrão",
+				"nl": "Standaardinstellingen",
+				"fr": "Paramètres standard",
+				"it": "Impostazioni predefinite",
+				"es": "Configuración estándar",
+				"pl": "Ustawienia standardowe",
+				"uk": "Стандартні налаштування",
+				"zh-cn": "标准设置"
+			},
 	        "items": {
-			"cycletime": {
-  				"type": "number",
-				"label": {
-					"en": "Cycletime for chargemanager [ms] - (default 10000)",
-					"de": "Zykluszeit für den Lademanager [ms] - (Standard 10000)",
-					"ru": "Цикл времени для менеджера зарядки [мс] - (по умолчанию 10000)",
-					"pt": "Tempo de ciclo para o gerenciador de carga [ms] - (padrão 10000)",
-					"nl": "Cyclustijd voor laadbeheer [ms] - (standaard 10000)",
-					"fr": "Temps de cycle pour le gestionnaire de charge [ms] - (par défaut 10000)",
-					"it": "Tempo di ciclo per il gestore di carica [ms] - (predefinito 10000)",
-					"es": "Tiempo de ciclo para el gestor de carga [ms] - (por defecto 10000)",
-					"pl": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
-					"uk": "Час циклу для керуючого зарядкою [мс] - (за замовчуванням 10000)",
-					"zh-cn": "充电管理器的循环时间 [ms] -（默认 10000）"
+				"cycletime": {
+					"type": "number",
+					"label": {
+						"en": "Cycletime for chargemanager [ms] - (default 10000)",
+						"de": "Zykluszeit für den Lademanager [ms] - (Standard 10000)",
+						"ru": "Цикл времени для менеджера зарядки [мс] - (по умолчанию 10000)",
+						"pt": "Tempo de ciclo para o gerenciador de carga [ms] - (padrão 10000)",
+						"nl": "Cyclustijd voor laadbeheer [ms] - (standaard 10000)",
+						"fr": "Temps de cycle pour le gestionnaire de charge [ms] - (par défaut 10000)",
+						"it": "Tempo di ciclo per il gestore di carica [ms] - (predefinito 10000)",
+						"es": "Tiempo de ciclo para el gestor de carga [ms] - (por defecto 10000)",
+						"pl": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
+						"uk": "Час циклу для керуючого зарядкою [мс] - (за замовчуванням 10000)",
+						"zh-cn": "充电管理器的循环时间 [ms] -（默认 10000）"
+					},
+					"min": 1000,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
 				},
-				"min": 1000,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-  			},
-			"MaxAmpTotal": {
-  				"type": "number",
-				"label": {
-					"en": "Maximum allowed sum of currents for complete system [A]",
-					"de": "Maximal zulässige Summe der Ströme für das gesamte System [A]",
-					"ru": "Максимально допустимая сумма токов для всей системы [A]",
-					"pt": "Soma máxima permitida de correntes para o sistema completo [A]",
-					"nl": "Maximale toegestane som van stromen voor het volledige systeem [A]",
-					"fr": "Somme maximale autorisée des courants pour le système complet [A]",
-					"it": "Somma massima consentita delle correnti per l'intero sistema [A]",
-					"es": "Suma máxima permitida de corrientes para todo el sistema [A]",
-					"pl": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
-					"uk": "Максимально допустима сума струмів для всієї системи [A]",
-					"zh-cn": "整个系统允许的最大电流总和 [A]"
+				"MaxAmpTotal": {
+					"type": "number",
+					"label": {
+						"en": "Maximum allowed sum of currents for complete system [A]",
+						"de": "Maximal zulässige Summe der Ströme für das gesamte System [A]",
+						"ru": "Максимально допустимая сумма токов для всей системы [A]",
+						"pt": "Soma máxima permitida de correntes para o sistema completo [A]",
+						"nl": "Maximale toegestane som van stromen voor het volledige systeem [A]",
+						"fr": "Somme maximale autorisée des courants pour le système complet [A]",
+						"it": "Somma massima consentita delle correnti per l'intero sistema [A]",
+						"es": "Suma máxima permitida de corrientes para todo el sistema [A]",
+						"pl": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
+						"uk": "Максимально допустима сума струмів для всієї системи [A]",
+						"zh-cn": "整个系统允许的最大电流总和 [A]"
+					},
+					"min": 1,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
 				},
-				"min": 1,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
+
+				"StateHomeSolarPower": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for currently available solar power [W]",
+						"de": "Objekt-ID für derzeit verfügbare Solarenergie [W]",
+						"ru": "ID объекта для доступной солнечной энергии [Вт]",
+						"pt": "ID de objeto para potência solar disponível atualmente [W]",
+						"nl": "object-id voor momenteel beschikbare zonne-energie [W]",
+						"fr": "ID d'objet pour la puissance solaire actuellement disponible [W]",
+						"it": "ID oggetto per l'energia solare attualmente disponibile [W]",
+						"es": "ID de objeto para la energía solar actualmente disponible [W]",
+						"pl": "identyfikator obiektu dla aktualnie dostępnej energii słonecznej [W]",
+						"uk": "ідентифікатор об'єкта для доступної сонячної енергії [Вт]",
+						"zh-cn": "当前可用太阳能的对象 ID [W]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"StateHomePowerConsumption": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for current home power consumption [W]",
+						"de": "Objekt-ID für den aktuellen Stromverbrauch des Haushalts [W]",
+						"ru": "ID объекта для текущего энергопотребления дома [Вт]",
+						"pt": "ID de objeto para o consumo de energia doméstico atual [W]",
+						"nl": "object-id voor huidig stroomverbruik thuis [W]",
+						"fr": "ID d'objet pour la consommation d'énergie domestique actuelle [W]",
+						"it": "ID oggetto per il consumo energetico attuale della casa [W]",
+						"es": "ID de objeto para el consumo eléctrico actual del hogar [W]",
+						"pl": "identyfikator obiektu dla bieżącego zużycia energii w domu [W]",
+						"uk": "ідентифікатор об'єкта для поточного споживання електроенергії в домогосподарстві [Вт]",
+						"zh-cn": "当前家庭电力消耗的对象 ID [W]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"StateHomeBatSoc": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for current home battery state of charge [%]",
+						"de": "Objekt-ID für den aktuellen Ladezustand der Hausbatterie [%]",
+						"ru": "ID объекта для текущего уровня заряда домашней батареи [%]",
+						"pt": "ID de objeto para o estado atual de carga da bateria doméstica [%]",
+						"nl": "object-id voor de huidige laadstatus van de thuisbatterij [%]",
+						"fr": "ID d'objet pour l'état de charge actuel de la batterie domestique [%]",
+						"it": "ID oggetto per lo stato di carica attuale della batteria domestica [%]",
+						"es": "ID de objeto para el estado de carga actual de la batería doméstica [%]",
+						"pl": "identyfikator obiektu dla bieżącego stanu naładowania baterii domowej [%]",
+						"uk": "ідентифікатор об'єкта для поточного рівня заряду домашньої батареї [%]",
+						"zh-cn": "当前家庭电池充电状态的对象 ID [%]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+		
+				"_StateWallBox0Headline": {
+					"type": "header",
+					"text": {
+						"en": "Data Connections for WallBox 0",
+						"de": "Datenverbindungen für WallBox 0",
+						"ru": "Подключения данных для WallBox 0",
+						"pt": "Conexões de dados para WallBox 0",
+						"nl": "Dataverbindingen voor WallBox 0",
+						"fr": "Connexions de données pour WallBox 0",
+						"it": "Connessioni dati per WallBox 0",
+						"es": "Conexiones de datos para WallBox 0",
+						"pl": "Połączenia danych dla WallBox 0",
+						"uk": "З'єднання даних для WallBox 0",
+						"zh-cn": "WallBox 0 的数据连接"
+					},
+					"size": 3
+				},
+
+				"StateWallBox0ChargeCurrent": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for setting wallbox 0 charging current [A]",
+						"de": "Objekt-ID zum Einstellen des Ladestroms für Wallbox 0 [A]",
+						"ru": "ID объекта для установки тока зарядки Wallbox 0 [A]",
+						"pt": "ID de objeto para definir a corrente de carregamento da Wallbox 0 [A]",
+						"nl": "object-id voor het instellen van de laadstroom van Wallbox 0 [A]",
+						"fr": "ID d'objet pour régler le courant de charge de la Wallbox 0 [A]",
+						"it": "ID oggetto per impostare la corrente di carica della Wallbox 0 [A]",
+						"es": "ID de objeto para configurar la corriente de carga de la Wallbox 0 [A]",
+						"pl": "identyfikator obiektu do ustawiania prądu ładowania Wallbox 0 [A]",
+						"uk": "ідентифікатор об'єкта для налаштування зарядного струму Wallbox 0 [A]",
+						"zh-cn": "设置 Wallbox 0 充电电流的对象 ID [A]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"StateWallBox0ChargeAllowed": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for enabling wallbox 0 charging [true/false]",
+						"de": "Objekt-ID zum Aktivieren des Ladens an Wallbox 0 [true/false]",
+						"ru": "ID объекта для включения зарядки Wallbox 0 [true/false]",
+						"pt": "ID de objeto para ativar a carga na Wallbox 0 [true/false]",
+						"nl": "object-id voor het inschakelen van het opladen bij Wallbox 0 [true/false]",
+						"fr": "ID d'objet pour activer la charge de la Wallbox 0 [true/false]",
+						"it": "ID oggetto per abilitare la ricarica della Wallbox 0 [true/false]",
+						"es": "ID de objeto para habilitar la carga en la Wallbox 0 [true/false]",
+						"pl": "identyfikator obiektu do włączania ładowania w Wallbox 0 [true/false]",
+						"uk": "ідентифікатор об'єкта для ввімкнення зарядки на Wallbox 0 [true/false]",
+						"zh-cn": "启用 Wallbox 0 充电的对象 ID [true/false]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"StateWallBox0ChargePower": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for reading wallbox 0 charging power [W]",
+						"de": "Objekt-ID zum Auslesen der Ladeleistung von Wallbox 0 [W]",
+						"ru": "ID объекта для чтения мощности зарядки Wallbox 0 [Вт]",
+						"pt": "ID de objeto para leitura da potência de carregamento da Wallbox 0 [W]",
+						"nl": "object-id voor het uitlezen van het laadvermogen van Wallbox 0 [W]",
+						"fr": "ID d'objet pour la lecture de la puissance de charge de Wallbox 0 [W]",
+						"it": "ID oggetto per la lettura della potenza di carica di Wallbox 0 [W]",
+						"es": "ID de objeto para leer la potencia de carga de Wallbox 0 [W]",
+						"pl": "identyfikator obiektu do odczytu mocy ładowania Wallbox 0 [W]",
+						"uk": "ідентифікатор об'єкта для зчитування потужності заряджання Wallbox 0 [Вт]",
+						"zh-cn": "读取 Wallbox 0 充电功率的对象 ID [W]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"StateWallBox0MeasuredMaxChargeAmp": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for reading measured max phase current of wallbox 0 [A]",
+						"de": "Objekt-ID zum Auslesen des gemessenen maximalen Phasenstroms von Wallbox 0 [A]",
+						"ru": "ID объекта для считывания максимального фазного тока Wallbox 0 [A]",
+						"pt": "ID de objeto para leitura da corrente máxima de fase medida da Wallbox 0 [A]",
+						"nl": "object-id voor het uitlezen van de gemeten maximale fase stroom van Wallbox 0 [A]",
+						"fr": "ID d'objet pour la lecture du courant de phase maximum mesuré de Wallbox 0 [A]",
+						"it": "ID oggetto per la lettura della corrente di fase massima misurata di Wallbox 0 [A]",
+						"es": "ID de objeto para leer la corriente máxima de fase medida de la Wallbox 0 [A]",
+						"pl": "identyfikator obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 0 [A]",
+						"uk": "ідентифікатор об'єкта для зчитування максимального фазного струму Wallbox 0 [A]",
+						"zh-cn": "读取 Wallbox 0 测量的最大相电流的对象 ID [A]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"MinAmpWallBox0": {
+					"type": "number",
+					"label": {
+						"en": "Minimum allowed current for Wallbox 0 [A]",
+						"de": "Minimal erlaubter Strom für Wallbox 0 [A]",
+						"ru": "Минимально допустимый ток для Wallbox 0 [A]",
+						"pt": "Corrente mínima permitida para Wallbox 0 [A]",
+						"nl": "Minimaal toegestane stroom voor Wallbox 0 [A]",
+						"fr": "Courant minimum autorisé pour Wallbox 0 [A]",
+						"it": "Corrente minima consentita per Wallbox 0 [A]",
+						"es": "Corriente mínima permitida para Wallbox 0 [A]",
+						"pl": "Minimalny dozwolony prąd dla Wallbox 0 [A]",
+						"uk": "Мінімальний допустимий струм для Wallbox 0 [A]",
+						"zh-cn": "Wallbox 0 的最小允许电流 [A]"
+					},
+					"min": 1,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"MaxAmpWallBox0": {
+					"type": "number",
+					"label": {
+						"en": "Maximum allowed current for Wallbox 0 [A]",
+						"de": "Maximal erlaubter Strom für Wallbox 0 [A]",
+						"ru": "Максимально допустимый ток для Wallbox 0 [A]",
+						"pt": "Corrente máxima permitida para Wallbox 0 [A]",
+						"nl": "Maximaal toegestane stroom voor Wallbox 0 [A]",
+						"fr": "Courant maximum autorisé pour Wallbox 0 [A]",
+						"it": "Corrente massima consentita per Wallbox 0 [A]",
+						"es": "Corriente máxima permitida para Wallbox 0 [A]",
+						"pl": "Maksymalny dozwolony prąd dla Wallbox 0 [A]",
+						"uk": "Максимально допустимий струм для Wallbox 0 [A]",
+						"zh-cn": "Wallbox 0 的最大允许电流 [A]"
+					},
+					"min": 2,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"StateWallBox1Headline": {
+					"type": "header",
+					"text": {
+						"en": "Data Connections for WallBox 1",
+						"de": "Datenverbindungen für WallBox 1",
+						"ru": "Подключения данных для WallBox 1",
+						"pt": "Conexões de dados para WallBox 1",
+						"nl": "Dataverbindingen voor WallBox 1",
+						"fr": "Connexions de données pour WallBox 1",
+						"it": "Connessioni dati per WallBox 1",
+						"es": "Conexiones de datos para WallBox 1",
+						"pl": "Połączenia danych dla WallBox 1",
+						"uk": "З'єднання даних для WallBox 1",
+						"zh-cn": "WallBox 1 的数据连接"
+					},
+					"size": 3
+				},
+
+				"StateWallBox1ChargeCurrent": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for setting wallbox 1 charging current [A]",
+						"de": "Objekt-ID zum Einstellen des Ladestroms für Wallbox 1 [A]",
+						"ru": "ID объекта для установки тока зарядки Wallbox 1 [A]",
+						"pt": "ID de objeto para definir a corrente de carregamento da Wallbox 1 [A]",
+						"nl": "object-id voor het instellen van de laadstroom van Wallbox 1 [A]",
+						"fr": "ID d'objet pour régler le courant de charge de la Wallbox 1 [A]",
+						"it": "ID oggetto per impostare la corrente di carica della Wallbox 1 [A]",
+						"es": "ID de objeto para configurar la corriente de carga de la Wallbox 1 [A]",
+						"pl": "identyfikator obiektu do ustawiania prądu ładowania Wallbox 1 [A]",
+						"uk": "ідентифікатор об'єкта для налаштування зарядного струму Wallbox 1 [A]",
+						"zh-cn": "设置 Wallbox 1 充电电流的对象 ID [A]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"StateWallBox1ChargeAllowed": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for enabling wallbox 1 charging [true/false]",
+						"de": "Objekt-ID zum Aktivieren des Ladens an Wallbox 1 [true/false]",
+						"ru": "ID объекта для включения зарядки Wallbox 1 [true/false]",
+						"pt": "ID de objeto para ativar a carga na Wallbox 1 [true/false]",
+						"nl": "object-id voor het inschakelen van het opladen bij Wallbox 1 [true/false]",
+						"fr": "ID d'objet pour activer la charge de la Wallbox 1 [true/false]",
+						"it": "ID oggetto per abilitare la ricarica della Wallbox 1 [true/false]",
+						"es": "ID de objeto para habilitar la carga en la Wallbox 1 [true/false]",
+						"pl": "identyfikator obiektu do włączania ładowania w Wallbox 1 [true/false]",
+						"uk": "ідентифікатор об'єкта для ввімкнення зарядки на Wallbox 1 [true/false]",
+						"zh-cn": "启用 Wallbox 1 充电的对象 ID [true/false]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"StateWallBox1ChargePower": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for reading wallbox 1 charging power [W]",
+						"de": "Objekt-ID zum Auslesen der Ladeleistung von Wallbox 1 [W]",
+						"ru": "ID объекта для чтения мощности зарядки Wallbox 1 [Вт]",
+						"pt": "ID de objeto para leitura da potência de carregamento da Wallbox 1 [W]",
+						"nl": "object-id voor het uitlezen van het laadvermogen van Wallbox 1 [W]",
+						"fr": "ID d'objet pour la lecture de la puissance de charge de Wallbox 1 [W]",
+						"it": "ID oggetto per la lettura della potenza di carica di Wallbox 1 [W]",
+						"es": "ID de objeto para leer la potencia de carga de Wallbox 1 [W]",
+						"pl": "identyfikator obiektu do odczytu mocy ładowania Wallbox 1 [W]",
+						"uk": "ідентифікатор об'єкта для зчитування потужності заряджання Wallbox 1 [Вт]",
+						"zh-cn": "读取 Wallbox 1 充电功率的对象 ID [W]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"StateWallBox1MeasuredMaxChargeAmp": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for reading measured max phase current of wallbox 1 [A]",
+						"de": "Objekt-ID zum Auslesen des gemessenen maximalen Phasenstroms von Wallbox 1 [A]",
+						"ru": "ID объекта для считывания максимального фазного тока Wallbox 1 [A]",
+						"pt": "ID de objeto para leitura da corrente máxima de fase medida da Wallbox 1 [A]",
+						"nl": "object-id voor het uitlezen van de gemeten maximale fase stroom van Wallbox 1 [A]",
+						"fr": "ID d'objet pour la lecture du courant de phase maximum mesuré de Wallbox 1 [A]",
+						"it": "ID oggetto per la lettura della corrente di fase massima misurata di Wallbox 1 [A]",
+						"es": "ID de objeto para leer la corriente máxima de fase medida de la Wallbox 1 [A]",
+						"pl": "identyfikator obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 1 [A]",
+						"uk": "ідентифікатор об'єкта для зчитування максимального фазного струму Wallbox 1 [A]",
+						"zh-cn": "读取 Wallbox 1 测量的最大相电流的对象 ID [A]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"MinAmpWallBox1": {
+					"type": "number",
+					"label": {
+						"en": "Minimum allowed current for Wallbox 1 [A]",
+						"de": "Minimal erlaubter Strom für Wallbox 1 [A]",
+						"ru": "Минимально допустимый ток для Wallbox 1 [A]",
+						"pt": "Corrente mínima permitida para Wallbox 1 [A]",
+						"nl": "Minimaal toegestane stroom voor Wallbox 1 [A]",
+						"fr": "Courant minimum autorisé pour Wallbox 1 [A]",
+						"it": "Corrente minima consentita per Wallbox 1 [A]",
+						"es": "Corriente mínima permitida para Wallbox 1 [A]",
+						"pl": "Minimalny dozwolony prąd dla Wallbox 1 [A]",
+						"uk": "Мінімальний допустимий струм для Wallbox 1 [A]",
+						"zh-cn": "Wallbox 1 的最小允许电流 [A]"
+					},
+					"min": 1,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"MaxAmpWallBox1": {
+					"type": "number",
+					"label": {
+						"en": "Maximum allowed current for Wallbox 1 [A]",
+						"de": "Maximal erlaubter Strom für Wallbox 1 [A]",
+						"ru": "Максимально допустимый ток для Wallbox 1 [A]",
+						"pt": "Corrente máxima permitida para Wallbox 1 [A]",
+						"nl": "Maximaal toegestane stroom voor Wallbox 1 [A]",
+						"fr": "Courant maximum autorisé pour Wallbox 1 [A]",
+						"it": "Corrente massima consentita per Wallbox 1 [A]",
+						"es": "Corriente máxima permitida para Wallbox 1 [A]",
+						"pl": "Maksymalny dozwolony prąd dla Wallbox 1 [A]",
+						"uk": "Максимально допустимий струм для Wallbox 1 [A]",
+						"zh-cn": "Wallbox 1 的最大允许电流 [A]"
+					},
+					"min": 2,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"StateWallBox2Headline": {
+					"type": "header",
+					"text": {
+						"en": "Data Connections for WallBox 2",
+						"de": "Datenverbindungen für WallBox 2",
+						"ru": "Подключения данных для WallBox 2",
+						"pt": "Conexões de dados para WallBox 2",
+						"nl": "Dataverbindingen voor WallBox 2",
+						"fr": "Connexions de données pour WallBox 2",
+						"it": "Connessioni dati per WallBox 2",
+						"es": "Conexiones de datos para WallBox 2",
+						"pl": "Połączenia danych dla WallBox 2",
+						"uk": "З'єднання даних для WallBox 2",
+						"zh-cn": "WallBox 2 的数据连接"
+					},
+					"size": 3
+				},
+
+				"StateWallBox2ChargeCurrent": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for setting wallbox 2 charging current [A]",
+						"de": "Objekt-ID zum Einstellen des Ladestroms für Wallbox 2 [A]",
+						"ru": "ID объекта для установки тока зарядки Wallbox 2 [A]",
+						"pt": "ID de objeto para definir a corrente de carregamento da Wallbox 2 [A]",
+						"nl": "object-id voor het instellen van de laadstroom van Wallbox 2 [A]",
+						"fr": "ID d'objet pour régler le courant de charge de la Wallbox 2 [A]",
+						"it": "ID oggetto per impostare la corrente di carica della Wallbox 2 [A]",
+						"es": "ID de objeto para configurar la corriente de carga de la Wallbox 2 [A]",
+						"pl": "identyfikator obiektu do ustawiania prądu ładowania Wallbox 2 [A]",
+						"uk": "ідентифікатор об'єкта для налаштування зарядного струму Wallbox 2 [A]",
+						"zh-cn": "设置 Wallbox 2 充电电流的对象 ID [A]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"StateWallBox2ChargeAllowed": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for enabling wallbox 2 charging [true/false]",
+						"de": "Objekt-ID zum Aktivieren des Ladens an Wallbox 2 [true/false]",
+						"ru": "ID объекта для включения зарядки Wallbox 2 [true/false]",
+						"pt": "ID de objeto para ativar a carga na Wallbox 2 [true/false]",
+						"nl": "object-id voor het inschakelen van het opladen bij Wallbox 2 [true/false]",
+						"fr": "ID d'objet pour activer la charge de la Wallbox 2 [true/false]",
+						"it": "ID oggetto per abilitare la ricarica della Wallbox 2 [true/false]",
+						"es": "ID de objeto para habilitar la carga en la Wallbox 2 [true/false]",
+						"pl": "identyfikator obiektu do włączania ładowania w Wallbox 2 [true/false]",
+						"uk": "ідентифікатор об'єкта для ввімкнення зарядки на Wallbox 2 [true/false]",
+						"zh-cn": "启用 Wallbox 2 充电的对象 ID [true/false]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"StateWallBox2ChargePower": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for reading wallbox 2 charging power [W]",
+						"de": "Objekt-ID zum Auslesen der Ladeleistung von Wallbox 2 [W]",
+						"ru": "ID объекта для чтения мощности зарядки Wallbox 2 [Вт]",
+						"pt": "ID de objeto para leitura da potência de carregamento da Wallbox 2 [W]",
+						"nl": "object-id voor het uitlezen van het laadvermogen van Wallbox 2 [W]",
+						"fr": "ID d'objet pour la lecture de la puissance de charge de Wallbox 2 [W]",
+						"it": "ID oggetto per la lettura della potenza di carica di Wallbox 2 [W]",
+						"es": "ID de objeto para leer la potencia de carga de Wallbox 2 [W]",
+						"pl": "identyfikator obiektu do odczytu mocy ładowania Wallbox 2 [W]",
+						"uk": "ідентифікатор об'єкта для зчитування потужності заряджання Wallbox 2 [Вт]",
+						"zh-cn": "读取 Wallbox 2 充电功率的对象 ID [W]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"StateWallBox2MeasuredMaxChargeAmp": {
+					"type": "objectId",
+					"label": {
+						"en": "object-id for reading measured max phase current of wallbox 2 [A]",
+						"de": "Objekt-ID zum Auslesen des gemessenen maximalen Phasenstroms von Wallbox 2 [A]",
+						"ru": "ID объекта для считывания максимального фазного тока Wallbox 2 [A]",
+						"pt": "ID de objeto para leitura da corrente máxima de fase medida da Wallbox 2 [A]",
+						"nl": "object-id voor het uitlezen van de gemeten maximale fase stroom van Wallbox 2 [A]",
+						"fr": "ID d'objet pour la lecture du courant de phase maximum mesuré de Wallbox 2 [A]",
+						"it": "ID oggetto per la lettura della corrente di fase massima misurata di Wallbox 2 [A]",
+						"es": "ID de objeto para leer la corriente máxima de fase medida de la Wallbox 2 [A]",
+						"pl": "identyfikator obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 2 [A]",
+						"uk": "ідентифікатор об'єкта для зчитування максимального фазного струму Wallbox 2 [A]",
+						"zh-cn": "读取 Wallbox 2 测量的最大相电流的对象 ID [A]"
+					},
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				},
+
+				"MinAmpWallBox2": {
+					"type": "number",
+					"label": {
+						"en": "Minimum allowed current for Wallbox 2 [A]",
+						"de": "Minimal erlaubter Strom für Wallbox 2 [A]",
+						"ru": "Минимально допустимый ток для Wallbox 2 [A]",
+						"pt": "Corrente mínima permitida para Wallbox 2 [A]",
+						"nl": "Minimaal toegestane stroom voor Wallbox 2 [A]",
+						"fr": "Courant minimum autorisé pour Wallbox 2 [A]",
+						"it": "Corrente minima consentita per Wallbox 2 [A]",
+						"es": "Corriente mínima permitida para Wallbox 2 [A]",
+						"pl": "Minimalny dozwolony prąd dla Wallbox 2 [A]",
+						"uk": "Мінімальний допустимий струм для Wallbox 2 [A]",
+						"zh-cn": "Wallbox 2 的最小允许电流 [A]"
+					},
+					"min": 1,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": true
+				},
+				"MaxAmpWallBox2": {
+					"type": "number",
+					"label": {
+						"en": "Maximum allowed current for Wallbox 2 [A]",
+						"de": "Maximal erlaubter Strom für Wallbox 2 [A]",
+						"ru": "Максимально допустимый ток для Wallbox 2 [A]",
+						"pt": "Corrente máxima permitida para Wallbox 2 [A]",
+						"nl": "Maximaal toegestane stroom voor Wallbox 2 [A]",
+						"fr": "Courant maximum autorisé pour Wallbox 2 [A]",
+						"it": "Corrente massima consentita per Wallbox 2 [A]",
+						"es": "Corriente máxima permitida para Wallbox 2 [A]",
+						"pl": "Maksymalny dozwolony prąd dla Wallbox 2 [A]",
+						"uk": "Максимально допустимий струм для Wallbox 2 [A]",
+						"zh-cn": "Wallbox 2 的最大允许电流 [A]"
+					},
+					"min": 2,
+					"step": 1,
+					"sm": 6,
+					"md": 6,
+					"lg": 6,
+					"newLine": false
+				}
 			},
 
-			"StateHomeSolarPower": {
-  				"type": "objectId",
-				"label": {
-					"en": "object-id for currently available solar power [W]",
-					"de": "Objekt-ID für derzeit verfügbare Solarenergie [W]",
-					"ru": "ID объекта для доступной солнечной энергии [Вт]",
-					"pt": "ID de objeto para potência solar disponível atualmente [W]",
-					"nl": "object-id voor momenteel beschikbare zonne-energie [W]",
-					"fr": "ID d'objet pour la puissance solaire actuellement disponible [W]",
-					"it": "ID oggetto per l'energia solare attualmente disponibile [W]",
-					"es": "ID de objeto para la energía solar actualmente disponible [W]",
-					"pl": "identyfikator obiektu dla aktualnie dostępnej energii słonecznej [W]",
-					"uk": "ідентифікатор об'єкта для доступної сонячної енергії [Вт]",
-					"zh-cn": "当前可用太阳能的对象 ID [W]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-			},
-			"StateHomePowerConsumption": {
-  				"type": "objectId",
-				"label": {
-					"en": "object-id for current home power consumption [W]",
-					"de": "Objekt-ID für den aktuellen Stromverbrauch des Haushalts [W]",
-					"ru": "ID объекта для текущего энергопотребления дома [Вт]",
-					"pt": "ID de objeto para o consumo de energia doméstico atual [W]",
-					"nl": "object-id voor huidig stroomverbruik thuis [W]",
-					"fr": "ID d'objet pour la consommation d'énergie domestique actuelle [W]",
-					"it": "ID oggetto per il consumo energetico attuale della casa [W]",
-					"es": "ID de objeto para el consumo eléctrico actual del hogar [W]",
-					"pl": "identyfikator obiektu dla bieżącego zużycia energii w domu [W]",
-					"uk": "ідентифікатор об'єкта для поточного споживання електроенергії в домогосподарстві [Вт]",
-					"zh-cn": "当前家庭电力消耗的对象 ID [W]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
 
-			"StateHomeBatSoc": {
-  				"type": "objectId",
-				"label": {
-					"en": "object-id for current home battery state of charge [%]",
-					"de": "Objekt-ID für den aktuellen Ladezustand der Hausbatterie [%]",
-					"ru": "ID объекта для текущего уровня заряда домашней батареи [%]",
-					"pt": "ID de objeto para o estado atual de carga da bateria doméstica [%]",
-					"nl": "object-id voor de huidige laadstatus van de thuisbatterij [%]",
-					"fr": "ID d'objet pour l'état de charge actuel de la batterie domestique [%]",
-					"it": "ID oggetto per lo stato di carica attuale della batteria domestica [%]",
-					"es": "ID de objeto para el estado de carga actual de la batería doméstica [%]",
-					"pl": "identyfikator obiektu dla bieżącego stanu naładowania baterii domowej [%]",
-					"uk": "ідентифікатор об'єкта для поточного рівня заряду домашньої батареї [%]",
-					"zh-cn": "当前家庭电池充电状态的对象 ID [%]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
+		"wallBoxList": {
+			"type": "table",
+			"sm": 12,
+			"md": 12,
+			"lg": 12,
+			"label": {
+				"en": "Configuration of Pulse live data streams"
 			},
-	
-			"_StateWallBox0Headline": {
-				"type": "header",
-				"text": {
-					"en": "Data Connections for WallBox 0",
-					"de": "Datenverbindungen für WallBox 0",
-					"ru": "Подключения данных для WallBox 0",
-					"pt": "Conexões de dados para WallBox 0",
-					"nl": "Dataverbindingen voor WallBox 0",
-					"fr": "Connexions de données pour WallBox 0",
-					"it": "Connessioni dati per WallBox 0",
-					"es": "Conexiones de datos para WallBox 0",
-					"pl": "Połączenia danych dla WallBox 0",
-					"uk": "З'єднання даних для WallBox 0",
-					"zh-cn": "WallBox 0 的数据连接"
+			"hidden": "!data.TibberAPIToken",
+			"items": [
+				{
+					"type": "objectId",
+					"title": {
+						"en": "object-id for setting wallbox 2 charging current [A]",
+						"de": "Objekt-ID zum Einstellen des Ladestroms für Wallbox 2 [A]",
+						"ru": "ID объекта для установки тока зарядки Wallbox 2 [A]",
+						"pt": "ID de objeto para definir a corrente de carregamento da Wallbox 2 [A]",
+						"nl": "object-id voor het instellen van de laadstroom van Wallbox 2 [A]",
+						"fr": "ID d'objet pour régler le courant de charge de la Wallbox 2 [A]",
+						"it": "ID oggetto per impostare la corrente di carica della Wallbox 2 [A]",
+						"es": "ID de objeto para configurar la corriente de carga de la Wallbox 2 [A]",
+						"pl": "identyfikator obiektu do ustawiania prądu ładowania Wallbox 2 [A]",
+						"uk": "ідентифікатор об'єкта для налаштування зарядного струму Wallbox 2 [A]",
+						"zh-cn": "设置 Wallbox 2 充电电流的对象 ID [A]"
+					},
+					"attr": "stateChargeCurrent",
+					"width": "10%",
+					"default": ""
 				},
-				"size": 3
-			},
-
-			"StateWallBox0ChargeCurrent": {
-  				"type": "objectId",
-				"label": {
-					"en": "object-id for setting wallbox 0 charging current [A]",
-					"de": "Objekt-ID zum Einstellen des Ladestroms für Wallbox 0 [A]",
-					"ru": "ID объекта для установки тока зарядки Wallbox 0 [A]",
-					"pt": "ID de objeto para definir a corrente de carregamento da Wallbox 0 [A]",
-					"nl": "object-id voor het instellen van de laadstroom van Wallbox 0 [A]",
-					"fr": "ID d'objet pour régler le courant de charge de la Wallbox 0 [A]",
-					"it": "ID oggetto per impostare la corrente di carica della Wallbox 0 [A]",
-					"es": "ID de objeto para configurar la corriente de carga de la Wallbox 0 [A]",
-					"pl": "identyfikator obiektu do ustawiania prądu ładowania Wallbox 0 [A]",
-					"uk": "ідентифікатор об'єкта для налаштування зарядного струму Wallbox 0 [A]",
-					"zh-cn": "设置 Wallbox 0 充电电流的对象 ID [A]"
+				{
+					"type": "objectId",
+					"title": {
+						"en": "object-id for enabling wallbox 2 charging [true/false]",
+						"de": "Objekt-ID zum Aktivieren des Ladens an Wallbox 2 [true/false]",
+						"ru": "ID объекта для включения зарядки Wallbox 2 [true/false]",
+						"pt": "ID de objeto para ativar a carga na Wallbox 2 [true/false]",
+						"nl": "object-id voor het inschakelen van het opladen bij Wallbox 2 [true/false]",
+						"fr": "ID d'objet pour activer la charge de la Wallbox 2 [true/false]",
+						"it": "ID oggetto per abilitare la ricarica della Wallbox 2 [true/false]",
+						"es": "ID de objeto para habilitar la carga en la Wallbox 2 [true/false]",
+						"pl": "identyfikator obiektu do włączania ładowania w Wallbox 2 [true/false]",
+						"uk": "ідентифікатор об'єкта для ввімкнення зарядки на Wallbox 2 [true/false]",
+						"zh-cn": "启用 Wallbox 2 充电的对象 ID [true/false]"
+					},
+					"attr": "stateChargeAllowed",
+					"width": "6%",
+					"default": ""
 				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-			},
-			"StateWallBox0ChargeAllowed": {
-  				"type": "objectId",
-				"label": {
-					"en": "object-id for enabling wallbox 0 charging [true/false]",
-					"de": "Objekt-ID zum Aktivieren des Ladens an Wallbox 0 [true/false]",
-					"ru": "ID объекта для включения зарядки Wallbox 0 [true/false]",
-					"pt": "ID de objeto para ativar a carga na Wallbox 0 [true/false]",
-					"nl": "object-id voor het inschakelen van het opladen bij Wallbox 0 [true/false]",
-					"fr": "ID d'objet pour activer la charge de la Wallbox 0 [true/false]",
-					"it": "ID oggetto per abilitare la ricarica della Wallbox 0 [true/false]",
-					"es": "ID de objeto para habilitar la carga en la Wallbox 0 [true/false]",
-					"pl": "identyfikator obiektu do włączania ładowania w Wallbox 0 [true/false]",
-					"uk": "ідентифікатор об'єкта для ввімкнення зарядки на Wallbox 0 [true/false]",
-					"zh-cn": "启用 Wallbox 0 充电的对象 ID [true/false]"
+				{
+					"type": "objectId",
+					"title": {
+						"en": "object-id for reading wallbox 2 charging power [W]",
+						"de": "Objekt-ID zum Auslesen der Ladeleistung von Wallbox 2 [W]",
+						"ru": "ID объекта для чтения мощности зарядки Wallbox 2 [Вт]",
+						"pt": "ID de objeto para leitura da potência de carregamento da Wallbox 2 [W]",
+						"nl": "object-id voor het uitlezen van het laadvermogen van Wallbox 2 [W]",
+						"fr": "ID d'objet pour la lecture de la puissance de charge de Wallbox 2 [W]",
+						"it": "ID oggetto per la lettura della potenza di carica di Wallbox 2 [W]",
+						"es": "ID de objeto para leer la potencia de carga de Wallbox 2 [W]",
+						"pl": "identyfikator obiektu do odczytu mocy ładowania Wallbox 2 [W]",
+						"uk": "ідентифікатор об'єкта для зчитування потужності заряджання Wallbox 2 [Вт]",
+						"zh-cn": "读取 Wallbox 2 充电功率的对象 ID [W]"
+					},
+					"attr": "stateActiveChargePower",
+					"width": "6%",
+					"default": ""
 				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"StateWallBox0ChargePower": {
-  				"type": "objectId",
-				"label": {
-					"en": "object-id for reading wallbox 0 charging power [W]",
-					"de": "Objekt-ID zum Auslesen der Ladeleistung von Wallbox 0 [W]",
-					"ru": "ID объекта для чтения мощности зарядки Wallbox 0 [Вт]",
-					"pt": "ID de objeto para leitura da potência de carregamento da Wallbox 0 [W]",
-					"nl": "object-id voor het uitlezen van het laadvermogen van Wallbox 0 [W]",
-					"fr": "ID d'objet pour la lecture de la puissance de charge de Wallbox 0 [W]",
-					"it": "ID oggetto per la lettura della potenza di carica di Wallbox 0 [W]",
-					"es": "ID de objeto para leer la potencia de carga de Wallbox 0 [W]",
-					"pl": "identyfikator obiektu do odczytu mocy ładowania Wallbox 0 [W]",
-					"uk": "ідентифікатор об'єкта для зчитування потужності заряджання Wallbox 0 [Вт]",
-					"zh-cn": "读取 Wallbox 0 充电功率的对象 ID [W]"
+				{
+					"type": "objectId",
+					"title": {
+						"en": "object-id for reading measured max phase current of wallbox 2 [A]",
+						"de": "Objekt-ID zum Auslesen des gemessenen maximalen Phasenstroms von Wallbox 2 [A]",
+						"ru": "ID объекта для считывания максимального фазного тока Wallbox 2 [A]",
+						"pt": "ID de objeto para leitura da corrente máxima de fase medida da Wallbox 2 [A]",
+						"nl": "object-id voor het uitlezen van de gemeten maximale fase stroom van Wallbox 2 [A]",
+						"fr": "ID d'objet pour la lecture du courant de phase maximum mesuré de Wallbox 2 [A]",
+						"it": "ID oggetto per la lettura della corrente di fase massima misurata di Wallbox 2 [A]",
+						"es": "ID de objeto para leer la corriente máxima de fase medida de la Wallbox 2 [A]",
+						"pl": "identyfikator obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 2 [A]",
+						"uk": "ідентифікатор об'єкта для зчитування максимального фазного струму Wallbox 2 [A]",
+						"zh-cn": "读取 Wallbox 2 测量的最大相电流的对象 ID [A]"
+					},
+					"attr": "stateActiveChargeAmp",
+					"width": "6%",
+					"default": ""
 				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-			},
-			"StateWallBox0MeasuredMaxChargeAmp": {
-  				"type": "objectId",
-				"label": {
-					"en": "object-id for reading measured max phase current of wallbox 0 [A]",
-					"de": "Objekt-ID zum Auslesen des gemessenen maximalen Phasenstroms von Wallbox 0 [A]",
-					"ru": "ID объекта для считывания максимального фазного тока Wallbox 0 [A]",
-					"pt": "ID de objeto para leitura da corrente máxima de fase medida da Wallbox 0 [A]",
-					"nl": "object-id voor het uitlezen van de gemeten maximale fase stroom van Wallbox 0 [A]",
-					"fr": "ID d'objet pour la lecture du courant de phase maximum mesuré de Wallbox 0 [A]",
-					"it": "ID oggetto per la lettura della corrente di fase massima misurata di Wallbox 0 [A]",
-					"es": "ID de objeto para leer la corriente máxima de fase medida de la Wallbox 0 [A]",
-					"pl": "identyfikator obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 0 [A]",
-					"uk": "ідентифікатор об'єкта для зчитування максимального фазного струму Wallbox 0 [A]",
-					"zh-cn": "读取 Wallbox 0 测量的最大相电流的对象 ID [A]"
+				{
+					"type": "number",
+					"title": {
+						"en": "Minimum allowed current for Wallbox 2 [A]",
+						"de": "Minimal erlaubter Strom für Wallbox 2 [A]",
+						"ru": "Минимально допустимый ток для Wallbox 2 [A]",
+						"pt": "Corrente mínima permitida para Wallbox 2 [A]",
+						"nl": "Minimaal toegestane stroom voor Wallbox 2 [A]",
+						"fr": "Courant minimum autorisé pour Wallbox 2 [A]",
+						"it": "Corrente minima consentita per Wallbox 2 [A]",
+						"es": "Corriente mínima permitida para Wallbox 2 [A]",
+						"pl": "Minimalny dozwolony prąd dla Wallbox 2 [A]",
+						"uk": "Мінімальний допустимий струм для Wallbox 2 [A]",
+						"zh-cn": "Wallbox 2 的最小允许电流 [A]"
+					},
+					"attr": "minAmp",
+					"min": 1,
+					"max": 31,
+					"step": 1,
+					"width": "6%",
+					"default": 6
 				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"MinAmpWallBox0": {
-  				"type": "number",
-				"label": {
-					"en": "Minimum allowed current for Wallbox 0 [A]",
-					"de": "Minimal erlaubter Strom für Wallbox 0 [A]",
-					"ru": "Минимально допустимый ток для Wallbox 0 [A]",
-					"pt": "Corrente mínima permitida para Wallbox 0 [A]",
-					"nl": "Minimaal toegestane stroom voor Wallbox 0 [A]",
-					"fr": "Courant minimum autorisé pour Wallbox 0 [A]",
-					"it": "Corrente minima consentita per Wallbox 0 [A]",
-					"es": "Corriente mínima permitida para Wallbox 0 [A]",
-					"pl": "Minimalny dozwolony prąd dla Wallbox 0 [A]",
-					"uk": "Мінімальний допустимий струм для Wallbox 0 [A]",
-					"zh-cn": "Wallbox 0 的最小允许电流 [A]"
-				},
-				"min": 1,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-  			},
-			"MaxAmpWallBox0": {
-  				"type": "number",
-				"label": {
-					"en": "Maximum allowed current for Wallbox 0 [A]",
-					"de": "Maximal erlaubter Strom für Wallbox 0 [A]",
-					"ru": "Максимально допустимый ток для Wallbox 0 [A]",
-					"pt": "Corrente máxima permitida para Wallbox 0 [A]",
-					"nl": "Maximaal toegestane stroom voor Wallbox 0 [A]",
-					"fr": "Courant maximum autorisé pour Wallbox 0 [A]",
-					"it": "Corrente massima consentita per Wallbox 0 [A]",
-					"es": "Corriente máxima permitida para Wallbox 0 [A]",
-					"pl": "Maksymalny dozwolony prąd dla Wallbox 0 [A]",
-					"uk": "Максимально допустимий струм для Wallbox 0 [A]",
-					"zh-cn": "Wallbox 0 的最大允许电流 [A]"
-				},
-				"min": 2,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"StateWallBox1Headline": {
-				"type": "header",
-				"text": {
-					"en": "Data Connections for WallBox 1",
-					"de": "Datenverbindungen für WallBox 1",
-					"ru": "Подключения данных для WallBox 1",
-					"pt": "Conexões de dados para WallBox 1",
-					"nl": "Dataverbindingen voor WallBox 1",
-					"fr": "Connexions de données pour WallBox 1",
-					"it": "Connessioni dati per WallBox 1",
-					"es": "Conexiones de datos para WallBox 1",
-					"pl": "Połączenia danych dla WallBox 1",
-					"uk": "З'єднання даних для WallBox 1",
-					"zh-cn": "WallBox 1 的数据连接"
-				},
-				"size": 3
-			},
-
-			"StateWallBox1ChargeCurrent": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for setting wallbox 1 charging current [A]",
-					"de": "Objekt-ID zum Einstellen des Ladestroms für Wallbox 1 [A]",
-					"ru": "ID объекта для установки тока зарядки Wallbox 1 [A]",
-					"pt": "ID de objeto para definir a corrente de carregamento da Wallbox 1 [A]",
-					"nl": "object-id voor het instellen van de laadstroom van Wallbox 1 [A]",
-					"fr": "ID d'objet pour régler le courant de charge de la Wallbox 1 [A]",
-					"it": "ID oggetto per impostare la corrente di carica della Wallbox 1 [A]",
-					"es": "ID de objeto para configurar la corriente de carga de la Wallbox 1 [A]",
-					"pl": "identyfikator obiektu do ustawiania prądu ładowania Wallbox 1 [A]",
-					"uk": "ідентифікатор об'єкта для налаштування зарядного струму Wallbox 1 [A]",
-					"zh-cn": "设置 Wallbox 1 充电电流的对象 ID [A]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-			},
-			"StateWallBox1ChargeAllowed": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for enabling wallbox 1 charging [true/false]",
-					"de": "Objekt-ID zum Aktivieren des Ladens an Wallbox 1 [true/false]",
-					"ru": "ID объекта для включения зарядки Wallbox 1 [true/false]",
-					"pt": "ID de objeto para ativar a carga na Wallbox 1 [true/false]",
-					"nl": "object-id voor het inschakelen van het opladen bij Wallbox 1 [true/false]",
-					"fr": "ID d'objet pour activer la charge de la Wallbox 1 [true/false]",
-					"it": "ID oggetto per abilitare la ricarica della Wallbox 1 [true/false]",
-					"es": "ID de objeto para habilitar la carga en la Wallbox 1 [true/false]",
-					"pl": "identyfikator obiektu do włączania ładowania w Wallbox 1 [true/false]",
-					"uk": "ідентифікатор об'єкта для ввімкнення зарядки на Wallbox 1 [true/false]",
-					"zh-cn": "启用 Wallbox 1 充电的对象 ID [true/false]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"StateWallBox1ChargePower": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for reading wallbox 1 charging power [W]",
-					"de": "Objekt-ID zum Auslesen der Ladeleistung von Wallbox 1 [W]",
-					"ru": "ID объекта для чтения мощности зарядки Wallbox 1 [Вт]",
-					"pt": "ID de objeto para leitura da potência de carregamento da Wallbox 1 [W]",
-					"nl": "object-id voor het uitlezen van het laadvermogen van Wallbox 1 [W]",
-					"fr": "ID d'objet pour la lecture de la puissance de charge de Wallbox 1 [W]",
-					"it": "ID oggetto per la lettura della potenza di carica di Wallbox 1 [W]",
-					"es": "ID de objeto para leer la potencia de carga de Wallbox 1 [W]",
-					"pl": "identyfikator obiektu do odczytu mocy ładowania Wallbox 1 [W]",
-					"uk": "ідентифікатор об'єкта для зчитування потужності заряджання Wallbox 1 [Вт]",
-					"zh-cn": "读取 Wallbox 1 充电功率的对象 ID [W]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-			},
-			"StateWallBox1MeasuredMaxChargeAmp": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for reading measured max phase current of wallbox 1 [A]",
-					"de": "Objekt-ID zum Auslesen des gemessenen maximalen Phasenstroms von Wallbox 1 [A]",
-					"ru": "ID объекта для считывания максимального фазного тока Wallbox 1 [A]",
-					"pt": "ID de objeto para leitura da corrente máxima de fase medida da Wallbox 1 [A]",
-					"nl": "object-id voor het uitlezen van de gemeten maximale fase stroom van Wallbox 1 [A]",
-					"fr": "ID d'objet pour la lecture du courant de phase maximum mesuré de Wallbox 1 [A]",
-					"it": "ID oggetto per la lettura della corrente di fase massima misurata di Wallbox 1 [A]",
-					"es": "ID de objeto para leer la corriente máxima de fase medida de la Wallbox 1 [A]",
-					"pl": "identyfikator obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 1 [A]",
-					"uk": "ідентифікатор об'єкта для зчитування максимального фазного струму Wallbox 1 [A]",
-					"zh-cn": "读取 Wallbox 1 测量的最大相电流的对象 ID [A]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"MinAmpWallBox1": {
-  				"type": "number",
-				  "label": {
-					"en": "Minimum allowed current for Wallbox 1 [A]",
-					"de": "Minimal erlaubter Strom für Wallbox 1 [A]",
-					"ru": "Минимально допустимый ток для Wallbox 1 [A]",
-					"pt": "Corrente mínima permitida para Wallbox 1 [A]",
-					"nl": "Minimaal toegestane stroom voor Wallbox 1 [A]",
-					"fr": "Courant minimum autorisé pour Wallbox 1 [A]",
-					"it": "Corrente minima consentita per Wallbox 1 [A]",
-					"es": "Corriente mínima permitida para Wallbox 1 [A]",
-					"pl": "Minimalny dozwolony prąd dla Wallbox 1 [A]",
-					"uk": "Мінімальний допустимий струм для Wallbox 1 [A]",
-					"zh-cn": "Wallbox 1 的最小允许电流 [A]"
-				},
-				"min": 1,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-  			},
-			"MaxAmpWallBox1": {
-  				"type": "number",
-				  "label": {
-					"en": "Maximum allowed current for Wallbox 1 [A]",
-					"de": "Maximal erlaubter Strom für Wallbox 1 [A]",
-					"ru": "Максимально допустимый ток для Wallbox 1 [A]",
-					"pt": "Corrente máxima permitida para Wallbox 1 [A]",
-					"nl": "Maximaal toegestane stroom voor Wallbox 1 [A]",
-					"fr": "Courant maximum autorisé pour Wallbox 1 [A]",
-					"it": "Corrente massima consentita per Wallbox 1 [A]",
-					"es": "Corriente máxima permitida para Wallbox 1 [A]",
-					"pl": "Maksymalny dozwolony prąd dla Wallbox 1 [A]",
-					"uk": "Максимально допустимий струм для Wallbox 1 [A]",
-					"zh-cn": "Wallbox 1 的最大允许电流 [A]"
-				},
-				"min": 2,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"StateWallBox2Headline": {
-				"type": "header",
-				"text": {
-					"en": "Data Connections for WallBox 2",
-					"de": "Datenverbindungen für WallBox 2",
-					"ru": "Подключения данных для WallBox 2",
-					"pt": "Conexões de dados para WallBox 2",
-					"nl": "Dataverbindingen voor WallBox 2",
-					"fr": "Connexions de données pour WallBox 2",
-					"it": "Connessioni dati per WallBox 2",
-					"es": "Conexiones de datos para WallBox 2",
-					"pl": "Połączenia danych dla WallBox 2",
-					"uk": "З'єднання даних для WallBox 2",
-					"zh-cn": "WallBox 2 的数据连接"
-				},
-				"size": 3
-			},
-
-			"StateWallBox2ChargeCurrent": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for setting wallbox 2 charging current [A]",
-					"de": "Objekt-ID zum Einstellen des Ladestroms für Wallbox 2 [A]",
-					"ru": "ID объекта для установки тока зарядки Wallbox 2 [A]",
-					"pt": "ID de objeto para definir a corrente de carregamento da Wallbox 2 [A]",
-					"nl": "object-id voor het instellen van de laadstroom van Wallbox 2 [A]",
-					"fr": "ID d'objet pour régler le courant de charge de la Wallbox 2 [A]",
-					"it": "ID oggetto per impostare la corrente di carica della Wallbox 2 [A]",
-					"es": "ID de objeto para configurar la corriente de carga de la Wallbox 2 [A]",
-					"pl": "identyfikator obiektu do ustawiania prądu ładowania Wallbox 2 [A]",
-					"uk": "ідентифікатор об'єкта для налаштування зарядного струму Wallbox 2 [A]",
-					"zh-cn": "设置 Wallbox 2 充电电流的对象 ID [A]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-			},
-			"StateWallBox2ChargeAllowed": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for enabling wallbox 2 charging [true/false]",
-					"de": "Objekt-ID zum Aktivieren des Ladens an Wallbox 2 [true/false]",
-					"ru": "ID объекта для включения зарядки Wallbox 2 [true/false]",
-					"pt": "ID de objeto para ativar a carga na Wallbox 2 [true/false]",
-					"nl": "object-id voor het inschakelen van het opladen bij Wallbox 2 [true/false]",
-					"fr": "ID d'objet pour activer la charge de la Wallbox 2 [true/false]",
-					"it": "ID oggetto per abilitare la ricarica della Wallbox 2 [true/false]",
-					"es": "ID de objeto para habilitar la carga en la Wallbox 2 [true/false]",
-					"pl": "identyfikator obiektu do włączania ładowania w Wallbox 2 [true/false]",
-					"uk": "ідентифікатор об'єкта для ввімкнення зарядки на Wallbox 2 [true/false]",
-					"zh-cn": "启用 Wallbox 2 充电的对象 ID [true/false]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"StateWallBox2ChargePower": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for reading wallbox 2 charging power [W]",
-					"de": "Objekt-ID zum Auslesen der Ladeleistung von Wallbox 2 [W]",
-					"ru": "ID объекта для чтения мощности зарядки Wallbox 2 [Вт]",
-					"pt": "ID de objeto para leitura da potência de carregamento da Wallbox 2 [W]",
-					"nl": "object-id voor het uitlezen van het laadvermogen van Wallbox 2 [W]",
-					"fr": "ID d'objet pour la lecture de la puissance de charge de Wallbox 2 [W]",
-					"it": "ID oggetto per la lettura della potenza di carica di Wallbox 2 [W]",
-					"es": "ID de objeto para leer la potencia de carga de Wallbox 2 [W]",
-					"pl": "identyfikator obiektu do odczytu mocy ładowania Wallbox 2 [W]",
-					"uk": "ідентифікатор об'єкта для зчитування потужності заряджання Wallbox 2 [Вт]",
-					"zh-cn": "读取 Wallbox 2 充电功率的对象 ID [W]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-			},
-			"StateWallBox2MeasuredMaxChargeAmp": {
-  				"type": "objectId",
-				  "label": {
-					"en": "object-id for reading measured max phase current of wallbox 2 [A]",
-					"de": "Objekt-ID zum Auslesen des gemessenen maximalen Phasenstroms von Wallbox 2 [A]",
-					"ru": "ID объекта для считывания максимального фазного тока Wallbox 2 [A]",
-					"pt": "ID de objeto para leitura da corrente máxima de fase medida da Wallbox 2 [A]",
-					"nl": "object-id voor het uitlezen van de gemeten maximale fase stroom van Wallbox 2 [A]",
-					"fr": "ID d'objet pour la lecture du courant de phase maximum mesuré de Wallbox 2 [A]",
-					"it": "ID oggetto per la lettura della corrente di fase massima misurata di Wallbox 2 [A]",
-					"es": "ID de objeto para leer la corriente máxima de fase medida de la Wallbox 2 [A]",
-					"pl": "identyfikator obiektu do odczytu zmierzonego maksymalnego prądu fazowego Wallbox 2 [A]",
-					"uk": "ідентифікатор об'єкта для зчитування максимального фазного струму Wallbox 2 [A]",
-					"zh-cn": "读取 Wallbox 2 测量的最大相电流的对象 ID [A]"
-				},
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			},
-
-			"MinAmpWallBox2": {
-  				"type": "number",
-				  "label": {
-					"en": "Minimum allowed current for Wallbox 2 [A]",
-					"de": "Minimal erlaubter Strom für Wallbox 2 [A]",
-					"ru": "Минимально допустимый ток для Wallbox 2 [A]",
-					"pt": "Corrente mínima permitida para Wallbox 2 [A]",
-					"nl": "Minimaal toegestane stroom voor Wallbox 2 [A]",
-					"fr": "Courant minimum autorisé pour Wallbox 2 [A]",
-					"it": "Corrente minima consentita per Wallbox 2 [A]",
-					"es": "Corriente mínima permitida para Wallbox 2 [A]",
-					"pl": "Minimalny dozwolony prąd dla Wallbox 2 [A]",
-					"uk": "Мінімальний допустимий струм для Wallbox 2 [A]",
-					"zh-cn": "Wallbox 2 的最小允许电流 [A]"
-				},
-				"min": 1,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": true
-  			},
-			"MaxAmpWallBox2": {
-  				"type": "number",
-				  "label": {
-					"en": "Maximum allowed current for Wallbox 2 [A]",
-					"de": "Maximal erlaubter Strom für Wallbox 2 [A]",
-					"ru": "Максимально допустимый ток для Wallbox 2 [A]",
-					"pt": "Corrente máxima permitida para Wallbox 2 [A]",
-					"nl": "Maximaal toegestane stroom voor Wallbox 2 [A]",
-					"fr": "Courant maximum autorisé pour Wallbox 2 [A]",
-					"it": "Corrente massima consentita per Wallbox 2 [A]",
-					"es": "Corriente máxima permitida para Wallbox 2 [A]",
-					"pl": "Maksymalny dozwolony prąd dla Wallbox 2 [A]",
-					"uk": "Максимально допустимий струм для Wallbox 2 [A]",
-					"zh-cn": "Wallbox 2 的最大允许电流 [A]"
-				},
-				"min": 2,
-				"step": 1,
-				"sm": 6,
-				"md": 6,
-				"lg": 6,
-				"newLine": false
-			}
+				{
+					"type": "number",
+					"title": {
+						"en": "Maximum allowed current for Wallbox 2 [A]",
+						"de": "Maximal erlaubter Strom für Wallbox 2 [A]",
+						"ru": "Максимально допустимый ток для Wallbox 2 [A]",
+						"pt": "Corrente máxima permitida para Wallbox 2 [A]",
+						"nl": "Maximaal toegestane stroom voor Wallbox 2 [A]",
+						"fr": "Courant maximum autorisé pour Wallbox 2 [A]",
+						"it": "Corrente massima consentita per Wallbox 2 [A]",
+						"es": "Corriente máxima permitida para Wallbox 2 [A]",
+						"pl": "Maksymalny dozwolony prąd dla Wallbox 2 [A]",
+						"uk": "Максимально допустимий струм для Wallbox 2 [A]",
+						"zh-cn": "Wallbox 2 的最大允许电流 [A]"
+					},
+					"attr": "maxAmp",
+					"min": 2,
+					"max": 32,
+					"step": 1,
+					"width": "6%",
+					"default": 16
+				}
+			]
 		}
-	    }
+
+
+
+
+
+
+		}
 	}
 }

@@ -75,11 +75,11 @@ class ChargeMaster extends utils.Adapter {
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	private async onReady(): Promise<void> {
-		if (!this.config.cycletime) {
+		if (!this.config.cycleTime) {
 			this.log.warn(`Cycletime not configured or zero - will be set to 10 seconds`);
-			this.config.cycletime = 10000;
+			this.config.cycleTime = 10000;
 		}
-		this.log.info(`Cycletime set to: ${this.config.cycletime / 1000} seconds`);
+		this.log.info(`Cycletime set to: ${this.config.cycleTime / 1000} seconds`);
 
 		this.subscribeStates("Settings.*"); // this.subscribeForeignObjects('dwd.0.warning.*');
 
@@ -102,9 +102,9 @@ class ChargeMaster extends utils.Adapter {
 		}
 
 		if (
-			(await stateTest(this, this.config.StateHomeBatSoc)) &&
-			(await stateTest(this, this.config.StateHomeSolarPower)) &&
-			(await stateTest(this, this.config.StateHomePowerConsumption))
+			(await stateTest(this, this.config.stateHomeBatSoc)) &&
+			(await stateTest(this, this.config.stateHomeSolarPower)) &&
+			(await stateTest(this, this.config.stateHomePowerConsumption))
 		) {
 			this.log.info(`Verified solar system states`);
 		} else {
@@ -161,7 +161,7 @@ class ChargeMaster extends utils.Adapter {
 					Sentry &&
 						Sentry.withScope((scope: { setLevel: (arg0: string) => void; setTag: (arg0: string, arg1: number) => void }) => {
 							scope.setLevel("info");
-							scope.setTag("System Power", this.config.MaxAmpTotal);
+							scope.setTag("System Power", this.config.maxAmpTotal);
 							scope.setTag("WallboxAmp_0", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
 							scope.setTag("WallboxAmp_1", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
 							scope.setTag("WallboxAmp_2", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
@@ -275,7 +275,7 @@ class ChargeMaster extends utils.Adapter {
 	private async StateMachine(): Promise<void> {
 		let i: number = 0;
 		while (true) {
-			await this.delay(this.config.cycletime);
+			await this.delay(this.config.cycleTime);
 			this.log.debug(`StateMachine cycle started`);
 
 			await this.Calc_Total_Power();
@@ -288,7 +288,7 @@ class ChargeMaster extends utils.Adapter {
 					this.log.debug(`State machine: Wallbox ${i} planned for charge-now with ${Wallbox[i].SetOptAmp}A`);
 				} else if (Wallbox[i].ChargeManager) {
 					// Charge-Manager is enabled for this wallbox
-					BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
+					BatSoC = await this.asyncGetForeignStateVal(this.config.stateHomeBatSoc);
 					this.log.debug(`State machine: Got external state of battery SoC: ${BatSoC}%`);
 					if (BatSoC >= MinHomeBatVal) {
 						// SoC of home battery sufficient?
@@ -317,9 +317,9 @@ class ChargeMaster extends utils.Adapter {
 
 	/*****************************************************************************************/
 	private async Charge_Manager(i: number): Promise<any> {
-		SolarPower = await this.asyncGetForeignStateVal(this.config.StateHomeSolarPower);
+		SolarPower = await this.asyncGetForeignStateVal(this.config.stateHomeSolarPower);
 		this.log.debug(`Charge Manager: Got external state of solar power: ${SolarPower} W`);
-		HouseConsumption = await this.asyncGetForeignStateVal(this.config.StateHomePowerConsumption);
+		HouseConsumption = await this.asyncGetForeignStateVal(this.config.stateHomePowerConsumption);
 		this.log.debug(`Charge Manager: Got external state of house power consumption: ${HouseConsumption} W`);
 
 		OptAmpere = Math.floor((SolarPower - HouseConsumption + TotalChargePower - 100 + (2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal)) / 230);
@@ -365,10 +365,10 @@ class ChargeMaster extends utils.Adapter {
 				this.log.debug(`Charge Limiter: Wallbox ${i} verified for switch off`);
 			} else {
 				// verify SetOptAmp against total current
-				if (Wallbox[i].SetOptAmp > this.config.MaxAmpTotal) {
-					Wallbox[i].SetOptAmp = this.config.MaxAmpTotal;
+				if (Wallbox[i].SetOptAmp > this.config.maxAmpTotal) {
+					Wallbox[i].SetOptAmp = this.config.maxAmpTotal;
 				}
-				if (TotalSetOptAmp + Wallbox[i].SetOptAmp <= this.config.MaxAmpTotal) {
+				if (TotalSetOptAmp + Wallbox[i].SetOptAmp <= this.config.maxAmpTotal) {
 					// enough current available
 					Wallbox[i].SetAmp = Wallbox[i].SetOptAmp;
 					Wallbox[i].SetAllow = true;
@@ -376,9 +376,9 @@ class ChargeMaster extends utils.Adapter {
 					TotalSetOptAmp = TotalSetOptAmp + Wallbox[i].SetAmp;
 				} else {
 					// not enough current available, throttled charge
-					if (this.config.MaxAmpTotal - TotalSetOptAmp >= Wallbox[i].MinAmp) {
+					if (this.config.maxAmpTotal - TotalSetOptAmp >= Wallbox[i].MinAmp) {
 						// still enough above min current?
-						Wallbox[i].SetAmp = this.config.MaxAmpTotal - TotalSetOptAmp;
+						Wallbox[i].SetAmp = this.config.maxAmpTotal - TotalSetOptAmp;
 						Wallbox[i].SetAllow = true;
 						this.log.debug(`Charge Limiter: Wallbox ${i} verified throttled charge with ${Wallbox[i].SetAmp}A`);
 						TotalSetOptAmp = TotalSetOptAmp + Wallbox[i].SetAmp;
@@ -419,7 +419,7 @@ class ChargeMaster extends utils.Adapter {
 					this.log.error(`Charger Config: Error in setting values for wallbox ${i}: ${error}`);
 				} // END try-catch
 				this.log.debug(`Charger Config: Shutdown Wallbox ${i} - ${Wallbox[i].SetAmp} Ampere`);
-			} else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.MaxAmpTotal) {
+			} else if (TotalMeasuredChargeCurrent + (Wallbox[i].SetAmp - Wallbox[i].MeasuredMaxChargeAmp) <= this.config.maxAmpTotal) {
 				// HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
 				try {
 					switch (i) {

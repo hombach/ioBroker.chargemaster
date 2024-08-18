@@ -10,6 +10,8 @@
   "license": "MIT",
   "keywords": [
     "ioBroker",
+    "power",
+    "energy",
     "chargemaster",
     "Smart Home",
     "home automation"
@@ -57,7 +59,19 @@
     "set-value": "^4.0.1"
   },
   "main": "main.js",
+  "files": [
+    ".github/",
+    "admin/",
+    "build/",
+    "io-package.json",
+    "LICENSE",
+    "main.js",
+    "main.test.js",
+    "package.json"
+  ],
   "scripts": {
+    "watch:ts": "tsc -p tsconfig.build.json --watch",
+    "watch": "npm run watch:ts",
     "test:js": "mocha --config test/mocharc.custom.json \"{!(node_modules|test)/**/*.test.js,*.test.js,test/**/test!(PackageFiles|Startup).js}\"",
     "test:package": "mocha test/package --exit",
     "test:integration": "mocha test/integration --exit",
@@ -65,18 +79,7 @@
     "lint": "eslint"
   },
   "bugs": {
-    "url": "https://github.com/hombach/ioBroker.chargemaster/issues"
+    "url": "https://github.com/Hombach/ioBroker.chargemaster/issues"
   },
-  "files": [
-      ".github/",
-      "admin/",
-      "lib/",
-      "CODE_OF_CONDUCT.md",
-      "io-package.json",
-      "LICENSE",
-      "main.js",
-      "main.test.js",
-      "package.json",
-      "README.md"
-  ]
+  "readmeFilename": "README.md"
 }

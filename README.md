@@ -1,4 +1,5 @@
 ![Logo](admin/chargemaster.png)
+
 # ioBroker.chargemaster
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)](https://www.npmjs.com/package/iobroker.chargemaster)
@@ -31,29 +32,30 @@ To connect to the wallboxes type in the states with needed data in the config.
 This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
-! Note that missing version entries are typically dependency updates for security.
 
-### 0.9.3 (xx.08.2024)
+! Note that missing version entries are typically dependency updates for improved security.
+
+### 0.9.3 (2024-08-xx)
 
 * (HombachC) change translation handling
 * (HombachC) code and repository cleanup
 
-### 0.9.2 (16.08.2024)
+### 0.9.2 (2024-08-16)
 
 * (HombachC) fixed vulnerability in dependency
 * (HombachC) added tests for node 22
 
-### 0.9.1 (06.08.2024)
+### 0.9.1 (2024-08-06)
 
 * (HombachC) fixed issues detected by repository checker (#494)
 * (HombachC) code cleanups
 
-### 0.9.0 (20.04.2024)
+### 0.9.0 (2024-04-20)
 
 * (HombachC) BREAKING: dropped support for node.js 16 (#455)
 * (HombachC) BREAKING: js-controller >= 5 is required (#456)
 
-### 0.8.5 (27.03.2024)
+### 0.8.5 (2024-03-27)
 
 * (HombachC) updated CI definitions, switched to node 20 as main test scenario
 * (HombachC) corrected io-package.json according to new schema
@@ -97,103 +99,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 * (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
 * (HombachC) BREAKING: dropped ioBroker.admin 4 support
 
-### 0.6.3 (29.12.2022)
-
-* (HombachC) bumped dependencies and year 2023 changes
-
-### 0.6.2 (11.09.2022)
-
-* (HombachC) fixed error in calc with active charge current
-
-### 0.6.1 (08.09.2022)
-
-* (HombachC) bump @iobroker/testing from 3.0.2 to 4.1.0
-
-### 0.6.0 (09.08.2022)
-
-* (HombachC) fix error in max total current, fix error in charge manager
-
-### 0.5.1 (06.06.2022)
-
-* (HombachC) removed gulp, bumped dependencies, small code tweaks
-
-### 0.5.0 (09.05.2022)
-
-* (HombachC) BREAKING: dropped node.js 12 support
-* (HombachC) Add tests for node.js 18, removed for node.js 12
-* (HombachC) bumped dependencies to non node.js 12 support
-
-### 0.4.4 (27.04.2022)
-
-* (HombachC) fixed vulnerability, bumped dependencies
-
-### 0.4.3 (22.02.2022)
-
-* (HombachC) added github tests for MAC-OS and Windows
-
-### 0.4.2 (21.02.2022)
-
-* (HombachC) changed statemachine to async; bumped dependencies
-
-### 0.4.1 (18.02.2022)
-
-* (HombachC) fixed error in charger communication; added ci test
-
-### 0.4.0 (14.02.2022)
-
-* (HombachC) introduced automatic adaption to the amount of configured chargers; bugfixes for cleaner run without config
-
-### 0.3.2 (14.02.2022)
-
-* (HombachC) fixing test automation, several bugfixes for cleaner run without config
-
-### 0.3.1 (29.01.2022)
-
-* (HombachC) added sentry statistics; optimized logging; fixed type conversion bug
-
-### 0.3.0 (28.01.2022)
-
-* (HombachC) first public release for iOBroker latest repo; added sentry support
-
-### 0.2.0 (18.12.2021)
-
-* (HombachC) dropped node.js 10 support; bumped dependencies
-
-### 0.1.5 (15.10.2021)
-
-* (HombachC) fixed vulnerability; improved docu
-
-### 0.1.2 (02.05.2021)
-
-* (HombachC) code cleanup and optimization, fixed onStateChange
-
-### 0.1.1 (30.04.2021)
-
-* (HombachC) fixed errors with js-controller 3.3.x, bumped dependencies
-
-### 0.1.0 (11.04.2021)
-
-* (HombachC) first running version, fixed to 3 boxes
-
-### 0.0.7 (31.03.2021)
-
-* (HombachC) added MaxAmpTotal, MinAmpWallBox, MaxAmpWallBox
-
-### 0.0.6 (23.03.2021)
-
-* (HombachC) added collection and calc of total charge power
-
-### 0.0.4 (15.03.2021)
-
-* (HombachC) fix error in foreign state popup
-
-### 0.0.2 (06.01.2021)
-
-* (HombachC) fix errors to get it running in old single wallbox mode
-
-### 0.0.1 (01.01.2021)
-
-* (HombachC) initial release
+### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## Tested with
 - 3x go-E Charger & Kostal PikoBA

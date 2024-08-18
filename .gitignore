@@ -1,6 +1,8 @@
 .git
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+.vscode
 .idea
-.vscode/
 .suo
 *.code-workspace
 nbproject

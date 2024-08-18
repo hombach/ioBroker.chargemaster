@@ -52,7 +52,6 @@ let MinHomeBatVal: number = 85;
 let TotalSetOptAmp: number = 0;
 let TotalChargePower: number = 0;
 let TotalMeasuredChargeCurrent: number = 0;
-let maxCharger: number = 0;
 
 class ChargeMaster extends utils.Adapter {
 	adapterIntervals: NodeJS.Timeout[];
@@ -120,7 +119,6 @@ class ChargeMaster extends utils.Adapter {
 				(await stateTest(this, this.config.wallBoxList[i].stateActiveChargePower)) &&
 				(await stateTest(this, this.config.wallBoxList[i].stateActiveChargeAmp))
 			) {
-				maxCharger = i;
 				this.log.info(`Charger ${i} states verified`);
 			} else {
 				this.log.error(`Charger ${i} not correct configured or not reachable - shutting down adapter`);
@@ -258,7 +256,7 @@ class ChargeMaster extends utils.Adapter {
 
 			await this.Calc_Total_Power();
 
-			for (i = 0; i <= maxCharger; i++) {
+			for (i = 0; i < this.config.wallBoxList.length; i++) {
 				if (Wallbox[i].ChargeNOW) {
 					// Charge-NOW is enabled
 					Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent; // keep active charging current!!
@@ -334,7 +332,7 @@ class ChargeMaster extends utils.Adapter {
 	private Charge_Limiter(): void {
 		let i = 0;
 		TotalSetOptAmp = 0;
-		for (i = 0; i <= maxCharger; i++) {
+		for (i = 0; i < this.config.wallBoxList.length; i++) {
 			// switch of boxes and adjust local limits
 			if (Wallbox[i].SetOptAllow == false) {
 				// Switch of imediately

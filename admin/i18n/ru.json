@@ -1,23 +1,3 @@
 {
-    "StateWallBox0Headline": "Соединения данных для WallBox 0",
-    "StateWallBox0ChargeCurrent": "идентификатор объекта для установки зарядного тока Wallbox 0 [A]",
-    "StateWallBox0ChargeAllowed": "идентификатор объекта для включения зарядки Wallbox 0 [true/false]",
-    "StateWallBox0ChargePower": "идентификатор объекта для чтения мощности зарядки wallbox 0 [Вт]",
-    "StateWallBox0MeasuredMaxChargeAmp": "идентификатор объекта для чтения измеренного максимального фазного тока настенной коробки 0 [A]",
-    "MinAmpWallBox0": "Минимально допустимый ток для Wallbox 0 [A]",
-    "MaxAmpWallBox0": "Максимально допустимый ток для Wallbox 0 [A]",
     "StateWallBox1Headline": "Соединения данных для WallBox 1",
-    "StateWallBox1ChargeCurrent": "идентификатор объекта для установки зарядного тока Wallbox 1 [A]",
-    "StateWallBox1ChargeAllowed": "идентификатор объекта для включения зарядки Wallbox 1 [true/false]",
-    "StateWallBox1ChargePower": "идентификатор объекта для чтения мощности зарядки wallbox 1 [Вт]",
-    "StateWallBox1MeasuredMaxChargeAmp": "идентификатор объекта для чтения измеренного максимального фазного тока настенной коробки 1 [A]",
-    "MinAmpWallBox1": "Минимально допустимый ток для Wallbox 1 [A]",
-    "MaxAmpWallBox1": "Максимально допустимый ток для Wallbox 1 [A]",
-    "StateWallBox2Headline": "Соединения данных для WallBox 2",
-    "StateWallBox2ChargeCurrent": "идентификатор объекта для установки зарядного тока Wallbox 2 [A]",
-    "StateWallBox2ChargeAllowed": "идентификатор объекта для включения зарядки Wallbox 2 [true/false]",
-    "StateWallBox2ChargePower": "идентификатор объекта для чтения мощности зарядки wallbox 2 [Вт]",
-    "StateWallBox2MeasuredMaxChargeAmp": "идентификатор объекта для чтения измеренного максимального фазного тока настенной коробки 2 [A]",
-    "MinAmpWallBox2": "Минимально допустимый ток для Wallbox 2 [A]",
-    "MaxAmpWallBox2": "Максимально допустимый ток для Wallbox 2 [A]"
 }

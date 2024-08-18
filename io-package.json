@@ -4,7 +4,17 @@
     "version": "0.9.3",
     "news": {
       "0.9.3": {
-        "en": "change translation handling\ncode and repository cleanup\nprepare switch to Typescript"
+        "en": "change translation handling\ncode and repository cleanup\nprepare switch to Typescript",
+        "de": "Änderung der Übersetzungsverwaltung\nCode- und Repository-Bereinigung\nVorbereitung auf den Wechsel zu Typescript",
+        "ru": "изменить обработку перевода\nочистка кода и репозитория\nподготовка к переходу на Typescript",
+        "pt": "alterar o manuseio de traduções\nlimpeza de código e repositório\npreparar mudança para Typescript",
+        "nl": "vertaling verwerken aanpassen\ncode en repository opschonen\nvoorbereiden op overstap naar Typescript",
+        "fr": "changer la gestion des traductions\nnettoyage du code et du dépôt\npréparer le passage à Typescript",
+        "it": "cambiare la gestione della traduzione\npulizia del codice e del repository\nprepararsi al passaggio a Typescript",
+        "es": "cambiar el manejo de traducciones\nlimpieza de código y repositorio\npreparar cambio a Typescript",
+        "pl": "zmień obsługę tłumaczeń\nczyszczenie kodu i repozytorium\nprzygotowanie do przejścia na Typescript",
+        "uk": "змінити обробку перекладів\nочищення коду та репозиторію\nпідготуватися до переходу на Typescript",
+        "zh-cn": "更改翻译处理\n代码和存储库清理\n准备切换到 Typescript"
       },
         "0.9.2": {
         "en": "fixed vulnerability in dependency\nadded tests for Node.js 22",

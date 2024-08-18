@@ -203,7 +203,7 @@ class ChargeMaster extends utils.Adapter {
 	 * @param {() => void} callback */
 	private onUnload(callback: () => void): void {
 		try {
-			Object.keys(this.adapterIntervals).forEach((timeOut) => clearInterval(timeOut));
+			Object.keys(this.adapterIntervals).forEach((timeOut) => clearTimeout(timeOut));
 			this.log.info(`Adapter ChargeMaster cleaned up everything...`);
 			callback();
 		} catch (e) {
@@ -308,7 +308,6 @@ class ChargeMaster extends utils.Adapter {
 		await this.Charge_Limiter();
 		await this.Charge_Config();
 
-		//this.adapterIntervals.stateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
 		const jobStateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
 		if (jobStateMachine) this.adapterIntervals.push(jobStateMachine);
 	}

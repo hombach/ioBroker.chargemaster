@@ -48,6 +48,7 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 
 -   (HombachC) switch to Typescript
 -   (HombachC) change adapter type to "energy"
+-   (HombachC) replace deprecated setStateAsync
 
 ### 0.9.3 (2024-08-18)
 

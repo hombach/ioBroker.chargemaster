@@ -161,6 +161,27 @@ class ChargeMaster extends utils.Adapter {
             this.log.warn(`Charger 2 not configured or not reachable`);
         }
         // *********************************************************************************************************************************
+        //sentry.io ping
+        if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
+            const sentryInstance = this.getPluginInstance("sentry");
+            const today = new Date();
+            const last = await this.getStateAsync("info.LastSentryLogDay");
+            if (last?.val != today.getDate()) {
+                if (sentryInstance) {
+                    const Sentry = sentryInstance.getSentryObject();
+                    Sentry &&
+                        Sentry.withScope((scope) => {
+                            scope.setLevel("info");
+                            scope.setTag("System Power", this.config.MaxAmpTotal);
+                            scope.setTag("WallboxAmp_0", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
+                            scope.setTag("WallboxAmp_1", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
+                            scope.setTag("WallboxAmp_2", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
+                            Sentry.captureMessage("Adapter chargemaster started", "info"); // Level "info"
+                        });
+                }
+                this.setState("info.LastSentryLogDay", { val: today.getDate(), ack: true });
+            }
+        }
         try {
             MinHomeBatVal = await this.getStateVal("Settings.Setpoint_HomeBatSoC");
             Wallbox[0].ChargeNOW = await this.getStateVal("Settings.WB_0.ChargeNOW");
@@ -183,29 +204,8 @@ class ChargeMaster extends utils.Adapter {
         Wallbox[1].MaxAmp = this.config.MaxAmpWallBox1;
         Wallbox[2].MinAmp = this.config.MinAmpWallBox2;
         Wallbox[2].MaxAmp = this.config.MaxAmpWallBox2;
-        this.log.debug(`Init done, launching state machine`);
-        this.StateMachine();
-        //sentry.io ping
-        if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
-            const sentryInstance = this.getPluginInstance("sentry");
-            const today = new Date();
-            const last = await this.getStateAsync("info.LastSentryLogDay");
-            if (last?.val != (await today.getDate())) {
-                if (sentryInstance) {
-                    const Sentry = sentryInstance.getSentryObject();
-                    Sentry &&
-                        Sentry.withScope((scope) => {
-                            scope.setLevel("info");
-                            scope.setTag("System Power", this.config.MaxAmpTotal);
-                            scope.setTag("WallboxAmp_0", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
-                            scope.setTag("WallboxAmp_1", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
-                            scope.setTag("WallboxAmp_2", parseInt(this.config.StateWallBox0MeasuredMaxChargeAmp));
-                            Sentry.captureMessage("Adapter chargemaster started", "info"); // Level "info"
-                        });
-                }
-                this.setStateAsync("info.LastSentryLogDay", { val: today.getDate(), ack: true });
-            }
-        }
+        this.log.info(`Init done, launching state machine`);
+        await this.StateMachine();
     }
     /****************************************************************************************
      * Is called when adapter shuts down - callback has to be called under any circumstances!
@@ -216,7 +216,7 @@ class ChargeMaster extends utils.Adapter {
             this.log.info(`Adapter ChargeMaster cleaned up everything...`);
             callback();
         }
-        catch (e) {
+        catch (error) {
             callback();
         }
     }
@@ -274,12 +274,11 @@ class ChargeMaster extends utils.Adapter {
                 }
             }
             else {
-                // The state was deleted
-                this.log.warn(`state ${id} deleted`);
+                this.log.warn(`state ${id} has been deleted`);
             }
         }
-        catch (e) {
-            this.log.error(`Unhandled exception processing stateChange: ${e}`);
+        catch (error) {
+            this.log.error(`Unhandled exception processing stateChange: ${error}`);
         }
     }
     /*****************************************************************************************/
@@ -328,7 +327,6 @@ class ChargeMaster extends utils.Adapter {
         this.log.debug(`Charge Manager: Got external state of solar power: ${SolarPower} W`);
         HouseConsumption = await this.asyncGetForeignStateVal(this.config.StateHomePowerConsumption);
         this.log.debug(`Charge Manager: Got external state of house power consumption: ${HouseConsumption} W`);
-        // this.Calc_Total_Power();
         OptAmpere = Math.floor((SolarPower - HouseConsumption + TotalChargePower - 100 + (2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal)) / 230);
         // -100 W Reserve + max. 2000 fÜr Batterieleerung
         if (OptAmpere > Wallbox[i].MaxAmp)
@@ -337,9 +335,13 @@ class ChargeMaster extends utils.Adapter {
         if (Wallbox[i].SetOptAmp < OptAmpere) {
             Wallbox[i].SetOptAmp++;
         }
-        else if (Wallbox[i].SetOptAmp > OptAmpere)
+        else if (Wallbox[i].SetOptAmp > OptAmpere) {
             Wallbox[i].SetOptAmp--;
-        this.log.debug(`Charge Manager: Wallbox ${i} blended current: ${Wallbox[i].SetOptAmp} A; Solar power: ${SolarPower} W; Haus consumption: ${HouseConsumption} W; Total charger power: ${TotalChargePower} W`);
+        }
+        this.log.debug(`Charge Manager: Wallbox ${i} blended current: ${Wallbox[i].SetOptAmp} A; ` +
+            `Solar power: ${SolarPower} W; ` +
+            `Haus consumption: ${HouseConsumption} W; ` +
+            `Total charger power: ${TotalChargePower} W`);
         if (Wallbox[i].SetOptAmp > Number(this.OffHysterese) + Number(Wallbox[i].MinAmp)) {
             Wallbox[i].SetOptAllow = true; // An und Zielstrom da größer MinAmp + Hysterese
         }
@@ -441,8 +443,8 @@ class ChargeMaster extends utils.Adapter {
                             break;
                     }
                 }
-                catch (e) {
-                    this.log.error(`Charger Config: Error in setting charging for wallbox ${i}: ${e}`);
+                catch (error) {
+                    this.log.error(`Charger Config: Error in setting charging for wallbox ${i}: ${error}`);
                 } // END try-catch
                 this.log.debug(`Charger Config: Wallbox ${i} switched on for charge with ${Wallbox[i].SetAmp}A`);
             }
@@ -466,14 +468,14 @@ class ChargeMaster extends utils.Adapter {
                 }
             }
             TotalChargePower = Wallbox[0].ChargePower + Wallbox[1].ChargePower + Wallbox[2].ChargePower;
-            this.setStateAsync("Power.Charge", TotalChargePower, true); // trim to Watt
+            this.setState("Power.Charge", TotalChargePower, true); // trim to Watt
             TotalMeasuredChargeCurrent =
                 Math.ceil(Wallbox[0].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[1].MeasuredMaxChargeAmp) + Math.ceil(Wallbox[2].MeasuredMaxChargeAmp);
             this.log.debug(`Got charge power of all wallboxes - 0: ${Wallbox[0].ChargePower}W; ${Wallbox[0].MeasuredMaxChargeAmp}A - 1: ${Wallbox[1].ChargePower}W; ${Wallbox[1].MeasuredMaxChargeAmp}A - 2: ${Wallbox[2].ChargePower}W; ${Wallbox[2].MeasuredMaxChargeAmp}A`);
             this.log.debug(`Total measured charge power: ${TotalChargePower}W - Total measured charge current: ${TotalMeasuredChargeCurrent}A`);
         }
-        catch (e) {
-            this.log.error(`Error in reading charge power of wallboxes: ${e}`);
+        catch (error) {
+            this.log.error(`Error in reading charge power of wallboxes: ${error}`);
         } // END catch
     } // END Calc_Total_Power
     /**

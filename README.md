@@ -36,6 +36,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 0.9.3 (xx.08.2024)
 
 * (HombachC) change translation handling
+* (HombachC) code cleanup
 
 ### 0.9.2 (16.08.2024)
 

@@ -1,9 +1,9 @@
 {
 	"common": {
 		"name": "chargemaster",
-		"version": "0.10.1",
+		"version": "0.11.0",
 		"news": {
-			"0.10.1": {
+			"0.11.0": {
         "en": "WiP implement variable wallbox amount"
       },
 			"0.10.0": {

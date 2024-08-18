@@ -212,7 +212,7 @@ class ChargeMaster extends utils.Adapter {
      * @param {() => void} callback */
     onUnload(callback) {
         try {
-            Object.keys(this.adapterIntervals).forEach((timeOut) => clearTimeout(timeOut));
+            // WiP - Object.keys(this.adapterIntervals).forEach((timeOut) => clearTimeout(timeOut));
             this.log.info(`Adapter ChargeMaster cleaned up everything...`);
             callback();
         }
@@ -284,42 +284,44 @@ class ChargeMaster extends utils.Adapter {
     /*****************************************************************************************/
     async StateMachine() {
         let i = 0;
-        this.log.debug(`StateMachine cycle started`);
-        await this.Calc_Total_Power();
-        for (i = 0; i <= maxCharger; i++) {
-            if (Wallbox[i].ChargeNOW) {
-                // Charge-NOW is enabled
-                Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent; // keep active charging current!!
-                Wallbox[i].SetOptAllow = true;
-                this.log.debug(`State machine: Wallbox ${i} planned for charge-now with ${Wallbox[i].SetOptAmp}A`);
-            }
-            else if (Wallbox[i].ChargeManager) {
-                // Charge-Manager is enabled for this wallbox
-                BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
-                this.log.debug(`State machine: Got external state of battery SoC: ${BatSoC}%`);
-                if (BatSoC >= MinHomeBatVal) {
-                    // SoC of home battery sufficient?
-                    await this.Charge_Manager(i);
+        while (true) {
+            await this.delay(this.config.cycletime);
+            this.log.debug(`StateMachine cycle started`);
+            await this.Calc_Total_Power();
+            for (i = 0; i <= maxCharger; i++) {
+                if (Wallbox[i].ChargeNOW) {
+                    // Charge-NOW is enabled
+                    Wallbox[i].SetOptAmp = Wallbox[i].ChargeCurrent; // keep active charging current!!
+                    Wallbox[i].SetOptAllow = true;
+                    this.log.debug(`State machine: Wallbox ${i} planned for charge-now with ${Wallbox[i].SetOptAmp}A`);
+                }
+                else if (Wallbox[i].ChargeManager) {
+                    // Charge-Manager is enabled for this wallbox
+                    BatSoC = await this.asyncGetForeignStateVal(this.config.StateHomeBatSoc);
+                    this.log.debug(`State machine: Got external state of battery SoC: ${BatSoC}%`);
+                    if (BatSoC >= MinHomeBatVal) {
+                        // SoC of home battery sufficient?
+                        await this.Charge_Manager(i);
+                    }
+                    else {
+                        // FUTURE: time of day forces emptying of home battery
+                        Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
+                        Wallbox[i].SetOptAllow = false;
+                        this.log.debug(`State machine: Wait for home battery SoC of ${MinHomeBatVal}%`);
+                    }
                 }
                 else {
-                    // FUTURE: time of day forces emptying of home battery
+                    // switch OFF; set to min. current;
                     Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
                     Wallbox[i].SetOptAllow = false;
-                    this.log.debug(`State machine: Wait for home battery SoC of ${MinHomeBatVal}%`);
+                    this.log.debug(`State machine: Wallbox ${i} planned for switch off`);
                 }
             }
-            else {
-                // switch OFF; set to min. current;
-                Wallbox[i].SetOptAmp = Wallbox[i].MinAmp;
-                Wallbox[i].SetOptAllow = false;
-                this.log.debug(`State machine: Wallbox ${i} planned for switch off`);
-            }
+            await this.Charge_Limiter();
+            await this.Charge_Config();
         }
-        await this.Charge_Limiter();
-        await this.Charge_Config();
-        const jobStateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
-        if (jobStateMachine)
-            this.adapterIntervals.push(jobStateMachine);
+        // WiP - const jobStateMachine = setTimeout(this.StateMachine.bind(this), this.config.cycletime);
+        // WiP - if (jobStateMachine) this.adapterIntervals.push(jobStateMachine);
     }
     /*****************************************************************************************/
     async Charge_Manager(i) {

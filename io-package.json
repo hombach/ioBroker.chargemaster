@@ -4,17 +4,17 @@
 		"version": "0.10.0",
 		"news": {
 			"0.10.0": {
-        "en": "switch to Typescript\nchange adapter type to 'energy'",
-        "de": "Wechsel zu Typescript\nÄndern des Adaptertyps in 'energy'",
-        "ru": "переход на Typescript\nизменить тип адаптера на 'energy'",
-        "pt": "mudar para Typescript\nalterar o tipo de adaptador para 'energy'",
-        "nl": "overschakelen naar Typescript\nadaptertype wijzigen naar 'energy'",
-        "fr": "passer à Typescript\nchanger le type d'adaptateur en 'energy'",
-        "it": "passare a Typescript\ncambiare il tipo di adattatore in 'energy'",
-        "es": "cambiar a Typescript\ncambiar el tipo de adaptador a 'energy'",
-        "pl": "przejdź na Typescript\nzmień typ adaptera na 'energy'",
-        "uk": "перехід на Typescript\nзмінити тип адаптера на 'energy'",
-        "zh-cn": "切换到 Typescript\n将适配器类型更改为 'energy'"
+        "en": "switch to Typescript\nchange adapter type to 'energy'\nreplace deprecated setStateAsync",
+        "de": "Wechsel zu Typescript\nÄndern des Adaptertyps in 'energy'\nErsetzen des veralteten setStateAsync",
+        "ru": "переход на Typescript\nизменить тип адаптера на 'energy'\nзаменить устаревший setStateAsync",
+        "pt": "mudar para Typescript\nalterar o tipo de adaptador para 'energy'\nsubstituir setStateAsync obsoleto",
+        "nl": "overschakelen naar Typescript\nadaptertype wijzigen naar 'energy'\nvervang de verouderde setStateAsync",
+        "fr": "passer à Typescript\nchanger le type d'adaptateur en 'energy'\nremplacer setStateAsync obsolète",
+        "it": "passare a Typescript\ncambiare il tipo di adattatore in 'energy'\nsostituire il setStateAsync obsoleto",
+        "es": "cambiar a Typescript\ncambiar el tipo de adaptador a 'energy'\nreemplazar setStateAsync obsoleto",
+        "pl": "przejdź na Typescript\nzmień typ adaptera na 'energy'\nzastąp przestarzały setStateAsync",
+        "uk": "перехід на Typescript\nзмінити тип адаптера на 'energy'\nзамінити застарілий setStateAsync",
+        "zh-cn": "切换到 Typescript\n将适配器类型更改为 'energy'\n替换已弃用的 setStateAsync"
       },
 			"0.9.3": {
 				"en": "change translation handling\ncode and repository cleanup\nprepare switch to Typescript",

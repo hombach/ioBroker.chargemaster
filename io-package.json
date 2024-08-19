@@ -4,7 +4,7 @@
 		"version": "0.11.0",
 		"news": {
 			"0.11.0": {
-        "en": "WiP implement variable wallbox amount"
+        "en": "implement variable wallbox amount\nfix errors in wallbox control\ncomplete rework of configuration"
       },
 			"0.10.0": {
         "en": "switch to Typescript\nchange adapter type to 'energy'\nreplace deprecated setStateAsync",
@@ -196,9 +196,7 @@
 		"MinAmpWallBox0": 6,
 		"MaxAmpWallBox0": 10,
 		"MinAmpWallBox1": 6,
-		"MaxAmpWallBox1": 10,
-		"MinAmpWallBox2": 6,
-		"MaxAmpWallBox2": 10
+		"MaxAmpWallBox1": 10
 	},
 	"objects": [],
 	"instanceObjects": [

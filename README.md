@@ -47,7 +47,8 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 ### 0.11.0 (2024-08-xx)
 
 -   (HombachC) WiP implement variable wallbox amount 
--   (HombachC) WiP fix errors in wallbox control 
+-   (HombachC) WiP fix errors in wallbox control
+-   (HombachC) WiP complete rework of configuration
 
 ### 0.10.0 (2024-08-18)
 

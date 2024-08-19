@@ -31,12 +31,6 @@ declare global {
 			StateWallBox1MeasuredMaxChargeAmp: string;
 			MinAmpWallBox1: number;
 			MaxAmpWallBox1: number;
-			StateWallBox2ChargeCurrent: string;
-			StateWallBox2ChargeAllowed: string;
-			StateWallBox2ChargePower: string;
-			StateWallBox2MeasuredMaxChargeAmp: string;
-			MinAmpWallBox2: number;
-			MaxAmpWallBox2: number;
 		}
 	}
 }

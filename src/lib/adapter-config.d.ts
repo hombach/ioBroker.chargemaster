@@ -19,18 +19,6 @@ declare global {
 					maxAmp: number;
 				},
 			];
-			StateWallBox0ChargeCurrent: string;
-			StateWallBox0ChargeAllowed: string;
-			StateWallBox0ChargePower: string;
-			StateWallBox0MeasuredMaxChargeAmp: string;
-			MinAmpWallBox0: number;
-			MaxAmpWallBox0: number;
-			StateWallBox1ChargeCurrent: string;
-			StateWallBox1ChargeAllowed: string;
-			StateWallBox1ChargePower: string;
-			StateWallBox1MeasuredMaxChargeAmp: string;
-			MinAmpWallBox1: number;
-			MaxAmpWallBox1: number;
 		}
 	}
 }

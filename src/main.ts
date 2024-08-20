@@ -1,5 +1,6 @@
 ﻿// The adapter-core module gives you access to the core ioBroker functions you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
+//import { ProjectUtils } from "./lib/projectUtils";
 
 const Wallbox = [
 	{
@@ -152,15 +153,20 @@ class ChargeMaster extends utils.Adapter {
 
 		try {
 			MinHomeBatVal = await this.getStateVal("Settings.Setpoint_HomeBatSoC");
-			Wallbox[0].ChargeNOW = await this.getStateVal("Settings.WB_0.ChargeNOW");
-			Wallbox[0].ChargeManager = await this.getStateVal("Settings.WB_0.ChargeManager");
-			Wallbox[0].ChargeCurrent = await this.getStateVal("Settings.WB_0.ChargeCurrent");
-			Wallbox[1].ChargeNOW = await this.getStateVal("Settings.WB_1.ChargeNOW");
-			Wallbox[1].ChargeManager = await this.getStateVal("Settings.WB_1.ChargeManager");
-			Wallbox[1].ChargeCurrent = await this.getStateVal("Settings.WB_1.ChargeCurrent");
-			Wallbox[2].ChargeNOW = await this.getStateVal("Settings.WB_2.ChargeNOW");
-			Wallbox[2].ChargeManager = await this.getStateVal("Settings.WB_2.ChargeManager");
-			Wallbox[2].ChargeCurrent = await this.getStateVal("Settings.WB_2.ChargeCurrent");
+			for (let i = 0; i < this.config.wallBoxList.length; i++) {
+				Wallbox[i].ChargeNOW = await this.getStateVal(`Settings.WB_${i}.ChargeNOW`);
+				Wallbox[i].ChargeManager = await this.getStateVal(`Settings.WB_${i}.ChargeManager`);
+				Wallbox[i].ChargeCurrent = await this.getStateVal(`Settings.WB_${i}.ChargeCurrent`);
+			}
+			// Wallbox[0].ChargeNOW = await this.getStateVal("Settings.WB_0.ChargeNOW");
+			// Wallbox[0].ChargeManager = await this.getStateVal("Settings.WB_0.ChargeManager");
+			// Wallbox[0].ChargeCurrent = await this.getStateVal("Settings.WB_0.ChargeCurrent");
+			// Wallbox[1].ChargeNOW = await this.getStateVal("Settings.WB_1.ChargeNOW");
+			// Wallbox[1].ChargeManager = await this.getStateVal("Settings.WB_1.ChargeManager");
+			// Wallbox[1].ChargeCurrent = await this.getStateVal("Settings.WB_1.ChargeCurrent");
+			// Wallbox[2].ChargeNOW = await this.getStateVal("Settings.WB_2.ChargeNOW");
+			// Wallbox[2].ChargeManager = await this.getStateVal("Settings.WB_2.ChargeManager");
+			// Wallbox[2].ChargeCurrent = await this.getStateVal("Settings.WB_2.ChargeCurrent");
 			this.Calc_Total_Power();
 		} catch (error) {
 			this.log.error(`Unhandled exception processing initial state check: ${error}`);
@@ -329,7 +335,7 @@ class ChargeMaster extends utils.Adapter {
 	} // END Charge_Manager
 
 	/*****************************************************************************************/
-	private Charge_Limiter(): void {
+	private async Charge_Limiter(): Promise<void> {
 		let i = 0;
 		TotalSetOptAmp = 0;
 		for (i = 0; i < this.config.wallBoxList.length; i++) {
@@ -370,7 +376,7 @@ class ChargeMaster extends utils.Adapter {
 	} // END Charge_Limiter
 
 	/*****************************************************************************************/
-	private Charge_Config(): void {
+	private async Charge_Config(): Promise<void> {
 		let i = 0;
 		for (i = 0; i < this.config.wallBoxList.length; i++) {
 			if (Wallbox[i].SetAllow == false) {
@@ -397,7 +403,7 @@ class ChargeMaster extends utils.Adapter {
 	} // END Charge_Config
 
 	/*****************************************************************************************/
-	async Calc_Total_Power(): Promise<any> {
+	private async Calc_Total_Power(): Promise<any> {
 		let i = 0;
 		//this.log.debug(`Get charge power of all wallboxes`);
 		TotalChargePower = 0;

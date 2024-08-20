@@ -4,7 +4,7 @@
 		"version": "0.11.0",
 		"news": {
 			"0.11.0": {
-        "en": "implement variable wallbox amount\nfix errors in wallbox control\ncomplete rework of configuration"
+        "en": "implement variable wallbox amount\nfix errors in wallbox control\ncomplete rework of configuration\nmove utils to extra class"
       },
 			"0.10.0": {
         "en": "switch to Typescript\nchange adapter type to 'energy'\nreplace deprecated setStateAsync",
@@ -192,11 +192,7 @@
 
 	"native": {
 		"cycletime": 10000,
-		"MaxAmpTotal": 6,
-		"MinAmpWallBox0": 6,
-		"MaxAmpWallBox0": 10,
-		"MinAmpWallBox1": 6,
-		"MaxAmpWallBox1": 10
+		"MaxAmpTotal": 6
 	},
 	"objects": [],
 	"instanceObjects": [

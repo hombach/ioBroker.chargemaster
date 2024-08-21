@@ -4,7 +4,17 @@
 		"version": "0.11.0",
 		"news": {
 			"0.11.0": {
-        "en": "implement variable wallbox amount\nfix errors in wallbox control\ncomplete rework of configuration\nmove utils to extra class"
+        "en": "implement variable wallbox amount\nfix errors in wallbox control\ncomplete rework of configuration\nmove utils to extra class",
+        "de": "Variable Anzahl von Wallboxen implementieren\nFehler in der Wallbox-Steuerung beheben\nVollständige Überarbeitung der Konfiguration\nUtils in eine eigene Klasse verschieben",
+        "ru": "реализовать переменное количество зарядных станций\nисправить ошибки в управлении зарядными станциями\nполная переработка конфигурации\nперенести утилиты в отдельный класс",
+        "pt": "implementar quantidade variável de wallbox\ncorrigir erros no controle da wallbox\nrevisão completa da configuração\nmover utilitários para classe extra",
+        "nl": "variabel aantal wallboxen implementeren\nfouten in wallboxbesturing oplossen\nvolledige herziening van configuratie\nverplaats hulpmiddelen naar een aparte klasse",
+        "fr": "implémenter une quantité variable de wallbox\ncorriger les erreurs dans le contrôle de la wallbox\nrefonte complète de la configuration\ndéplacer les utilitaires dans une classe distincte",
+        "it": "implementare quantità variabile di wallbox\ncorreggere errori nel controllo della wallbox\nristrutturazione completa della configurazione\nspostare le utilità in una classe separata",
+        "es": "implementar cantidad variable de wallbox\ncorregir errores en el control de wallbox\nrevisión completa de la configuración\nmover utilidades a una clase extra",
+        "pl": "zaimplementuj zmienną ilość wallboxów\nnapraw błędy w sterowaniu wallboxem\nkompletna przebudowa konfiguracji\nprzenieś narzędzia do osobnej klasy",
+        "uk": "реалізувати змінну кількість зарядних станцій\nвиправити помилки в керуванні зарядними станціями\nповне перероблення конфігурації\nперемістити утиліти в окремий клас",
+        "zh-cn": "实现可变数量的充电桩\n修复充电桩控制中的错误\n重新配置\n将实用程序移动到单独的类"
       },
 			"0.10.0": {
         "en": "switch to Typescript\nchange adapter type to 'energy'\nreplace deprecated setStateAsync",

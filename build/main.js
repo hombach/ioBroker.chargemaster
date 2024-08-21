@@ -305,8 +305,12 @@ class ChargeMaster extends utils.Adapter {
         this.log.debug(`Charge Manager: Got external state of solar power: ${SolarPower} W`);
         HouseConsumption = await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomePowerConsumption);
         this.log.debug(`Charge Manager: Got external state of house power consumption: ${HouseConsumption} W`);
-        OptAmpere = Math.floor((SolarPower - HouseConsumption + TotalChargePower - 100 + (2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal)) / 230);
-        // -100 W Reserve + max. 2000 fÜr Batterieleerung
+        OptAmpere = Math.floor((SolarPower -
+            HouseConsumption +
+            0 * TotalChargePower - // Bedingte !!!! Einbeziehung von ChargePower
+            100 + // Reserve
+            (2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal)) / // max. 2000 fÜr Batterieleerung
+            230);
         if (OptAmpere > Wallbox[i].MaxAmp)
             OptAmpere = Wallbox[i].MaxAmp; // limiting to max current of single box - global will be limited later
         this.log.debug(`Charge Manager: Optimal charging current of Wallbox ${i} would be: ${OptAmpere} A`);

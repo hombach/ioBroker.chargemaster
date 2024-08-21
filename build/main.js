@@ -158,7 +158,7 @@ class ChargeMaster extends utils.Adapter {
                             for (let i = 0; i < Math.min(this.config.wallBoxList.length, 2); i++) {
                                 scope.setTag(`WallboxAmp_${i}`, this.config.wallBoxList[i].maxAmp);
                             }
-                            Sentry.captureMessage("Adapter chargemaster started", "info"); // Level "info"
+                            Sentry.captureMessage("Adapter chargemaster started", "info");
                         });
                 }
                 this.setState("info.LastSentryLogDay", { val: today.getDate(), ack: true });

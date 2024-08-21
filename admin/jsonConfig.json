@@ -18,7 +18,7 @@
 				"zh-cn": "标准设置"
 			},
 	        "items": {
-				"cycletime": {
+				"cycleTime": {
 					"type": "number",
 					"label": {
 						"en": "Cycletime for chargemanager [ms] - (default 10000)",
@@ -34,13 +34,13 @@
 						"zh-cn": "充电管理器的循环时间 [ms] -（默认 10000）"
 					},
 					"min": 1000,
-					"step": 1,
+					"step": 100,
 					"sm": 6,
 					"md": 6,
 					"lg": 6,
 					"newLine": true
 				},
-				"MaxAmpTotal": {
+				"maxAmpTotal": {
 					"type": "number",
 					"label": {
 						"en": "Maximum allowed sum of currents for complete system [A]",
@@ -63,7 +63,7 @@
 					"newLine": false
 				},
 
-				"StateHomeSolarPower": {
+				"stateHomeSolarPower": {
 					"type": "objectId",
 					"label": {
 						"en": "object-id for currently available solar power [W]",
@@ -83,7 +83,7 @@
 					"lg": 6,
 					"newLine": true
 				},
-				"StateHomePowerConsumption": {
+				"stateHomePowerConsumption": {
 					"type": "objectId",
 					"label": {
 						"en": "object-id for current home power consumption [W]",
@@ -104,7 +104,7 @@
 					"newLine": false
 				},
 
-				"StateHomeBatSoc": {
+				"stateHomeBatSoc": {
 					"type": "objectId",
 					"label": {
 						"en": "object-id for current home battery state of charge [%]",

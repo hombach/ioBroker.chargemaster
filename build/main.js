@@ -204,49 +204,51 @@ class ChargeMaster extends utils.Adapter {
         try {
             if (state) {
                 // The state was changed
-                this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
-                const subId = id.substring(id.indexOf(`Settings.`));
-                switch (subId) {
-                    case "Settings.Setpoint_HomeBatSoC":
-                        MinHomeBatVal = await this.projectUtils.getStateVal("Settings.Setpoint_HomeBatSoC");
-                        this.setState("Settings.Setpoint_HomeBatSoC", MinHomeBatVal, true);
-                        break;
-                    case "Settings.WB_0.ChargeNOW":
-                        Wallbox[0].ChargeNOW = await this.projectUtils.getStateVal("Settings.WB_0.ChargeNOW");
-                        this.setState("Settings.WB_0.ChargeNOW", Wallbox[0].ChargeNOW, true);
-                        break;
-                    case "Settings.WB_0.ChargeManager":
-                        Wallbox[0].ChargeManager = await this.projectUtils.getStateVal("Settings.WB_0.ChargeManager");
-                        this.setState("Settings.WB_0.ChargeManager", Wallbox[0].ChargeManager, true);
-                        break;
-                    case "Settings.WB_0.ChargeCurrent":
-                        Wallbox[0].ChargeCurrent = await this.projectUtils.getStateVal("Settings.WB_0.ChargeCurrent");
-                        this.setState("Settings.WB_0.ChargeCurrent", Wallbox[0].ChargeCurrent, true);
-                        break;
-                    case "Settings.WB_1.ChargeNOW":
-                        Wallbox[1].ChargeNOW = await this.projectUtils.getStateVal("Settings.WB_1.ChargeNOW");
-                        this.setState("Settings.WB_1.ChargeNOW", Wallbox[1].ChargeNOW, true);
-                        break;
-                    case "Settings.WB_1.ChargeManager":
-                        Wallbox[1].ChargeManager = await this.projectUtils.getStateVal("Settings.WB_1.ChargeManager");
-                        this.setState("Settings.WB_1.ChargeManager", Wallbox[1].ChargeManager, true);
-                        break;
-                    case "Settings.WB_1.ChargeCurrent":
-                        Wallbox[1].ChargeCurrent = await this.projectUtils.getStateVal("Settings.WB_1.ChargeCurrent");
-                        this.setState("Settings.WB_1.ChargeCurrent", Wallbox[1].ChargeCurrent, true);
-                        break;
-                    case "Settings.WB_2.ChargeNOW":
-                        Wallbox[2].ChargeNOW = await this.projectUtils.getStateVal("Settings.WB_2.ChargeNOW");
-                        this.setState("Settings.WB_2.ChargeNOW", Wallbox[2].ChargeNOW, true);
-                        break;
-                    case "Settings.WB_2.ChargeManager":
-                        Wallbox[2].ChargeManager = await this.projectUtils.getStateVal("Settings.WB_2.ChargeManager");
-                        this.setState("Settings.WB_2.ChargeManager", Wallbox[2].ChargeManager, true);
-                        break;
-                    case "Settings.WB_2.ChargeCurrent":
-                        Wallbox[2].ChargeCurrent = await this.projectUtils.getStateVal("Settings.WB_2.ChargeCurrent");
-                        this.setState("Settings.WB_2.ChargeCurrent", Wallbox[2].ChargeCurrent, true);
-                        break;
+                if (!state.ack) {
+                    this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
+                    const subId = id.substring(id.indexOf(`Settings.`));
+                    switch (subId) {
+                        case "Settings.Setpoint_HomeBatSoC":
+                            MinHomeBatVal = await this.projectUtils.getStateVal("Settings.Setpoint_HomeBatSoC");
+                            this.setState("Settings.Setpoint_HomeBatSoC", MinHomeBatVal, true);
+                            break;
+                        case "Settings.WB_0.ChargeNOW":
+                            Wallbox[0].ChargeNOW = await this.projectUtils.getStateVal("Settings.WB_0.ChargeNOW");
+                            this.setState("Settings.WB_0.ChargeNOW", Wallbox[0].ChargeNOW, true);
+                            break;
+                        case "Settings.WB_0.ChargeManager":
+                            Wallbox[0].ChargeManager = await this.projectUtils.getStateVal("Settings.WB_0.ChargeManager");
+                            this.setState("Settings.WB_0.ChargeManager", Wallbox[0].ChargeManager, true);
+                            break;
+                        case "Settings.WB_0.ChargeCurrent":
+                            Wallbox[0].ChargeCurrent = await this.projectUtils.getStateVal("Settings.WB_0.ChargeCurrent");
+                            this.setState("Settings.WB_0.ChargeCurrent", Wallbox[0].ChargeCurrent, true);
+                            break;
+                        case "Settings.WB_1.ChargeNOW":
+                            Wallbox[1].ChargeNOW = await this.projectUtils.getStateVal("Settings.WB_1.ChargeNOW");
+                            this.setState("Settings.WB_1.ChargeNOW", Wallbox[1].ChargeNOW, true);
+                            break;
+                        case "Settings.WB_1.ChargeManager":
+                            Wallbox[1].ChargeManager = await this.projectUtils.getStateVal("Settings.WB_1.ChargeManager");
+                            this.setState("Settings.WB_1.ChargeManager", Wallbox[1].ChargeManager, true);
+                            break;
+                        case "Settings.WB_1.ChargeCurrent":
+                            Wallbox[1].ChargeCurrent = await this.projectUtils.getStateVal("Settings.WB_1.ChargeCurrent");
+                            this.setState("Settings.WB_1.ChargeCurrent", Wallbox[1].ChargeCurrent, true);
+                            break;
+                        case "Settings.WB_2.ChargeNOW":
+                            Wallbox[2].ChargeNOW = await this.projectUtils.getStateVal("Settings.WB_2.ChargeNOW");
+                            this.setState("Settings.WB_2.ChargeNOW", Wallbox[2].ChargeNOW, true);
+                            break;
+                        case "Settings.WB_2.ChargeManager":
+                            Wallbox[2].ChargeManager = await this.projectUtils.getStateVal("Settings.WB_2.ChargeManager");
+                            this.setState("Settings.WB_2.ChargeManager", Wallbox[2].ChargeManager, true);
+                            break;
+                        case "Settings.WB_2.ChargeCurrent":
+                            Wallbox[2].ChargeCurrent = await this.projectUtils.getStateVal("Settings.WB_2.ChargeCurrent");
+                            this.setState("Settings.WB_2.ChargeCurrent", Wallbox[2].ChargeCurrent, true);
+                            break;
+                    }
                 }
             }
             else {
@@ -307,7 +309,7 @@ class ChargeMaster extends utils.Adapter {
         this.log.debug(`Charge Manager: Got external state of house power consumption: ${HouseConsumption} W`);
         OptAmpere = Math.floor((SolarPower -
             HouseConsumption +
-            0 * TotalChargePower - // Bedingte !!!! Einbeziehung von ChargePower
+            0 * TotalChargePower - // Bedingte !!!! Einbeziehung von ChargePower vorallem charge now!!!
             100 + // Reserve
             (2000 / (100 - MinHomeBatVal)) * (BatSoC - MinHomeBatVal)) / // max. 2000 fÜr Batterieleerung
             230);

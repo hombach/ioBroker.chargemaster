@@ -55,19 +55,6 @@
         "uk": "виправлено уразливість у залежності\nдодано тести для Node.js 22",
         "zh-cn": "修复了依赖项中的漏洞\n添加了 Node.js 22 的测试"
 			},
-			"0.9.1": {
-        "en": "fixed issues detected by repository checker (#494)\ncode cleanups",
-        "de": "Behobene Probleme, die vom Repository-Checker erkannt wurden (#494)\nCode-Bereinigungen",
-        "ru": "исправлены проблемы, обнаруженные проверяющим репозитория (#494)\nочистка кода",
-        "pt": "corrigidos problemas detectados pelo verificador de repositório (#494)\nlimpeza de código",
-        "nl": "opgeloste problemen gedetecteerd door de repository-checker (#494)\ncode opruimen",
-        "fr": "correction des problèmes détectés par le vérificateur de dépôt (#494)\nnettoyage du code",
-        "it": "corretti problemi rilevati dal controllo del repository (#494)\npulizia del codice",
-        "es": "solucionados problemas detectados por el verificador de repositorios (#494)\nlimpieza de código",
-        "pl": "naprawione problemy wykryte przez sprawdzanie repozytorium (#494)\nczyszczenie kodu",
-        "uk": "виправлено проблеми, виявлені перевіряючим репозиторію (#494)\nочищення коду",
-        "zh-cn": "修复了存储库检查器检测到的问题 (#494)\n代码清理"
-			},
       "0.9.0": {
         "en": "BREAKING: dropped support for Node.js 16 (#455)\nBREAKING: js-controller >= 5 is required (#456)",
         "de": "WICHTIG: Unterstützung für Node.js 16 wurde eingestellt (#455)\nWICHTIG: js-controller >= 5 ist erforderlich (#456)",

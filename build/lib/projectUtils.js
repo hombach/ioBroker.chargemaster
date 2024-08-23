@@ -13,7 +13,7 @@ class ProjectUtils {
      */
     async getStateVal(stateName) {
         try {
-            const stateObject = await this.asyncGetState(stateName);
+            const stateObject = await this.getState(stateName);
             return stateObject?.val ?? null; // errors have already been handled in asyncGetState()
         }
         catch (error) {
@@ -27,14 +27,10 @@ class ProjectUtils {
      * @param stateName - A string representing the name of the state to retrieve.
      * @returns A Promise that resolves with the object of the state if it exists, otherwise resolves with null.
      */
-    async asyncGetState(stateName) {
+    async getState(stateName) {
         try {
-            const stateObject = await this.adapter.getObjectAsync(stateName); // Check state existence
-            if (!stateObject) {
-                throw `State '${stateName}' does not exist.`;
-            }
-            else {
-                // Get state value, so like: {val: false, ack: true, ts: 1591117034451, …}
+            if (await this.verifyStateAvailable(stateName)) {
+                // Get state value, so like: {val: false, ack: true, ts: 1591117034451, �}
                 const stateValueObject = await this.adapter.getStateAsync(stateName);
                 if (!this.isLikeEmpty(stateValueObject)) {
                     return stateValueObject;
@@ -48,6 +44,20 @@ class ProjectUtils {
             this.adapter.log.error(`[asyncGetState](${stateName}): ${error}`);
             return null;
         }
+    }
+    /**
+     * Verifies the availability of a state by its name.
+     *
+     * @param stateName - A string representing the name of the state to verify.
+     * @returns A Promise that resolves with true if the state exists, otherwise resolves with false.
+     */
+    async verifyStateAvailable(stateName) {
+        const stateObject = await this.adapter.getObjectAsync(stateName); // Check state existence
+        if (!stateObject) {
+            this.adapter.log.debug(`[verifyStateAvailable](${stateName}): State does not exist.`);
+            return false;
+        }
+        return true;
     }
     /**
      * Get foreign state value

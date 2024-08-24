@@ -125,7 +125,28 @@
 					"newLine": true
 				},
 
-				"wallBoxList": {
+				"_headerWallBoxList": {
+					"type": "header",
+					"text": {
+						"en": "Define connection states of your wallboxes and their separate current limits",
+						"de": "Definieren Sie Verbindungszustände Ihrer Wallboxen und deren separate Stromgrenzen",
+						"ru": "Определите состояния подключения ваших зарядных станций и их отдельные ограничения по току",
+						"pt": "Defina os estados de conexão das suas wallboxes e seus limites de corrente separados",
+						"nl": "Definieer verbindingsstatussen van uw wallboxen en hun afzonderlijke stroomlimieten",
+						"fr": "Définissez les états de connexion de vos wallboxs et leurs limites de courant séparées",
+						"it": "Definisci gli stati di connessione delle tue wallbox e i loro limiti di corrente separati",
+						"es": "Defina los estados de conexión de sus wallbox y sus límites de corriente separados",
+						"pl": "Zdefiniuj stany połączeń swoich wallboxów i ich osobne limity prądu",
+						"uk": "Визначте стани підключення ваших зарядних станцій та їх окремі обмеження струму",
+						"zh-cn": "定义您的充电桩的连接状态及其单独的电流限制"
+					},
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"size": 3
+				  },
+
+				  "wallBoxList": {
 					"type": "table",
 					"sm": 12,
 					"md": 12,
@@ -265,6 +286,74 @@
 							"default": 16
 						}
 					]
+				},
+
+				"_headerDocumentation": {
+					"type": "header",
+					"text": {
+						"en": "Adapter Documentation",
+						"de": "Adapter-Dokumentation",
+						"ru": "Документация адаптера",
+						"pt": "Documentação do adaptador",
+						"nl": "Adapterdocumentatie",
+						"fr": "Documentation de l'adaptateur",
+						"it": "Documentazione dell'adattatore",
+						"es": "Documentación del adaptador",
+						"pl": "Dokumentacja adaptera",
+						"uk": "Документація адаптера",
+						"zh-cn": "适配器文档"
+					},
+					"sm": 12,
+					"size": 3
+				  },
+
+				  "_helpLink": {
+					"type": "staticLink",
+					"button": true,
+					"variant": "outlined",
+					"icon": "info",
+					"label": "Show adapter documentation",
+					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
+					"newLine": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12
+				  },
+				  "_divider1": {
+					"newLine": true,
+					"type": "divider",
+					"color": "primary"
+				  },
+				  "_donateTxt": {
+					"type": "staticText",
+					"text": {
+						"en": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:",
+						"de": "Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach großzügig sind, überlegen Sie, mir ein Bier zu spendieren. Prost! :beers:",
+						"ru": "Если вам понравился этот проект — или вы просто чувствуете себя щедрым, подумайте о том, чтобы купить мне пиво. Ура! :beers:",
+						"pt": "Se você gostou deste projeto - ou está se sentindo generoso, considere me comprar uma cerveja. Saúde! :beers:",
+						"nl": "Als je genoten hebt van dit project — of gewoon gul bent, overweeg dan om me een biertje te kopen. Proost! :beers:",
+						"fr": "Si vous avez apprécié ce projet — ou si vous vous sentez généreux, envisagez de m'acheter une bière. Santé! :beers:",
+						"it": "Se ti è piaciuto questo progetto — o se ti senti generoso, considera di offrirmi una birra. Salute! :beers:",
+						"es": "Si disfrutaste de este proyecto — o simplemente te sientes generoso, considera comprarme una cerveza. ¡Salud! :beers:",
+						"pl": "Jeśli spodobał ci się ten projekt — lub po prostu czujesz się hojny, rozważ kupienie mi piwa. Na zdrowie! :beers:",
+						"uk": "Якщо вам сподобався цей проект — або ви просто хочете зробити приємне, подумайте про те, щоб купити мені пиво. Ура! :beers:",
+						"zh-cn": "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！:beers:"
+					},
+					"newLine": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12
+				  },
+				  "_donate": {
+					"type": "staticImage",
+					"tooltip": "PayPal.Me",
+					"noTranslation": true,
+					"href": "https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS",
+					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
+					"newLine": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12
 				}
 			}
 		}

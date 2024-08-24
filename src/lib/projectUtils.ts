@@ -1,6 +1,7 @@
 import * as utils from "@iobroker/adapter-core";
 
 export interface IWallboxInfo {
+	ID: number;
 	ChargeNOW: boolean;
 	ChargeManager: boolean;
 	ChargeCurrent: number;

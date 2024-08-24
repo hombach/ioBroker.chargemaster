@@ -8,7 +8,6 @@ let SolarPower: number = 0;
 let HouseConsumption: number = 0;
 let BatSoC: number = 0;
 let MinHomeBatVal: number = 85;
-let TotalSetOptAmp: number = 0;
 let TotalChargePower: number = 0;
 let TotalMeasuredChargeCurrent: number = 0;
 
@@ -125,10 +124,8 @@ class ChargeMaster extends utils.Adapter {
 		try {
 			MinHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
 			for (let i = 0; i < this.config.wallBoxList.length; i++) {
-				//this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
-				//this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
-				//this.wallboxInfoList[i].ChargeCurrent = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`);
 				this.wallboxInfoList.push({
+					ID: i,
 					ChargeNOW: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`),
 					ChargeManager: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`),
 					ChargeCurrent: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`),
@@ -295,7 +292,7 @@ class ChargeMaster extends utils.Adapter {
 	} // END Charge_Manager
 
 	/*****************************************************************************************/
-	private async Charge_Limiter(): Promise<void> {
+	/*private async Charge_Limiter(): Promise<void> {
 		let i = 0;
 		TotalSetOptAmp = 0;
 		for (i = 0; i < this.config.wallBoxList.length; i++) {
@@ -333,9 +330,86 @@ class ChargeMaster extends utils.Adapter {
 				}
 			}
 		}
+	}*/ // END Charge_Limiter
+
+	/**
+	 * Limits the charging current for a list of wallboxes based on their settings and the total available current.
+	 *
+	 * This method performs the following actions:
+	 *
+	 * 1. **Disables Wallboxes with `SetOptAllow` set to false:**
+	 *    - Iterates through wallboxes with `SetOptAllow` set to `false` and turns them off immediately. Sets their `SetAmp` to the minimum allowed value and logs the action.
+	 * 2. **Processes Wallboxes with `ChargeNOW` set to true:**
+	 *    - For wallboxes that are allowed (`SetOptAllow` is `true`) and have `ChargeNOW` set to `true`, it attempts to allocate as much current as possible based on their `SetOptAmp` value.
+	 *    - If the total requested current exceeds the maximum allowed (`maxAmpTotal`), it adjusts the current allocation to fit within the limit.
+	 *    - If there is not enough remaining current to meet the wallbox's minimum requirement, it turns off the wallbox and logs the action.
+	 * 3. **Handles Remaining Wallboxes with `ChargeManager`:**
+	 *    - For wallboxes that are allowed (`SetOptAllow` is `true`), do not have `ChargeNOW` set to `true`, but have a `ChargeManager`, it attempts to allocate current as available.
+	 *    - Similar to the second step, it adjusts the allocation if the total exceeds the maximum allowed current and turns off the wallbox if not enough current is available.
+	 *
+	 * @method Charge_Limiter
+	 */
+	private async Charge_Limiter(): Promise<void> {
+		let TotalSetOptAmp: number = 0;
+
+		// First loop: Wallboxes with SetOptAllow = false (will be turned off immediately)
+		this.wallboxInfoList
+			.filter((wallbox) => !wallbox.SetOptAllow)
+			.forEach((wallbox) => {
+				wallbox.SetAllow = false;
+				wallbox.SetAmp = wallbox.MinAmp;
+				this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} switched off due to SetOptAllow being false`);
+			});
+
+		// Second loop: Wallboxes with ChargeNOW = true (enable as much current as available)
+		this.wallboxInfoList
+			.filter((wallbox) => wallbox.SetOptAllow && wallbox.ChargeNOW)
+			.forEach((wallbox) => {
+				if (wallbox.SetOptAmp > this.config.maxAmpTotal) wallbox.SetOptAmp = this.config.maxAmpTotal;
+				if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
+					wallbox.SetAmp = wallbox.SetOptAmp;
+					wallbox.SetAllow = true;
+					this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) verified charge with ${wallbox.SetAmp}A`);
+					TotalSetOptAmp += wallbox.SetAmp;
+				} else {
+					if (this.config.maxAmpTotal - TotalSetOptAmp >= wallbox.MinAmp) {
+						wallbox.SetAmp = this.config.maxAmpTotal - TotalSetOptAmp;
+						wallbox.SetAllow = true;
+						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) verified throttled charge with ${wallbox.SetAmp}A`);
+						TotalSetOptAmp += wallbox.SetAmp;
+					} else {
+						wallbox.SetAmp = wallbox.MinAmp;
+						wallbox.SetAllow = false;
+						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) switched off due to not enough remaining total current`);
+					}
+				}
+			});
+
+		// Third loop: Remaining wallboxes without ChargeNOW, so boxes with ChargeManager
+		this.wallboxInfoList
+			.filter((wallbox) => wallbox.SetOptAllow && !wallbox.ChargeNOW && wallbox.ChargeManager)
+			.forEach((wallbox) => {
+				if (wallbox.SetOptAmp > this.config.maxAmpTotal) wallbox.SetOptAmp = this.config.maxAmpTotal;
+				if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
+					wallbox.SetAmp = wallbox.SetOptAmp;
+					wallbox.SetAllow = true;
+					this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) verified charge with ${wallbox.SetAmp}A`);
+					TotalSetOptAmp += wallbox.SetAmp;
+				} else {
+					if (this.config.maxAmpTotal - TotalSetOptAmp >= wallbox.MinAmp) {
+						wallbox.SetAmp = this.config.maxAmpTotal - TotalSetOptAmp;
+						wallbox.SetAllow = true;
+						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) verified throttled charge with ${wallbox.SetAmp}A`);
+						TotalSetOptAmp += wallbox.SetAmp;
+					} else {
+						wallbox.SetAmp = wallbox.MinAmp;
+						wallbox.SetAllow = false;
+						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) switched off due to not enough remaining total current`);
+					}
+				}
+			});
 	} // END Charge_Limiter
 
-	/*****************************************************************************************/
 	private async Charge_Config(): Promise<void> {
 		let i = 0;
 		for (i = 0; i < this.config.wallBoxList.length; i++) {

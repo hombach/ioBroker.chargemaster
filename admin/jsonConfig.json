@@ -305,6 +305,32 @@
 					},
 					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
 					"newLine": true,
+					"style": { "color": "red" },
+					"sm": 12,
+					"md": 12,
+					"lg": 12
+				},
+				"_helpLink2": {
+					"type": "staticLink",
+					"button": true,
+					"variant": "contained",
+					"icon": "info",
+					"label": {
+						"en": "Show adapter documentation",
+						"de": "Adapter-Dokumentation anzeigen",
+						"ru": "Показать документацию по адаптеру",
+						"pt": "Mostrar documentação do adaptador",
+						"nl": "Toon adapterdocumentatie",
+						"fr": "Afficher la documentation de l'adaptateur",
+						"it": "Mostra la documentazione dell'adattatore",
+						"es": "Mostrar la documentación del adaptador",
+						"pl": "Pokaż dokumentację adaptera",
+						"uk": "Показати документацію адаптера",
+						"zh-cn": "显示适配器文档"
+					},
+					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
+					"newLine": true,
+					"style": { "color": "red" },
 					"sm": 12,
 					"md": 12,
 					"lg": 12
@@ -322,11 +348,7 @@
 					"href": "https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS",
 					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
 					"newLine": true,
-					"iconStyle": {"height": 40},
-					"sm": 2,
-					"md": 2,
-					"lg": 2,
-					"size": 40
+					"iconStyle": {"height": 40}
 				},
 				"_donateTxt": {
 					"type": "staticText",
@@ -346,10 +368,7 @@
 					},
 					"style": {
 						"fontSize": 16
-					},
-					"sm": 10,
-					"md": 10,
-					"lg": 10
+					}
 				}
 			}
 		}

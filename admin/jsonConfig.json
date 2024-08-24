@@ -320,7 +320,8 @@
 					"newLine": true,
 					"sm": 12,
 					"md": 12,
-					"lg": 12
+					"lg": 12,
+					"size": 3
 				},
 				"_donate": {
 					"type": "staticImage",
@@ -332,7 +333,7 @@
 					"sm": 12,
 					"md": 12,
 					"lg": 12,
-					"size": 3
+					"size": 40
 				}
 			}
 		}

@@ -323,7 +323,7 @@
 					"href": "https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS",
 					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
 					"newLine": true,
-					"iconStyle": {"height": 20}
+					"Style": {"height": 20}
 				},
 				"_donateTxt": {
 					"type": "staticText",

@@ -320,10 +320,9 @@
 					"type": "staticImage",
 					"tooltip": "PayPal.Me",
 					"noTranslation": true,
-					"href": "https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS",
+					"href": "https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL",
 					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
-					"newLine": true,
-					"Style": {"height": 20}
+					"newLine": true
 				},
 				"_donateTxt": {
 					"type": "staticText",

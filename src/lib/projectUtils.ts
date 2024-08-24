@@ -1,5 +1,19 @@
 import * as utils from "@iobroker/adapter-core";
 
+export interface IWallboxInfo {
+	ChargeNOW: boolean;
+	ChargeManager: boolean;
+	ChargeCurrent: number;
+	ChargePower: number;
+	MeasuredMaxChargeAmp: number;
+	MinAmp: number;
+	MaxAmp: number;
+	SetOptAmp: number;
+	SetOptAllow: boolean;
+	SetAmp: number;
+	SetAllow: boolean;
+}
+
 export class ProjectUtils {
 	adapter: utils.AdapterInstance;
 

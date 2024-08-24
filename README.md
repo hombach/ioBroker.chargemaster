@@ -51,6 +51,7 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 -   (HombachC) WiP complete rework of configuration screen
 -   (HombachC) move utils to extra class
 -   (HombachC) switch to ECMA 2022 code
+-   (HombachC) bumped dependencies
 
 ### 0.10.0 (2024-08-18)
 

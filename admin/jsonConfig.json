@@ -127,7 +127,19 @@
 
 				"_headerWallBoxList": {
 					"type": "header",
-					"text": {
+					"text": "",
+					"noTranslation": true,
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"size": 3
+				},
+				"wallBoxList": {
+					"type": "table",
+					"sm": 12,
+					"md": 12,
+					"lg": 12,
+					"label": {
 						"en": "Define connection states of your wallboxes and their separate current limits",
 						"de": "Definieren Sie Verbindungszustände Ihrer Wallboxen und deren separate Stromgrenzen",
 						"ru": "Определите состояния подключения ваших зарядных станций и их отдельные ограничения по току",
@@ -139,30 +151,6 @@
 						"pl": "Zdefiniuj stany połączeń swoich wallboxów i ich osobne limity prądu",
 						"uk": "Визначте стани підключення ваших зарядних станцій та їх окремі обмеження струму",
 						"zh-cn": "定义您的充电桩的连接状态及其单独的电流限制"
-					},
-					"sm": 12,
-					"md": 12,
-					"lg": 12,
-					"size": 3
-				  },
-
-				  "wallBoxList": {
-					"type": "table",
-					"sm": 12,
-					"md": 12,
-					"lg": 12,
-					"label": {
-						"en": "Data connections for WallBox",
-						"de": "Datenverbindungen für WallBox",
-						"ru": "Подключения данных для WallBox",
-						"pt": "Conexões de dados para WallBox",
-						"nl": "Dataverbindingen voor WallBox",
-						"fr": "Connexions de données pour WallBox",
-						"it": "Connessioni dati per WallBox",
-						"es": "Conexiones de datos para WallBox",
-						"pl": "Połączenia danych dla WallBox",
-						"uk": "З'єднання даних для WallBox",
-						"zh-cn": "WallBox 的数据连接"
 					},
 					"items": [
 						{
@@ -290,24 +278,14 @@
 
 				"_headerDocumentation": {
 					"type": "header",
-					"text": {
-						"en": "Adapter Documentation",
-						"de": "Adapter-Dokumentation",
-						"ru": "Документация адаптера",
-						"pt": "Documentação do adaptador",
-						"nl": "Adapterdocumentatie",
-						"fr": "Documentation de l'adaptateur",
-						"it": "Documentazione dell'adattatore",
-						"es": "Documentación del adaptador",
-						"pl": "Dokumentacja adaptera",
-						"uk": "Документація адаптера",
-						"zh-cn": "适配器文档"
-					},
+					"text": "",
+					"noTranslation": true,
 					"sm": 12,
+					"md": 12,
+					"lg": 12,
 					"size": 3
-				  },
-
-				  "_helpLink": {
+				},
+				"_helpLink": {
 					"type": "staticLink",
 					"button": true,
 					"variant": "outlined",
@@ -318,13 +296,13 @@
 					"sm": 12,
 					"md": 12,
 					"lg": 12
-				  },
-				  "_divider1": {
+				},
+				"_divider0": {
 					"newLine": true,
 					"type": "divider",
 					"color": "primary"
-				  },
-				  "_donateTxt": {
+				},
+				"_donateTxt": {
 					"type": "staticText",
 					"text": {
 						"en": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! :beers:",
@@ -343,8 +321,8 @@
 					"sm": 12,
 					"md": 12,
 					"lg": 12
-				  },
-				  "_donate": {
+				},
+				"_donate": {
 					"type": "staticImage",
 					"tooltip": "PayPal.Me",
 					"noTranslation": true,
@@ -353,7 +331,8 @@
 					"newLine": true,
 					"sm": 12,
 					"md": 12,
-					"lg": 12
+					"lg": 12,
+					"size": 3
 				}
 			}
 		}

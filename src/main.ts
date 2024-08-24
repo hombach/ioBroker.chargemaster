@@ -69,6 +69,7 @@ class ChargeMaster extends utils.Adapter {
 		) {
 			this.log.info(`Verified solar system states`);
 		} else {
+			this.setState("info.connection", false, true);
 			this.log.error(`Solar system states not correct configured or not reachable - shutting down adapter`);
 			this.terminate;
 			return;
@@ -83,6 +84,7 @@ class ChargeMaster extends utils.Adapter {
 			) {
 				this.log.info(`Charger ${i} states verified`);
 			} else {
+				this.setState("info.connection", false, true);
 				this.log.error(`Charger ${i} not correct configured or not reachable - shutting down adapter`);
 				this.terminate;
 				return;
@@ -142,9 +144,13 @@ class ChargeMaster extends utils.Adapter {
 			}
 			this.Calc_Total_Power();
 		} catch (error) {
+			this.setState("info.connection", false, true);
 			this.log.error(`Unhandled exception processing initial state check: ${error}`);
 		}
+
+		this.setState("info.connection", true, true);
 		this.log.info(`Init done, launching state machine`);
+
 		await this.StateMachine();
 	}
 

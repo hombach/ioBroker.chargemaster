@@ -77,13 +77,14 @@ let TotalSetOptAmp = 0;
 let TotalChargePower = 0;
 let TotalMeasuredChargeCurrent = 0;
 class ChargeMaster extends utils.Adapter {
+    adapterIntervals;
+    projectUtils = new projectUtils_1.ProjectUtils(this);
+    OffHysterese = 3;
     constructor(options = {}) {
         super({
             ...options,
             name: "chargemaster",
         });
-        this.projectUtils = new projectUtils_1.ProjectUtils(this);
-        this.OffHysterese = 3;
         this.on("ready", this.onReady.bind(this));
         this.on("stateChange", this.onStateChange.bind(this));
         // this.on('objectChange', this.onObjectChange.bind(this));
@@ -101,7 +102,7 @@ class ChargeMaster extends utils.Adapter {
         }
         this.log.info(`Cycletime set to: ${this.config.cycleTime / 1000} seconds`);
         this.subscribeStates("Settings.*"); // this.subscribeForeignObjects('dwd.0.warning.*');
-        // verify configured foreign states chargers and amount of chargers *****************************************************************
+        //#region *** Verify configured foreign states chargers and amount of chargers ***
         async function stateTest(adapter, input) {
             if (input == "") {
                 return false;
@@ -113,8 +114,8 @@ class ChargeMaster extends utils.Adapter {
                     throw new Error(`State "${input}" does not exist.`);
                 }
             }
-            catch (e) {
-                adapter.log.error(`Configured state "${input}" is not OK and throws an error: "${e}"`);
+            catch (error) {
+                adapter.log.error(`Configured state "${input}" is not OK and throws an error: "${error}"`);
                 return false;
             }
             return true;
@@ -142,7 +143,17 @@ class ChargeMaster extends utils.Adapter {
                 return;
             }
         }
-        // *********************************************************************************************************************************
+        //#endregion
+        //#region *** Setup configured amount of charger control objects ***
+        for (let i = 0; i < this.config.wallBoxList.length; i++) {
+            //this.setState(`Settings.WB_${i}.ChargeNOW`, Wallbox[i].ChargeNOW, true);
+            //this.setState(`Settings.WB_${i}.ChargeManager`, Wallbox[i].ChargeManager, true);
+            //this.setState(`Settings.WB_${i}.ChargeCurrent`, Wallbox[i].ChargeCurrent, true);
+            this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeNOW`, false, `ChargeNOW enabled for wallbox ${i}`, true, true);
+            this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeManager`, false, `Charge Manager for wallbox ${i} enabled`, true, true);
+            this.projectUtils.checkAndSetValueNumber(`Settings.WB_${i}.ChargeCurrent`, 6, `Set chargeNOW current output for wallbox ${i}`, "A", true, true);
+        }
+        //#endregion
         //sentry.io ping
         if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
             const sentryInstance = this.getPluginInstance("sentry");
@@ -207,6 +218,50 @@ class ChargeMaster extends utils.Adapter {
                 if (!state.ack) {
                     this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
                     const subId = id.substring(id.indexOf(`Settings.`));
+                    if (subId === "Settings.Setpoint_HomeBatSoC") {
+                        MinHomeBatVal = await this.projectUtils.getStateValue("Settings.Setpoint_HomeBatSoC");
+                        this.setState("Settings.Setpoint_HomeBatSoC", MinHomeBatVal, true);
+                    }
+                    else {
+                        for (let i = 0; i < this.config.wallBoxList.length; i++) {
+                            if (subId === `Settings.WB_${i}.ChargeNOW`) {
+                                Wallbox[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
+                                this.setState(`Settings.WB_${i}.ChargeNOW`, Wallbox[i].ChargeNOW, true);
+                                break;
+                            }
+                            else if (subId === `Settings.WB_${i}.ChargeManager`) {
+                                Wallbox[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
+                                this.setState(`Settings.WB_${i}.ChargeManager`, Wallbox[i].ChargeManager, true);
+                                break;
+                            }
+                            else if (subId === `Settings.WB_${i}.ChargeCurrent`) {
+                                Wallbox[i].ChargeCurrent = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`);
+                                this.setState(`Settings.WB_${i}.ChargeCurrent`, Wallbox[i].ChargeCurrent, true);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else {
+                this.log.warn(`state ${id} has been deleted`);
+            }
+        }
+        catch (error) {
+            this.log.error(`Unhandled exception processing stateChange: ${error}`);
+        }
+    }
+    /****************************************************************************************
+     * Is called if a subscribed state changes
+     * @param { string } id
+     * @param { ioBroker.State | null | undefined } state */
+    /*private async onStateChange(id: string, state: ioBroker.State | null | undefined): Promise<void> {
+        try {
+            if (state) {
+                // The state was changed
+                if (!state.ack) {
+                    this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
+                    const subId = id.substring(id.indexOf(`Settings.`));
                     switch (subId) {
                         case "Settings.Setpoint_HomeBatSoC":
                             MinHomeBatVal = await this.projectUtils.getStateValue("Settings.Setpoint_HomeBatSoC");
@@ -250,15 +305,13 @@ class ChargeMaster extends utils.Adapter {
                             break;
                     }
                 }
-            }
-            else {
+            } else {
                 this.log.warn(`state ${id} has been deleted`);
             }
-        }
-        catch (error) {
+        } catch (error) {
             this.log.error(`Unhandled exception processing stateChange: ${error}`);
         }
-    }
+    }*/
     /*****************************************************************************************/
     async StateMachine() {
         let i = 0;

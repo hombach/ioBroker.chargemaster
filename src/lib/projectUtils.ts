@@ -131,4 +131,154 @@ export class ProjectUtils {
 			return true;
 		}
 	}
+
+	/**
+	 * Checks if a string state exists, creates it if necessary, and updates its value.
+	 *
+	 * @param stateName - A string for the name of the state.
+	 * @param value - The string value to set for the state.
+	 * @param description - Optional description for the state (default is "-").
+	 * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
+	 * @param dontUpdate - Optional boolean indicating if the state should not be updated if it already exists (default is false).
+	 * @param forceMode - Optional boolean indicating if the state should be reinitiated if it already exists (default is false).
+	 * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
+	 */
+	protected async checkAndSetValue(
+		stateName: string,
+		value: string,
+		description: string = "-",
+		writeable: boolean = false,
+		dontUpdate: boolean = false,
+		forceMode: boolean = false,
+	): Promise<void> {
+		if (value != undefined) {
+			if (value.trim().length > 0) {
+				const commonObj: ioBroker.StateCommon = {
+					name: stateName,
+					type: "string",
+					role: "text",
+					desc: description,
+					read: true,
+					write: writeable,
+				};
+				if (!forceMode) {
+					await this.adapter.setObjectNotExistsAsync(stateName, {
+						type: "state",
+						common: commonObj,
+						native: {},
+					});
+				} else {
+					await this.adapter.setObjectAsync(stateName, {
+						type: "state",
+						common: commonObj,
+						native: {},
+					});
+				}
+				if (!dontUpdate || (await this.adapter.getStateAsync(stateName)) === null) {
+					await this.adapter.setState(stateName, { val: value, ack: true });
+				}
+			}
+		}
+	}
+
+	/**
+	 * Checks if a number state exists, creates it if necessary, and updates its value.
+	 *
+	 * @param stateName - A string for the name of the state.
+	 * @param value - The number value to set for the state.
+	 * @param description - Optional description for the state (default is "-").
+	 * @param unit - Optional unit string to set for the state (default is undefined).
+	 * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
+	 * @param dontUpdate - Optional boolean indicating if the state should not be updated if it already exists (default is false).
+	 * @param forceMode - Optional boolean indicating if the state should be reinitiated if it already exists (default is false).
+	 * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
+	 */
+	async checkAndSetValueNumber(
+		stateName: string,
+		value: number,
+		description: string = "-",
+		unit?: string,
+		writeable: boolean = false,
+		dontUpdate: boolean = false,
+		forceMode: boolean = false,
+	): Promise<void> {
+		if (value || value === 0) {
+			const commonObj: ioBroker.StateCommon = {
+				name: stateName,
+				type: "number",
+				role: "value",
+				desc: description,
+				read: true,
+				write: writeable,
+			};
+			// Add unit only if it's provided and not null or undefined
+			if (unit !== null && unit !== undefined) {
+				commonObj.unit = unit;
+			}
+			if (!forceMode) {
+				await this.adapter.setObjectNotExistsAsync(stateName, {
+					type: "state",
+					common: commonObj,
+					native: {},
+				});
+			} else {
+				await this.adapter.setObjectAsync(stateName, {
+					type: "state",
+					common: commonObj,
+					native: {},
+				});
+			}
+
+			if (!dontUpdate || (await this.adapter.getStateAsync(stateName)) === null) {
+				await this.adapter.setState(stateName, { val: value, ack: true });
+			}
+		}
+	}
+
+	/**
+	 * Checks if a boolean state exists, creates it if necessary, and updates its value.
+	 *
+	 * @param stateName - A string for the name of the state.
+	 * @param value - The boolean value to set for the state.
+	 * @param description - Optional description for the state (default is "-").
+	 * @param writeable - Optional boolean indicating if the state should be writeable (default is false).
+	 * @param dontUpdate - Optional boolean indicating if the state should not be updated if it already exists (default is false).
+	 * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
+	 */
+	async checkAndSetValueBoolean(
+		stateName: string,
+		value: boolean,
+		description: string = "-",
+		writeable: boolean = false,
+		dontUpdate: boolean = false,
+	): Promise<void> {
+		if (value !== undefined && value !== null) {
+			const commonObj: ioBroker.StateCommon = {
+				name: stateName,
+				type: "boolean",
+				role: "indicator",
+				desc: description,
+				read: true,
+				write: writeable,
+			};
+
+			if (stateName.split(".").pop() === stateName) {
+				await this.adapter.setObjectNotExistsAsync(stateName, {
+					type: "state",
+					common: commonObj,
+					native: {},
+				});
+			} else {
+				await this.adapter.setObjectAsync(stateName, {
+					type: "state",
+					common: commonObj,
+					native: {},
+				});
+			}
+			// Update the state value if not in don't update mode or the state does not exist
+			if (!dontUpdate || (await this.adapter.getStateAsync(stateName)) === null) {
+				await this.adapter.setState(stateName, { val: value, ack: true });
+			}
+		}
+	}
 }

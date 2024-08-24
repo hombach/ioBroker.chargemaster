@@ -33,7 +33,7 @@
 		// "useUnknownInCatchVariables": false,
 
 		// Consider targetting es2022 or higher if you only support Node.js 18+
-		"target": "es2020",
+		"target": "es2022",
 
 		"sourceMap": true,
 		"inlineSourceMap": false,

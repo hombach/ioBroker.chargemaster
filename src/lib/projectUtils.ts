@@ -9,6 +9,8 @@ export interface IWallboxInfo {
 	MeasuredMaxChargeAmp: number;
 	MinAmp: number;
 	MaxAmp: number;
+	DelayOff: number;
+	CurrentHysteresis: number;
 	SetOptAmp: number;
 	SetOptAllow: boolean;
 	SetAmp: number;

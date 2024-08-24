@@ -123,10 +123,9 @@ class ChargeMaster extends utils.Adapter {
 		try {
 			MinHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
 			for (let i = 0; i < this.config.wallBoxList.length; i++) {
-				this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
-				this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
-				this.wallboxInfoList[i].ChargeCurrent = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`);
-
+				//this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
+				//this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
+				//this.wallboxInfoList[i].ChargeCurrent = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`);
 				this.wallboxInfoList.push({
 					ChargeNOW: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`),
 					ChargeManager: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`),

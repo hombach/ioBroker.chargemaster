@@ -288,31 +288,6 @@
 				"_helpLink": {
 					"type": "staticLink",
 					"button": true,
-					"variant": "outlined",
-					"icon": "info",
-					"label": {
-						"en": "Show adapter documentation",
-						"de": "Adapter-Dokumentation anzeigen",
-						"ru": "Показать документацию по адаптеру",
-						"pt": "Mostrar documentação do adaptador",
-						"nl": "Toon adapterdocumentatie",
-						"fr": "Afficher la documentation de l'adaptateur",
-						"it": "Mostra la documentazione dell'adattatore",
-						"es": "Mostrar la documentación del adaptador",
-						"pl": "Pokaż dokumentację adaptera",
-						"uk": "Показати документацію адаптера",
-						"zh-cn": "显示适配器文档"
-					},
-					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
-					"newLine": true,
-					"style": { "color": "red" },
-					"sm": 12,
-					"md": 12,
-					"lg": 12
-				},
-				"_helpLink2": {
-					"type": "staticLink",
-					"button": true,
 					"variant": "contained",
 					"icon": "info",
 					"label": {
@@ -330,11 +305,11 @@
 					},
 					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
 					"newLine": true,
-					"style": { "color": "red" },
 					"sm": 12,
 					"md": 12,
 					"lg": 12
 				},
+
 				"_divider0": {
 					"newLine": true,
 					"type": "divider",
@@ -348,7 +323,7 @@
 					"href": "https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS",
 					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
 					"newLine": true,
-					"iconStyle": {"height": 40}
+					"iconStyle": {"height": 20}
 				},
 				"_donateTxt": {
 					"type": "staticText",
@@ -364,7 +339,7 @@
 						"es": "Si disfrutaste de este proyecto — o simplemente te sientes generoso, considera comprarme una cerveza. ¡Salud! 🍻",
 						"pl": "Jeśli spodobał ci się ten projekt — lub po prostu czujesz się hojny, rozważ kupienie mi piwa. Na zdrowie! 🍻",
 						"uk": "Якщо вам сподобався цей проект — або ви просто хочете зробити приємне, подумайте про те, щоб купити мені пиво. Ура! 🍻",
-						"zh-cn": "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！:beers:"
+						"zh-cn": "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！🍻"
 					},
 					"style": {
 						"fontSize": 16

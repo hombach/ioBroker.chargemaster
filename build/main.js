@@ -139,21 +139,24 @@ class ChargeMaster extends utils.Adapter {
                 this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
                 this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
                 this.wallboxInfoList[i].ChargeCurrent = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`);
+                this.wallboxInfoList.push({
+                    ChargeNOW: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`),
+                    ChargeManager: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`),
+                    ChargeCurrent: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`),
+                    ChargePower: 0,
+                    MeasuredMaxChargeAmp: 0,
+                    MinAmp: this.config.wallBoxList[i].minAmp,
+                    MaxAmp: this.config.wallBoxList[i].maxAmp,
+                    SetOptAmp: 5,
+                    SetOptAllow: false,
+                    SetAmp: 0,
+                    SetAllow: false,
+                });
             }
             this.Calc_Total_Power();
         }
         catch (error) {
             this.log.error(`Unhandled exception processing initial state check: ${error}`);
-        }
-        for (let i = 0; i < this.config.wallBoxList.length; i++) {
-            this.wallboxInfoList[i].MinAmp = this.config.wallBoxList[i].minAmp;
-            this.wallboxInfoList[i].MaxAmp = this.config.wallBoxList[i].maxAmp;
-            this.wallboxInfoList[i].ChargePower = 0;
-            this.wallboxInfoList[i].MeasuredMaxChargeAmp = 0;
-            this.wallboxInfoList[i].SetOptAmp = 5;
-            this.wallboxInfoList[i].SetOptAllow = false;
-            this.wallboxInfoList[i].SetAmp = 0;
-            this.wallboxInfoList[i].SetAllow = false;
         }
         this.log.info(`Init done, launching state machine`);
         await this.StateMachine();

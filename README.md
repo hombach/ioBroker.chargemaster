@@ -52,6 +52,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.11.1 (2024-09-xx)
 
 -   (HombachC) add node.js 22 to the adapter testing matrix (#523)
+-   (HombachC) Bump @iobroker/testing to 5.0.0
 
 ### 0.11.0 (2024-08-29)
 

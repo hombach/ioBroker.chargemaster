@@ -49,6 +49,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.11.1 (2024-09-xx)
+
+-   (HombachC) add node.js 22 to the adapter testing matrix (#523)
+
 ### 0.11.0 (2024-08-29)
 
 -   (HombachC) implement variable wallbox amount 

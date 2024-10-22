@@ -292,64 +292,64 @@
 					]
 				},
 
-				"_headerDocumentation": {
-					"type": "header",
-					"text": "",
-					"noTranslation": true,
-					"xs": 12,
-					"sm": 12,
-					"md": 12,
-					"lg": 12,
-					"xl": 12,
-					"size": 3
+				_headerDocumentation: {
+					type: "header",
+					text: "",
+					noTranslation: true,
+					xs: 12,
+					sm: 12,
+					md: 12,
+					lg: 12,
+					xl: 12,
+					size: 3
 				},
-				"_helpLink": {
-					"type": "staticLink",
-					"button": true,
-					"variant": "contained",
-					"icon": "info",
-					"label": {
-						"en": "Show adapter documentation",
-						"de": "Adapter-Dokumentation anzeigen",
-						"ru": "Показать документацию по адаптеру",
-						"pt": "Mostrar documentação do adaptador",
-						"nl": "Toon adapterdocumentatie",
-						"fr": "Afficher la documentation de l'adaptateur",
-						"it": "Mostra la documentazione dell'adattatore",
-						"es": "Mostrar la documentación del adaptador",
-						"pl": "Pokaż dokumentację adaptera",
-						"uk": "Показати документацію адаптера",
-						"zh-cn": "显示适配器文档"
+				_helpLink: {
+					type: "staticLink",
+					button: true,
+					variant: "contained",
+					icon: "info",
+					label: {
+						en: "Show adapter documentation",
+						de: "Adapter-Dokumentation anzeigen",
+						ru: "Показать документацию по адаптеру",
+						pt: "Mostrar documentação do adaptador",
+						nl: "Toon adapterdocumentatie",
+						fr: "Afficher la documentation de l'adaptateur",
+						it: "Mostra la documentazione dell'adattatore",
+						es: "Mostrar la documentación del adaptador",
+						pl: "Pokaż dokumentację adaptera",
+						uk: "Показати документацію адаптера",
+						zh-cn: "显示适配器文档"
 					},
-					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
-					"newLine": true,
-					"xs": 12,
-					"sm": 12,
-					"md": 12,
-					"lg": 12,
-					"xl": 12
+					href: "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
+					newLine: true,
+					xs: 12,
+					sm: 12,
+					md: 12,
+					lg: 12,
+					xl: 12
 				},
 
-				"_divider0": {
-					"newLine": true,
-					"type": "divider",
-					"color": "primary"
+				_divider0: {
+					newLine: true,
+					type: "divider",
+					color: "primary"
 				},
 
-				"_donate": {
-					"type": "staticImage",
-					"tooltip": "PayPal.Me",
-					"noTranslation": true,
-					"href": "https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL",
-					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
-					"xs": 6,
-					"sm": 6,
-					"md": 4,
-					"lg": 2,
-					"xl": 1,
-					"newLine": true
+				_donate: {
+					type: "staticImage",
+					tooltip: "PayPal.Me",
+					noTranslation: true,
+					href: "https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL",
+					src: "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
+					xs: 6,
+					sm: 6,
+					md: 4,
+					lg: 2,
+					xl: 1,
+					newLine: true
 				},
-				"_donateTxt": {
+				_donateTxt: {
 					type: "staticText",
 					text: {
 						en: "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",

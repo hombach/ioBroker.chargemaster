@@ -53,6 +53,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 -   (HombachC) BREAKING: dropped support for admin < 7 (#544)
 -   (HombachC) optimized responsive design (#544)
+-   (HombachC) optimized translation handling
 
 ### 0.11.1 (2024-09-16)
 

@@ -292,7 +292,7 @@
 					]
 				},
 
-				_headerDocumentation: {
+				"_headerDocumentation": {
 					type: "header",
 					text: "",
 					noTranslation: true,
@@ -303,7 +303,7 @@
 					xl: 12,
 					size: 3
 				},
-				_helpLink: {
+				"_helpLink": {
 					type: "staticLink",
 					button: true,
 					variant: "contained",
@@ -330,13 +330,13 @@
 					xl: 12
 				},
 
-				_divider0: {
+				"_divider0": {
 					newLine: true,
 					type: "divider",
 					color: "primary"
 				},
 
-				_donate: {
+				"_donate": {
 					type: "staticImage",
 					tooltip: "PayPal.Me",
 					noTranslation: true,
@@ -349,7 +349,7 @@
 					xl: 1,
 					newLine: true
 				},
-				_donateTxt: {
+				"_donateTxt": {
 					type: "staticText",
 					text: {
 						en: "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",

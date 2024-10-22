@@ -1,5 +1,8 @@
 {
 	"type": "tabs",
+	"tabsStyle": {
+		"width": "calc(100% - 100px)"
+	},
 	"items":  {
 	    "_StandardTab": {
        		"type": "panel",
@@ -341,9 +344,9 @@
 					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
 					"xs": 6,
 					"sm": 6,
-					"md": 6,
-					"lg": 4,
-					"xl": 4,
+					"md": 4,
+					"lg": 2,
+					"xl": 2,
 					"newLine": true
 				},
 				"_donateTxt": {

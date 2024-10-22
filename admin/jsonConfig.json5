@@ -48,7 +48,7 @@
 					type: "number",
 					label: {
 						en: "Maximum allowed sum of currents for complete system [A]",
-						de: "Maximal zulässige Summe der Ströme für das gesamte System [A]",
+						de: "Maximal zulässige Summe der Str\u00f6me für das gesamte System [A]",
 						ru: "Максимально допустимая сумма токов для всей системы [A]",
 						pt: "Soma máxima permitida de correntes para o sistema completo [A]",
 						nl: "Maximale toegestane som van stromen voor het volledige systeem [A]",

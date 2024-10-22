@@ -51,7 +51,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.12.1 (2024-10-22)
 
--   (HombachC) fix error in jsonConfig.json and switch to json5 format
+-   (HombachC) fix error in jsonConfig.json
 
 ### 0.12.0 (2024-10-22)
 

@@ -349,7 +349,7 @@
 					xl: 1,
 					newLine: true
 				},
-				_donateTx": {
+				_donateTx: {
 					type: "staticText",
 					text: {
 						en: "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",

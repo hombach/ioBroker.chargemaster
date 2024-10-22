@@ -1,8 +1,11 @@
 {
 	"common": {
 		"name": "chargemaster",
-		"version": "0.11.1",
+		"version": "0.12.0",
 		"news": {
+			"0.12.0": {
+				"en": "WIP"
+			},
 			"0.11.1": {
 				"en": "add node.js 22 to the adapter testing matrix (#523)\nBump @iobroker/testing to 5.0.0",
 				"de": "node.js 22 zur Adapter-Testmatrix hinzufügen (#523)\n@iobroker/testing auf 5.0.0 aktualisieren",
@@ -80,19 +83,6 @@
 				"pl": "WAŻNE: Zakończono wsparcie dla js-controller 3.x\nzmiany na rok 2024\naxios podniesiony do wersji 1.6.3 z powodu podatności",
 				"uk": "ВАЖЛИВО: Підтримка js-controller 3.x припинена\nзміни на 2024 рік\nпідняття axios до 1.6.3 через вразливість",
 				"zh-cn": "重大变更：不再支持 js-controller 3.x\n2024年变更\n升级axios到1.6.3以解决漏洞"
-			},
-			"0.8.0": {
-				"en": "changed config screen to admin 5 solution",
-				"de": "geänderter Konfig-Bildschirm mit admin 5 Version",
-				"ru": "изменен экран config для admin 5 решение",
-				"pt": "tela de configuração alterada para solução admin 5",
-				"nl": "veranderde configuur naar administratie 5",
-				"fr": "changé d'écran de configuration pour admin 5 solution",
-				"it": "modificato schermo di configurazione per la soluzione admin 5",
-				"es": "cambiar la pantalla de configuración para admin 5 solución",
-				"pl": "zmieniono ekran konfiguracyjny 5",
-				"uk": "змінений екран налаштування до рішення адміністратора 5",
-				"zh-cn": "b. 压缩5个解决办法的概略筛选"
 			}
 		},
       

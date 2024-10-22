@@ -4,7 +4,17 @@
 		"version": "0.12.1",
 		"news": {
 			"0.12.1": {
-				"en": "fix error in jsonConfig.json"
+				"en": "fix error in jsonConfig.json and switch to json5 format",
+				"de": "Fehler in jsonConfig.json behoben und auf json5-Format umgestellt",
+				"ru": "исправлена ошибка в jsonConfig.json и переход на формат json5",
+				"pt": "corrigir erro no jsonConfig.json e mudar para o formato json5",
+				"nl": "fout in jsonConfig.json opgelost en overgeschakeld naar json5-formaat",
+				"fr": "correction d'une erreur dans jsonConfig.json et passage au format json5",
+				"it": "corretto errore in jsonConfig.json e passaggio al formato json5",
+				"es": "se corrigió el error en jsonConfig.json y se cambió al formato json5",
+				"pl": "naprawiono błąd w jsonConfig.json i przełączono na format json5",
+				"uk": "виправлено помилку в jsonConfig.json і перехід на формат json5",
+				"zh-cn": "修复 jsonConfig.json 中的错误并切换到 json5 格式"
 			},
 			"0.12.0": {
 				"en": "BREAKING: dropped support for admin < 7 (#544)\noptimized responsive design (#544)\noptimized translation handling",

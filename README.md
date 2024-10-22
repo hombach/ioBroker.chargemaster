@@ -49,7 +49,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.12.1 (2024-10-xx)
+### 0.12.1 (2024-10-22)
 
 -   (HombachC) fix error in jsonConfig.json and switch to json5 format
 

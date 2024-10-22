@@ -34,9 +34,9 @@
 					},
 					"min": 1000,
 					"step": 100,
-					"xs": 6,
-					"sm": 6,
-					"md": 6,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
 					"lg": 6,
 					"xl": 6,
 					"newLine": true
@@ -58,9 +58,9 @@
 					},
 					"min": 1,
 					"step": 1,
-					"xs": 6,
-					"sm": 6,
-					"md": 6,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
 					"lg": 6,
 					"xl": 6,
 					"newLine": false
@@ -81,9 +81,9 @@
 						"uk": "ідентифікатор об'єкта для доступної сонячної енергії [Вт]",
 						"zh-cn": "当前可用太阳能的对象 ID [W]"
 					},
-					"xs": 6,
-					"sm": 6,
-					"md": 6,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
 					"lg": 6,
 					"xl": 6,
 					"newLine": true
@@ -103,9 +103,9 @@
 						"uk": "ідентифікатор об'єкта для поточного споживання електроенергії в домогосподарстві [Вт]",
 						"zh-cn": "当前家庭电力消耗的对象 ID [W]"
 					},
-					"xs": 6,
-					"sm": 6,
-					"md": 6,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
 					"lg": 6,
 					"xl": 6,
 					"newLine": false
@@ -126,9 +126,9 @@
 						"uk": "ідентифікатор об'єкта для поточного рівня заряду домашньої батареї [%]",
 						"zh-cn": "当前家庭电池充电状态的对象 ID [%]"
 					},
-					"xs": 6,
-					"sm": 6,
-					"md": 6,
+					"xs": 12,
+					"sm": 12,
+					"md": 12,
 					"lg": 6,
 					"xl": 6,
 					"newLine": true
@@ -339,6 +339,11 @@
 					"noTranslation": true,
 					"href": "https://www.paypal.com/donate/?hosted_button_id=H5PMQ8JKQL7SL",
 					"src": "https://raw.githubusercontent.com/hombach/ioBroker.chargemaster/master/docu/bluePayPal.svg",
+					"xs": 6,
+					"sm": 6,
+					"md": 6,
+					"lg": 4,
+					"xl": 4,
 					"newLine": true
 				},
 				"_donateTxt": {

@@ -4,7 +4,17 @@
 		"version": "0.12.0",
 		"news": {
 			"0.12.0": {
-				"en": "WIP"
+				"en": "BREAKING: dropped support for admin < 7 (#544)\noptimized responsive design (#544)\noptimized translation handling",
+				"de": "WICHTIG: Unterstützung für Admin < 7 eingestellt (#544)\nresponsives Design optimiert (#544)\nÜbersetzungshandling optimiert",
+				"ru": "ВАЖНО: прекращена поддержка admin < 7 (#544)\nоптимизирован адаптивный дизайн (#544)\nоптимизирована обработка переводов",
+				"pt": "IMPORTANTE: suporte para admin < 7 removido (#544)\notimização do design responsivo (#544)\notimização do manuseio de traduções",
+				"nl": "BELANGRIJK: ondersteuning voor admin < 7 beëindigd (#544)\nresponsive design geoptimaliseerd (#544)\nvertalingverwerking geoptimaliseerd",
+				"fr": "IMPORTANT: support pour admin < 7 abandonné (#544)\noptimisation du design réactif (#544)\noptimisation de la gestion des traductions",
+				"it": "IMPORTANTE: supporto per admin < 7 interrotto (#544)\nottimizzazione del design reattivo (#544)\nottimizzazione della gestione delle traduzioni",
+				"es": "IMPORTANTE: se eliminó el soporte para admin < 7 (#544)\noptimización del diseño responsivo (#544)\noptimización del manejo de traducciones",
+				"pl": "WAŻNE: zakończono wsparcie dla admin < 7 (#544)\noptymalizacja responsywnego projektu (#544)\noptymalizacja obsługi tłumaczeń",
+				"uk": "ВАЖЛИВО: підтримка admin < 7 припинена (#544)\nоптимізовано адаптивний дизайн (#544)\nоптимізовано обробку перекладів",
+				"zh-cn": "重大更新：已停止支持 admin < 7 (#544)\n优化响应式设计 (#544)\n优化翻译处理"
 			},
 			"0.11.1": {
 				"en": "add node.js 22 to the adapter testing matrix (#523)\nBump @iobroker/testing to 5.0.0",

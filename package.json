@@ -1,6 +1,6 @@
 {
   "name": "iobroker.chargemaster",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Adapter for managing of multi EV-chargers with use of PV-energy",
   "author": {
     "name": "Hombach",

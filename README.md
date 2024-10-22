@@ -49,6 +49,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.12.1 (2024-10-xx)
+
+-   (HombachC) fix error in jsonConfig.json
+
 ### 0.12.0 (2024-10-22)
 
 -   (HombachC) BREAKING: dropped support for admin < 7 (#544)

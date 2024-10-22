@@ -1,8 +1,11 @@
 {
 	"common": {
 		"name": "chargemaster",
-		"version": "0.12.0",
+		"version": "0.12.1",
 		"news": {
+			"0.12.1": {
+				"en": "fix error in jsonConfig.json"
+			},
 			"0.12.0": {
 				"en": "BREAKING: dropped support for admin < 7 (#544)\noptimized responsive design (#544)\noptimized translation handling",
 				"de": "WICHTIG: Unterstützung für Admin < 7 eingestellt (#544)\nresponsives Design optimiert (#544)\nÜbersetzungshandling optimiert",

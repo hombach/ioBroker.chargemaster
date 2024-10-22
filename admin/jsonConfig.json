@@ -351,7 +351,6 @@
 				},
 				"_donateTxt": {
 					"type": "staticText",
-					"variant": "outlined",
 					"text": {
 						"en": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",
 						"de": "Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach großzügig sind, überlegen Sie, mir ein Bier zu spendieren. Prost! 🍻",
@@ -364,9 +363,6 @@
 						"pl": "Jeśli spodobał ci się ten projekt — lub po prostu czujesz się hojny, rozważ kupienie mi piwa. Na zdrowie! 🍻",
 						"uk": "Якщо вам сподобався цей проект — або ви просто хочете зробити приємне, подумайте про те, щоб купити мені пиво. Ура! 🍻",
 						"zh-cn": "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！🍻"
-					},
-					"style": {
-						"fontSize": 16
 					}
 				}
 			}

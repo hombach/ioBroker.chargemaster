@@ -1,7 +1,7 @@
 {
 	"type": "tabs",
 	"tabsStyle": {
-		width: "calc(100% - 100px)"
+		"width": "calc(100% - 100px)"
 	},
 	"items":  {
 	    "_StandardTab": {
@@ -20,9 +20,9 @@
 				"zh-cn": "标准设置"
 			},
 	        "items": {
-				cycleTime: {
-					type: "number",
-					label: {
+				"cycleTime": {
+					"type": "number",
+					"label": {
 						en: "Cycletime for chargemanager [ms] - (default 10000)",
 						de: "Zykluszeit für den Lademanager [ms] - (Standard 10000)",
 						ru: "Цикл времени для менеджера зарядки [мс] - (по умолчанию 10000)",
@@ -319,9 +319,9 @@
 						es: "Mostrar la documentación del adaptador",
 						pl: "Pokaż dokumentację adaptera",
 						uk: "Показати документацію адаптера",
-						zh-cn: "显示适配器文档"
+						"zh-cn": "显示适配器文档"
 					},
-					href: "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
+					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
 					newLine: true,
 					xs: 12,
 					sm: 12,
@@ -362,7 +362,7 @@
 						es: "Si disfrutaste de este proyecto — o simplemente te sientes generoso, considera comprarme una cerveza. ¡Salud! 🍻",
 						pl: "Jeśli spodobał ci się ten projekt — lub po prostu czujesz się hojny, rozważ kupienie mi piwa. Na zdrowie! 🍻",
 						uk: "Якщо вам сподобався цей проект — або ви просто хочете зробити приємне, подумайте про те, щоб купити мені пиво. Ура! 🍻",
-						zh-cn: "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！🍻"
+						"zh-cn": "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！🍻"
 					}
 				}
 			}

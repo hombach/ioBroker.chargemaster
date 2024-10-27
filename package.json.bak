@@ -1,0 +1,85 @@
+{
+  "name": "iobroker.chargemaster",
+  "version": "0.12.2",
+  "description": "Adapter for managing of multi EV-chargers with use of PV-energy",
+  "author": {
+    "name": "Hombach",
+    "email": "chargemaster@homba.ch"
+  },
+  "homepage": "https://github.com/Hombach/ioBroker.chargemaster",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "power",
+    "energy",
+    "chargemaster",
+    "Smart Home",
+    "home automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hombach/ioBroker.chargemaster.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "dependencies": {
+    "@iobroker/adapter-core": "^3.2.2"
+  },
+  "devDependencies": {
+    "@iobroker/testing": "^5.0.0",
+    "@iobroker/types": "^6.0.11",
+    "@types/chai": "^4.3.11",
+    "@types/chai-as-promised": "^7.1.8",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "^22.7.7",
+    "@types/proxyquire": "^1.3.31",
+    "@types/sinon": "^17.0.3",
+    "@types/sinon-chai": "^3.2.12",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "axios": "^1.7.7",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "mocha": "^10.7.3",
+    "prettier": "^3.3.3",
+    "proxyquire": "^2.1.3",
+    "sinon": "^19.0.2",
+    "sinon-chai": "^3.7.0",
+    "source-map-support": "^0.5.21",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.3",
+    "glob-parent": "^6.0.2",
+    "set-value": "^4.0.1"
+  },
+  "main": "build/main.js",
+  "files": [
+    "admin/",
+    "build/",
+    "io-package.json",
+    "LICENSE",
+    "package.json"
+  ],
+  "scripts": {
+    "build:ts": "tsc -p tsconfig.build.json",
+    "build": "npm run build:ts",
+    "watch:ts": "tsc -p tsconfig.build.json --watch",
+    "watch": "npm run watch:ts",
+    "test:ts": "mocha --config test/mocharc.custom.json src/**/*.test.ts",
+    "test:package": "mocha test/package --exit",
+    "test:integration": "mocha test/integration --exit",
+    "test": "npm run test:ts && npm run test:package",
+    "check": "tsc --noEmit",
+    "lint": "eslint --ext .ts src/"
+  },
+  "bugs": {
+    "url": "https://github.com/Hombach/ioBroker.chargemaster/issues"
+  },
+  "readmeFilename": "README.md"
+}

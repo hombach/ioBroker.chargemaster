@@ -77,7 +77,7 @@
     "test:integration": "mocha test/integration --exit",
     "test": "npm run test:ts && npm run test:package",
     "check": "tsc --noEmit",
-    "lint": "eslint --ext .ts src/"
+    "lint": "eslint src/"
   },
   "bugs": {
     "url": "https://github.com/Hombach/ioBroker.chargemaster/issues"

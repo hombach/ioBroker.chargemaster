@@ -30,6 +30,7 @@ export class ProjectUtils {
 	 * @param stateName - A string representing the name of the state to retrieve.
 	 * @returns A Promise that resolves with the value of the state if it exists, otherwise resolves with null.
 	 */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	async getStateValue(stateName: string): Promise<any | null> {
 		try {
 			const stateObject = await this.getState(stateName);
@@ -46,7 +47,7 @@ export class ProjectUtils {
 	 * @param stateName - A string representing the name of the state to retrieve.
 	 * @returns A Promise that resolves with the object of the state if it exists, otherwise resolves with null.
 	 */
-	private async getState(stateName: string): Promise<any> {
+	private async getState(stateName: string): Promise<ioBroker.State | null | undefined> {
 		try {
 			if (await this.verifyStateAvailable(stateName)) {
 				// Get state value, so like: {val: false, ack: true, ts: 1591117034451, �}
@@ -69,7 +70,7 @@ export class ProjectUtils {
 	 * @param stateName - A string representing the name of the state to verify.
 	 * @returns A Promise that resolves with true if the state exists, otherwise resolves with false.
 	 */
-	private async verifyStateAvailable(stateName: string): Promise<any> {
+	private async verifyStateAvailable(stateName: string): Promise<boolean> {
 		const stateObject = await this.adapter.getObjectAsync(stateName); // Check state existence
 		if (!stateObject) {
 			this.adapter.log.debug(`[verifyStateAvailable](${stateName}): State does not exist.`);
@@ -83,6 +84,7 @@ export class ProjectUtils {
 	 * @param {string}      stateName  - Full path to state, like 0_userdata.0.other.isSummer
 	 * @return {Promise<*>}            - State value, or null if error
 	 */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	async asyncGetForeignStateVal(stateName: string): Promise<any | null> {
 		try {
 			const stateObject = await this.asyncGetForeignState(stateName);
@@ -100,7 +102,7 @@ export class ProjectUtils {
 	 * @param {string}      stateName  - Full path to state, like 0_userdata.0.other.isSummer
 	 * @return {Promise<object>}       - State object: {val: false, ack: true, ts: 1591117034451, …}, or null if error
 	 */
-	private async asyncGetForeignState(stateName: string): Promise<any> {
+	private async asyncGetForeignState(stateName: string): Promise<ioBroker.State | null | undefined> {
 		try {
 			const stateObject = await this.adapter.getForeignObjectAsync(stateName); // Check state existence
 			if (!stateObject) {
@@ -163,10 +165,10 @@ export class ProjectUtils {
 	protected async checkAndSetValue(
 		stateName: string,
 		value: string,
-		description: string = "-",
-		writeable: boolean = false,
-		dontUpdate: boolean = false,
-		forceMode: boolean = false,
+		description = "-",
+		writeable = false,
+		dontUpdate = false,
+		forceMode = false,
 	): Promise<void> {
 		if (value != undefined) {
 			if (value.trim().length > 0) {
@@ -213,11 +215,11 @@ export class ProjectUtils {
 	async checkAndSetValueNumber(
 		stateName: string,
 		value: number,
-		description: string = "-",
+		description = "-",
 		unit?: string,
-		writeable: boolean = false,
-		dontUpdate: boolean = false,
-		forceMode: boolean = false,
+		writeable = false,
+		dontUpdate = false,
+		forceMode = false,
 	): Promise<void> {
 		if (value || value === 0) {
 			const commonObj: ioBroker.StateCommon = {
@@ -265,9 +267,9 @@ export class ProjectUtils {
 	async checkAndSetValueBoolean(
 		stateName: string,
 		value: boolean,
-		description: string = "-",
-		writeable: boolean = false,
-		dontUpdate: boolean = false,
+		description = "-",
+		writeable = false,
+		dontUpdate = false,
 	): Promise<void> {
 		if (value !== undefined && value !== null) {
 			const commonObj: ioBroker.StateCommon = {

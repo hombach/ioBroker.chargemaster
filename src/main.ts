@@ -2,10 +2,10 @@
 import * as utils from "@iobroker/adapter-core";
 import { ProjectUtils, IWallboxInfo } from "./lib/projectUtils";
 
-let batSoC: number = 0;
-let minHomeBatVal: number = 85;
-let totalChargePower: number = 0;
-let totalMeasuredChargeCurrent: number = 0;
+let batSoC = 0;
+let minHomeBatVal = 85;
+let totalChargePower = 0;
+let totalMeasuredChargeCurrent = 0;
 
 class ChargeMaster extends utils.Adapter {
 	wallboxInfoList: IWallboxInfo[] = [];
@@ -18,15 +18,15 @@ class ChargeMaster extends utils.Adapter {
 			name: "chargemaster",
 		});
 		this.on("ready", this.onReady.bind(this));
-		this.on("stateChange", this.onStateChange.bind(this));
 		// this.on('objectChange', this.onObjectChange.bind(this));
+		this.on("stateChange", this.onStateChange.bind(this));
 		// this.on('message', this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 		this.wallboxInfoList = [];
 		this.adapterIntervals = [];
 	}
 
-	/****************************************************************************************
+	/**
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	private async onReady(): Promise<void> {
@@ -39,6 +39,7 @@ class ChargeMaster extends utils.Adapter {
 		this.subscribeStates("Settings.*"); // this.subscribeForeignObjects('dwd.0.warning.*');
 
 		//#region *** Verify configured foreign states chargers and amount of chargers ***
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		async function stateTest(adapter: any, input: string): Promise<boolean> {
 			if (input == "") {
 				return false;
@@ -64,8 +65,8 @@ class ChargeMaster extends utils.Adapter {
 			this.log.info(`Verified solar system states`);
 		} else {
 			this.setState("info.connection", false, true);
-			this.log.error(`Solar system states not correct configured or not reachable - shutting down adapter`);
-			this.terminate;
+			this.log.error(`Solar system states not correct configured or not reachable - stopping adapter`);
+			await this.stop?.({ exitCode: 11, reason: `invalid config`});
 			return;
 		}
 
@@ -79,8 +80,8 @@ class ChargeMaster extends utils.Adapter {
 				this.log.info(`Charger ${i} states verified`);
 			} else {
 				this.setState("info.connection", false, true);
-				this.log.error(`Charger ${i} not correct configured or not reachable - shutting down adapter`);
-				this.terminate;
+				this.log.error(`Charger ${i} not correct configured or not reachable - stopping adapter`);
+				await this.stop?.({ exitCode: 11, reason: `invalid config`});
 				return;
 			}
 		}
@@ -94,17 +95,19 @@ class ChargeMaster extends utils.Adapter {
 		}
 		//#endregion
 
-		//sentry.io ping
+		//#region *** sentry.io ping ***
 		if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
 			const sentryInstance = this.getPluginInstance("sentry");
 			const today = new Date();
 			const last = await this.getStateAsync("info.LastSentryLogDay");
-			if (last?.val != today.getDate()) {
+			if (last?.val != (await today.getDate())) {
 				if (sentryInstance) {
 					const Sentry = sentryInstance.getSentryObject();
+					// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 					Sentry &&
-						Sentry.withScope((scope: { setLevel: (arg0: string) => void; setTag: (arg0: string, arg1: number) => void }) => {
+						Sentry.withScope((scope: { setLevel: (arg0: string) => void; setTag: (arg0: string, arg1: number | string) => void }) => {
 							scope.setLevel("info");
+							scope.setTag("SentryDay", today.getDate());
 							scope.setTag("System Power", this.config.maxAmpTotal);
 							for (let i = 0; i < Math.min(this.config.wallBoxList.length, 2); i++) {
 								scope.setTag(`WallboxAmp_${i}`, this.config.wallBoxList[i].maxAmp);
@@ -115,10 +118,11 @@ class ChargeMaster extends utils.Adapter {
 				this.setState("info.LastSentryLogDay", { val: today.getDate(), ack: true });
 			}
 		}
+		//#endregion
 
 		try {
 			minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
-			for (let i: number = 0; i < this.config.wallBoxList.length; i++) {
+			for (let i = 0; i < this.config.wallBoxList.length; i++) {
 				this.wallboxInfoList.push({
 					ID: i,
 					ChargeNOW: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`),
@@ -156,7 +160,7 @@ class ChargeMaster extends utils.Adapter {
 			// WiP - Object.keys(this.adapterIntervals).forEach((timeOut) => clearTimeout(timeOut));
 			this.log.info(`Adapter ChargeMaster cleaned up everything...`);
 			callback();
-		} catch (error) {
+		} catch {
 			callback();
 		}
 	}
@@ -308,7 +312,7 @@ class ChargeMaster extends utils.Adapter {
 	 * @method Charge_Limiter
 	 */
 	private async chargeLimiter(): Promise<void> {
-		let TotalSetOptAmp: number = 0;
+		let TotalSetOptAmp = 0;
 
 		// First loop: Wallboxes with SetOptAllow = false (shall be turned off immediately)
 		this.wallboxInfoList

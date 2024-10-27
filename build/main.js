@@ -40,14 +40,14 @@ class ChargeMaster extends utils.Adapter {
             name: "chargemaster",
         });
         this.on("ready", this.onReady.bind(this));
-        this.on("stateChange", this.onStateChange.bind(this));
         // this.on('objectChange', this.onObjectChange.bind(this));
+        this.on("stateChange", this.onStateChange.bind(this));
         // this.on('message', this.onMessage.bind(this));
         this.on("unload", this.onUnload.bind(this));
         this.wallboxInfoList = [];
         this.adapterIntervals = [];
     }
-    /****************************************************************************************
+    /**
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
@@ -58,6 +58,7 @@ class ChargeMaster extends utils.Adapter {
         this.log.info(`Cycletime set to: ${this.config.cycleTime / 1000} seconds`);
         this.subscribeStates("Settings.*"); // this.subscribeForeignObjects('dwd.0.warning.*');
         //#region *** Verify configured foreign states chargers and amount of chargers ***
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         async function stateTest(adapter, input) {
             if (input == "") {
                 return false;
@@ -82,8 +83,8 @@ class ChargeMaster extends utils.Adapter {
         }
         else {
             this.setState("info.connection", false, true);
-            this.log.error(`Solar system states not correct configured or not reachable - shutting down adapter`);
-            this.terminate;
+            this.log.error(`Solar system states not correct configured or not reachable - stopping adapter`);
+            await this.stop?.({ exitCode: 11, reason: `invalid config` });
             return;
         }
         for (let i = 0; i < this.config.wallBoxList.length; i++) {
@@ -95,8 +96,8 @@ class ChargeMaster extends utils.Adapter {
             }
             else {
                 this.setState("info.connection", false, true);
-                this.log.error(`Charger ${i} not correct configured or not reachable - shutting down adapter`);
-                this.terminate;
+                this.log.error(`Charger ${i} not correct configured or not reachable - stopping adapter`);
+                await this.stop?.({ exitCode: 11, reason: `invalid config` });
                 return;
             }
         }
@@ -108,17 +109,19 @@ class ChargeMaster extends utils.Adapter {
             this.projectUtils.checkAndSetValueNumber(`Settings.WB_${i}.ChargeCurrent`, 6, `Set chargeNOW current output for wallbox ${i}`, "A", true, true);
         }
         //#endregion
-        //sentry.io ping
+        //#region *** sentry.io ping ***
         if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
             const sentryInstance = this.getPluginInstance("sentry");
             const today = new Date();
             const last = await this.getStateAsync("info.LastSentryLogDay");
-            if (last?.val != today.getDate()) {
+            if (last?.val != (await today.getDate())) {
                 if (sentryInstance) {
                     const Sentry = sentryInstance.getSentryObject();
+                    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                     Sentry &&
                         Sentry.withScope((scope) => {
                             scope.setLevel("info");
+                            scope.setTag("SentryDay", today.getDate());
                             scope.setTag("System Power", this.config.maxAmpTotal);
                             for (let i = 0; i < Math.min(this.config.wallBoxList.length, 2); i++) {
                                 scope.setTag(`WallboxAmp_${i}`, this.config.wallBoxList[i].maxAmp);
@@ -129,6 +132,7 @@ class ChargeMaster extends utils.Adapter {
                 this.setState("info.LastSentryLogDay", { val: today.getDate(), ack: true });
             }
         }
+        //#endregion
         try {
             minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
             for (let i = 0; i < this.config.wallBoxList.length; i++) {
@@ -168,7 +172,7 @@ class ChargeMaster extends utils.Adapter {
             this.log.info(`Adapter ChargeMaster cleaned up everything...`);
             callback();
         }
-        catch (error) {
+        catch {
             callback();
         }
     }

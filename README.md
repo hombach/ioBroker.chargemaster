@@ -51,7 +51,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.12.2 (2024-10-xx)
 
--   (HombachC) WiP
+-   (HombachC) migrate eslint to >9.x
+-   (HombachC) bumped dependencies
 
 ### 0.12.1 (2024-10-22)
 

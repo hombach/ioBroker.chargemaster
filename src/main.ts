@@ -1,6 +1,6 @@
 ﻿// The adapter-core module gives you access to the core ioBroker functions you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
-import { ProjectUtils, IWallboxInfo } from "./lib/projectUtils";
+import { IWallboxInfo, ProjectUtils } from "./lib/projectUtils";
 
 let batSoC = 0;
 let minHomeBatVal = 85;
@@ -39,8 +39,8 @@ class ChargeMaster extends utils.Adapter {
 		this.subscribeStates("Settings.*"); // this.subscribeForeignObjects('dwd.0.warning.*');
 
 		//#region *** Verify configured foreign states chargers and amount of chargers ***
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		async function stateTest(adapter: any, input: string): Promise<boolean> {
+		async function stateTest(adapter: ChargeMaster, input: string): Promise<boolean> {
+			// async function stateTest(adapter: any, input: string): Promise<boolean> {
 			if (input == "") {
 				return false;
 			}
@@ -66,7 +66,7 @@ class ChargeMaster extends utils.Adapter {
 		} else {
 			this.setState("info.connection", false, true);
 			this.log.error(`Solar system states not correct configured or not reachable - stopping adapter`);
-			await this.stop?.({ exitCode: 11, reason: `invalid config`});
+			await this.stop?.({ exitCode: 11, reason: `invalid config` });
 			return;
 		}
 
@@ -81,7 +81,7 @@ class ChargeMaster extends utils.Adapter {
 			} else {
 				this.setState("info.connection", false, true);
 				this.log.error(`Charger ${i} not correct configured or not reachable - stopping adapter`);
-				await this.stop?.({ exitCode: 11, reason: `invalid config`});
+				await this.stop?.({ exitCode: 11, reason: `invalid config` });
 				return;
 			}
 		}

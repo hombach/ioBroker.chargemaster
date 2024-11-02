@@ -264,13 +264,7 @@ export class ProjectUtils {
 	 * @param dontUpdate - Optional boolean indicating if the state should not be updated if it already exists (default is false).
 	 * @returns A Promise that resolves when the state is checked, created (if necessary), and updated.
 	 */
-	async checkAndSetValueBoolean(
-		stateName: string,
-		value: boolean,
-		description = "-",
-		writeable = false,
-		dontUpdate = false,
-	): Promise<void> {
+	async checkAndSetValueBoolean(stateName: string, value: boolean, description = "-", writeable = false, dontUpdate = false): Promise<void> {
 		if (value !== undefined && value !== null) {
 			const commonObj: ioBroker.StateCommon = {
 				name: stateName,

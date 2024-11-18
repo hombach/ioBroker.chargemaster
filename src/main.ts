@@ -36,7 +36,7 @@ class ChargeMaster extends utils.Adapter {
 		}
 		this.log.info(`Cycletime set to: ${this.config.cycleTime / 1000} seconds`);
 
-		this.subscribeStates("Settings.*"); // this.subscribeForeignObjects('dwd.0.warning.*');
+		this.subscribeStates(`Settings.*`); // this.subscribeForeignObjects('dwd.0.warning.*');
 
 		//#region *** Verify configured foreign states chargers and amount of chargers ***
 		async function stateTest(adapter: ChargeMaster, input: string): Promise<boolean> {

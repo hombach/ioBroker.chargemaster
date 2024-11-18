@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "chargemaster",
-		"version": "0.12.2",
+		"version": "0.12.3",
 		"news": {
+			"0.12.3": {
+				"en": "Fix bug in state subscription\nHarmonize project tools\nBump dependencies",
+				"de": "Fehler in der Zustandsabonnementbehandlung behoben\nProjektwerkzeuge harmonisiert\nAbhängigkeiten aktualisiert",
+				"ru": "Исправлена ошибка подписки на состояние\nУнификация инструментов проекта\nОбновление зависимостей",
+				"pt": "Corrigir bug na assinatura de estado\nHarmonizar ferramentas do projeto\nAtualizar dependências",
+				"nl": "Bug in toestandsabonnement opgelost\nProjecttools geharmoniseerd\nAfhankelijkheden bijgewerkt",
+				"fr": "Correction d'un bug dans l'abonnement à l'état\nHarmonisation des outils de projet\nMise à jour des dépendances",
+				"it": "Corretto bug nella sottoscrizione dello stato\nArmonizzati gli strumenti del progetto\nAggiornate le dipendenze",
+				"es": "Corregir error en la suscripción de estado\nArmonizar herramientas del proyecto\nActualizar dependencias",
+				"pl": "Naprawiono błąd w subskrypcji stanu\nUjednolicono narzędzia projektu\nZaktualizowano zależności",
+				"uk": "Виправлено помилку у підписці на стан\nУніфіковано інструменти проекту\nОновлено залежності",
+				"zh-cn": "修复状态订阅中的错误\n统一项目工具\n更新依赖项"
+			},
 			"0.12.2": {
 				"en": "Migrate eslint to >9.x\nBumped dependencies",
 				"de": "ESLint auf >9.x migriert\nAbhängigkeiten aktualisiert",
@@ -80,22 +93,9 @@
 				"pl": "przejdź na Typescript\nzmień typ adaptera na 'energy'\nzastąp przestarzały setStateAsync",
 				"uk": "перехід на Typescript\nзмінити тип адаптера на 'energy'\nзамінити застарілий setStateAsync",
 				"zh-cn": "切换到 Typescript\n将适配器类型更改为 'energy'\n替换已弃用的 setStateAsync"
-			},
-			"0.9.0": {
-				"en": "BREAKING: dropped support for Node.js 16 (#455)\nBREAKING: js-controller >= 5 is required (#456)",
-				"de": "WICHTIG: Unterstützung für Node.js 16 wurde eingestellt (#455)\nWICHTIG: js-controller >= 5 ist erforderlich (#456)",
-				"ru": "ВАЖНО: прекращена поддержка Node.js 16 (#455)\nВАЖНО: требуется js-controller >= 5 (#456)",
-				"pt": "IMPORTANTE: suporte para Node.js 16 foi removido (#455)\nIMPORTANTE: js-controller >= 5 é necessário (#456)",
-				"nl": "BELANGRIJK: ondersteuning voor Node.js 16 is verwijderd (#455)\nBELANGRIJK: js-controller >= 5 is vereist (#456)",
-				"fr": "IMPORTANT : prise en charge de Node.js 16 abandonnée (#455)\nIMPORTANT : js-controller >= 5 est requis (#456)",
-				"it": "IMPORTANTE: supporto per Node.js 16 eliminato (#455)\nIMPORTANTE: js-controller >= 5 è richiesto (#456)",
-				"es": "IMPORTANTE: se eliminó el soporte para Node.js 16 (#455)\nIMPORTANTE: se requiere js-controller >= 5 (#456)",
-				"pl": "WAŻNE: wsparcie dla Node.js 16 zostało usunięte (#455)\nWAŻNE: wymagane jest js-controller >= 5 (#456)",
-				"uk": "ВАЖЛИВО: підтримка Node.js 16 скасована (#455)\nВАЖЛИВО: потрібен js-controller >= 5 (#456)",
-				"zh-cn": "重要: 放弃对 Node.js 16 的支持 (#455)\n重要: js-controller >= 5 已必需 (#456)"
 			}
 		},
-      
+
 		"titleLang": {
 			"en": "ChargeMaster",
 			"de": "ChargeMaster",
@@ -158,7 +158,7 @@
 				"dsn": "https://0e33dc63a0e34165850d97add3cc3684@o415875.ingest.sentry.io/5307610"
 			}
 		},
-    "supportCustoms": false
+		"supportCustoms": false
 	},
 
 	"native": {
@@ -203,48 +203,48 @@
 			"native": {}
 		},
 
-    {
-      "_id": "Power",
-      "type": "channel",
-      "common": { "name": "current charging power data" },
-      "native": {}
-    },
-    {
-      "_id": "Power.Charge",
-      "type": "state",
-      "common": {
-        "role": "value.power",
-        "name": "actual total charging-power",
-        "type": "number",
-        "unit": "W",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
+		{
+			"_id": "Power",
+			"type": "channel",
+			"common": { "name": "current charging power data" },
+			"native": {}
+		},
+		{
+			"_id": "Power.Charge",
+			"type": "state",
+			"common": {
+				"role": "value.power",
+				"name": "actual total charging-power",
+				"type": "number",
+				"unit": "W",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		},
 
-    {
-      "_id": "Settings",
-      "type": "channel",
-      "common": { "name": "states to dynamically adjust global settings" },
-      "native": {}
-    },
-    {
-      "_id": "Settings.Setpoint_HomeBatSoC",
-      "type": "state",
-      "common": {
-        "role": "level",
-        "name": "Setpoint to dynamically adjust minimum home battery state of charge",
-        "type": "number",
-        "unit": "%",
-        "read": true,
-        "write": true,
-        "def": 80,
-        "max": 100,
-        "min": 0
-      },
-      "native": {}
-    }
-  ]
+		{
+			"_id": "Settings",
+			"type": "channel",
+			"common": { "name": "states to dynamically adjust global settings" },
+			"native": {}
+		},
+		{
+			"_id": "Settings.Setpoint_HomeBatSoC",
+			"type": "state",
+			"common": {
+				"role": "level",
+				"name": "Setpoint to dynamically adjust minimum home battery state of charge",
+				"type": "number",
+				"unit": "%",
+				"read": true,
+				"write": true,
+				"def": 80,
+				"max": 100,
+				"min": 0
+			},
+			"native": {}
+		}
+	]
 }

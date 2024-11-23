@@ -199,13 +199,23 @@ class ChargeMaster extends utils.Adapter {
                     }
                     else {
                         for (let i = 0; i < this.config.wallBoxList.length; i++) {
+                            switch (subId) {
+                                case `Settings.WB_${i}.ChargeNOW`:
+                                    // Update .ChargeNOW based on state.val if it's a boolean
+                                    if (typeof state.val === "boolean") {
+                                        this.wallboxInfoList[i].ChargeNOW = state.val;
+                                        this.log.debug(`wallbox ${i} setting ChargeNOW changed to ${state.val}`);
+                                        this.setState(id, state.val, true); // set acknowledge true
+                                    }
+                                    else {
+                                        this.log.warn(`Wrong type for wallbox ${i} setting ChargeNOW: ${state.val}`);
+                                    }
+                                    break;
+                            }
                             if (subId === `Settings.WB_${i}.ChargeNOW`) {
                                 //this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
-                                if (typeof state.val === "boolean")
-                                    this.wallboxInfoList[i].ChargeNOW = state.val;
                                 //this.setState(`Settings.WB_${i}.ChargeNOW`, this.wallboxInfoList[i].ChargeNOW, true);
-                                this.setState(id, state.val, true);
-                                break;
+                                //break;
                             }
                             else if (subId === `Settings.WB_${i}.ChargeManager`) {
                                 this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);

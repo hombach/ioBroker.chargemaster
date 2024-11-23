@@ -196,12 +196,12 @@ class ChargeMaster extends utils.Adapter {
                         this.setState(id, minHomeBatVal, true);
                     }
                     else {
-                        for (let i = 0; i <= this.config.wallBoxList.length; i++) {
+                        for (let i = 0; i < this.config.wallBoxList.length; i++) {
                             switch (subId) {
                                 case `Settings.WB_${i}.ChargeNOW`:
                                     if (typeof state.val === "boolean") {
                                         this.wallboxInfoList[i].ChargeNOW = state.val;
-                                        this.log.info(`wallbox ${i} setting ChargeNOW changed to ${state.val}`);
+                                        this.log.debug(`wallbox ${i} setting ChargeNOW changed to ${state.val}`);
                                         this.setState(id, state.val, true); // set acknowledge true
                                     }
                                     else {
@@ -211,7 +211,7 @@ class ChargeMaster extends utils.Adapter {
                                 case `Settings.WB_${i}.ChargeManager`:
                                     if (typeof state.val === "boolean") {
                                         this.wallboxInfoList[i].ChargeManager = state.val;
-                                        this.log.info(`wallbox ${i} setting ChargeManager changed to ${state.val}`);
+                                        this.log.debug(`wallbox ${i} setting ChargeManager changed to ${state.val}`);
                                         this.setState(id, state.val, true); // set acknowledge true
                                     }
                                     else {
@@ -221,7 +221,7 @@ class ChargeMaster extends utils.Adapter {
                                 case `Settings.WB_${i}.ChargeCurrent`:
                                     if (typeof state.val === "number") {
                                         this.wallboxInfoList[i].ChargeCurrent = state.val;
-                                        this.log.info(`wallbox ${i} setting ChargeCurrent changed to ${state.val}`);
+                                        this.log.debug(`wallbox ${i} setting ChargeCurrent changed to ${state.val}`);
                                         this.setState(id, state.val, true); // set acknowledge true
                                     }
                                     else {

@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "chargemaster",
-		"version": "0.12.3",
+		"version": "0.12.4",
 		"news": {
+			"0.12.4": {
+				"en": "Implement better state change error handling",
+				"de": "Verbessertes Fehlerhandling bei Zustandsänderungen implementieren",
+				"ru": "Реализовано улучшенное обработка ошибок при изменении состояния",
+				"pt": "Implementar melhor tratamento de erros de mudança de estado",
+				"nl": "Betere foutafhandeling bij statuswijzigingen implementeren",
+				"fr": "Mettre en œuvre une meilleure gestion des erreurs de changement d'état",
+				"it": "Implementare una migliore gestione degli errori di modifica dello stato",
+				"es": "Implementar un mejor manejo de errores de cambio de estado",
+				"pl": "Zaimplementowano lepsze obsługiwanie błędów przy zmianie stanu",
+				"uk": "Реалізовано краще оброблення помилок зміни стану",
+				"zh-cn": "实现更好的状态更改错误处理"
+			},
 			"0.12.3": {
 				"en": "Fix bug in state subscription\nHarmonize project tools\nBump dependencies",
 				"de": "Fehler in der Zustandsabonnementbehandlung behoben\nProjektwerkzeuge harmonisiert\nAbhängigkeiten aktualisiert",
@@ -54,19 +67,6 @@
 				"pl": "WAŻNE: zakończono wsparcie dla admin < 7 (#544)\noptymalizacja responsywnego projektu (#544)\noptymalizacja obsługi tłumaczeń",
 				"uk": "ВАЖЛИВО: підтримка admin < 7 припинена (#544)\nоптимізовано адаптивний дизайн (#544)\nоптимізовано обробку перекладів",
 				"zh-cn": "重大更新：已停止支持 admin < 7 (#544)\n优化响应式设计 (#544)\n优化翻译处理"
-			},
-			"0.11.1": {
-				"en": "add node.js 22 to the adapter testing matrix (#523)\nBump @iobroker/testing to 5.0.0",
-				"de": "node.js 22 zur Adapter-Testmatrix hinzufügen (#523)\n@iobroker/testing auf 5.0.0 aktualisieren",
-				"ru": "добавить node.js 22 в матрицу тестирования адаптера (#523)\nОбновить @iobroker/testing до 5.0.0",
-				"pt": "adicionar node.js 22 à matriz de testes do adaptador (#523)\nAtualizar @iobroker/testing para 5.0.0",
-				"nl": "node.js 22 toevoegen aan de adaptertestmatrix (#523)\n@iobroker/testing bijwerken naar 5.0.0",
-				"fr": "ajouter node.js 22 à la matrice de test de l'adaptateur (#523)\nMettre à jour @iobroker/testing vers 5.0.0",
-				"it": "aggiungere node.js 22 alla matrice di test dell'adattatore (#523)\nAggiornare @iobroker/testing alla versione 5.0.0",
-				"es": "agregar node.js 22 a la matriz de pruebas del adaptador (#523)\nActualizar @iobroker/testing a 5.0.0",
-				"pl": "dodanie node.js 22 do matrycy testowej adaptera (#523)\nAktualizacja @iobroker/testing do 5.0.0",
-				"uk": "додати node.js 22 до матриці тестування адаптера (#523)\nОновити @iobroker/testing до 5.0.0",
-				"zh-cn": "将 node.js 22 添加到适配器测试矩阵 (#523)\n将 @iobroker/testing 更新到 5.0.0"
 			},
 			"0.11.0": {
 				"en": "implement variable wallbox amount\nfix errors in wallbox control\ncomplete rework of configuration screen\nmove utils to extra class\nswitch to ECMA 2022 code\nbumped dependencies",

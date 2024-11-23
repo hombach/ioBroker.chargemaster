@@ -186,22 +186,19 @@ class ChargeMaster extends utils.Adapter {
                 // The state was changed
                 if (!state.ack) {
                     this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
+                    //"state chargemaster.0.Settings.WB_3.ChargeNOW changed to: true (ack = false)"
                     const subId = id.substring(id.indexOf(`Settings.`));
                     if (subId === `Settings.Setpoint_HomeBatSoC`) {
-                        //minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
-                        if (typeof state.val === "number") {
+                        if (typeof state.val === "number")
                             minHomeBatVal = state.val;
-                        }
-                        else if (typeof state.val === "string") {
+                        else if (typeof state.val === "string")
                             minHomeBatVal = parseInt(state.val);
-                        }
                         this.setState(id, minHomeBatVal, true);
                     }
                     else {
-                        for (let i = 0; i < this.config.wallBoxList.length; i++) {
+                        for (let i = 0; i <= this.config.wallBoxList.length; i++) {
                             switch (subId) {
                                 case `Settings.WB_${i}.ChargeNOW`:
-                                    // Update .ChargeNOW based on state.val if it's a boolean
                                     if (typeof state.val === "boolean") {
                                         this.wallboxInfoList[i].ChargeNOW = state.val;
                                         this.log.info(`wallbox ${i} setting ChargeNOW changed to ${state.val}`);
@@ -212,7 +209,6 @@ class ChargeMaster extends utils.Adapter {
                                     }
                                     break;
                                 case `Settings.WB_${i}.ChargeManager`:
-                                    // Update .ChargeManager based on state.val if it's a boolean
                                     if (typeof state.val === "boolean") {
                                         this.wallboxInfoList[i].ChargeManager = state.val;
                                         this.log.info(`wallbox ${i} setting ChargeManager changed to ${state.val}`);
@@ -222,21 +218,16 @@ class ChargeMaster extends utils.Adapter {
                                         this.log.warn(`Wrong type for wallbox ${i} setting ChargeManager: ${state.val}`);
                                     }
                                     break;
-                            }
-                            if (subId === `Settings.WB_${i}.ChargeNOW`) {
-                                //this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
-                                //this.setState(`Settings.WB_${i}.ChargeNOW`, this.wallboxInfoList[i].ChargeNOW, true);
-                                break;
-                            }
-                            else if (subId === `Settings.WB_${i}.ChargeManager`) {
-                                //this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
-                                //this.setState(`Settings.WB_${i}.ChargeManager`, this.wallboxInfoList[i].ChargeManager, true);
-                                break;
-                            }
-                            else if (subId === `Settings.WB_${i}.ChargeCurrent`) {
-                                this.wallboxInfoList[i].ChargeCurrent = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`);
-                                this.setState(`Settings.WB_${i}.ChargeCurrent`, this.wallboxInfoList[i].ChargeCurrent, true);
-                                break;
+                                case `Settings.WB_${i}.ChargeCurrent`:
+                                    if (typeof state.val === "number") {
+                                        this.wallboxInfoList[i].ChargeCurrent = state.val;
+                                        this.log.info(`wallbox ${i} setting ChargeCurrent changed to ${state.val}`);
+                                        this.setState(id, state.val, true); // set acknowledge true
+                                    }
+                                    else {
+                                        this.log.warn(`Wrong type for wallbox ${i} setting ChargeCurrent: ${state.val}`);
+                                    }
+                                    break;
                             }
                         }
                     }

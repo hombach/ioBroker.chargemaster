@@ -51,7 +51,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.12.4 (2024-11-xx)
 
--   (HombachC) WiP
+-   (HombachC) implement better state change error handling
 
 ### 0.12.3 (2024-11-18)
 

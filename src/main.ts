@@ -191,20 +191,30 @@ class ChargeMaster extends utils.Adapter {
 									// Update .ChargeNOW based on state.val if it's a boolean
 									if (typeof state.val === "boolean") {
 										this.wallboxInfoList[i].ChargeNOW = state.val;
-										this.log.debug(`wallbox ${i} setting ChargeNOW changed to ${state.val}`);
+										this.log.info(`wallbox ${i} setting ChargeNOW changed to ${state.val}`);
 										this.setState(id, state.val, true); // set acknowledge true
 									} else {
 										this.log.warn(`Wrong type for wallbox ${i} setting ChargeNOW: ${state.val}`);
+									}
+									break;
+								case `Settings.WB_${i}.ChargeManager`:
+									// Update .ChargeManager based on state.val if it's a boolean
+									if (typeof state.val === "boolean") {
+										this.wallboxInfoList[i].ChargeManager = state.val;
+										this.log.info(`wallbox ${i} setting ChargeManager changed to ${state.val}`);
+										this.setState(id, state.val, true); // set acknowledge true
+									} else {
+										this.log.warn(`Wrong type for wallbox ${i} setting ChargeManager: ${state.val}`);
 									}
 									break;
 							}
 							if (subId === `Settings.WB_${i}.ChargeNOW`) {
 								//this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
 								//this.setState(`Settings.WB_${i}.ChargeNOW`, this.wallboxInfoList[i].ChargeNOW, true);
-								//break;
+								break;
 							} else if (subId === `Settings.WB_${i}.ChargeManager`) {
-								this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
-								this.setState(`Settings.WB_${i}.ChargeManager`, this.wallboxInfoList[i].ChargeManager, true);
+								//this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);
+								//this.setState(`Settings.WB_${i}.ChargeManager`, this.wallboxInfoList[i].ChargeManager, true);
 								break;
 							} else if (subId === `Settings.WB_${i}.ChargeCurrent`) {
 								this.wallboxInfoList[i].ChargeCurrent = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`);

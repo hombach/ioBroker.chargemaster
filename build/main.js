@@ -82,7 +82,7 @@ class ChargeMaster extends utils.Adapter {
             this.log.info(`Verified solar system states`);
         }
         else {
-            this.setState("info.connection", false, true);
+            this.setState(`info.connection`, false, true);
             this.log.error(`Solar system states not correct configured or not reachable - stopping adapter`);
             await this.stop?.({ exitCode: 11, reason: `invalid config` });
             return;
@@ -95,7 +95,7 @@ class ChargeMaster extends utils.Adapter {
                 this.log.info(`Charger ${i} states verified`);
             }
             else {
-                this.setState("info.connection", false, true);
+                this.setState(`info.connection`, false, true);
                 this.log.error(`Charger ${i} not correct configured or not reachable - stopping adapter`);
                 await this.stop?.({ exitCode: 11, reason: `invalid config` });
                 return;
@@ -129,7 +129,7 @@ class ChargeMaster extends utils.Adapter {
                             Sentry.captureMessage("Adapter chargemaster started", "info");
                         });
                 }
-                this.setState("info.LastSentryLogDay", { val: today.getDate(), ack: true });
+                this.setState(`info.LastSentryLogDay`, { val: today.getDate(), ack: true });
             }
         }
         //#endregion
@@ -156,10 +156,10 @@ class ChargeMaster extends utils.Adapter {
             this.calcTotalPower();
         }
         catch (error) {
-            this.setState("info.connection", false, true);
+            this.setState(`info.connection`, false, true);
             this.log.error(`Unhandled exception processing initial state check: ${error}`);
         }
-        this.setState("info.connection", true, true);
+        this.setState(`info.connection`, true, true);
         this.log.info(`Init done, launching state machine`);
         await this.StateMachine();
     }
@@ -187,9 +187,9 @@ class ChargeMaster extends utils.Adapter {
                 if (!state.ack) {
                     this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
                     const subId = id.substring(id.indexOf(`Settings.`));
-                    if (subId === "Settings.Setpoint_HomeBatSoC") {
-                        minHomeBatVal = await this.projectUtils.getStateValue("Settings.Setpoint_HomeBatSoC");
-                        this.setState("Settings.Setpoint_HomeBatSoC", minHomeBatVal, true);
+                    if (subId === `Settings.Setpoint_HomeBatSoC`) {
+                        minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
+                        this.setState(`Settings.Setpoint_HomeBatSoC`, minHomeBatVal, true);
                     }
                     else {
                         for (let i = 0; i < this.config.wallBoxList.length; i++) {
@@ -463,7 +463,7 @@ class ChargeMaster extends utils.Adapter {
                 totalChargePower += wallbox.ChargePower;
                 totalMeasuredChargeCurrent += Math.ceil(wallbox.MeasuredMaxChargeAmp);
             }
-            this.setState("Power.Charge", totalChargePower, true); // trim to Watt
+            this.setState(`Power.Charge`, totalChargePower, true); // trim to Watt
             this.log.debug(`Total measured charge power: ${totalChargePower}W - Total measured charge current: ${totalMeasuredChargeCurrent}A`);
         }
         catch (error) {

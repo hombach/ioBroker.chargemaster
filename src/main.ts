@@ -177,13 +177,20 @@ class ChargeMaster extends utils.Adapter {
 					this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
 					const subId = id.substring(id.indexOf(`Settings.`));
 					if (subId === `Settings.Setpoint_HomeBatSoC`) {
-						minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
-						this.setState(`Settings.Setpoint_HomeBatSoC`, minHomeBatVal, true);
+						//minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
+						if (typeof state.val === "number") {
+							minHomeBatVal = state.val;
+						} else if (typeof state.val === "string") {
+							minHomeBatVal = parseInt(state.val);
+						}
+						this.setState(id, minHomeBatVal, true);
 					} else {
 						for (let i = 0; i < this.config.wallBoxList.length; i++) {
 							if (subId === `Settings.WB_${i}.ChargeNOW`) {
-								this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
-								this.setState(`Settings.WB_${i}.ChargeNOW`, this.wallboxInfoList[i].ChargeNOW, true);
+								//this.wallboxInfoList[i].ChargeNOW = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`);
+								if (typeof state.val === "boolean") this.wallboxInfoList[i].ChargeNOW = state.val;
+								//this.setState(`Settings.WB_${i}.ChargeNOW`, this.wallboxInfoList[i].ChargeNOW, true);
+								this.setState(id, state.val, true);
 								break;
 							} else if (subId === `Settings.WB_${i}.ChargeManager`) {
 								this.wallboxInfoList[i].ChargeManager = await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`);

@@ -1,4 +1,5 @@
 {
+	"i18n": true,
 	"type": "tabs",
 	"tabsStyle": {
 		"width": "calc(100% - 100px)"
@@ -6,19 +7,7 @@
 	"items": {
 		"_StandardTab": {
 			"type": "panel",
-			"label": {
-				"en": "Standard settings",
-				"de": "Standard-Einstellungen",
-				"ru": "Стандартные настройки",
-				"pt": "Configurações padrão",
-				"nl": "Standaardinstellingen",
-				"fr": "Paramètres standard",
-				"it": "Impostazioni predefinite",
-				"es": "Configuración estándar",
-				"pl": "Ustawienia standardowe",
-				"uk": "Стандартні налаштування",
-				"zh-cn": "标准设置"
-			},
+			"label": "LBL_StandardTab",
 			"items": {
 				"cycleTime": {
 					"type": "number",

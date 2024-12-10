@@ -49,6 +49,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.12.5 (2024-12-xx) WiP
+
+-   (HombachC) switch to i18n translation (#572)
+-   (HombachC) bump dependencies
+
 ### 0.12.4 (2024-11-23)
 
 -   (HombachC) implement better state change error handling

@@ -1,8 +1,21 @@
 {
     "common": {
         "name": "chargemaster",
-        "version": "0.12.4",
+        "version": "0.12.5",
         "news": {
+            "0.12.5": {
+                "en": "switch to i18n translation (#572)\nbump dependencies",
+                "de": "Zur i18n-Übersetzung wechseln (#572)\nBump-Abhängigkeiten",
+                "ru": "переключиться на перевод i18n (#572)\nударные зависимости",
+                "pt": "mudar para tradução i18n (#572)\ncolidir dependências",
+                "nl": "schakel over naar i18n-vertaling (#572)\nafhankelijkheden tegenkomen",
+                "fr": "passer à la traduction i18n (#572)\naugmenter les dépendances",
+                "it": "passa alla traduzione i18n (#572)\naumentare le dipendenze",
+                "es": "cambiar a traducción i18n (#572)\ndependencias de tope",
+                "pl": "przejdź na tłumaczenie i18n (#572)\npodbić zależności",
+                "uk": "перейти до перекладу i18n (#572)\nbump залежності",
+                "zh-cn": "切换到 i18n 翻译 (#572)\n凹凸依赖性"
+            },
             "0.12.4": {
                 "en": "Implement better state change error handling",
                 "de": "Verbessertes Fehlerhandling bei Zustandsänderungen implementieren",

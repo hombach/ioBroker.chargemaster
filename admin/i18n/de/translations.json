@@ -1,3 +1,17 @@
 {
-    "LBL_StandardTab": "Standardeinstellungen"
+    "LBL_StandardTab": "Standardeinstellungen",
+    "LBL_cycleTime": "Zykluszeit für Lademanager [ms] – (Standard 10000)",
+    "LBL_maxAmpTotal": "Maximal zulässige Summe der Ströme für das Gesamtsystem [A]",
+    "LBL_stateHomeSolarPower": "Objekt-ID für aktuell verfügbare Solarleistung [W]",
+    "LBL_stateHomePowerConsumption": "Objekt-ID für den aktuellen Stromverbrauch im Haus [W]",
+    "LBL_stateHomeBatSoc": "Objekt-ID für aktuellen Ladezustand der Heimbatterie [%]",
+    "LBL_wallBoxList": "Definieren Sie Verbindungszustände Ihrer Wallboxen und deren separate Stromgrenzen",
+    "TTL_stateChargeCurrent": "Objekt-ID zur Einstellung des Ladestroms [A]",
+    "TTL_stateChargeAllowed": "Objekt-ID zur Aktivierung des Ladens [true/false]",
+    "TTL_stateActiveChargePower": "Objekt-ID zum Auslesen der Ladeleistung [W]",
+    "TTL_stateActiveChargeAmp": "Objekt-ID zum Auslesen des gemessenen Phasenstroms [A]",
+    "TTL_minAmp": "Minimal zulässiger Strom [A]",
+    "TTL_maxAmp": "Maximal zulässiger Strom [A]",
+    "LBL_helpLink": "Adapterdokumentation anzeigen",
+    "TXT_donateTxt": "Wenn Ihnen dieses Projekt gefallen hat – oder Sie sich einfach großzügig fühlen, denken Sie darüber nach, mir ein Bier zu spendieren. Prost! 🍻"
 }

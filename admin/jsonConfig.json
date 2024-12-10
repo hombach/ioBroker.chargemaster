@@ -11,19 +11,7 @@
 			"items": {
 				"cycleTime": {
 					"type": "number",
-					"label": {
-						"en": "Cycletime for chargemanager [ms] - (default 10000)",
-						"de": "Zykluszeit für den Lademanager [ms] - (Standard 10000)",
-						"ru": "Цикл времени для менеджера зарядки [мс] - (по умолчанию 10000)",
-						"pt": "Tempo de ciclo para o gerenciador de carga [ms] - (padrão 10000)",
-						"nl": "Cyclustijd voor laadbeheer [ms] - (standaard 10000)",
-						"fr": "Temps de cycle pour le gestionnaire de charge [ms] - (par défaut 10000)",
-						"it": "Tempo di ciclo per il gestore di carica [ms] - (predefinito 10000)",
-						"es": "Tiempo de ciclo para el gestor de carga [ms] - (por defecto 10000)",
-						"pl": "Czas cyklu dla menedżera ładowania [ms] - (domyślnie 10000)",
-						"uk": "Час циклу для керуючого зарядкою [мс] - (за замовчуванням 10000)",
-						"zh-cn": "充电管理器的循环时间 [ms] -（默认 10000）"
-					},
+					"label": "LBL_cycleTime",
 					"min": 1000,
 					"step": 100,
 					"xs": 12,
@@ -35,19 +23,7 @@
 				},
 				"maxAmpTotal": {
 					"type": "number",
-					"label": {
-						"en": "Maximum allowed sum of currents for complete system [A]",
-						"de": "Maximal zulässige Summe der Ströme für das gesamte System [A]",
-						"ru": "Максимально допустимая сумма токов для всей системы [A]",
-						"pt": "Soma máxima permitida de correntes para o sistema completo [A]",
-						"nl": "Maximale toegestane som van stromen voor het volledige systeem [A]",
-						"fr": "Somme maximale autorisée des courants pour le système complet [A]",
-						"it": "Somma massima consentita delle correnti per l'intero sistema [A]",
-						"es": "Suma máxima permitida de corrientes para todo el sistema [A]",
-						"pl": "Maksymalna dopuszczalna suma prądów dla całego systemu [A]",
-						"uk": "Максимально допустима сума струмів для всієї системи [A]",
-						"zh-cn": "整个系统允许的最大电流总和 [A]"
-					},
+					"label": "LBL_maxAmpTotal",
 					"min": 1,
 					"step": 1,
 					"xs": 12,
@@ -60,19 +36,7 @@
 
 				"stateHomeSolarPower": {
 					"type": "objectId",
-					"label": {
-						"en": "object-id for currently available solar power [W]",
-						"de": "Objekt-ID für derzeit verfügbare Solarenergie [W]",
-						"ru": "ID объекта для доступной солнечной энергии [Вт]",
-						"pt": "ID de objeto para potência solar disponível atualmente [W]",
-						"nl": "object-id voor momenteel beschikbare zonne-energie [W]",
-						"fr": "ID d'objet pour la puissance solaire actuellement disponible [W]",
-						"it": "ID oggetto per l'energia solare attualmente disponibile [W]",
-						"es": "ID de objeto para la energía solar actualmente disponible [W]",
-						"pl": "identyfikator obiektu dla aktualnie dostępnej energii słonecznej [W]",
-						"uk": "ідентифікатор об'єкта для доступної сонячної енергії [Вт]",
-						"zh-cn": "当前可用太阳能的对象 ID [W]"
-					},
+					"label": "LBL_stateHomeSolarPower",
 					"xs": 12,
 					"sm": 12,
 					"md": 12,
@@ -82,19 +46,7 @@
 				},
 				"stateHomePowerConsumption": {
 					"type": "objectId",
-					"label": {
-						"en": "object-id for current home power consumption [W]",
-						"de": "Objekt-ID für den aktuellen Stromverbrauch des Haushalts [W]",
-						"ru": "ID объекта для текущего энергопотребления дома [Вт]",
-						"pt": "ID de objeto para o consumo de energia doméstico atual [W]",
-						"nl": "object-id voor huidig stroomverbruik thuis [W]",
-						"fr": "ID d'objet pour la consommation d'énergie domestique actuelle [W]",
-						"it": "ID oggetto per il consumo energetico attuale della casa [W]",
-						"es": "ID de objeto para el consumo eléctrico actual del hogar [W]",
-						"pl": "identyfikator obiektu dla bieżącego zużycia energii w domu [W]",
-						"uk": "ідентифікатор об'єкта для поточного споживання електроенергії в домогосподарстві [Вт]",
-						"zh-cn": "当前家庭电力消耗的对象 ID [W]"
-					},
+					"label": "LBL_stateHomePowerConsumption",
 					"xs": 12,
 					"sm": 12,
 					"md": 12,
@@ -105,19 +57,7 @@
 
 				"stateHomeBatSoc": {
 					"type": "objectId",
-					"label": {
-						"en": "object-id for current home battery state of charge [%]",
-						"de": "Objekt-ID für den aktuellen Ladezustand der Hausbatterie [%]",
-						"ru": "ID объекта для текущего уровня заряда домашней батареи [%]",
-						"pt": "ID de objeto para o estado atual de carga da bateria doméstica [%]",
-						"nl": "object-id voor de huidige laadstatus van de thuisbatterij [%]",
-						"fr": "ID d'objet pour l'état de charge actuel de la batterie domestique [%]",
-						"it": "ID oggetto per lo stato di carica attuale della batteria domestica [%]",
-						"es": "ID de objeto para el estado de carga actual de la batería doméstica [%]",
-						"pl": "identyfikator obiektu dla bieżącego stanu naładowania baterii domowej [%]",
-						"uk": "ідентифікатор об'єкта для поточного рівня заряду домашньої батареї [%]",
-						"zh-cn": "当前家庭电池充电状态的对象 ID [%]"
-					},
+					"label": "LBL_stateHomeBatSoc",
 					"xs": 12,
 					"sm": 12,
 					"md": 12,
@@ -144,111 +84,39 @@
 					"md": 12,
 					"lg": 12,
 					"xl": 12,
-					"label": {
-						"en": "Define connection states of your wallboxes and their separate current limits",
-						"de": "Definieren Sie Verbindungszustände Ihrer Wallboxen und deren separate Stromgrenzen",
-						"ru": "Определите состояния подключения ваших зарядных станций и их отдельные ограничения по току",
-						"pt": "Defina os estados de conexão das suas wallboxes e seus limites de corrente separados",
-						"nl": "Definieer verbindingsstatussen van uw wallboxen en hun afzonderlijke stroomlimieten",
-						"fr": "Définissez les états de connexion de vos wallboxs et leurs limites de courant séparées",
-						"it": "Definisci gli stati di connessione delle tue wallbox e i loro limiti di corrente separati",
-						"es": "Defina los estados de conexión de sus wallbox y sus límites de corriente separados",
-						"pl": "Zdefiniuj stany połączeń swoich wallboxów i ich osobne limity prądu",
-						"uk": "Визначте стани підключення ваших зарядних станцій та їх окремі обмеження струму",
-						"zh-cn": "定义您的充电桩的连接状态及其单独的电流限制"
-					},
+					"label": "LBL_wallBoxList",
 					"items": [
 						{
 							"type": "objectId",
-							"title": {
-								"en": "object-ID for setting charging current [A]",
-								"de": "Objekt-ID zum Einstellen des Ladestroms [A]",
-								"ru": "object-ID для установки тока зарядки [A]",
-								"pt": "ID de objeto para configurar a corrente de carregamento [A]",
-								"nl": "object-ID voor het instellen van laadstroom [A]",
-								"fr": "ID d'objet pour régler le courant de charge [A]",
-								"it": "ID oggetto per impostare la corrente di carica [A]",
-								"es": "ID de objeto para configurar la corriente de carga [A]",
-								"pl": "identyfikator obiektu do ustawiania prądu ładowania [A]",
-								"uk": "object-ID для налаштування струму заряджання [A]",
-								"zh-cn": "设置充电电流的 object-ID [A]"
-							},
+							"title": "TTL_stateChargeCurrent",
 							"attr": "stateChargeCurrent",
 							"width": "20%",
 							"default": ""
 						},
 						{
 							"type": "objectId",
-							"title": {
-								"en": "object-ID for enabling charging [true/false]",
-								"de": "Objekt-ID zum Aktivieren des Ladens [true/false]",
-								"ru": "object-id для включения зарядки [true/false]",
-								"pt": "id de objeto para ativar o carregamento [true/false]",
-								"nl": "object-id voor het inschakelen van opladen [true/false]",
-								"fr": "object-id pour activer la charge [true/false]",
-								"it": "ID oggetto per abilitare la ricarica [true/false]",
-								"es": "ID de objeto para habilitar la carga [true/false]",
-								"pl": "identyfikator obiektu do włączania ładowania [true/false]",
-								"uk": "object-id для увімкнення зарядки [true/false]",
-								"zh-cn": "启用充电的 object-id [true/false]"
-							},
+							"title": "TTL_stateChargeAllowed",
 							"attr": "stateChargeAllowed",
 							"width": "20%",
 							"default": ""
 						},
 						{
 							"type": "objectId",
-							"title": {
-								"en": "object-ID for reading charging power [W]",
-								"de": "Objekt-ID zum Auslesen der Ladeleistung [W]",
-								"ru": "object-ID для считывания мощности зарядки [W]",
-								"pt": "ID do objeto para leitura da potência de carregamento [W]",
-								"nl": "object-ID voor het uitlezen van laadvermogen [W]",
-								"fr": "object-ID pour lire la puissance de charge [W]",
-								"it": "ID oggetto per la lettura della potenza di carica [W]",
-								"es": "ID de objeto para leer la potencia de carga [W]",
-								"pl": "identyfikator obiektu do odczytu mocy ładowania [W]",
-								"uk": "object-ID для зчитування потужності зарядки [W]",
-								"zh-cn": "读取充电功率的 object-ID [W]"
-							},
+							"title": "TTL_stateActiveChargePower",
 							"attr": "stateActiveChargePower",
 							"width": "20%",
 							"default": ""
 						},
 						{
 							"type": "objectId",
-							"title": {
-								"en": "object-id for reading measured phase current [A]",
-								"de": "Objekt-ID zum Auslesen des gemessenen Phasenstroms [A]",
-								"ru": "object-id для считывания измеренного фазного тока [A]",
-								"pt": "ID do objeto para leitura da corrente de fase medida [A]",
-								"nl": "object-id voor het uitlezen van de gemeten fase stroom [A]",
-								"fr": "object-id pour lire le courant de phase mesuré [A]",
-								"it": "ID oggetto per la lettura della corrente di fase misurata [A]",
-								"es": "ID de objeto para leer la corriente de fase medida [A]",
-								"pl": "identyfikator obiektu do odczytu mierzonego prądu fazowego [A]",
-								"uk": "object-id для зчитування виміряного фазного струму [A]",
-								"zh-cn": "读取测量相电流的 object-id [A]"
-							},
+							"title": "TTL_stateActiveChargeAmp",
 							"attr": "stateActiveChargeAmp",
 							"width": "20%",
 							"default": ""
 						},
 						{
 							"type": "number",
-							"title": {
-								"en": "Minimum allowed current [A]",
-								"de": "Minimal erlaubter Strom [A]",
-								"ru": "Минимально допустимый ток [A]",
-								"pt": "Corrente mínima permitida [A]",
-								"nl": "Minimaal toegestane stroom [A]",
-								"fr": "Courant minimum autorisé [A]",
-								"it": "Corrente minima consentita [A]",
-								"es": "Corriente mínima permitida [A]",
-								"pl": "Minimalny dopuszczalny prąd [A]",
-								"uk": "Мінімально допустимий струм [A]",
-								"zh-cn": "允许的最小电流 [A]"
-							},
+							"title": "TTL_minAmp",
 							"attr": "minAmp",
 							"min": 1,
 							"max": 31,
@@ -258,19 +126,7 @@
 						},
 						{
 							"type": "number",
-							"title": {
-								"en": "Maximum allowed current [A]",
-								"de": "Maximal erlaubter Strom [A]",
-								"ru": "Максимально допустимый ток [A]",
-								"pt": "Corrente máxima permitida [A]",
-								"nl": "Maximaal toegestane stroom [A]",
-								"fr": "Courant maximum autorisé [A]",
-								"it": "Corrente massima consentita [A]",
-								"es": "Corriente máxima permitida [A]",
-								"pl": "Maksymalny dopuszczalny prąd [A]",
-								"uk": "Максимально допустимий струм [A]",
-								"zh-cn": "允许的最大电流 [A]"
-							},
+							"title": "TTL_maxAmp",
 							"attr": "maxAmp",
 							"min": 2,
 							"max": 32,
@@ -297,19 +153,7 @@
 					"button": true,
 					"variant": "contained",
 					"icon": "info",
-					"label": {
-						"en": "Show adapter documentation",
-						"de": "Adapter-Dokumentation anzeigen",
-						"ru": "Показать документацию по адаптеру",
-						"pt": "Mostrar documentação do adaptador",
-						"nl": "Toon adapterdocumentatie",
-						"fr": "Afficher la documentation de l'adaptateur",
-						"it": "Mostra la documentazione dell'adattatore",
-						"es": "Mostrar la documentación del adaptador",
-						"pl": "Pokaż dokumentację adaptera",
-						"uk": "Показати документацію адаптера",
-						"zh-cn": "显示适配器文档"
-					},
+					"label": "LBL_helpLink",
 					"href": "https://github.com/hombach/ioBroker.chargemaster/blob/master/README.md",
 					"newLine": true,
 					"xs": 12,
@@ -338,21 +182,9 @@
 					"xl": 1,
 					"newLine": true
 				},
-				"_donateTx": {
+				"_donateTxt": {
 					"type": "staticText",
-					"text": {
-						"en": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻",
-						"de": "Wenn Ihnen dieses Projekt gefallen hat – oder Sie einfach großzügig sind, überlegen Sie, mir ein Bier zu spendieren. Prost! 🍻",
-						"ru": "Если вам понравился этот проект — или вы просто чувствуете себя щедрым, подумайте о том, чтобы купить мне пиво. Ура! 🍻",
-						"pt": "Se você gostou deste projeto - ou está se sentindo generoso, considere me comprar uma cerveja. Saúde! 🍻",
-						"nl": "Als je genoten hebt van dit project — of gewoon gul bent, overweeg dan om me een biertje te kopen. Proost! 🍻",
-						"fr": "Si vous avez apprécié ce projet — ou si vous vous sentez généreux, envisagez de m'acheter une bière. Santé! 🍻",
-						"it": "Se ti è piaciuto questo progetto — o se ti senti generoso, considera di offrirmi una birra. Salute! 🍻",
-						"es": "Si disfrutaste de este proyecto — o simplemente te sientes generoso, considera comprarme una cerveza. ¡Salud! 🍻",
-						"pl": "Jeśli spodobał ci się ten projekt — lub po prostu czujesz się hojny, rozważ kupienie mi piwa. Na zdrowie! 🍻",
-						"uk": "Якщо вам сподобався цей проект — або ви просто хочете зробити приємне, подумайте про те, щоб купити мені пиво. Ура! 🍻",
-						"zh-cn": "如果你喜欢这个项目，或者只是觉得慷慨，请考虑请我喝一杯啤酒。干杯！🍻"
-					},
+					"text": "TXT_donateTxt",
 					"xs": 12,
 					"sm": 12,
 					"md": 12,

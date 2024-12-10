@@ -1,3 +1,17 @@
 {
-    "LBL_StandardTab": "Impostazioni standard"
+    "LBL_StandardTab": "Impostazioni standard",
+    "LBL_cycleTime": "Tempo di ciclo per chargemanager [ms] - (default 10000)",
+    "LBL_maxAmpTotal": "Somma massima consentita delle correnti per il sistema completo [A]",
+    "LBL_stateHomeSolarPower": "ID oggetto per l'energia solare attualmente disponibile [W]",
+    "LBL_stateHomePowerConsumption": "ID oggetto per il consumo energetico domestico attuale [W]",
+    "LBL_stateHomeBatSoc": "ID oggetto per lo stato di carica attuale della batteria domestica [%]",
+    "LBL_wallBoxList": "Definisci gli stati di connessione delle tue Wallbox e i loro limiti di corrente separati",
+    "TTL_stateChargeCurrent": "ID oggetto per l'impostazione della corrente di carica [A]",
+    "TTL_stateChargeAllowed": "ID oggetto per abilitare la ricarica [true/false]",
+    "TTL_stateActiveChargePower": "ID oggetto per la lettura della potenza di ricarica [W]",
+    "TTL_stateActiveChargeAmp": "ID oggetto per la lettura della corrente di fase misurata [A]",
+    "TTL_minAmp": "Corrente minima consentita [A]",
+    "TTL_maxAmp": "Corrente massima consentita [A]",
+    "LBL_helpLink": "Mostra la documentazione dell'adattatore",
+    "TXT_donateTxt": "Se ti è piaciuto questo progetto o semplicemente ti senti generoso, valuta l'idea di comprarmi una birra. Saluti! 🍻"
 }

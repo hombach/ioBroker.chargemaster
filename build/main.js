@@ -75,9 +75,11 @@ class ChargeMaster extends utils.Adapter {
             }
             try {
                 const ret = await adapter.getForeignObjectAsync(input);
-                adapter.log.debug(`Foreign state verification by getForeignObjectAsync() returns: ${ret}`);
                 if (ret == null) {
                     throw new Error(`State "${input}" does not exist.`);
+                }
+                else if (ret) {
+                    adapter.log.debug(`Foreign state verification by getForeignObjectAsync()`);
                 }
             }
             catch (error) {
@@ -92,7 +94,7 @@ class ChargeMaster extends utils.Adapter {
             this.log.info(`Verified solar system states`);
         }
         else {
-            this.setState(`info.connection`, false, true);
+            void this.setState(`info.connection`, false, true);
             this.log.error(`Solar system states not correct configured or not reachable - stopping adapter`);
             await this.stop?.({ exitCode: 11, reason: `invalid config` });
             return;
@@ -105,7 +107,7 @@ class ChargeMaster extends utils.Adapter {
                 this.log.info(`Charger ${i} states verified`);
             }
             else {
-                this.setState(`info.connection`, false, true);
+                void this.setState(`info.connection`, false, true);
                 this.log.error(`Charger ${i} not correct configured or not reachable - stopping adapter`);
                 await this.stop?.({ exitCode: 11, reason: `invalid config` });
                 return;
@@ -114,9 +116,9 @@ class ChargeMaster extends utils.Adapter {
         //#endregion
         //#region *** Setup configured amount of charger control objects ***
         for (let i = 0; i < this.config.wallBoxList.length; i++) {
-            this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeNOW`, false, `ChargeNOW enabled for wallbox ${i}`, true, true);
-            this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeManager`, false, `Charge Manager for wallbox ${i} enabled`, true, true);
-            this.projectUtils.checkAndSetValueNumber(`Settings.WB_${i}.ChargeCurrent`, 6, `Set chargeNOW current output for wallbox ${i}`, "A", true, true);
+            void this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeNOW`, false, `ChargeNOW enabled for wallbox ${i}`, true, true);
+            void this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeManager`, false, `Charge Manager for wallbox ${i} enabled`, true, true);
+            void this.projectUtils.checkAndSetValueNumber(`Settings.WB_${i}.ChargeCurrent`, 6, `Set chargeNOW current output for wallbox ${i}`, "A", true, true);
         }
         //#endregion
         //#region *** sentry.io ping ***
@@ -124,10 +126,9 @@ class ChargeMaster extends utils.Adapter {
             const sentryInstance = this.getPluginInstance("sentry");
             const today = new Date();
             const last = await this.getStateAsync("info.LastSentryLogDay");
-            if (last?.val != (await today.getDate())) {
+            if (last?.val != today.getDate()) {
                 if (sentryInstance) {
                     const Sentry = sentryInstance.getSentryObject();
-                    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                     Sentry &&
                         Sentry.withScope((scope) => {
                             scope.setLevel("info");
@@ -139,7 +140,10 @@ class ChargeMaster extends utils.Adapter {
                             Sentry.captureMessage("Adapter chargemaster started", "info");
                         });
                 }
-                this.setState(`info.LastSentryLogDay`, { val: today.getDate(), ack: true });
+                void this.setState(`info.LastSentryLogDay`, {
+                    val: today.getDate(),
+                    ack: true,
+                });
             }
         }
         //#endregion
@@ -163,13 +167,13 @@ class ChargeMaster extends utils.Adapter {
                     SetAllow: false,
                 });
             }
-            this.calcTotalPower();
+            void this.calcTotalPower();
         }
         catch (error) {
-            this.setState(`info.connection`, false, true);
+            void this.setState(`info.connection`, false, true);
             this.log.error(`Unhandled exception processing initial state check: ${error}`);
         }
-        this.setState(`info.connection`, true, true);
+        void this.setState(`info.connection`, true, true);
         this.log.info(`Init done, launching state machine`);
         await this.StateMachine();
     }
@@ -190,7 +194,7 @@ class ChargeMaster extends utils.Adapter {
      * Is called if a subscribed state changes
      * @param { string } id
      * @param { ioBroker.State | null | undefined } state */
-    async onStateChange(id, state) {
+    onStateChange(id, state) {
         try {
             if (state) {
                 // The state was changed
@@ -199,11 +203,13 @@ class ChargeMaster extends utils.Adapter {
                     //"state chargemaster.0.Settings.WB_3.ChargeNOW changed to: true (ack = false)"
                     const subId = id.substring(id.indexOf(`Settings.`));
                     if (subId === `Settings.Setpoint_HomeBatSoC`) {
-                        if (typeof state.val === "number")
+                        if (typeof state.val === "number") {
                             minHomeBatVal = state.val;
-                        else if (typeof state.val === "string")
+                        }
+                        else if (typeof state.val === "string") {
                             minHomeBatVal = parseInt(state.val);
-                        this.setState(id, minHomeBatVal, true);
+                        }
+                        void this.setState(id, minHomeBatVal, true);
                     }
                     else {
                         for (let i = 0; i < this.config.wallBoxList.length; i++) {
@@ -212,7 +218,7 @@ class ChargeMaster extends utils.Adapter {
                                     if (typeof state.val === "boolean") {
                                         this.wallboxInfoList[i].ChargeNOW = state.val;
                                         this.log.debug(`wallbox ${i} setting ChargeNOW changed to ${state.val}`);
-                                        this.setState(id, state.val, true); // set acknowledge true
+                                        void this.setState(id, state.val, true); // set acknowledge true
                                     }
                                     else {
                                         this.log.warn(`Wrong type for wallbox ${i} setting ChargeNOW: ${state.val}`);
@@ -222,7 +228,7 @@ class ChargeMaster extends utils.Adapter {
                                     if (typeof state.val === "boolean") {
                                         this.wallboxInfoList[i].ChargeManager = state.val;
                                         this.log.debug(`wallbox ${i} setting ChargeManager changed to ${state.val}`);
-                                        this.setState(id, state.val, true); // set acknowledge true
+                                        void this.setState(id, state.val, true); // set acknowledge true
                                     }
                                     else {
                                         this.log.warn(`Wrong type for wallbox ${i} setting ChargeManager: ${state.val}`);
@@ -232,7 +238,7 @@ class ChargeMaster extends utils.Adapter {
                                     if (typeof state.val === "number") {
                                         this.wallboxInfoList[i].ChargeCurrent = state.val;
                                         this.log.debug(`wallbox ${i} setting ChargeCurrent changed to ${state.val}`);
-                                        this.setState(id, state.val, true); // set acknowledge true
+                                        void this.setState(id, state.val, true); // set acknowledge true
                                     }
                                     else {
                                         this.log.warn(`Wrong type for wallbox ${i} setting ChargeCurrent: ${state.val}`);
@@ -251,7 +257,8 @@ class ChargeMaster extends utils.Adapter {
             this.log.error(`Unhandled exception processing stateChange: ${error}`);
         }
     }
-    /** StateMachine
+    /**
+     * StateMachine
      * Manages the state machine for controlling the charging of wallboxes.
      * This method performs the following actions in a continuous loop:
      *
@@ -265,8 +272,6 @@ class ChargeMaster extends utils.Adapter {
      * 5. - Calls `chargeConfig()` to apply any configuration changes.
      *
      * This process repeats indefinitely, managing the state of the wallboxes according to the specified conditions and limits.
-     *
-     * @method StateMachine
      */
     async StateMachine() {
         while (true) {
@@ -302,8 +307,8 @@ class ChargeMaster extends utils.Adapter {
                     this.log.debug(`State machine: Wallbox ${wallbox.ID} planned for switch off`);
                 }
             }
-            await this.chargeLimiter();
-            await this.chargeConfig();
+            this.chargeLimiter();
+            this.chargeConfig();
         }
     }
     async chargeManager(ID) {
@@ -314,15 +319,17 @@ class ChargeMaster extends utils.Adapter {
         const MAX_BAT_DISCHARGE = 2000;
         const RESERVE = 100;
         const VOLTAGE = 230;
-        const wallbox = this.wallboxInfoList.find((wallbox) => wallbox.ID == ID);
+        const wallbox = this.wallboxInfoList.find(wallbox => wallbox.ID == ID);
         if (wallbox) {
             let optAmpere = Math.floor((solarPower - houseConsumption + RESERVE + (MAX_BAT_DISCHARGE / (100 - minHomeBatVal)) * (batSoC - minHomeBatVal)) / VOLTAGE);
             optAmpere = Math.min(optAmpere, wallbox.MaxAmp); // limiting to max current of single box - global will be limited later
             this.log.debug(`Charge Manager: Optimal charging current of Wallbox ${ID} would be: ${optAmpere} A`);
-            if (wallbox.SetOptAmp < optAmpere)
+            if (wallbox.SetOptAmp < optAmpere) {
                 wallbox.SetOptAmp++;
-            else if (wallbox.SetOptAmp > optAmpere)
+            }
+            else if (wallbox.SetOptAmp > optAmpere) {
                 wallbox.SetOptAmp--;
+            }
             this.log.debug(`Charge Manager: Wallbox ${ID} blended current: ${wallbox.SetOptAmp} A; ` +
                 `Solar power: ${solarPower} W; ` +
                 `House consumption: ${houseConsumption} W; ` +
@@ -340,7 +347,8 @@ class ChargeMaster extends utils.Adapter {
             this.log.debug(`Charge Manager: Wallbox ${ID} planned state: ${wallbox.SetOptAllow}`);
         }
     }
-    /** charge_Limiter
+    /**
+     * charge_Limiter
      * Limits the charging current for a list of wallboxes based on their settings and the total available current.
      *
      * This method performs the following actions:
@@ -355,24 +363,24 @@ class ChargeMaster extends utils.Adapter {
      *    - For wallboxes that are allowed (`SetOptAllow` is `true`), do not have `ChargeNOW` set to `true`, but have a `ChargeManager`, it attempts to allocate current as available.
      *    - Similar to the second step, it adjusts the allocation if the total exceeds the maximum allowed current and turns off the wallbox if not enough current is available.
      *
-     * @method Charge_Limiter
      */
-    async chargeLimiter() {
+    chargeLimiter() {
         let TotalSetOptAmp = 0;
         // First loop: Wallboxes with SetOptAllow = false (shall be turned off immediately)
         this.wallboxInfoList
-            .filter((wallbox) => !wallbox.SetOptAllow)
-            .forEach((wallbox) => {
+            .filter(wallbox => !wallbox.SetOptAllow)
+            .forEach(wallbox => {
             wallbox.SetAllow = false;
             wallbox.SetAmp = wallbox.MinAmp;
             this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} switched off due to SetOptAllow being false`);
         });
         // Second loop: Wallboxes with ChargeNOW = true (enable as much current as available)
         this.wallboxInfoList
-            .filter((wallbox) => wallbox.SetOptAllow && wallbox.ChargeNOW)
-            .forEach((wallbox) => {
-            if (wallbox.SetOptAmp > this.config.maxAmpTotal)
+            .filter(wallbox => wallbox.SetOptAllow && wallbox.ChargeNOW)
+            .forEach(wallbox => {
+            if (wallbox.SetOptAmp > this.config.maxAmpTotal) {
                 wallbox.SetOptAmp = this.config.maxAmpTotal;
+            }
             if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
                 wallbox.SetAmp = wallbox.SetOptAmp;
                 wallbox.SetAllow = true;
@@ -395,10 +403,11 @@ class ChargeMaster extends utils.Adapter {
         });
         // Third loop: Remaining wallboxes without ChargeNOW, so boxes with ChargeManager
         this.wallboxInfoList
-            .filter((wallbox) => wallbox.SetOptAllow && !wallbox.ChargeNOW && wallbox.ChargeManager)
-            .forEach((wallbox) => {
-            if (wallbox.SetOptAmp > this.config.maxAmpTotal)
+            .filter(wallbox => wallbox.SetOptAllow && !wallbox.ChargeNOW && wallbox.ChargeManager)
+            .forEach(wallbox => {
+            if (wallbox.SetOptAmp > this.config.maxAmpTotal) {
                 wallbox.SetOptAmp = this.config.maxAmpTotal;
+            }
             if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
                 wallbox.SetAmp = wallbox.SetOptAmp;
                 wallbox.SetAllow = true;
@@ -432,13 +441,12 @@ class ChargeMaster extends utils.Adapter {
      *    - Checks if the total current including the new wallbox does not exceed the maximum allowed total current.
      *    - Updates the charge state and current for these wallboxes.
      *
-     * @method chargeConfig
      */
-    async chargeConfig() {
+    chargeConfig() {
         // First loop: Turn off wallboxes that are not allowed to charge
         this.wallboxInfoList
-            .filter((wallbox) => !wallbox.SetAllow) // first switch off boxes
-            .forEach((wallbox) => {
+            .filter(wallbox => !wallbox.SetAllow) // first switch off boxes
+            .forEach(wallbox => {
             try {
                 this.setForeignState(this.config.wallBoxList[wallbox.ID].stateChargeAllowed, wallbox.SetAllow);
                 this.setForeignState(this.config.wallBoxList[wallbox.ID].stateChargeCurrent, Number(wallbox.SetAmp));
@@ -451,8 +459,8 @@ class ChargeMaster extends utils.Adapter {
         });
         // Second loop: Configure wallboxes that are allowed to charge
         this.wallboxInfoList
-            .filter((wallbox) => wallbox.SetAllow) // wallboxes with operation
-            .forEach((wallbox) => {
+            .filter(wallbox => wallbox.SetAllow) // wallboxes with operation
+            .forEach(wallbox => {
             if (totalMeasuredChargeCurrent + (wallbox.SetAmp - wallbox.MeasuredMaxChargeAmp) <= this.config.maxAmpTotal) {
                 // HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
                 try {
@@ -466,7 +474,8 @@ class ChargeMaster extends utils.Adapter {
             }
         });
     } // END Charge_Config
-    /** calcTotalPower
+    /**
+     * calcTotalPower
      * Calculates the total charging power and current for all wallboxes in the system.
      *
      * This method performs the following actions:
@@ -481,7 +490,6 @@ class ChargeMaster extends utils.Adapter {
      *    - The total charging power is set in the state `"Power.Charge"` with the accumulated value.
      *    - Logs the total measured charging power and current.
      *
-     * @method calcTotalPower
      */
     async calcTotalPower() {
         totalChargePower = 0;
@@ -494,7 +502,7 @@ class ChargeMaster extends utils.Adapter {
                 totalChargePower += wallbox.ChargePower;
                 totalMeasuredChargeCurrent += Math.ceil(wallbox.MeasuredMaxChargeAmp);
             }
-            this.setState(`Power.Charge`, totalChargePower, true); // trim to Watt
+            void this.setState(`Power.Charge`, totalChargePower, true); // trim to Watt
             this.log.debug(`Total measured charge power: ${totalChargePower}W - Total measured charge current: ${totalMeasuredChargeCurrent}A`);
         }
         catch (error) {

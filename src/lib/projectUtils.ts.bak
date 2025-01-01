@@ -326,7 +326,6 @@ export class ProjectUtils {
 		stateName: string,
 		value: boolean,
 		description = "-",
-		role = "indicator",
 		writeable = false,
 		dontUpdate = false,
 		forceMode = false,
@@ -335,7 +334,7 @@ export class ProjectUtils {
 			const commonObj: ioBroker.StateCommon = {
 				name: stateName.split(".").pop(),
 				type: "boolean",
-				role: role,
+				role: "indicator",
 				desc: description,
 				read: true,
 				write: writeable,

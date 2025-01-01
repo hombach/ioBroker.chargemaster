@@ -90,13 +90,28 @@ class ChargeMaster extends utils.Adapter {
 
 		//#region *** Setup configured amount of charger control objects ***
 		for (let i = 0; i < this.config.wallBoxList.length; i++) {
-			void this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeNOW`, false, `ChargeNOW enabled for wallbox ${i}`, true, true);
-			void this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeManager`, false, `Charge Manager for wallbox ${i} enabled`, true, true);
+			void this.projectUtils.checkAndSetValueBoolean(
+				`Settings.WB_${i}.ChargeNOW`,
+				false,
+				`ChargeNOW enabled for wallbox ${i}`,
+				`switch.enable`,
+				true,
+				true,
+			);
+			void this.projectUtils.checkAndSetValueBoolean(
+				`Settings.WB_${i}.ChargeManager`,
+				false,
+				`Charge Manager for wallbox ${i} enabled`,
+				`switch.enable`,
+				true,
+				true,
+			);
 			void this.projectUtils.checkAndSetValueNumber(
 				`Settings.WB_${i}.ChargeCurrent`,
 				6,
 				`Set chargeNOW current output for wallbox ${i}`,
-				"A",
+				`A`,
+				`level.current`,
 				true,
 				true,
 			);

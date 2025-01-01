@@ -21,7 +21,7 @@
 		"resolveJsonModule": true,
 
 		// If you want to disable the stricter type checks (not recommended), uncomment the following line
-		// "strict": false,
+		"strict": true,
 		// And enable some of those features for more fine-grained control
 		// "strictNullChecks": true,
 		// "strictPropertyInitialization": true,
@@ -39,6 +39,6 @@
 		"inlineSourceMap": false
 		// "watch": false
 	},
-	"include": ["src/**/*.ts", "test/**/*.ts", "admin/**/*.ts", "admin/**/*.tsx", "eslint.config.mjs", "prettier.config.mjs"],
+	"include": ["src/**/*.ts", "test/**/*.ts", "admin/**/*.ts", "admin/**/*.tsx", "eslint.config.mjs"],
 	"exclude": ["build/**", "node_modules/**", "widgets/**"]
 }

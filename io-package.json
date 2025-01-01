@@ -55,19 +55,6 @@
 				"uk": "Реалізовано краще оброблення помилок зміни стану",
 				"zh-cn": "实现更好的状态更改错误处理"
 			},
-			"0.12.3": {
-				"en": "Fix bug in state subscription\nHarmonize project tools\nBump dependencies",
-				"de": "Fehler in der Zustandsabonnementbehandlung behoben\nProjektwerkzeuge harmonisiert\nAbhängigkeiten aktualisiert",
-				"ru": "Исправлена ошибка подписки на состояние\nУнификация инструментов проекта\nОбновление зависимостей",
-				"pt": "Corrigir bug na assinatura de estado\nHarmonizar ferramentas do projeto\nAtualizar dependências",
-				"nl": "Bug in toestandsabonnement opgelost\nProjecttools geharmoniseerd\nAfhankelijkheden bijgewerkt",
-				"fr": "Correction d'un bug dans l'abonnement à l'état\nHarmonisation des outils de projet\nMise à jour des dépendances",
-				"it": "Corretto bug nella sottoscrizione dello stato\nArmonizzati gli strumenti del progetto\nAggiornate le dipendenze",
-				"es": "Corregir error en la suscripción de estado\nArmonizar herramientas del proyecto\nActualizar dependencias",
-				"pl": "Naprawiono błąd w subskrypcji stanu\nUjednolicono narzędzia projektu\nZaktualizowano zależności",
-				"uk": "Виправлено помилку у підписці на стан\nУніфіковано інструменти проекту\nОновлено залежності",
-				"zh-cn": "修复状态订阅中的错误\n统一项目工具\n更新依赖项"
-			},
 			"0.12.2": {
 				"en": "Migrate eslint to >9.x\nBumped dependencies",
 				"de": "ESLint auf >9.x migriert\nAbhängigkeiten aktualisiert",

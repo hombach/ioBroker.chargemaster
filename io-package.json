@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "chargemaster",
-		"version": "0.12.7",
+		"version": "0.12.8",
 		"news": {
+			"0.12.8": {
+				"en": "Sentry changes\nbump dependencies",
+				"de": "Sentry geändert\nAbhängigkeiten aktualisiert",
+				"ru": "Сентри меняется\nУдар зависимости",
+				"pt": "Mudanças de sentinela\nBump dependências",
+				"nl": "Sentry -wijzigingen\nBump -afhankelijkheden",
+				"fr": "Sentry modifie\ndépendances",
+				"it": "Modifica della sentinella\ndipendenze bump",
+				"es": "Cambios de centinela\ndependencias de la protuberancia",
+				"pl": "Sentry zmienia się\nzależności od wypukłości",
+				"uk": "Зміни Sentry\nзалежності від удару",
+				"zh-cn": "哨兵更改\n凸起依赖性"
+			},
 			"0.12.7": {
 				"en": "year 2025 changes\ncode optimisations",
 				"de": "Jahr 2025 Änderungen\nCodeoptimierungen",

@@ -40,7 +40,6 @@ class ChargeMaster extends utils.Adapter {
 
 		//#region *** Verify configured foreign states chargers and amount of chargers ***
 		async function stateTest(adapter: ChargeMaster, input: string): Promise<boolean> {
-			// async function stateTest(adapter: any, input: string): Promise<boolean> {
 			if (input == "") {
 				return false;
 			}

@@ -49,6 +49,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.12.8 (2025-02-xx)
+
+- (HombachC) Sentry changes
+- (HombachC) bump dependencies
+
 ### 0.12.7 (2025-01-01)
 
 - (HombachC) year 2025 changes

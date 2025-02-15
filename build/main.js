@@ -69,7 +69,6 @@ class ChargeMaster extends utils.Adapter {
         this.subscribeStates(`Settings.*`); // this.subscribeForeignObjects('dwd.0.warning.*');
         //#region *** Verify configured foreign states chargers and amount of chargers ***
         async function stateTest(adapter, input) {
-            // async function stateTest(adapter: any, input: string): Promise<boolean> {
             if (input == "") {
                 return false;
             }

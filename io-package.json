@@ -68,19 +68,6 @@
 				"uk": "Реалізовано краще оброблення помилок зміни стану",
 				"zh-cn": "实现更好的状态更改错误处理"
 			},
-			"0.12.2": {
-				"en": "Migrate eslint to >9.x\nBumped dependencies",
-				"de": "ESLint auf >9.x migriert\nAbhängigkeiten aktualisiert",
-				"ru": "Перенос eslint на >9.x\nОбновлены зависимости",
-				"pt": "Migrar eslint para >9.x\nDependências atualizadas",
-				"nl": "Migreer eslint naar >9.x\nAfhankelijkheden bijgewerkt",
-				"fr": "Migration d'eslint vers >9.x\nDépendances mises à jour",
-				"it": "Migrazione di eslint a >9.x\nDipendenze aggiornate",
-				"es": "Migrar eslint a >9.x\nDependencias actualizadas",
-				"pl": "Migracja eslint do >9.x\nZaktualizowano zależności",
-				"uk": "Міграція eslint до >9.x\nОновлено залежності",
-				"zh-cn": "迁移 eslint 到 >9.x\n更新了依赖项"
-			},
 			"0.12.0": {
 				"en": "BREAKING: dropped support for admin < 7 (#544)\noptimized responsive design (#544)\noptimized translation handling",
 				"de": "WICHTIG: Unterstützung für Admin < 7 eingestellt (#544)\nresponsives Design optimiert (#544)\nÜbersetzungshandling optimiert",

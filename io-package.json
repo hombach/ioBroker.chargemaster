@@ -1,250 +1,258 @@
 {
-	"common": {
-		"name": "chargemaster",
-		"version": "0.12.8",
-		"news": {
-			"0.12.8": {
-				"en": "Sentry changes\nbump dependencies",
-				"de": "Sentry geändert\nAbhängigkeiten aktualisiert",
-				"ru": "Сентри меняется\nУдар зависимости",
-				"pt": "Mudanças de sentinela\nBump dependências",
-				"nl": "Sentry -wijzigingen\nBump -afhankelijkheden",
-				"fr": "Sentry modifie\ndépendances",
-				"it": "Modifica della sentinella\ndipendenze bump",
-				"es": "Cambios de centinela\ndependencias de la protuberancia",
-				"pl": "Sentry zmienia się\nzależności od wypukłości",
-				"uk": "Зміни Sentry\nзалежності від удару",
-				"zh-cn": "哨兵更改\n凸起依赖性"
-			},
-			"0.12.7": {
-				"en": "year 2025 changes\ncode optimisations",
-				"de": "Jahr 2025 Änderungen\nCodeoptimierungen",
-				"ru": "изменения 2025 года\nоптимизация кода",
-				"pt": "mudanças no ano de 2025\notimizações de código",
-				"nl": "jaar 2025 verandert\ncode-optimalisaties",
-				"fr": "changements en 2025\noptimisations de code",
-				"it": "anno 2025 cambia\nottimizzazioni del codice",
-				"es": "cambios del año 2025\noptimizaciones de código",
-				"pl": "zmiany roku 2025\noptymalizacje kodu",
-				"uk": "2025 рік зміни\nоптимізації коду",
-				"zh-cn": "2025年的变化\n代码优化"
-			},
-			"0.12.6": {
-				"en": "fix chai\nbump dependencies",
-				"de": "Chai reparieren\nBump-Abhängigkeiten",
-				"ru": "починить чай\nударные зависимости",
-				"pt": "consertar chai\ncolidir dependências",
-				"nl": "Chai repareren\nafhankelijkheden tegenkomen",
-				"fr": "réparer le chai\naugmenter les dépendances",
-				"it": "aggiusta chai\naumentare le dipendenze",
-				"es": "arreglar chai\ndependencias de tope",
-				"pl": "napraw chai\npodbić zależności",
-				"uk": "виправити чай\nbump залежності",
-				"zh-cn": "修复柴\n凹凸依赖性"
-			},
-			"0.12.5": {
-				"en": "switch to i18n translation (#572)\nimplement ioBroker.eslint-config (#580)\nbump dependencies",
-				"de": "Wechseln Sie zu I18N -Übersetzung (#572)\nIOBROKER.ESLINT-CONfig (#580) implementieren.\nBeuleabhängigkeiten",
-				"ru": "переключиться на перевод i18n (#572)\nреализовать ioBroker.eslint-config (#580)\nударные зависимости",
-				"pt": "mudar para tradução i18n (#572)\nimplementar ioBroker.eslint-config (#580)\ncolidir dependências",
-				"nl": "Schakel over naar I18N -vertaling (#572)\nImplementeer IoBRoker.eslint-config (#580)\nBump -afhankelijkheden",
-				"fr": "passer à la traduction i18n (#572)\nimplémenter ioBroker.eslint-config (#580)\naugmenter les dépendances",
-				"it": "Passa alla traduzione I18N (#572)\nImplementa IoBroker.eslint-config (#580)\ndipendenze bump",
-				"es": "cambiar a traducción i18n (#572)\nimplementar ioBroker.eslint-config (#580)\ndependencias de tope",
-				"pl": "Przejdź na tłumaczenie I18N (#572)\nWdrożenie IOBRAKER.ESLINT-CONFIG (#580)\nzależności od wypukłości",
-				"uk": "перейти до перекладу i18n (#572)\nреалізувати ioBroker.eslint-config (#580)\nbump залежності",
-				"zh-cn": "切换到 i18n 翻译 (#572)\n实施 ioBroker.eslint-config (#580)\n凹凸依赖性"
-			},
-			"0.12.4": {
-				"en": "Implement better state change error handling",
-				"de": "Verbessertes Fehlerhandling bei Zustandsänderungen implementieren",
-				"ru": "Реализовано улучшенное обработка ошибок при изменении состояния",
-				"pt": "Implementar melhor tratamento de erros de mudança de estado",
-				"nl": "Betere foutafhandeling bij statuswijzigingen implementeren",
-				"fr": "Mettre en œuvre une meilleure gestion des erreurs de changement d'état",
-				"it": "Implementare una migliore gestione degli errori di modifica dello stato",
-				"es": "Implementar un mejor manejo de errores de cambio de estado",
-				"pl": "Zaimplementowano lepsze obsługiwanie błędów przy zmianie stanu",
-				"uk": "Реалізовано краще оброблення помилок зміни стану",
-				"zh-cn": "实现更好的状态更改错误处理"
-			},
-			"0.12.0": {
-				"en": "BREAKING: dropped support for admin < 7 (#544)\noptimized responsive design (#544)\noptimized translation handling",
-				"de": "WICHTIG: Unterstützung für Admin < 7 eingestellt (#544)\nresponsives Design optimiert (#544)\nÜbersetzungshandling optimiert",
-				"ru": "ВАЖНО: прекращена поддержка admin < 7 (#544)\nоптимизирован адаптивный дизайн (#544)\nоптимизирована обработка переводов",
-				"pt": "IMPORTANTE: suporte para admin < 7 removido (#544)\notimização do design responsivo (#544)\notimização do manuseio de traduções",
-				"nl": "BELANGRIJK: ondersteuning voor admin < 7 beëindigd (#544)\nresponsive design geoptimaliseerd (#544)\nvertalingverwerking geoptimaliseerd",
-				"fr": "IMPORTANT: support pour admin < 7 abandonné (#544)\noptimisation du design réactif (#544)\noptimisation de la gestion des traductions",
-				"it": "IMPORTANTE: supporto per admin < 7 interrotto (#544)\nottimizzazione del design reattivo (#544)\nottimizzazione della gestione delle traduzioni",
-				"es": "IMPORTANTE: se eliminó el soporte para admin < 7 (#544)\noptimización del diseño responsivo (#544)\noptimización del manejo de traducciones",
-				"pl": "WAŻNE: zakończono wsparcie dla admin < 7 (#544)\noptymalizacja responsywnego projektu (#544)\noptymalizacja obsługi tłumaczeń",
-				"uk": "ВАЖЛИВО: підтримка admin < 7 припинена (#544)\nоптимізовано адаптивний дизайн (#544)\nоптимізовано обробку перекладів",
-				"zh-cn": "重大更新：已停止支持 admin < 7 (#544)\n优化响应式设计 (#544)\n优化翻译处理"
-			},
-			"0.11.0": {
-				"en": "implement variable wallbox amount\nfix errors in wallbox control\ncomplete rework of configuration screen\nmove utils to extra class\nswitch to ECMA 2022 code\nbumped dependencies",
-				"de": "Variable Anzahl von Wallboxen implementieren\nFehler in der Wallbox-Steuerung beheben\nVollständige Überarbeitung des Konfigurationsbildschirms\nUtils in eine eigene Klasse verschieben\nAuf ECMA 2022-Code umstellen\nAbhängigkeiten aktualisiert",
-				"ru": "реализовать переменное количество зарядных станций\nисправить ошибки в управлении зарядными станциями\nполная переработка экрана конфигурации\nперенести утилиты в отдельный класс\nперейти на код ECMA 2022\nобновлены зависимости",
-				"pt": "implementar quantidade variável de wallbox\ncorrigir erros no controle da wallbox\nrevisão completa da tela de configuração\nmover utilitários para uma classe extra\nmudar para código ECMA 2022\natualizadas as dependências",
-				"nl": "variabel aantal wallboxen implementeren\nfouten in wallboxbesturing oplossen\nvolledige herziening van configuratiescherm\nhulpmiddelen verplaatsen naar aparte klasse\noverschakelen naar ECMA 2022-code\nafhankelijkheden bijgewerkt",
-				"fr": "implémenter une quantité variable de wallbox\ncorriger les erreurs dans le contrôle de la wallbox\nrefonte complète de l'écran de configuration\nmouvoir les utilitaires dans une classe distincte\npasser au code ECMA 2022\nmise à jour des dépendances",
-				"it": "implementare quantità variabile di wallbox\ncorreggere errori nel controllo della wallbox\nristrutturazione completa dello schermo di configurazione\nspostare le utilità in una classe separata\npassare al codice ECMA 2022\naggiornati i pacchetti",
-				"es": "implementar cantidad variable de wallbox\ncorregir errores en el control de wallbox\nrevisión completa de la pantalla de configuración\nmover utilidades a una clase extra\ncambiar a código ECMA 2022\nactualizar dependencias",
-				"pl": "zaimplementuj zmienną ilość wallboxów\nnapraw błędy w sterowaniu wallboxem\nkompletna przebudowa ekranu konfiguracji\nprzenieś narzędzia do osobnej klasy\nprzejdź na kod ECMA 2022\nzaktualizowane zależności",
-				"uk": "реалізувати змінну кількість зарядних станцій\nвиправити помилки в управлінні зарядними станціями\nповна переробка екрану конфігурації\nперемістити утиліти в окремий клас\nперейти на код ECMA 2022\nоновлені залежності",
-				"zh-cn": "实现可变数量的充电桩\n修复充电桩控制中的错误\n完成配置界面的全面重构\n将工具移动到单独的类\n切换到 ECMA 2022 代码\n更新依赖项"
-			}
-		},
-		"titleLang": {
-			"en": "ChargeMaster",
-			"de": "ChargeMaster",
-			"ru": "ChargeMaster",
-			"pt": "ChargeMaster",
-			"nl": "ChargeMaster",
-			"fr": "ChargeMaster",
-			"it": "ChargeMaster",
-			"es": "ChargeMaster",
-			"pl": "ChargeMaster",
-			"uk": "ChargeMaster",
-			"zh-cn": "ChargeMaster"
-		},
-		"desc": {
-			"en": "Adapter for managing multi EV-chargers with use of PV-energy",
-			"de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
-			"ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
-			"pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
-			"nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
-			"fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
-			"it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
-			"es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
-			"pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
-			"uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
-			"zh-cn": "使用PV能源管理多个EV充电器的适配器"
-		},
-		"authors": ["Hombach <ChargeMaster@homba.ch>"],
-		"keywords": ["chargemaster", "wallbox", "solar power", "charger", "EV"],
-		"tier": 3,
-		"licenseInformation": {
-			"license": "MIT",
-			"type": "free"
-		},
-		"platform": "Javascript/Node.js",
-		"icon": "chargemaster.png",
-		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
-		"readme": "https://github.com/Hombach/ioBroker.chargemaster/master/README.md",
-		"loglevel": "info",
-		"mode": "daemon",
-		"type": "energy",
-		"compact": true,
-		"connectionType": "local",
-		"dataSource": "poll",
-		"adminUI": {
-			"config": "json"
-		},
-		"dependencies": [
-			{
-				"js-controller": ">=5.0.19"
-			}
-		],
-		"globalDependencies": [
-			{
-				"admin": ">=7.0.0"
-			}
-		],
-		"plugins": {
-			"sentry": {
-				"dsn": "https://2cad2201902b99e7d5611bba9f1f20db@o415875.ingest.us.sentry.io/4508824758714368"
-			}
-		},
-		"supportCustoms": false
-	},
-	"native": {
-		"cycletime": 10000,
-		"MaxAmpTotal": 6
-	},
-	"objects": [],
-	"instanceObjects": [
-		{
-			"_id": "info",
-			"type": "channel",
-			"common": {
-				"name": "Information"
-			},
-			"native": {}
-		},
-		{
-			"_id": "info.LastSentryLogDay",
-			"type": "state",
-			"common": {
-				"role": "value",
-				"name": "Last day of month for Sentry log",
-				"type": "number",
-				"unit": "",
-				"read": true,
-				"write": false,
-				"def": 0
-			},
-			"native": {}
-		},
-		{
-			"_id": "info.connection",
-			"type": "state",
-			"common": {
-				"role": "indicator.connected",
-				"name": "External input states connected",
-				"type": "boolean",
-				"read": true,
-				"write": false,
-				"def": false
-			},
-			"native": {}
-		},
-		{
-			"_id": "Power",
-			"type": "channel",
-			"common": {
-				"name": "current charging power data"
-			},
-			"native": {}
-		},
-		{
-			"_id": "Power.Charge",
-			"type": "state",
-			"common": {
-				"role": "value.power",
-				"name": "actual total charging-power",
-				"type": "number",
-				"unit": "W",
-				"read": true,
-				"write": false,
-				"def": 0
-			},
-			"native": {}
-		},
-		{
-			"_id": "Settings",
-			"type": "channel",
-			"common": {
-				"name": "states to dynamically adjust global settings"
-			},
-			"native": {}
-		},
-		{
-			"_id": "Settings.Setpoint_HomeBatSoC",
-			"type": "state",
-			"common": {
-				"role": "level",
-				"name": "Setpoint to dynamically adjust minimum home battery state of charge",
-				"type": "number",
-				"unit": "%",
-				"read": true,
-				"write": true,
-				"def": 80,
-				"max": 100,
-				"min": 0
-			},
-			"native": {}
-		}
-	]
+  "common": {
+    "name": "chargemaster",
+    "version": "0.12.9",
+    "news": {
+      "0.12.9": {
+        "en": "Bump @iobroker/adapter-dev to 1.4.0 (#621)\nUsing \"@alcalzone/release-script\" (#624)",
+        "de": "Bump @iobroker/adapter-dev zu 1.4.0 (#621)\nMit \"@alcalzone/release-script\" (#624)",
+        "ru": "Bump @iobroker/adapter-dev до 1.4.0 (#621)\nИспользование \"@alcalzone/releasescript\" (#624)",
+        "pt": "Bump @iobroker/adapter-dev to 1.4.0 (#621)\nUsando \"@alcalzone/release-script\" (#624)",
+        "nl": "Bump @iobroker/adapter-dev naar 1.4.0 (#621)\nGebruik van \"@alcalzone/release-script\" (#624)",
+        "fr": "Bump @iobroker/adaptateur-dev à 1.4.0 (#621)\nUtiliser \"@alcalzone/release-script\" (#624)",
+        "it": "Bump @iobroker/adapter-dev a 1.4.0 (#621)\nUtilizzando \"@alcalzone/release-script\" (#624)",
+        "es": "Bomba @iobroker/adapter-dev a 1.4.0 (#621)\nUtilizando \"@alcalzone/release-script\" (#624)",
+        "pl": "Bump @ iobroker / adapter- dev do 1.4.0 (# 621)\nUżywanie \"@ alcalzone / release- script\" (# 624)",
+        "uk": "Bump @iobroker/adapter-dev до 1.4.0 (#621)\nВикористання \"@alcalzone/видання\" (#624)",
+        "zh-cn": "跳跃@iobroster/adapter-dev 到 1. 4.0 (# 621)\n使用“@alcalzone/release-script”(# 624)"
+      },
+      "0.12.8": {
+        "en": "Sentry changes\nbump dependencies",
+        "de": "Sentry geändert\nAbhängigkeiten aktualisiert",
+        "ru": "Сентри меняется\nУдар зависимости",
+        "pt": "Mudanças de sentinela\nBump dependências",
+        "nl": "Sentry -wijzigingen\nBump -afhankelijkheden",
+        "fr": "Sentry modifie\ndépendances",
+        "it": "Modifica della sentinella\ndipendenze bump",
+        "es": "Cambios de centinela\ndependencias de la protuberancia",
+        "pl": "Sentry zmienia się\nzależności od wypukłości",
+        "uk": "Зміни Sentry\nзалежності від удару",
+        "zh-cn": "哨兵更改\n凸起依赖性"
+      },
+      "0.12.7": {
+        "en": "year 2025 changes\ncode optimisations",
+        "de": "Jahr 2025 Änderungen\nCodeoptimierungen",
+        "ru": "изменения 2025 года\nоптимизация кода",
+        "pt": "mudanças no ano de 2025\notimizações de código",
+        "nl": "jaar 2025 verandert\ncode-optimalisaties",
+        "fr": "changements en 2025\noptimisations de code",
+        "it": "anno 2025 cambia\nottimizzazioni del codice",
+        "es": "cambios del año 2025\noptimizaciones de código",
+        "pl": "zmiany roku 2025\noptymalizacje kodu",
+        "uk": "2025 рік зміни\nоптимізації коду",
+        "zh-cn": "2025年的变化\n代码优化"
+      },
+      "0.12.6": {
+        "en": "fix chai\nbump dependencies",
+        "de": "Chai reparieren\nBump-Abhängigkeiten",
+        "ru": "починить чай\nударные зависимости",
+        "pt": "consertar chai\ncolidir dependências",
+        "nl": "Chai repareren\nafhankelijkheden tegenkomen",
+        "fr": "réparer le chai\naugmenter les dépendances",
+        "it": "aggiusta chai\naumentare le dipendenze",
+        "es": "arreglar chai\ndependencias de tope",
+        "pl": "napraw chai\npodbić zależności",
+        "uk": "виправити чай\nbump залежності",
+        "zh-cn": "修复柴\n凹凸依赖性"
+      },
+      "0.12.5": {
+        "en": "switch to i18n translation (#572)\nimplement ioBroker.eslint-config (#580)\nbump dependencies",
+        "de": "Wechseln Sie zu I18N -Übersetzung (#572)\nIOBROKER.ESLINT-CONfig (#580) implementieren.\nBeuleabhängigkeiten",
+        "ru": "переключиться на перевод i18n (#572)\nреализовать ioBroker.eslint-config (#580)\nударные зависимости",
+        "pt": "mudar para tradução i18n (#572)\nimplementar ioBroker.eslint-config (#580)\ncolidir dependências",
+        "nl": "Schakel over naar I18N -vertaling (#572)\nImplementeer IoBRoker.eslint-config (#580)\nBump -afhankelijkheden",
+        "fr": "passer à la traduction i18n (#572)\nimplémenter ioBroker.eslint-config (#580)\naugmenter les dépendances",
+        "it": "Passa alla traduzione I18N (#572)\nImplementa IoBroker.eslint-config (#580)\ndipendenze bump",
+        "es": "cambiar a traducción i18n (#572)\nimplementar ioBroker.eslint-config (#580)\ndependencias de tope",
+        "pl": "Przejdź na tłumaczenie I18N (#572)\nWdrożenie IOBRAKER.ESLINT-CONFIG (#580)\nzależności od wypukłości",
+        "uk": "перейти до перекладу i18n (#572)\nреалізувати ioBroker.eslint-config (#580)\nbump залежності",
+        "zh-cn": "切换到 i18n 翻译 (#572)\n实施 ioBroker.eslint-config (#580)\n凹凸依赖性"
+      },
+      "0.12.4": {
+        "en": "Implement better state change error handling",
+        "de": "Verbessertes Fehlerhandling bei Zustandsänderungen implementieren",
+        "ru": "Реализовано улучшенное обработка ошибок при изменении состояния",
+        "pt": "Implementar melhor tratamento de erros de mudança de estado",
+        "nl": "Betere foutafhandeling bij statuswijzigingen implementeren",
+        "fr": "Mettre en œuvre une meilleure gestion des erreurs de changement d'état",
+        "it": "Implementare una migliore gestione degli errori di modifica dello stato",
+        "es": "Implementar un mejor manejo de errores de cambio de estado",
+        "pl": "Zaimplementowano lepsze obsługiwanie błędów przy zmianie stanu",
+        "uk": "Реалізовано краще оброблення помилок зміни стану",
+        "zh-cn": "实现更好的状态更改错误处理"
+      },
+      "0.12.0": {
+        "en": "BREAKING: dropped support for admin < 7 (#544)\noptimized responsive design (#544)\noptimized translation handling",
+        "de": "WICHTIG: Unterstützung für Admin < 7 eingestellt (#544)\nresponsives Design optimiert (#544)\nÜbersetzungshandling optimiert",
+        "ru": "ВАЖНО: прекращена поддержка admin < 7 (#544)\nоптимизирован адаптивный дизайн (#544)\nоптимизирована обработка переводов",
+        "pt": "IMPORTANTE: suporte para admin < 7 removido (#544)\notimização do design responsivo (#544)\notimização do manuseio de traduções",
+        "nl": "BELANGRIJK: ondersteuning voor admin < 7 beëindigd (#544)\nresponsive design geoptimaliseerd (#544)\nvertalingverwerking geoptimaliseerd",
+        "fr": "IMPORTANT: support pour admin < 7 abandonné (#544)\noptimisation du design réactif (#544)\noptimisation de la gestion des traductions",
+        "it": "IMPORTANTE: supporto per admin < 7 interrotto (#544)\nottimizzazione del design reattivo (#544)\nottimizzazione della gestione delle traduzioni",
+        "es": "IMPORTANTE: se eliminó el soporte para admin < 7 (#544)\noptimización del diseño responsivo (#544)\noptimización del manejo de traducciones",
+        "pl": "WAŻNE: zakończono wsparcie dla admin < 7 (#544)\noptymalizacja responsywnego projektu (#544)\noptymalizacja obsługi tłumaczeń",
+        "uk": "ВАЖЛИВО: підтримка admin < 7 припинена (#544)\nоптимізовано адаптивний дизайн (#544)\nоптимізовано обробку перекладів",
+        "zh-cn": "重大更新：已停止支持 admin < 7 (#544)\n优化响应式设计 (#544)\n优化翻译处理"
+      }
+    },
+    "titleLang": {
+      "en": "ChargeMaster",
+      "de": "ChargeMaster",
+      "ru": "ChargeMaster",
+      "pt": "ChargeMaster",
+      "nl": "ChargeMaster",
+      "fr": "ChargeMaster",
+      "it": "ChargeMaster",
+      "es": "ChargeMaster",
+      "pl": "ChargeMaster",
+      "uk": "ChargeMaster",
+      "zh-cn": "ChargeMaster"
+    },
+    "desc": {
+      "en": "Adapter for managing multi EV-chargers with use of PV-energy",
+      "de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
+      "ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
+      "pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
+      "nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
+      "fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
+      "it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
+      "es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
+      "pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
+      "uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
+      "zh-cn": "使用PV能源管理多个EV充电器的适配器"
+    },
+    "authors": [
+      "Hombach <ChargeMaster@homba.ch>"
+    ],
+    "keywords": [
+      "chargemaster",
+      "wallbox",
+      "solar power",
+      "charger",
+      "EV"
+    ],
+    "tier": 3,
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "chargemaster.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
+    "readme": "https://github.com/Hombach/ioBroker.chargemaster/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "energy",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.19"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.0.0"
+      }
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://2cad2201902b99e7d5611bba9f1f20db@o415875.ingest.us.sentry.io/4508824758714368"
+      }
+    },
+    "supportCustoms": false
+  },
+  "native": {
+    "cycletime": 10000,
+    "MaxAmpTotal": 6
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.LastSentryLogDay",
+      "type": "state",
+      "common": {
+        "role": "value",
+        "name": "Last day of month for Sentry log",
+        "type": "number",
+        "unit": "",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "External input states connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "Power",
+      "type": "channel",
+      "common": {
+        "name": "current charging power data"
+      },
+      "native": {}
+    },
+    {
+      "_id": "Power.Charge",
+      "type": "state",
+      "common": {
+        "role": "value.power",
+        "name": "actual total charging-power",
+        "type": "number",
+        "unit": "W",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings",
+      "type": "channel",
+      "common": {
+        "name": "states to dynamically adjust global settings"
+      },
+      "native": {}
+    },
+    {
+      "_id": "Settings.Setpoint_HomeBatSoC",
+      "type": "state",
+      "common": {
+        "role": "level",
+        "name": "Setpoint to dynamically adjust minimum home battery state of charge",
+        "type": "number",
+        "unit": "%",
+        "read": true,
+        "write": true,
+        "def": 80,
+        "max": 100,
+        "min": 0
+      },
+      "native": {}
+    }
+  ]
 }

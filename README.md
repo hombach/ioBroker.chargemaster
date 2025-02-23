@@ -51,7 +51,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (HombachC) bump to admin 7.4.10 as recommended by ioBroker (#623)
+- (HombachC) bump needed admin to 7.4.10 as recommended by ioBroker (#623)
 
 ### 0.12.9 (2025-02-23)
 

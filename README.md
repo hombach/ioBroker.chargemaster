@@ -49,6 +49,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### **WORK IN PROGRESS**
+
+- (HombachC) bump to admin 7.4.10 as recommended by ioBroker (#623)
+
 ### 0.12.9 (2025-02-23)
 
 - (HombachC) Bump @iobroker/adapter-dev to 1.4.0 (#621)

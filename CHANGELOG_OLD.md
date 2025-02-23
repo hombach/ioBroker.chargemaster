@@ -16,6 +16,12 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 ## Changelog - OLD CHANGES
 
+### 0.12.5 (2024-12-12)
+
+- (HombachC) switch to i18n translation (#572)
+- (HombachC) implement ioBroker.eslint-config (#580)
+- (HombachC) bump dependencies
+
 ### 0.12.4 (2024-11-23)
 
 - (HombachC) implement better state change error handling
@@ -247,8 +253,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-## 0.12.5 (2024-12-12)
-
-- (HombachC) switch to i18n translation (#572)
-- (HombachC) implement ioBroker.eslint-config (#580)
-- (HombachC) bump dependencies

@@ -1,0 +1,17 @@
+{
+    "LBL_StandardTab": "标准设置",
+    "LBL_cycleTime": "Chargemanager 的周期时间 [ms] -（默认 10000）",
+    "LBL_helpLink": "显示适配器文档",
+    "LBL_maxAmpTotal": "整个系统最大允许电流总和 [A]",
+    "LBL_stateHomeBatSoc": "当前家用电池充电状态的对象 ID [%]",
+    "LBL_stateHomePowerConsumption": "当前家庭功耗的对象 ID [W]",
+    "LBL_stateHomeSolarPower": "当前可用太阳能的对象 ID [W]",
+    "LBL_wallBoxList": "定义墙盒的连接状态及其单独的电流限制",
+    "TTL_maxAmp": "最大允许电流 [A]",
+    "TTL_minAmp": "最小允许电流 [A]",
+    "TTL_stateActiveChargeAmp": "用于读取测量相电流 [A] 的对象 ID",
+    "TTL_stateActiveChargePower": "用于读取充电功率 [W] 的对象 ID",
+    "TTL_stateChargeAllowed": "用于启用充电的对象 ID [true/false]",
+    "TTL_stateChargeCurrent": "用于设置充电电流 [A] 的对象 ID",
+    "TXT_donateTxt": "如果你喜欢这个项目——或者只是觉得慷慨，可以考虑给我买瓶啤酒。干杯! 🍻"
+}

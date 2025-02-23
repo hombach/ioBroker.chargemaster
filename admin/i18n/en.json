@@ -1,0 +1,17 @@
+{
+    "LBL_StandardTab": "Standard Settings",
+    "LBL_cycleTime": "Cycletime for chargemanager [ms] - (default 10000)",
+    "LBL_helpLink": "Show adapter documentation",
+    "LBL_maxAmpTotal": "Maximum allowed sum of currents for complete system [A]",
+    "LBL_stateHomeBatSoc": "object-ID for current home battery state of charge [%]",
+    "LBL_stateHomePowerConsumption": "object-ID for current home power consumption [W]",
+    "LBL_stateHomeSolarPower": "object-ID for currently available solar power [W]",
+    "LBL_wallBoxList": "Define connection states of your wallboxes and their separate current limits",
+    "TTL_maxAmp": "Maximum allowed current [A]",
+    "TTL_minAmp": "Minimum allowed current [A]",
+    "TTL_stateActiveChargeAmp": "object-ID for reading measured phase current [A]",
+    "TTL_stateActiveChargePower": "object-ID for reading charging power [W]",
+    "TTL_stateChargeAllowed": "object-ID for enabling charging [true/false]",
+    "TTL_stateChargeCurrent": "object-ID for setting charging current [A]",
+    "TXT_donateTxt": "If you enjoyed this project — or just feeling generous, consider buying me a beer. Cheers! 🍻"
+}

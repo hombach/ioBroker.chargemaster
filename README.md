@@ -48,6 +48,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### **WORK IN PROGRESS**
+
+- (HombachC) bump dependencies
+
 ### 0.13.0 (2025-02-23)
 
 - (HombachC) bump needed admin to 7.4.10 as recommended by ioBroker (#623)

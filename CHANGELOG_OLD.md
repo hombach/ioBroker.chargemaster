@@ -16,6 +16,11 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 ## Changelog - OLD CHANGES
 
+### 0.12.6 (2024-12-21)
+
+- (HombachC) fix chai-as-promised
+- (HombachC) bump dependencies
+
 ### 0.12.5 (2024-12-12)
 
 - (HombachC) switch to i18n translation (#572)

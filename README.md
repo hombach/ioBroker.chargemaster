@@ -49,7 +49,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### **WORK IN PROGRESS**
+### 0.13.1 (2025-03-06)
 
 - (HombachC) bump dependencies
 
@@ -71,11 +71,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 - (HombachC) year 2025 changes
 - (HombachC) code optimisations
-
-### 0.12.6 (2024-12-21)
-
-- (HombachC) fix chai-as-promised
-- (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

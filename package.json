@@ -69,10 +69,12 @@
 		"test:ts": "mocha --config test/mocharc.custom.json src/**/*.test.ts",
 		"test:package": "mocha test/package --exit",
 		"test:integration": "mocha test/integration --exit",
-		"test": "npm run test:ts && npm run test:package && npm run test:integration",
+		"clean-loc-temp": "clean-dir %temp%/test-iobroker.chargemaster",
+		"test": "npm run clean-loc-temp && npm run test:ts && npm run test:package && npm run test:integration",
 		"check": "tsc --noEmit",
 		"lint": "eslint -c eslint.config.mjs .",
 		"lintdebug": "eslint --debug -c eslint.config.mjs . | more",
+		"make": "npm run lint && npm run build && npm run test",
 		"translate": "translate-adapter",
 		"release": "release-script"
 	},

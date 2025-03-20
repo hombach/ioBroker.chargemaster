@@ -49,6 +49,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### **WORK IN PROGRESS**
+
+- (HombachC) fix axios vulnerability
+- (HombachC) bump dependencies
+
 ### 0.13.1 (2025-03-06)
 
 - (HombachC) bump dependencies

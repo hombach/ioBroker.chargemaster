@@ -47,7 +47,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for improved security.
+### **WORK IN PROGRESS**
+
+- (HombachC) BREAKING: Dropped support for Node.js 18 (#674)
+- (HombachC) BREAKING: Dropped support for js-controller 5 (#674)
+- (HombachC) bump dependencies
 
 ### 0.13.2 (2025-03-22)
 

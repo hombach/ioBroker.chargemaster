@@ -47,6 +47,11 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- (HombachC) add tests for node 24 (#655)
+- (HombachC) bump dependencies
+
 ### 0.14.0 (2025-05-04)
 
 - (HombachC) BREAKING: Dropped support for Node.js 18 (#674)

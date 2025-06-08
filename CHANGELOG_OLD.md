@@ -244,3 +244,7 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 ### 0.0.1 (2021-01-01)
 
 - (HombachC) initial release
+## 0.12.9 (2025-02-23)
+
+- (HombachC) Bump @iobroker/adapter-dev to 1.4.0 (#621)
+- (HombachC) Using "@alcalzone/release-script" (#624)

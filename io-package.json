@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.14.0",
+    "version": "0.14.1",
     "news": {
+      "0.14.1": {
+        "en": "add tests for node 24 (#655)\nbump dependencies",
+        "de": "tests für knoten 24 hinzufügen (#655)\nbump-abhängigkeit",
+        "ru": "добавить тесты для узла 24 (#655)\nбамп зависимости",
+        "pt": "adicionar testes para o nó 24 (# 655)\ndependências de colisão",
+        "nl": "tests toevoegen voor node 24 (#655)\nbump afhankelijkheden",
+        "fr": "ajouter des essais pour le noeud 24 (#655)\ndépendances des bosses",
+        "it": "aggiungere test per nodo 24 (#655)\nindipendenza urto",
+        "es": "añadir pruebas para nodo 24 (#655)\ndependencia de los gastos",
+        "pl": "dodać testy dla węzła 24 (# 655)\nuzależnienia od guza",
+        "uk": "додавати тести для вузла 24 (#655)\nbump залежності",
+        "zh-cn": "添加节点24的测试(# 655)\n意外依赖"
+      },
       "0.14.0": {
         "en": "BREAKING: Dropped support for Node.js 18 (#674)\nBREAKING: Dropped support for js-controller 5 (#674)\nbump dependencies",
         "de": "BREAKING: Unterstützt für Node.js 18 (#674)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#674)\nbumpabhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "Sentry zmienia się\nzależności od wypukłości",
         "uk": "Зміни Sentry\nзалежності від удару",
         "zh-cn": "哨兵更改\n凸起依赖性"
-      },
-      "0.12.7": {
-        "en": "year 2025 changes\ncode optimisations",
-        "de": "Jahr 2025 Änderungen\nCodeoptimierungen",
-        "ru": "изменения 2025 года\nоптимизация кода",
-        "pt": "mudanças no ano de 2025\notimizações de código",
-        "nl": "jaar 2025 verandert\ncode-optimalisaties",
-        "fr": "changements en 2025\noptimisations de code",
-        "it": "anno 2025 cambia\nottimizzazioni del codice",
-        "es": "cambios del año 2025\noptimizaciones de código",
-        "pl": "zmiany roku 2025\noptymalizacje kodu",
-        "uk": "2025 рік зміни\nоптимізації коду",
-        "zh-cn": "2025年的变化\n代码优化"
       }
     },
     "titleLang": {

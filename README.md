@@ -47,6 +47,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+
 ### 0.14.1 (2025-06-08)
 
 - (HombachC) add tests for node 24 (#655)

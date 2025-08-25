@@ -1,258 +1,250 @@
 {
-  "common": {
-    "name": "chargemaster",
-    "version": "0.14.1",
-    "news": {
-      "0.14.1": {
-        "en": "add tests for node 24 (#655)\nbump dependencies",
-        "de": "tests für knoten 24 hinzufügen (#655)\nbump-abhängigkeit",
-        "ru": "добавить тесты для узла 24 (#655)\nбамп зависимости",
-        "pt": "adicionar testes para o nó 24 (# 655)\ndependências de colisão",
-        "nl": "tests toevoegen voor node 24 (#655)\nbump afhankelijkheden",
-        "fr": "ajouter des essais pour le noeud 24 (#655)\ndépendances des bosses",
-        "it": "aggiungere test per nodo 24 (#655)\nindipendenza urto",
-        "es": "añadir pruebas para nodo 24 (#655)\ndependencia de los gastos",
-        "pl": "dodać testy dla węzła 24 (# 655)\nuzależnienia od guza",
-        "uk": "додавати тести для вузла 24 (#655)\nbump залежності",
-        "zh-cn": "添加节点24的测试(# 655)\n意外依赖"
-      },
-      "0.14.0": {
-        "en": "BREAKING: Dropped support for Node.js 18 (#674)\nBREAKING: Dropped support for js-controller 5 (#674)\nbump dependencies",
-        "de": "BREAKING: Unterstützt für Node.js 18 (#674)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#674)\nbumpabhängigkeiten",
-        "ru": "Отказ от поддержки Node.js 18 (#674)\nОтказ от поддержки js-контроллера 5 (#674)\nбамп зависимости",
-        "pt": "BREAKING: Suporte para o Node.js 18 (#674)\nBREAKING: Suporte para js-controller 5 (#674)\ndependências de choque",
-        "nl": "BREAKING: Gestopte ondersteuning voor Node.js 18 (#674)\nBreaking: Dropped support for js-controller 5 (#674)\nbump afhankelijkheden",
-        "fr": "Soutien abandonné pour Node.js 18 (#674)\nSupport abandonné pour le contrôleur js 5 (#674)\ndépendances des bosses",
-        "it": "BREAKING: Supporto a goccia per Node.js 18 (#674)\nBREAKING: Supporto a goccia per js-controller 5 (#674)\nindipendenza urto",
-        "es": "BREAKING: Soporte abandonado para Node.js 18 (#674)\nBREAKING: Soporte desechado para js-controller 5 (#674)\ndependencia de los gastos",
-        "pl": "BREAKING: Upuszczone wsparcie dla Node.js 18 (# 674)\nBREAKING: Upuszczone wsparcie dla sterownika js- 5 (# 674)\nuzależnienia od guza",
-        "uk": "BREAKING: Dropped підтримка для Node.js 18 (#674)\nBREAKING: Dropped підтримка для js-controller 5 (#674)\nbump залежності",
-        "zh-cn": "对节点18(# 674)的支持下降\n中断: Js 控制器 5 已放弃支持(# 674)\n意外依赖"
-      },
-      "0.13.2": {
-        "en": "fix axios vulnerability\nbump dependencies",
-        "de": "axios vulnerability\nbumpabhängigkeiten",
-        "ru": "уязвимость axios\nбамп зависимости",
-        "pt": "corrigir vulnerabilidade axios\ndependências de choque",
-        "nl": "fix axios kwetsbaarheid\nbump afhankelijkheden",
-        "fr": "correction de la vulnérabilité axios\ndépendances des bosses",
-        "it": "correzione di vulnerabilità assio\nindipendenza urto",
-        "es": "solución de vulnerabilidad axios\ndependencia de los gastos",
-        "pl": "fix axios wrażliwość\nuzależnienia od guza",
-        "uk": "виправити вразливість axios\nbump залежності",
-        "zh-cn": "解决轴线脆弱性\n意外依赖"
-      },
-      "0.13.1": {
-        "en": "bump dependencies",
-        "de": "bump Abhängigkeiten",
-        "ru": "бамп зависимости",
-        "pt": "dependências de choque",
-        "nl": "bump afhankelijkheden",
-        "fr": "dépendances des bosses",
-        "it": "indipendenza urto",
-        "es": "dependencia de los gastos",
-        "pl": "uzależnienia od guza",
-        "uk": "bump залежності",
-        "zh-cn": "意外依赖"
-      },
-      "0.13.0": {
-        "en": "bump needed admin to 7.4.10 as recommended by ioBroker (#623)",
-        "de": "stoß benötigt Admin zu 7.4.10 wie empfohlen von ioBroker (#623)",
-        "ru": "бамп нужен админ до 7.4.10, как рекомендовано ioBroker (#623)",
-        "pt": "solavanco necessário admin para 7.4.10 como recomendado por ioBroker (#623)",
-        "nl": "bump nodig admin tot 7.4.10 zoals aanbevolen door ioBroker (#623)",
-        "fr": "bosse nécessaire admin à 7.4.10 comme recommandé par ioBroker (#623)",
-        "it": "urto necessario da admin a 7.4.10 come raccomandato da ioBroker (#623)",
-        "es": "parachoques necesarios admin a 7.4.10 según lo recomendado por ioBroker (#623)",
-        "pl": "bump potrzebne admin do 7.4.10 zgodnie z zaleceniami jOBroker (# 623)",
-        "uk": "bump потрібно admin до 7.4.10 як рекомендується ioBroker (#623)",
-        "zh-cn": "根据ioBroker(# 623)的建议, 需要的管理员为7.4. 10"
-      },
-      "0.12.9": {
-        "en": "Bump @iobroker/adapter-dev to 1.4.0 (#621)\nUsing \"@alcalzone/release-script\" (#624)",
-        "de": "Bump @iobroker/adapter-dev zu 1.4.0 (#621)\nMit \"@alcalzone/release-script\" (#624)",
-        "ru": "Bump @iobroker/adapter-dev до 1.4.0 (#621)\nИспользование \"@alcalzone/releasescript\" (#624)",
-        "pt": "Bump @iobroker/adapter-dev to 1.4.0 (#621)\nUsando \"@alcalzone/release-script\" (#624)",
-        "nl": "Bump @iobroker/adapter-dev naar 1.4.0 (#621)\nGebruik van \"@alcalzone/release-script\" (#624)",
-        "fr": "Bump @iobroker/adaptateur-dev à 1.4.0 (#621)\nUtiliser \"@alcalzone/release-script\" (#624)",
-        "it": "Bump @iobroker/adapter-dev a 1.4.0 (#621)\nUtilizzando \"@alcalzone/release-script\" (#624)",
-        "es": "Bomba @iobroker/adapter-dev a 1.4.0 (#621)\nUtilizando \"@alcalzone/release-script\" (#624)",
-        "pl": "Bump @ iobroker / adapter- dev do 1.4.0 (# 621)\nUżywanie \"@ alcalzone / release- script\" (# 624)",
-        "uk": "Bump @iobroker/adapter-dev до 1.4.0 (#621)\nВикористання \"@alcalzone/видання\" (#624)",
-        "zh-cn": "跳跃@iobroster/adapter-dev 到 1. 4.0 (# 621)\n使用“@alcalzone/release-script”(# 624)"
-      },
-      "0.12.8": {
-        "en": "Sentry changes\nbump dependencies",
-        "de": "Sentry geändert\nAbhängigkeiten aktualisiert",
-        "ru": "Сентри меняется\nУдар зависимости",
-        "pt": "Mudanças de sentinela\nBump dependências",
-        "nl": "Sentry -wijzigingen\nBump -afhankelijkheden",
-        "fr": "Sentry modifie\ndépendances",
-        "it": "Modifica della sentinella\ndipendenze bump",
-        "es": "Cambios de centinela\ndependencias de la protuberancia",
-        "pl": "Sentry zmienia się\nzależności od wypukłości",
-        "uk": "Зміни Sentry\nзалежності від удару",
-        "zh-cn": "哨兵更改\n凸起依赖性"
-      }
-    },
-    "titleLang": {
-      "en": "ChargeMaster",
-      "de": "ChargeMaster",
-      "ru": "ChargeMaster",
-      "pt": "ChargeMaster",
-      "nl": "ChargeMaster",
-      "fr": "ChargeMaster",
-      "it": "ChargeMaster",
-      "es": "ChargeMaster",
-      "pl": "ChargeMaster",
-      "uk": "ChargeMaster",
-      "zh-cn": "ChargeMaster"
-    },
-    "desc": {
-      "en": "Adapter for managing multi EV-chargers with use of PV-energy",
-      "de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
-      "ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
-      "pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
-      "nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
-      "fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
-      "it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
-      "es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
-      "pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
-      "uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
-      "zh-cn": "使用PV能源管理多个EV充电器的适配器"
-    },
-    "authors": [
-      "Hombach <ChargeMaster@homba.ch>"
-    ],
-    "keywords": [
-      "chargemaster",
-      "wallbox",
-      "solar power",
-      "charger",
-      "EV"
-    ],
-    "tier": 3,
-    "licenseInformation": {
-      "license": "MIT",
-      "type": "free"
-    },
-    "platform": "Javascript/Node.js",
-    "icon": "chargemaster.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
-    "readme": "https://github.com/Hombach/ioBroker.chargemaster/master/README.md",
-    "loglevel": "info",
-    "mode": "daemon",
-    "type": "energy",
-    "compact": true,
-    "connectionType": "local",
-    "dataSource": "poll",
-    "adminUI": {
-      "config": "json"
-    },
-    "dependencies": [
-      {
-        "js-controller": ">=6.0.11"
-      }
-    ],
-    "globalDependencies": [
-      {
-        "admin": ">=7.4.10"
-      }
-    ],
-    "plugins": {
-      "sentry": {
-        "dsn": "https://2cad2201902b99e7d5611bba9f1f20db@o415875.ingest.us.sentry.io/4508824758714368"
-      }
-    },
-    "supportCustoms": false
-  },
-  "native": {
-    "cycletime": 10000,
-    "MaxAmpTotal": 6
-  },
-  "objects": [],
-  "instanceObjects": [
-    {
-      "_id": "info",
-      "type": "channel",
-      "common": {
-        "name": "Information"
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.LastSentryLogDay",
-      "type": "state",
-      "common": {
-        "role": "value",
-        "name": "Last day of month for Sentry log",
-        "type": "number",
-        "unit": "",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.connection",
-      "type": "state",
-      "common": {
-        "role": "indicator.connected",
-        "name": "External input states connected",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "Power",
-      "type": "channel",
-      "common": {
-        "name": "current charging power data"
-      },
-      "native": {}
-    },
-    {
-      "_id": "Power.Charge",
-      "type": "state",
-      "common": {
-        "role": "value.power",
-        "name": "actual total charging-power",
-        "type": "number",
-        "unit": "W",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
-    {
-      "_id": "Settings",
-      "type": "channel",
-      "common": {
-        "name": "states to dynamically adjust global settings"
-      },
-      "native": {}
-    },
-    {
-      "_id": "Settings.Setpoint_HomeBatSoC",
-      "type": "state",
-      "common": {
-        "role": "level",
-        "name": "Setpoint to dynamically adjust minimum home battery state of charge",
-        "type": "number",
-        "unit": "%",
-        "read": true,
-        "write": true,
-        "def": 80,
-        "max": 100,
-        "min": 0
-      },
-      "native": {}
-    }
-  ]
+	"common": {
+		"name": "chargemaster",
+		"version": "0.14.1",
+		"news": {
+			"0.14.1": {
+				"en": "add tests for node 24 (#655)\nbump dependencies",
+				"de": "tests für knoten 24 hinzufügen (#655)\nbump-abhängigkeit",
+				"ru": "добавить тесты для узла 24 (#655)\nбамп зависимости",
+				"pt": "adicionar testes para o nó 24 (# 655)\ndependências de colisão",
+				"nl": "tests toevoegen voor node 24 (#655)\nbump afhankelijkheden",
+				"fr": "ajouter des essais pour le noeud 24 (#655)\ndépendances des bosses",
+				"it": "aggiungere test per nodo 24 (#655)\nindipendenza urto",
+				"es": "añadir pruebas para nodo 24 (#655)\ndependencia de los gastos",
+				"pl": "dodać testy dla węzła 24 (# 655)\nuzależnienia od guza",
+				"uk": "додавати тести для вузла 24 (#655)\nbump залежності",
+				"zh-cn": "添加节点24的测试(# 655)\n意外依赖"
+			},
+			"0.14.0": {
+				"en": "BREAKING: Dropped support for Node.js 18 (#674)\nBREAKING: Dropped support for js-controller 5 (#674)\nbump dependencies",
+				"de": "BREAKING: Unterstützt für Node.js 18 (#674)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#674)\nbumpabhängigkeiten",
+				"ru": "Отказ от поддержки Node.js 18 (#674)\nОтказ от поддержки js-контроллера 5 (#674)\nбамп зависимости",
+				"pt": "BREAKING: Suporte para o Node.js 18 (#674)\nBREAKING: Suporte para js-controller 5 (#674)\ndependências de choque",
+				"nl": "BREAKING: Gestopte ondersteuning voor Node.js 18 (#674)\nBreaking: Dropped support for js-controller 5 (#674)\nbump afhankelijkheden",
+				"fr": "Soutien abandonné pour Node.js 18 (#674)\nSupport abandonné pour le contrôleur js 5 (#674)\ndépendances des bosses",
+				"it": "BREAKING: Supporto a goccia per Node.js 18 (#674)\nBREAKING: Supporto a goccia per js-controller 5 (#674)\nindipendenza urto",
+				"es": "BREAKING: Soporte abandonado para Node.js 18 (#674)\nBREAKING: Soporte desechado para js-controller 5 (#674)\ndependencia de los gastos",
+				"pl": "BREAKING: Upuszczone wsparcie dla Node.js 18 (# 674)\nBREAKING: Upuszczone wsparcie dla sterownika js- 5 (# 674)\nuzależnienia od guza",
+				"uk": "BREAKING: Dropped підтримка для Node.js 18 (#674)\nBREAKING: Dropped підтримка для js-controller 5 (#674)\nbump залежності",
+				"zh-cn": "对节点18(# 674)的支持下降\n中断: Js 控制器 5 已放弃支持(# 674)\n意外依赖"
+			},
+			"0.13.2": {
+				"en": "fix axios vulnerability\nbump dependencies",
+				"de": "axios vulnerability\nbumpabhängigkeiten",
+				"ru": "уязвимость axios\nбамп зависимости",
+				"pt": "corrigir vulnerabilidade axios\ndependências de choque",
+				"nl": "fix axios kwetsbaarheid\nbump afhankelijkheden",
+				"fr": "correction de la vulnérabilité axios\ndépendances des bosses",
+				"it": "correzione di vulnerabilità assio\nindipendenza urto",
+				"es": "solución de vulnerabilidad axios\ndependencia de los gastos",
+				"pl": "fix axios wrażliwość\nuzależnienia od guza",
+				"uk": "виправити вразливість axios\nbump залежності",
+				"zh-cn": "解决轴线脆弱性\n意外依赖"
+			},
+			"0.13.1": {
+				"en": "bump dependencies",
+				"de": "bump Abhängigkeiten",
+				"ru": "бамп зависимости",
+				"pt": "dependências de choque",
+				"nl": "bump afhankelijkheden",
+				"fr": "dépendances des bosses",
+				"it": "indipendenza urto",
+				"es": "dependencia de los gastos",
+				"pl": "uzależnienia od guza",
+				"uk": "bump залежності",
+				"zh-cn": "意外依赖"
+			},
+			"0.13.0": {
+				"en": "bump needed admin to 7.4.10 as recommended by ioBroker (#623)",
+				"de": "stoß benötigt Admin zu 7.4.10 wie empfohlen von ioBroker (#623)",
+				"ru": "бамп нужен админ до 7.4.10, как рекомендовано ioBroker (#623)",
+				"pt": "solavanco necessário admin para 7.4.10 como recomendado por ioBroker (#623)",
+				"nl": "bump nodig admin tot 7.4.10 zoals aanbevolen door ioBroker (#623)",
+				"fr": "bosse nécessaire admin à 7.4.10 comme recommandé par ioBroker (#623)",
+				"it": "urto necessario da admin a 7.4.10 come raccomandato da ioBroker (#623)",
+				"es": "parachoques necesarios admin a 7.4.10 según lo recomendado por ioBroker (#623)",
+				"pl": "bump potrzebne admin do 7.4.10 zgodnie z zaleceniami jOBroker (# 623)",
+				"uk": "bump потрібно admin до 7.4.10 як рекомендується ioBroker (#623)",
+				"zh-cn": "根据ioBroker(# 623)的建议, 需要的管理员为7.4. 10"
+			},
+			"0.12.9": {
+				"en": "Bump @iobroker/adapter-dev to 1.4.0 (#621)\nUsing \"@alcalzone/release-script\" (#624)",
+				"de": "Bump @iobroker/adapter-dev zu 1.4.0 (#621)\nMit \"@alcalzone/release-script\" (#624)",
+				"ru": "Bump @iobroker/adapter-dev до 1.4.0 (#621)\nИспользование \"@alcalzone/releasescript\" (#624)",
+				"pt": "Bump @iobroker/adapter-dev to 1.4.0 (#621)\nUsando \"@alcalzone/release-script\" (#624)",
+				"nl": "Bump @iobroker/adapter-dev naar 1.4.0 (#621)\nGebruik van \"@alcalzone/release-script\" (#624)",
+				"fr": "Bump @iobroker/adaptateur-dev à 1.4.0 (#621)\nUtiliser \"@alcalzone/release-script\" (#624)",
+				"it": "Bump @iobroker/adapter-dev a 1.4.0 (#621)\nUtilizzando \"@alcalzone/release-script\" (#624)",
+				"es": "Bomba @iobroker/adapter-dev a 1.4.0 (#621)\nUtilizando \"@alcalzone/release-script\" (#624)",
+				"pl": "Bump @ iobroker / adapter- dev do 1.4.0 (# 621)\nUżywanie \"@ alcalzone / release- script\" (# 624)",
+				"uk": "Bump @iobroker/adapter-dev до 1.4.0 (#621)\nВикористання \"@alcalzone/видання\" (#624)",
+				"zh-cn": "跳跃@iobroster/adapter-dev 到 1. 4.0 (# 621)\n使用“@alcalzone/release-script”(# 624)"
+			},
+			"0.12.8": {
+				"en": "Sentry changes\nbump dependencies",
+				"de": "Sentry geändert\nAbhängigkeiten aktualisiert",
+				"ru": "Сентри меняется\nУдар зависимости",
+				"pt": "Mudanças de sentinela\nBump dependências",
+				"nl": "Sentry -wijzigingen\nBump -afhankelijkheden",
+				"fr": "Sentry modifie\ndépendances",
+				"it": "Modifica della sentinella\ndipendenze bump",
+				"es": "Cambios de centinela\ndependencias de la protuberancia",
+				"pl": "Sentry zmienia się\nzależności od wypukłości",
+				"uk": "Зміни Sentry\nзалежності від удару",
+				"zh-cn": "哨兵更改\n凸起依赖性"
+			}
+		},
+		"titleLang": {
+			"en": "ChargeMaster",
+			"de": "ChargeMaster",
+			"ru": "ChargeMaster",
+			"pt": "ChargeMaster",
+			"nl": "ChargeMaster",
+			"fr": "ChargeMaster",
+			"it": "ChargeMaster",
+			"es": "ChargeMaster",
+			"pl": "ChargeMaster",
+			"uk": "ChargeMaster",
+			"zh-cn": "ChargeMaster"
+		},
+		"desc": {
+			"en": "Adapter for managing multi EV-chargers with use of PV-energy",
+			"de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
+			"ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
+			"pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
+			"nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
+			"fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
+			"it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
+			"es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
+			"pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
+			"uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
+			"zh-cn": "使用PV能源管理多个EV充电器的适配器"
+		},
+		"authors": ["Hombach <ChargeMaster@homba.ch>"],
+		"keywords": ["chargemaster", "wallbox", "solar power", "charger", "EV"],
+		"tier": 3,
+		"licenseInformation": {
+			"license": "MIT",
+			"type": "free"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "chargemaster.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
+		"readme": "https://github.com/Hombach/ioBroker.chargemaster/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "energy",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.6.17"
+			}
+		],
+		"plugins": {
+			"sentry": {
+				"dsn": "https://2cad2201902b99e7d5611bba9f1f20db@o415875.ingest.us.sentry.io/4508824758714368"
+			}
+		},
+		"supportCustoms": false
+	},
+	"native": {
+		"cycletime": 10000,
+		"MaxAmpTotal": 6
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.LastSentryLogDay",
+			"type": "state",
+			"common": {
+				"role": "value",
+				"name": "Last day of month for Sentry log",
+				"type": "number",
+				"unit": "",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "External input states connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "Power",
+			"type": "channel",
+			"common": {
+				"name": "current charging power data"
+			},
+			"native": {}
+		},
+		{
+			"_id": "Power.Charge",
+			"type": "state",
+			"common": {
+				"role": "value.power",
+				"name": "actual total charging-power",
+				"type": "number",
+				"unit": "W",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		},
+		{
+			"_id": "Settings",
+			"type": "channel",
+			"common": {
+				"name": "states to dynamically adjust global settings"
+			},
+			"native": {}
+		},
+		{
+			"_id": "Settings.Setpoint_HomeBatSoC",
+			"type": "state",
+			"common": {
+				"role": "level",
+				"name": "Setpoint to dynamically adjust minimum home battery state of charge",
+				"type": "number",
+				"unit": "%",
+				"read": true,
+				"write": true,
+				"def": 80,
+				"max": 100,
+				"min": 0
+			},
+			"native": {}
+		}
+	]
 }

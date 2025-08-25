@@ -54,6 +54,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) min admin 7.6.17 as recommended
 - (HombachC) bump adapter-core (#676)
 - (HombachC) fix vulnerability
 - (HombachC) bump dependencies

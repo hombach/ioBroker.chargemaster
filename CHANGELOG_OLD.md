@@ -16,6 +16,15 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 ## Changelog - OLD CHANGES
 
+### 0.13.0 (2025-02-23)
+
+- (HombachC) bump needed admin to 7.4.10 as recommended by ioBroker (#623)
+
+### 0.12.9 (2025-02-23)
+
+- (HombachC) Bump @iobroker/adapter-dev to 1.4.0 (#621)
+- (HombachC) Using "@alcalzone/release-script" (#624)
+
 ### 0.12.8 (2025-02-16)
 
 - (HombachC) Sentry changes
@@ -244,7 +253,3 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 ### 0.0.1 (2021-01-01)
 
 - (HombachC) initial release
-## 0.12.9 (2025-02-23)
-
-- (HombachC) Bump @iobroker/adapter-dev to 1.4.0 (#621)
-- (HombachC) Using "@alcalzone/release-script" (#624)

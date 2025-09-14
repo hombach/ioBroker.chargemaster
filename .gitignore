@@ -10,6 +10,8 @@ nbproject
 # npm package files
 iobroker.*.tgz
 
+.commitinfo
+
 Thumbs.db
 
 # i18n intermediate files

@@ -55,8 +55,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### **WORK IN PROGRESS**
 
 - (HombachC) bump typescript (#684)
-- (hombach) update adapter-dev (#693)
-- (hombach) update chai system (#678)
+- (HombachC) update adapter-dev (#693)
+- (HombachC) update chai system (#678)
 
 ### 0.14.2 (2025-08-26)
 

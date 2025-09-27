@@ -16,6 +16,10 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 ## Changelog - OLD CHANGES
 
+### 0.13.1 (2025-03-06)
+
+- (HombachC) bump dependencies
+
 ### 0.13.0 (2025-02-23)
 
 - (HombachC) bump needed admin to 7.4.10 as recommended by ioBroker (#623)
@@ -28,7 +32,6 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 ### 0.12.8 (2025-02-16)
 
 - (HombachC) Sentry changes
-- (HombachC) bump dependencies
 
 ### 0.12.7 (2025-01-01)
 
@@ -38,13 +41,11 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 ### 0.12.6 (2024-12-21)
 
 - (HombachC) fix chai-as-promised
-- (HombachC) bump dependencies
 
 ### 0.12.5 (2024-12-12)
 
 - (HombachC) switch to i18n translation (#572)
 - (HombachC) implement ioBroker.eslint-config (#580)
-- (HombachC) bump dependencies
 
 ### 0.12.4 (2024-11-23)
 
@@ -54,12 +55,10 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 - (HombachC) fix bug in state subscription
 - (HombachC) harmonize project tools
-- (HombachC) bump dependencies
 
 ### 0.12.2 (2024-10-27)
 
 - (HombachC) migrate eslint to >9.x
-- (HombachC) bumped dependencies
 
 ### 0.12.1 (2024-10-22)
 
@@ -83,7 +82,6 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 - (HombachC) complete rework of configuration screen
 - (HombachC) move utils to extra class
 - (HombachC) switch to ECMA 2022 code
-- (HombachC) bumped dependencies
 
 ### 0.10.0 (2024-08-18)
 
@@ -116,7 +114,6 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 - (HombachC) updated CI definitions, switched to node 20 as main test scenario
 - (HombachC) corrected io-package.json according to new schema
-- (HombachC) bumped dependencies
 
 ### 0.8.4 (2023-12-29)
 
@@ -184,7 +181,7 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 ### 0.4.4 (2022-04-27)
 
-- (HombachC) fixed vulnerability, bumped dependencies
+- (HombachC) fixed vulnerability
 
 ### 0.4.3 (2022-02-22)
 

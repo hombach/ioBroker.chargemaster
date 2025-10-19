@@ -51,6 +51,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### 0.14.4 (2025-10-19)
 
 - (HombachC) update NPM deploy system

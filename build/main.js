@@ -130,13 +130,13 @@ class ChargeMaster extends utils.Adapter {
                     const Sentry = sentryInstance.getSentryObject();
                     Sentry &&
                         Sentry.withScope((scope) => {
-                            scope.setLevel("info");
-                            scope.setTag("SentryDay", today.getDate());
-                            scope.setTag("System Power", this.config.maxAmpTotal);
+                            scope.setLevel(`info`);
+                            scope.setTag(`SentryDay`, today.getDate());
+                            scope.setTag(`System Power`, this.config.maxAmpTotal);
                             for (let i = 0; i < Math.min(this.config.wallBoxList.length, 2); i++) {
                                 scope.setTag(`WallboxAmp_${i}`, this.config.wallBoxList[i].maxAmp);
                             }
-                            Sentry.captureMessage("Adapter chargemaster started", "info");
+                            Sentry.captureMessage(`Adapter chargemaster started`, "info");
                         });
                 }
                 void this.setState(`info.LastSentryLogDay`, {

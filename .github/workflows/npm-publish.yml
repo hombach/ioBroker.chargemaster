@@ -13,16 +13,16 @@ on:
 
 jobs:
     build:
-        name: test-build on node.js ${{ matrix.node-version }}
+        name: test-build on node.js ${{ matrix.node_version }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                node-version: [20.x, 22.x, 24.x]
+                node_version: ["22", "20", "24"]
         steps:
             - uses: actions/checkout@v5
-            - uses: actions/setup-node@v5.0.0
+            - uses: actions/setup-node@v6.0.0
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: ${{ matrix.node_version }}
             - name: npm install, build and test
               run: |
                   npm install
@@ -30,25 +30,25 @@ jobs:
                   npm run build --if-present
                   npm test
 
-    publish-to-npm:
-        needs: build
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v5
-            - uses: actions/setup-node@v5.0.0
-              with:
-                  node-version: "22.x"
-                  registry-url: https://registry.npmjs.org/
+#    publish-to-npm:
+#        needs: build
+#        runs-on: ubuntu-latest
+#        steps:
+#            - uses: actions/checkout@v5
+#            - uses: actions/setup-node@v6.0.0
+#              with:
+#                  node-version: "22.x"
+#                  registry-url: https://registry.npmjs.org/
 
-            - name: Install Dependencies
-              run: npm ci
-              # run: npm ci --legacy-peer-deps
+#            - name: Install Dependencies
+#              run: npm ci
+#              #run: npm ci --legacy-peer-deps
 
-            - name: Publish package to npm
-              run: |
-                  npm config set //registry.npmjs.org/:_authToken=${{secrets.NPM}}
-                  npm whoami
-                  npm config list
-                  npm publish
-              env:
-                  CI: true
+#            - name: Publish package to npm
+#              run: |
+#                  npm config set //registry.npmjs.org/:_authToken=${{secrets.NPM}}
+#                  npm whoami
+#                  npm config list
+#                  npm publish
+#              env:
+#                  CI: true

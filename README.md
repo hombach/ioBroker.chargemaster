@@ -54,6 +54,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) update NPM deploy system
 - (HombachC) bump dependencies
 
 ### 0.14.3 (2025-09-27)

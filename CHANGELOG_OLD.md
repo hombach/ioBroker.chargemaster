@@ -16,9 +16,9 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 ## Changelog - OLD CHANGES
 
-### 0.13.1 (2025-03-06)
+### 0.13.2 (2025-03-22)
 
-- (HombachC) bump dependencies
+- (HombachC) fix axios vulnerability
 
 ### 0.13.0 (2025-02-23)
 

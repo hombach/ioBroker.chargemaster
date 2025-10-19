@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.14.3",
+    "version": "0.14.4",
     "news": {
+      "0.14.4": {
+        "en": "update NPM deploy system\nbump dependencies",
+        "de": "nPM-Einsatzsystem aktualisieren\nbumpabhängigkeiten",
+        "ru": "обновление системы развертывания NPM\nбамп зависимости",
+        "pt": "atualizar sistema de implantação NPM\ndependências de colisão",
+        "nl": "nPM-implementatiesysteem bijwerken\nbump afhankelijkheden",
+        "fr": "mettre à jour le système de déploiement NPM\ndépendances des bosses",
+        "it": "aggiornamento Sistema di distribuzione NPM\nindipendenza urto",
+        "es": "actualización del sistema de despliegue del mecanismo nacional de prevención\ndependencia de los gastos",
+        "pl": "aktualizacja systemu rozmieszczania NPM\nuzależnienia od guza",
+        "uk": "оновлення системи NPM розгортання\nbump залежності",
+        "zh-cn": "更新国家预防机制部署系统\n意外依赖"
+      },
       "0.14.3": {
         "en": "bump typescript (#684)\nupdate adapter-dev (#693)\nupdate chai system (#678)",
         "de": "stoßartschrift (#684)\nupdate-adapter-dev (#693)\nupdate chai system (#678)",
@@ -80,19 +93,6 @@
         "pl": "uzależnienia od guza",
         "uk": "bump залежності",
         "zh-cn": "意外依赖"
-      },
-      "0.13.0": {
-        "en": "bump needed admin to 7.4.10 as recommended by ioBroker (#623)",
-        "de": "stoß benötigt Admin zu 7.4.10 wie empfohlen von ioBroker (#623)",
-        "ru": "бамп нужен админ до 7.4.10, как рекомендовано ioBroker (#623)",
-        "pt": "solavanco necessário admin para 7.4.10 como recomendado por ioBroker (#623)",
-        "nl": "bump nodig admin tot 7.4.10 zoals aanbevolen door ioBroker (#623)",
-        "fr": "bosse nécessaire admin à 7.4.10 comme recommandé par ioBroker (#623)",
-        "it": "urto necessario da admin a 7.4.10 come raccomandato da ioBroker (#623)",
-        "es": "parachoques necesarios admin a 7.4.10 según lo recomendado por ioBroker (#623)",
-        "pl": "bump potrzebne admin do 7.4.10 zgodnie z zaleceniami jOBroker (# 623)",
-        "uk": "bump потрібно admin до 7.4.10 як рекомендується ioBroker (#623)",
-        "zh-cn": "根据ioBroker(# 623)的建议, 需要的管理员为7.4. 10"
       }
     },
     "titleLang": {

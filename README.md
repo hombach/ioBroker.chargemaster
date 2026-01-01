@@ -97,7 +97,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 MIT License
 
-Copyright (c) 2021-2025 Christian Hombach
+Copyright (c) 2021-2026 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

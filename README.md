@@ -51,8 +51,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.14.5 (2026-01-01)
 
 - (HombachC) update axios
 - (HombachC) year 2026 changes
@@ -80,12 +79,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### 0.14.1 (2025-06-08)
 
 - (HombachC) add tests for node 24 (#655)
-- (HombachC) bump dependencies
-
-### 0.14.0 (2025-05-04)
-
-- (HombachC) BREAKING: Dropped support for Node.js 18 (#674)
-- (HombachC) BREAKING: Dropped support for js-controller 5 (#674)
 - (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

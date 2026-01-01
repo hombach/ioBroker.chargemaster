@@ -16,6 +16,12 @@ Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy.
 
 ## Changelog - OLD CHANGES
 
+### 0.14.0 (2025-05-04)
+
+- (HombachC) BREAKING: Dropped support for Node.js 18 (#674)
+- (HombachC) BREAKING: Dropped support for js-controller 5 (#674)
+- (HombachC) bump dependencies
+
 ### 0.13.2 (2025-03-22)
 
 - (HombachC) fix axios vulnerability

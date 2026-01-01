@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.14.4",
+    "version": "0.14.5",
     "news": {
+      "0.14.5": {
+        "en": "update axios\nyear 2026 changes\noptimize dependabot config (#718)\nupdate dependencies",
+        "de": "axios\njahr 2026 änderungen\noptimieren abhängigabot config (#718)\naktualisierung der abhängigkeiten",
+        "ru": "обновление axios\n2026 год изменения\nоптимизируйте конфигурацию зависимого робота (#718)\nобновление зависимостей",
+        "pt": "atualizar axios\nvariações do ano de 2026\notimizar a configuração do dependebot (# 718)\natualizar dependências",
+        "nl": "axios bijwerken\njaar 2026 veranderingen\ndependabot-configuratie optimaliseren (#718)\nafhankelijkheden bijwerken",
+        "fr": "mettre à jour axios\nannée 2026 changements\noptimiser la configuration de divabot (#718)\nmettre à jour les dépendances",
+        "it": "aggiornamento assio\nanno 2026 modifiche\nottimizzare la configurazione dipendeabot (#718)\naggiornamento dipendenze",
+        "es": "actualización axios\naño 2026 cambios\noptimiza config de dependabot (#718)\ndependencias de actualización",
+        "pl": "aktualizacja axios\nrok 2026 zmiany\nzoptymalizować config zależny (# 718)\naktualizacji zależności",
+        "uk": "оновлення axios\nрік 2026 змін\nоптимізоване налаштування залежностей (#718)\nоновлення залежності",
+        "zh-cn": "更新轴线\n2026年的变化\n优化依赖配置 (# 718)\n更新依赖关系"
+      },
       "0.14.4": {
         "en": "update NPM deploy system\nbump dependencies",
         "de": "nPM-Einsatzsystem aktualisieren\nbumpabhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "fix axios wrażliwość\nuzależnienia od guza",
         "uk": "виправити вразливість axios\nbump залежності",
         "zh-cn": "解决轴线脆弱性\n意外依赖"
-      },
-      "0.13.1": {
-        "en": "bump dependencies",
-        "de": "bump Abhängigkeiten",
-        "ru": "бамп зависимости",
-        "pt": "dependências de choque",
-        "nl": "bump afhankelijkheden",
-        "fr": "dépendances des bosses",
-        "it": "indipendenza urto",
-        "es": "dependencia de los gastos",
-        "pl": "uzależnienia od guza",
-        "uk": "bump залежності",
-        "zh-cn": "意外依赖"
       }
     },
     "titleLang": {

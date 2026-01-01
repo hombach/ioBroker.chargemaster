@@ -55,6 +55,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### **WORK IN PROGRESS**
 
 - (HombachC) update axios
+- (HombachC) year 2026 changes
 - (HombachC) optimize dependabot config (#718)
 - (HombachC) update dependencies
 

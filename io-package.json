@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.14.5",
+    "version": "0.14.6",
     "news": {
+      "0.14.6": {
+        "en": "update dependencies",
+        "de": "aktualisierung der abhängigkeiten",
+        "ru": "обновление зависимостей",
+        "pt": "atualizar dependências",
+        "nl": "afhankelijkheden bijwerken",
+        "fr": "mettre à jour les dépendances",
+        "it": "aggiornamento dipendenze",
+        "es": "dependencias de actualización",
+        "pl": "aktualizacji zależności",
+        "uk": "оновлення залежності",
+        "zh-cn": "更新依赖关系"
+      },
       "0.14.5": {
         "en": "update axios\nyear 2026 changes\noptimize dependabot config (#718)\nupdate dependencies",
         "de": "axios\njahr 2026 änderungen\noptimieren abhängigabot config (#718)\naktualisierung der abhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "BREAKING: Upuszczone wsparcie dla Node.js 18 (# 674)\nBREAKING: Upuszczone wsparcie dla sterownika js- 5 (# 674)\nuzależnienia od guza",
         "uk": "BREAKING: Dropped підтримка для Node.js 18 (#674)\nBREAKING: Dropped підтримка для js-controller 5 (#674)\nbump залежності",
         "zh-cn": "对节点18(# 674)的支持下降\n中断: Js 控制器 5 已放弃支持(# 674)\n意外依赖"
-      },
-      "0.13.2": {
-        "en": "fix axios vulnerability\nbump dependencies",
-        "de": "axios vulnerability\nbumpabhängigkeiten",
-        "ru": "уязвимость axios\nбамп зависимости",
-        "pt": "corrigir vulnerabilidade axios\ndependências de choque",
-        "nl": "fix axios kwetsbaarheid\nbump afhankelijkheden",
-        "fr": "correction de la vulnérabilité axios\ndépendances des bosses",
-        "it": "correzione di vulnerabilità assio\nindipendenza urto",
-        "es": "solución de vulnerabilidad axios\ndependencia de los gastos",
-        "pl": "fix axios wrażliwość\nuzależnienia od guza",
-        "uk": "виправити вразливість axios\nbump залежності",
-        "zh-cn": "解决轴线脆弱性\n意外依赖"
       }
     },
     "titleLang": {

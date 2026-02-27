@@ -51,8 +51,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.14.6 (2026-02-27)
 
 - (HombachC) update dependencies
 
@@ -79,11 +78,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) min admin 7.6.17 as recommended
 - (HombachC) bump adapter-core (#676)
 - (HombachC) fix vulnerability
-- (HombachC) bump dependencies
-
-### 0.14.1 (2025-06-08)
-
-- (HombachC) add tests for node 24 (#655)
 - (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

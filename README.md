@@ -54,7 +54,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
--
+- (HombachC) switch to ES2023 code
 
 ### 0.14.6 (2026-02-27)
 

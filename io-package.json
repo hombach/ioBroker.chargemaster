@@ -1,258 +1,250 @@
 {
-  "common": {
-    "name": "chargemaster",
-    "version": "0.14.6",
-    "news": {
-      "0.14.6": {
-        "en": "update dependencies",
-        "de": "aktualisierung der abhängigkeiten",
-        "ru": "обновление зависимостей",
-        "pt": "atualizar dependências",
-        "nl": "afhankelijkheden bijwerken",
-        "fr": "mettre à jour les dépendances",
-        "it": "aggiornamento dipendenze",
-        "es": "dependencias de actualización",
-        "pl": "aktualizacji zależności",
-        "uk": "оновлення залежності",
-        "zh-cn": "更新依赖关系"
-      },
-      "0.14.5": {
-        "en": "update axios\nyear 2026 changes\noptimize dependabot config (#718)\nupdate dependencies",
-        "de": "axios\njahr 2026 änderungen\noptimieren abhängigabot config (#718)\naktualisierung der abhängigkeiten",
-        "ru": "обновление axios\n2026 год изменения\nоптимизируйте конфигурацию зависимого робота (#718)\nобновление зависимостей",
-        "pt": "atualizar axios\nvariações do ano de 2026\notimizar a configuração do dependebot (# 718)\natualizar dependências",
-        "nl": "axios bijwerken\njaar 2026 veranderingen\ndependabot-configuratie optimaliseren (#718)\nafhankelijkheden bijwerken",
-        "fr": "mettre à jour axios\nannée 2026 changements\noptimiser la configuration de divabot (#718)\nmettre à jour les dépendances",
-        "it": "aggiornamento assio\nanno 2026 modifiche\nottimizzare la configurazione dipendeabot (#718)\naggiornamento dipendenze",
-        "es": "actualización axios\naño 2026 cambios\noptimiza config de dependabot (#718)\ndependencias de actualización",
-        "pl": "aktualizacja axios\nrok 2026 zmiany\nzoptymalizować config zależny (# 718)\naktualizacji zależności",
-        "uk": "оновлення axios\nрік 2026 змін\nоптимізоване налаштування залежностей (#718)\nоновлення залежності",
-        "zh-cn": "更新轴线\n2026年的变化\n优化依赖配置 (# 718)\n更新依赖关系"
-      },
-      "0.14.4": {
-        "en": "update NPM deploy system\nbump dependencies",
-        "de": "nPM-Einsatzsystem aktualisieren\nbumpabhängigkeiten",
-        "ru": "обновление системы развертывания NPM\nбамп зависимости",
-        "pt": "atualizar sistema de implantação NPM\ndependências de colisão",
-        "nl": "nPM-implementatiesysteem bijwerken\nbump afhankelijkheden",
-        "fr": "mettre à jour le système de déploiement NPM\ndépendances des bosses",
-        "it": "aggiornamento Sistema di distribuzione NPM\nindipendenza urto",
-        "es": "actualización del sistema de despliegue del mecanismo nacional de prevención\ndependencia de los gastos",
-        "pl": "aktualizacja systemu rozmieszczania NPM\nuzależnienia od guza",
-        "uk": "оновлення системи NPM розгортання\nbump залежності",
-        "zh-cn": "更新国家预防机制部署系统\n意外依赖"
-      },
-      "0.14.3": {
-        "en": "bump typescript (#684)\nupdate adapter-dev (#693)\nupdate chai system (#678)",
-        "de": "stoßartschrift (#684)\nupdate-adapter-dev (#693)\nupdate chai system (#678)",
-        "ru": "bump typescript (#684)\nадаптер обновления (#693)\nобновление системы chai (#678)",
-        "pt": "tipografia de colisão (# 684)\natualizar adaptador- dev (# 693)\natualizar o sistema chai (# 678)",
-        "nl": "bump typescript (#684)\nupdate adapter-dev (#693)\nchai-systeem bijwerken (#678)",
-        "fr": "type de bosse (#684)\nmettre à jour adaptateur-dev (#693)\nmettre à jour le système chai (#678)",
-        "it": "tipografia urto (#684)\naggiornamento adattatore-dev (#693)\naggiornamento sistema chai (#678)",
-        "es": "typescript (#684)\nadaptador de actualización (#693)\nsistema chai de actualización (#678)",
-        "pl": "typ guza (# 684)\nupdate adapter- dev (# 693)\naktualizacja systemu chai (# 678)",
-        "uk": "шемале (#684)\nадаптер змінного струму (#693)\nоновлення системи шайби (#678)",
-        "zh-cn": "凸起字型标 (# 684)\n更新适配器- dev (# 693)\n更新chai系统(# 678)"
-      },
-      "0.14.2": {
-        "en": "min admin 7.6.17 as recommended\nbump adapter-core (#676)\nfix vulnerability\nbump dependencies",
-        "de": "min admin 7.6.17 als empfohlen\nstoßadapter (#676)\nfehlerbehebung\nbumpabhängigkeiten",
-        "ru": "min admin 7.6.17 в соответствии с рекомендациями\nбамперный адаптер (#676)\nисправить уязвимость\nбамп зависимости",
-        "pt": "min admin 7.6.17 como recomendado\nadaptador- núcleo (# 676)\ncorrigir vulnerabilidade\ndependências de colisão",
-        "nl": "min\nbump adapter-core (#676)\nkwetsbaarheid herstellen\nbump afhankelijkheden",
-        "fr": "min admin 7.6.17 comme recommandé\nadaptateur de bosse (#676)\nfixer la vulnérabilité\ndépendances des bosses",
-        "it": "min admin 7.6.17 come raccomandato\nparaurti adattatore-core (#676)\ncorrezione della vulnerabilità\nindipendenza urto",
-        "es": "min admin 7.6.17 según se recomienda\nadaptador de parachoques (#676)\ncorrección de vulnerabilidad\ndependencia de los gastos",
-        "pl": "min admin 7.6.17 zgodnie z zaleceniami\nboom adapter- core (# 676)\nnaprawić podatność\nuzależnienia od guza",
-        "uk": "min admin 7.6.17 як рекомендується\nbump адаптер-core (#676)\nвиправити вразливість\nbump залежності",
-        "zh-cn": "建议赔偿额\n缓冲适配器核心(# 676)\n消除脆弱性\n意外依赖"
-      },
-      "0.14.1": {
-        "en": "add tests for node 24 (#655)\nbump dependencies",
-        "de": "tests für knoten 24 hinzufügen (#655)\nbump-abhängigkeit",
-        "ru": "добавить тесты для узла 24 (#655)\nбамп зависимости",
-        "pt": "adicionar testes para o nó 24 (# 655)\ndependências de colisão",
-        "nl": "tests toevoegen voor node 24 (#655)\nbump afhankelijkheden",
-        "fr": "ajouter des essais pour le noeud 24 (#655)\ndépendances des bosses",
-        "it": "aggiungere test per nodo 24 (#655)\nindipendenza urto",
-        "es": "añadir pruebas para nodo 24 (#655)\ndependencia de los gastos",
-        "pl": "dodać testy dla węzła 24 (# 655)\nuzależnienia od guza",
-        "uk": "додавати тести для вузла 24 (#655)\nbump залежності",
-        "zh-cn": "添加节点24的测试(# 655)\n意外依赖"
-      },
-      "0.14.0": {
-        "en": "BREAKING: Dropped support for Node.js 18 (#674)\nBREAKING: Dropped support for js-controller 5 (#674)\nbump dependencies",
-        "de": "BREAKING: Unterstützt für Node.js 18 (#674)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#674)\nbumpabhängigkeiten",
-        "ru": "Отказ от поддержки Node.js 18 (#674)\nОтказ от поддержки js-контроллера 5 (#674)\nбамп зависимости",
-        "pt": "BREAKING: Suporte para o Node.js 18 (#674)\nBREAKING: Suporte para js-controller 5 (#674)\ndependências de choque",
-        "nl": "BREAKING: Gestopte ondersteuning voor Node.js 18 (#674)\nBreaking: Dropped support for js-controller 5 (#674)\nbump afhankelijkheden",
-        "fr": "Soutien abandonné pour Node.js 18 (#674)\nSupport abandonné pour le contrôleur js 5 (#674)\ndépendances des bosses",
-        "it": "BREAKING: Supporto a goccia per Node.js 18 (#674)\nBREAKING: Supporto a goccia per js-controller 5 (#674)\nindipendenza urto",
-        "es": "BREAKING: Soporte abandonado para Node.js 18 (#674)\nBREAKING: Soporte desechado para js-controller 5 (#674)\ndependencia de los gastos",
-        "pl": "BREAKING: Upuszczone wsparcie dla Node.js 18 (# 674)\nBREAKING: Upuszczone wsparcie dla sterownika js- 5 (# 674)\nuzależnienia od guza",
-        "uk": "BREAKING: Dropped підтримка для Node.js 18 (#674)\nBREAKING: Dropped підтримка для js-controller 5 (#674)\nbump залежності",
-        "zh-cn": "对节点18(# 674)的支持下降\n中断: Js 控制器 5 已放弃支持(# 674)\n意外依赖"
-      }
-    },
-    "titleLang": {
-      "en": "ChargeMaster",
-      "de": "ChargeMaster",
-      "ru": "ChargeMaster",
-      "pt": "ChargeMaster",
-      "nl": "ChargeMaster",
-      "fr": "ChargeMaster",
-      "it": "ChargeMaster",
-      "es": "ChargeMaster",
-      "pl": "ChargeMaster",
-      "uk": "ChargeMaster",
-      "zh-cn": "ChargeMaster"
-    },
-    "desc": {
-      "en": "Adapter for managing multi EV-chargers with use of PV-energy",
-      "de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
-      "ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
-      "pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
-      "nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
-      "fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
-      "it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
-      "es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
-      "pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
-      "uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
-      "zh-cn": "使用PV能源管理多个EV充电器的适配器"
-    },
-    "authors": [
-      "Hombach <ChargeMaster@homba.ch>"
-    ],
-    "keywords": [
-      "chargemaster",
-      "wallbox",
-      "solar power",
-      "charger",
-      "EV"
-    ],
-    "tier": 3,
-    "licenseInformation": {
-      "license": "MIT",
-      "type": "free"
-    },
-    "platform": "Javascript/Node.js",
-    "icon": "chargemaster.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
-    "readme": "https://github.com/Hombach/ioBroker.chargemaster/master/README.md",
-    "loglevel": "info",
-    "mode": "daemon",
-    "type": "energy",
-    "compact": true,
-    "connectionType": "local",
-    "dataSource": "poll",
-    "adminUI": {
-      "config": "json"
-    },
-    "dependencies": [
-      {
-        "js-controller": ">=6.0.11"
-      }
-    ],
-    "globalDependencies": [
-      {
-        "admin": ">=7.6.17"
-      }
-    ],
-    "plugins": {
-      "sentry": {
-        "dsn": "https://2cad2201902b99e7d5611bba9f1f20db@o415875.ingest.us.sentry.io/4508824758714368"
-      }
-    },
-    "supportCustoms": false
-  },
-  "native": {
-    "cycletime": 10000,
-    "MaxAmpTotal": 6
-  },
-  "objects": [],
-  "instanceObjects": [
-    {
-      "_id": "info",
-      "type": "channel",
-      "common": {
-        "name": "Information"
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.LastSentryLogDay",
-      "type": "state",
-      "common": {
-        "role": "value",
-        "name": "Last day of month for Sentry log",
-        "type": "number",
-        "unit": "",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
-    {
-      "_id": "info.connection",
-      "type": "state",
-      "common": {
-        "role": "indicator.connected",
-        "name": "External input states connected",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "Power",
-      "type": "channel",
-      "common": {
-        "name": "current charging power data"
-      },
-      "native": {}
-    },
-    {
-      "_id": "Power.Charge",
-      "type": "state",
-      "common": {
-        "role": "value.power",
-        "name": "actual total charging-power",
-        "type": "number",
-        "unit": "W",
-        "read": true,
-        "write": false,
-        "def": 0
-      },
-      "native": {}
-    },
-    {
-      "_id": "Settings",
-      "type": "channel",
-      "common": {
-        "name": "states to dynamically adjust global settings"
-      },
-      "native": {}
-    },
-    {
-      "_id": "Settings.Setpoint_HomeBatSoC",
-      "type": "state",
-      "common": {
-        "role": "level",
-        "name": "Setpoint to dynamically adjust minimum home battery state of charge",
-        "type": "number",
-        "unit": "%",
-        "read": true,
-        "write": true,
-        "def": 80,
-        "max": 100,
-        "min": 0
-      },
-      "native": {}
-    }
-  ]
+	"common": {
+		"name": "chargemaster",
+		"version": "0.14.6",
+		"news": {
+			"0.14.6": {
+				"en": "update dependencies",
+				"de": "aktualisierung der abhängigkeiten",
+				"ru": "обновление зависимостей",
+				"pt": "atualizar dependências",
+				"nl": "afhankelijkheden bijwerken",
+				"fr": "mettre à jour les dépendances",
+				"it": "aggiornamento dipendenze",
+				"es": "dependencias de actualización",
+				"pl": "aktualizacji zależności",
+				"uk": "оновлення залежності",
+				"zh-cn": "更新依赖关系"
+			},
+			"0.14.5": {
+				"en": "update axios\nyear 2026 changes\noptimize dependabot config (#718)\nupdate dependencies",
+				"de": "axios\njahr 2026 änderungen\noptimieren abhängigabot config (#718)\naktualisierung der abhängigkeiten",
+				"ru": "обновление axios\n2026 год изменения\nоптимизируйте конфигурацию зависимого робота (#718)\nобновление зависимостей",
+				"pt": "atualizar axios\nvariações do ano de 2026\notimizar a configuração do dependebot (# 718)\natualizar dependências",
+				"nl": "axios bijwerken\njaar 2026 veranderingen\ndependabot-configuratie optimaliseren (#718)\nafhankelijkheden bijwerken",
+				"fr": "mettre à jour axios\nannée 2026 changements\noptimiser la configuration de divabot (#718)\nmettre à jour les dépendances",
+				"it": "aggiornamento assio\nanno 2026 modifiche\nottimizzare la configurazione dipendeabot (#718)\naggiornamento dipendenze",
+				"es": "actualización axios\naño 2026 cambios\noptimiza config de dependabot (#718)\ndependencias de actualización",
+				"pl": "aktualizacja axios\nrok 2026 zmiany\nzoptymalizować config zależny (# 718)\naktualizacji zależności",
+				"uk": "оновлення axios\nрік 2026 змін\nоптимізоване налаштування залежностей (#718)\nоновлення залежності",
+				"zh-cn": "更新轴线\n2026年的变化\n优化依赖配置 (# 718)\n更新依赖关系"
+			},
+			"0.14.4": {
+				"en": "update NPM deploy system\nbump dependencies",
+				"de": "nPM-Einsatzsystem aktualisieren\nbumpabhängigkeiten",
+				"ru": "обновление системы развертывания NPM\nбамп зависимости",
+				"pt": "atualizar sistema de implantação NPM\ndependências de colisão",
+				"nl": "nPM-implementatiesysteem bijwerken\nbump afhankelijkheden",
+				"fr": "mettre à jour le système de déploiement NPM\ndépendances des bosses",
+				"it": "aggiornamento Sistema di distribuzione NPM\nindipendenza urto",
+				"es": "actualización del sistema de despliegue del mecanismo nacional de prevención\ndependencia de los gastos",
+				"pl": "aktualizacja systemu rozmieszczania NPM\nuzależnienia od guza",
+				"uk": "оновлення системи NPM розгортання\nbump залежності",
+				"zh-cn": "更新国家预防机制部署系统\n意外依赖"
+			},
+			"0.14.3": {
+				"en": "bump typescript (#684)\nupdate adapter-dev (#693)\nupdate chai system (#678)",
+				"de": "stoßartschrift (#684)\nupdate-adapter-dev (#693)\nupdate chai system (#678)",
+				"ru": "bump typescript (#684)\nадаптер обновления (#693)\nобновление системы chai (#678)",
+				"pt": "tipografia de colisão (# 684)\natualizar adaptador- dev (# 693)\natualizar o sistema chai (# 678)",
+				"nl": "bump typescript (#684)\nupdate adapter-dev (#693)\nchai-systeem bijwerken (#678)",
+				"fr": "type de bosse (#684)\nmettre à jour adaptateur-dev (#693)\nmettre à jour le système chai (#678)",
+				"it": "tipografia urto (#684)\naggiornamento adattatore-dev (#693)\naggiornamento sistema chai (#678)",
+				"es": "typescript (#684)\nadaptador de actualización (#693)\nsistema chai de actualización (#678)",
+				"pl": "typ guza (# 684)\nupdate adapter- dev (# 693)\naktualizacja systemu chai (# 678)",
+				"uk": "шемале (#684)\nадаптер змінного струму (#693)\nоновлення системи шайби (#678)",
+				"zh-cn": "凸起字型标 (# 684)\n更新适配器- dev (# 693)\n更新chai系统(# 678)"
+			},
+			"0.14.2": {
+				"en": "min admin 7.6.17 as recommended\nbump adapter-core (#676)\nfix vulnerability\nbump dependencies",
+				"de": "min admin 7.6.17 als empfohlen\nstoßadapter (#676)\nfehlerbehebung\nbumpabhängigkeiten",
+				"ru": "min admin 7.6.17 в соответствии с рекомендациями\nбамперный адаптер (#676)\nисправить уязвимость\nбамп зависимости",
+				"pt": "min admin 7.6.17 como recomendado\nadaptador- núcleo (# 676)\ncorrigir vulnerabilidade\ndependências de colisão",
+				"nl": "min\nbump adapter-core (#676)\nkwetsbaarheid herstellen\nbump afhankelijkheden",
+				"fr": "min admin 7.6.17 comme recommandé\nadaptateur de bosse (#676)\nfixer la vulnérabilité\ndépendances des bosses",
+				"it": "min admin 7.6.17 come raccomandato\nparaurti adattatore-core (#676)\ncorrezione della vulnerabilità\nindipendenza urto",
+				"es": "min admin 7.6.17 según se recomienda\nadaptador de parachoques (#676)\ncorrección de vulnerabilidad\ndependencia de los gastos",
+				"pl": "min admin 7.6.17 zgodnie z zaleceniami\nboom adapter- core (# 676)\nnaprawić podatność\nuzależnienia od guza",
+				"uk": "min admin 7.6.17 як рекомендується\nbump адаптер-core (#676)\nвиправити вразливість\nbump залежності",
+				"zh-cn": "建议赔偿额\n缓冲适配器核心(# 676)\n消除脆弱性\n意外依赖"
+			},
+			"0.14.1": {
+				"en": "add tests for node 24 (#655)\nbump dependencies",
+				"de": "tests für knoten 24 hinzufügen (#655)\nbump-abhängigkeit",
+				"ru": "добавить тесты для узла 24 (#655)\nбамп зависимости",
+				"pt": "adicionar testes para o nó 24 (# 655)\ndependências de colisão",
+				"nl": "tests toevoegen voor node 24 (#655)\nbump afhankelijkheden",
+				"fr": "ajouter des essais pour le noeud 24 (#655)\ndépendances des bosses",
+				"it": "aggiungere test per nodo 24 (#655)\nindipendenza urto",
+				"es": "añadir pruebas para nodo 24 (#655)\ndependencia de los gastos",
+				"pl": "dodać testy dla węzła 24 (# 655)\nuzależnienia od guza",
+				"uk": "додавати тести для вузла 24 (#655)\nbump залежності",
+				"zh-cn": "添加节点24的测试(# 655)\n意外依赖"
+			},
+			"0.14.0": {
+				"en": "BREAKING: Dropped support for Node.js 18 (#674)\nBREAKING: Dropped support for js-controller 5 (#674)\nbump dependencies",
+				"de": "BREAKING: Unterstützt für Node.js 18 (#674)\nBREAKING: Dropped-Unterstützung für js-controller 5 (#674)\nbumpabhängigkeiten",
+				"ru": "Отказ от поддержки Node.js 18 (#674)\nОтказ от поддержки js-контроллера 5 (#674)\nбамп зависимости",
+				"pt": "BREAKING: Suporte para o Node.js 18 (#674)\nBREAKING: Suporte para js-controller 5 (#674)\ndependências de choque",
+				"nl": "BREAKING: Gestopte ondersteuning voor Node.js 18 (#674)\nBreaking: Dropped support for js-controller 5 (#674)\nbump afhankelijkheden",
+				"fr": "Soutien abandonné pour Node.js 18 (#674)\nSupport abandonné pour le contrôleur js 5 (#674)\ndépendances des bosses",
+				"it": "BREAKING: Supporto a goccia per Node.js 18 (#674)\nBREAKING: Supporto a goccia per js-controller 5 (#674)\nindipendenza urto",
+				"es": "BREAKING: Soporte abandonado para Node.js 18 (#674)\nBREAKING: Soporte desechado para js-controller 5 (#674)\ndependencia de los gastos",
+				"pl": "BREAKING: Upuszczone wsparcie dla Node.js 18 (# 674)\nBREAKING: Upuszczone wsparcie dla sterownika js- 5 (# 674)\nuzależnienia od guza",
+				"uk": "BREAKING: Dropped підтримка для Node.js 18 (#674)\nBREAKING: Dropped підтримка для js-controller 5 (#674)\nbump залежності",
+				"zh-cn": "对节点18(# 674)的支持下降\n中断: Js 控制器 5 已放弃支持(# 674)\n意外依赖"
+			}
+		},
+		"titleLang": {
+			"en": "ChargeMaster",
+			"de": "ChargeMaster",
+			"ru": "ChargeMaster",
+			"pt": "ChargeMaster",
+			"nl": "ChargeMaster",
+			"fr": "ChargeMaster",
+			"it": "ChargeMaster",
+			"es": "ChargeMaster",
+			"pl": "ChargeMaster",
+			"uk": "ChargeMaster",
+			"zh-cn": "ChargeMaster"
+		},
+		"desc": {
+			"en": "Adapter for managing multi EV-chargers with use of PV-energy",
+			"de": "Adapter zur Verwaltung von Multi-EV-Ladegeräten unter Verwendung von PV-Energie",
+			"ru": "Адаптер для управления несколькими электромобилями с использованием PV-энергии",
+			"pt": "Adaptador para gerenciamento de carregadores multi EV com uso de energia fotovoltaica",
+			"nl": "Adapter voor het beheren van meerdere EV-laders met gebruik van PV-energie",
+			"fr": "Adaptateur pour la gestion de plusieurs chargeurs EV avec utilisation d'énergie PV",
+			"it": "Adattatore per la gestione di più caricatori EV con utilizzo di energia fotovoltaica",
+			"es": "Adaptador para la gestión de varios cargadores EV con uso de energía fotovoltaica",
+			"pl": "Adapter do zarządzania wieloma ładowarkami EV z wykorzystaniem energii PV",
+			"uk": "Адаптер для управління багато EV-зарядними засобами з використанням PV-енергетики",
+			"zh-cn": "使用PV能源管理多个EV充电器的适配器"
+		},
+		"authors": ["Hombach <ChargeMaster@homba.ch>"],
+		"keywords": ["chargemaster", "wallbox", "solar power", "charger", "EV"],
+		"tier": 3,
+		"licenseInformation": {
+			"license": "MIT",
+			"type": "free"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "chargemaster.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
+		"readme": "https://github.com/Hombach/ioBroker.chargemaster/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "energy",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.6.20"
+			}
+		],
+		"plugins": {
+			"sentry": {
+				"dsn": "https://2cad2201902b99e7d5611bba9f1f20db@o415875.ingest.us.sentry.io/4508824758714368"
+			}
+		},
+		"supportCustoms": false
+	},
+	"native": {
+		"cycletime": 10000,
+		"MaxAmpTotal": 6
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.LastSentryLogDay",
+			"type": "state",
+			"common": {
+				"role": "value",
+				"name": "Last day of month for Sentry log",
+				"type": "number",
+				"unit": "",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "External input states connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		},
+		{
+			"_id": "Power",
+			"type": "channel",
+			"common": {
+				"name": "current charging power data"
+			},
+			"native": {}
+		},
+		{
+			"_id": "Power.Charge",
+			"type": "state",
+			"common": {
+				"role": "value.power",
+				"name": "actual total charging-power",
+				"type": "number",
+				"unit": "W",
+				"read": true,
+				"write": false,
+				"def": 0
+			},
+			"native": {}
+		},
+		{
+			"_id": "Settings",
+			"type": "channel",
+			"common": {
+				"name": "states to dynamically adjust global settings"
+			},
+			"native": {}
+		},
+		{
+			"_id": "Settings.Setpoint_HomeBatSoC",
+			"type": "state",
+			"common": {
+				"role": "level",
+				"name": "Setpoint to dynamically adjust minimum home battery state of charge",
+				"type": "number",
+				"unit": "%",
+				"read": true,
+				"write": true,
+				"def": 80,
+				"max": 100,
+				"min": 0
+			},
+			"native": {}
+		}
+	]
 }

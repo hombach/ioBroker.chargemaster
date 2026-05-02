@@ -51,6 +51,9 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+- (copilot) Adapter requires node.js >= 22 now
+
 ### 0.14.7 (2026-04-16)
 
 - (HombachC) min admin 7.6.20 as recommended (#762)

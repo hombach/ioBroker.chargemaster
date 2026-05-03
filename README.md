@@ -81,6 +81,8 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## Tested with
 
 - 3x go-E Charger & Kostal PikoBA

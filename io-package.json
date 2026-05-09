@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.14.7",
+    "version": "0.15.0",
     "news": {
+      "0.15.0": {
+        "en": "BREAKING: adapter requires node.js >= 22 now\nupdate dependencies",
+        "de": "BREAKING: Adapter erfordert jetzt node.js >= 22\naktualisierung der abhängigkeiten",
+        "ru": "Адаптер требует node.js >= 22 сейчас\nобновление зависимостей",
+        "pt": "BREAKING: adaptador requer nod.js >= 22 agora\natualizar dependências",
+        "nl": "BREAKING: adapter vereist node.js < 22 nu\nafhankelijkheden bijwerken",
+        "fr": "BREAKING: adaptateur nécessite node.js >= 22 maintenant\nmettre à jour les dépendances",
+        "it": "BREAKING: l'adattatore richiede node.js >= 22 ora\naggiornamento dipendenze",
+        "es": "BREAKING: adaptador requiere node.js >= 22 ahora\ndependencias de actualización",
+        "pl": "BREAKING: adapter wymaga node.js > = 22\naktualizacji zależności",
+        "uk": "BREAKING: адаптер вимагає node.js >= 22 тепер\nоновлення залежності",
+        "zh-cn": "适配器需要节点 Js 22 现在\n更新依赖关系"
+      },
       "0.14.7": {
         "en": "min admin 7.6.20 as recommended (#762)\nswitch to ES2023 code\nupdate dependencies",
         "de": "min admin 7.6.20 wie empfohlen (#762)\neS2023-Code wechseln\naktualisierung der abhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "min admin 7.6.17 zgodnie z zaleceniami\nboom adapter- core (# 676)\nnaprawić podatność\nuzależnienia od guza",
         "uk": "min admin 7.6.17 як рекомендується\nbump адаптер-core (#676)\nвиправити вразливість\nbump залежності",
         "zh-cn": "建议赔偿额\n缓冲适配器核心(# 676)\n消除脆弱性\n意外依赖"
-      },
-      "0.14.1": {
-        "en": "add tests for node 24 (#655)\nbump dependencies",
-        "de": "tests für knoten 24 hinzufügen (#655)\nbump-abhängigkeit",
-        "ru": "добавить тесты для узла 24 (#655)\nбамп зависимости",
-        "pt": "adicionar testes para o nó 24 (# 655)\ndependências de colisão",
-        "nl": "tests toevoegen voor node 24 (#655)\nbump afhankelijkheden",
-        "fr": "ajouter des essais pour le noeud 24 (#655)\ndépendances des bosses",
-        "it": "aggiungere test per nodo 24 (#655)\nindipendenza urto",
-        "es": "añadir pruebas para nodo 24 (#655)\ndependencia de los gastos",
-        "pl": "dodać testy dla węzła 24 (# 655)\nuzależnienia od guza",
-        "uk": "додавати тести для вузла 24 (#655)\nbump залежності",
-        "zh-cn": "添加节点24的测试(# 655)\n意外依赖"
       }
     },
     "titleLang": {

@@ -55,6 +55,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ### **WORK IN PROGRESS**
 
 - (HombachC) fix warnings of adapter checker
+- (HombachC) upgraded typescript to 6.x.x
 - (HombachC) updated projectUtils
 - (HombachC) updated dependencies
 

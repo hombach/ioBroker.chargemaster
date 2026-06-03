@@ -1,5 +1,6 @@
 // Root tsconfig to set the settings and power editor support for all TS files
 {
+	"extends": "@tsconfig/node22/tsconfig.json",
 	"compileOnSave": true,
 	"compilerOptions": {
 		// do not compile anything, this file is just to configure type checking
@@ -13,15 +14,12 @@
 		"skipLibCheck": true, // Don't report errors in 3rd party definitions
 		"noEmitOnError": true,
 		"outDir": "./build/",
-		"removeComments": false,
+		"removeComments": true,
 		"module": "node20",
-		// WiP "module": "commonjs",
-		// WiP "moduleResolution": "node",
 		"moduleResolution": "node16",
 		"esModuleInterop": true,
 		// this is necessary for the automatic typing of the adapter config
 		"resolveJsonModule": true,
-		// WiP 0.14.7
 		"types": ["node", "mocha"],
 
 		// If you want to disable the stricter type checks (not recommended), uncomment the following line
@@ -36,7 +34,7 @@
 		// Uncomment this if you want the old behavior of catch variables being `any`
 		// "useUnknownInCatchVariables": false,
 
-		// Targetting ES2023 which is supported by Node.js 20+
+		// Targeting ES2023 for Node.js >=20
 		"target": "ES2023",
 
 		"sourceMap": true,

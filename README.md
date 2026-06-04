@@ -52,7 +52,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 0.15.1 (2026-06-04)
 
 - (HombachC) fix warnings of adapter checker
 - (HombachC) upgraded typescript to 6.x.x
@@ -80,11 +80,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) year 2026 changes
 - (HombachC) optimize dependabot config (#718)
 - (HombachC) update dependencies
-
-### 0.14.4 (2025-10-19)
-
-- (HombachC) update NPM deploy system
-- (HombachC) bump dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 

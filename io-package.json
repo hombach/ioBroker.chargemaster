@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.15.0",
+    "version": "0.15.1",
     "news": {
+      "0.15.1": {
+        "en": "fix warnings of adapter checker\nupgraded typescript to 6.x.x\nupdated projectUtils\nupdated dependencies",
+        "de": "warnhinweise des adapterprüfers\naktualisiertes typskript auf 6.x.x\naktualisiertes ProjektUtils\naktualisierte abhängigkeiten",
+        "ru": "устранение предупреждений о проверке адаптера\nобновленный шрифт 6.x.x\nобновленный проектUtils\nобновленные зависимости",
+        "pt": "corrigir avisos do verificador adaptador\nactualizado para 6. x. x\nprojecto actualizadoUtils\ndependências atualizadas",
+        "nl": "fix waarschuwingen van adapter controleer\nopgewaardeerd typescript naar 6.x.x\nbijgewerkt projectUtils\nbijgewerkte afhankelijkheden",
+        "fr": "correction des avertissements du vérificateur d'adaptateur\nmise à jour du typscript à 6.x.x\nmise à jour du projet\ndépendances actualisées",
+        "it": "avvisi di correzione dell'adattatore\ntypescript aggiornato a 6.x.x\nprogetto aggiornatoUtilizzo\ndipendenze aggiornate",
+        "es": "advertencias de fijación de adaptador\nactualizado tiposcript a 6.x.x\nproyecto actualizadoUtils\ndependencias actualizadas",
+        "pl": "naprawić ostrzeżenia dotyczące sprawdzania adaptera\nupgrade typescript to 6.x.x\naktualizacja projektu Utyls\nzaktualizowane zależności",
+        "uk": "виправлено попередження адаптера\nдо 6.x.x\nоновлений проектУтильс\nоновлені залежності",
+        "zh-cn": "调整适配器检查器的警告\n升级为6.x.x\n更新的工程Utils\n更新的依赖关系"
+      },
       "0.15.0": {
         "en": "BREAKING: adapter requires node.js >= 22 now\nupdate dependencies",
         "de": "BREAKING: Adapter erfordert jetzt node.js >= 22\naktualisierung der abhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "typ guza (# 684)\nupdate adapter- dev (# 693)\naktualizacja systemu chai (# 678)",
         "uk": "шемале (#684)\nадаптер змінного струму (#693)\nоновлення системи шайби (#678)",
         "zh-cn": "凸起字型标 (# 684)\n更新适配器- dev (# 693)\n更新chai系统(# 678)"
-      },
-      "0.14.2": {
-        "en": "min admin 7.6.17 as recommended\nbump adapter-core (#676)\nfix vulnerability\nbump dependencies",
-        "de": "min admin 7.6.17 als empfohlen\nstoßadapter (#676)\nfehlerbehebung\nbumpabhängigkeiten",
-        "ru": "min admin 7.6.17 в соответствии с рекомендациями\nбамперный адаптер (#676)\nисправить уязвимость\nбамп зависимости",
-        "pt": "min admin 7.6.17 como recomendado\nadaptador- núcleo (# 676)\ncorrigir vulnerabilidade\ndependências de colisão",
-        "nl": "min\nbump adapter-core (#676)\nkwetsbaarheid herstellen\nbump afhankelijkheden",
-        "fr": "min admin 7.6.17 comme recommandé\nadaptateur de bosse (#676)\nfixer la vulnérabilité\ndépendances des bosses",
-        "it": "min admin 7.6.17 come raccomandato\nparaurti adattatore-core (#676)\ncorrezione della vulnerabilità\nindipendenza urto",
-        "es": "min admin 7.6.17 según se recomienda\nadaptador de parachoques (#676)\ncorrección de vulnerabilidad\ndependencia de los gastos",
-        "pl": "min admin 7.6.17 zgodnie z zaleceniami\nboom adapter- core (# 676)\nnaprawić podatność\nuzależnienia od guza",
-        "uk": "min admin 7.6.17 як рекомендується\nbump адаптер-core (#676)\nвиправити вразливість\nbump залежності",
-        "zh-cn": "建议赔偿额\n缓冲适配器核心(# 676)\n消除脆弱性\n意外依赖"
       }
     },
     "titleLang": {

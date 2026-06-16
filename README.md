@@ -52,6 +52,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+- (HombachC) fix warnings of adapter checker
+
 ### 0.15.1 (2026-06-04)
 
 - (HombachC) fix warnings of adapter checker

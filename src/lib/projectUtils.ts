@@ -54,7 +54,7 @@ export interface IWallboxInfo {
 	SetOptAllow: boolean;
 	/**
 	SetAmp: number;
-	 * 
+	 *
 	 */
 	SetAmp: number;
 	/**

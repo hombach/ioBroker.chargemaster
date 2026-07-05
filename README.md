@@ -67,6 +67,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) validate and clamp Setpoint_HomeBatSoC state changes (NaN guard, 0-100%)
 - (HombachC) improved typing: typed state getters in projectUtils instead of any, fixed wallBoxList tuple type
 - (HombachC) removed yarn devDependency and switched release build hook to npm
+- (HombachC) extracted charge planning and limiting algorithms into testable module and added 18 unit tests
 
 ### 0.15.1 (2026-06-04)
 

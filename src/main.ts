@@ -1,5 +1,6 @@
 ﻿// The adapter-core module gives you access to the core ioBroker functions you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
+import { limitTotalCurrent, planWallboxCharge } from "./lib/chargeAlgorithms";
 import { ProjectUtils, type IWallboxInfo } from "./lib/projectUtils";
 
 class ChargeMaster extends utils.Adapter {
@@ -316,123 +317,29 @@ class ChargeMaster extends utils.Adapter {
 		this.log.debug(`Charge Manager: Got external state of solar power: ${solarPower} W`);
 		const houseConsumption: number = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomePowerConsumption)) ?? 0;
 		this.log.debug(`Charge Manager: Got external state of house power consumption: ${houseConsumption} W`);
-		const MAX_BAT_DISCHARGE = 2000;
-		const RESERVE = 100;
-		const VOLTAGE = 230;
 		const wallbox = this.wallboxInfoList.find(wallbox => wallbox.ID == ID);
 		if (wallbox) {
-			// allowed battery discharge power scales linearly from 0 at minHomeBatVal to MAX_BAT_DISCHARGE at 100% SoC;
-			// with a setpoint of 100% there is no usable band, so no battery discharge is allowed
-			const usableBatRange = 100 - this.minHomeBatVal;
-			const batDischargePower = usableBatRange > 0 ? (MAX_BAT_DISCHARGE / usableBatRange) * (this.batSoC - this.minHomeBatVal) : 0;
-			let optAmpere = Math.floor((solarPower - houseConsumption + RESERVE + batDischargePower) / VOLTAGE);
-			optAmpere = Math.min(optAmpere, wallbox.MaxAmp); // limiting to max current of single box - global will be limited later
-			optAmpere = Math.max(optAmpere, 0); // don't ramp below zero - avoids long recovery when solar power returns
-			this.log.debug(`Charge Manager: Optimal charging current of Wallbox ${ID} would be: ${optAmpere} A`);
-			if (wallbox.SetOptAmp < optAmpere) {
-				wallbox.SetOptAmp++;
-			} else if (wallbox.SetOptAmp > optAmpere) {
-				wallbox.SetOptAmp--;
-			}
-			this.log.debug(
-				`Charge Manager: Wallbox ${ID} blended current: ${wallbox.SetOptAmp} A; ` +
-					`Solar power: ${solarPower} W; ` +
-					`House consumption: ${houseConsumption} W; ` +
-					`Total charger power: ${this.totalChargePower} W`,
+			planWallboxCharge(
+				wallbox,
+				{
+					solarPower,
+					houseConsumption,
+					batSoC: this.batSoC,
+					minHomeBatSoC: this.minHomeBatVal,
+					totalChargePower: this.totalChargePower,
+				},
+				msg => this.log.debug(msg),
 			);
-			if (wallbox.SetOptAmp > wallbox.MinAmp + wallbox.CurrentHysteresis) {
-				wallbox.SetOptAllow = true; // ON and current because higher than MinAmp + hysteresis
-			} else if (wallbox.SetOptAmp < wallbox.MinAmp) {
-				wallbox.DelayOff++;
-				if (wallbox.DelayOff > 15) {
-					wallbox.SetOptAllow = false; // Off
-					wallbox.DelayOff = 0;
-				}
-			}
-			this.log.debug(`Charge Manager: Wallbox ${ID} planned state: ${wallbox.SetOptAllow}`);
 		}
 	}
 
 	/**
 	 * charge_Limiter
-	 * Limits the charging current for a list of wallboxes based on their settings and the total available current.
-	 *
-	 * This method performs the following actions:
-	 *
-	 * 1. **Disables Wallboxes with `SetOptAllow` set to false:**
-	 *    - Iterates through wallboxes with `SetOptAllow` set to `false` and turns them off immediately. Sets their `SetAmp` to the minimum allowed value and logs the action.
-	 * 2. **Processes Wallboxes with `ChargeNOW` set to true:**
-	 *    - For wallboxes that are allowed (`SetOptAllow` is `true`) and have `ChargeNOW` set to `true`, it attempts to allocate as much current as possible based on their `SetOptAmp` value.
-	 *    - If the total requested current exceeds the maximum allowed (`maxAmpTotal`), it adjusts the current allocation to fit within the limit.
-	 *    - If there is not enough remaining current to meet the wallbox's minimum requirement, it turns off the wallbox and logs the action.
-	 * 3. **Handles Remaining Wallboxes with `ChargeManager`:**
-	 *    - For wallboxes that are allowed (`SetOptAllow` is `true`), do not have `ChargeNOW` set to `true`, but have a `ChargeManager`, it attempts to allocate current as available.
-	 *    - Similar to the second step, it adjusts the allocation if the total exceeds the maximum allowed current and turns off the wallbox if not enough current is available.
-	 *
+	 * Limits the planned charging currents of all wallboxes to the configured maximum total current.
+	 * The algorithm itself lives in `lib/chargeAlgorithms.ts` (see `limitTotalCurrent`) to keep it unit-testable.
 	 */
 	private chargeLimiter(): void {
-		let TotalSetOptAmp = 0;
-
-		// First loop: Wallboxes with SetOptAllow = false (shall be turned off immediately)
-		this.wallboxInfoList
-			.filter(wallbox => !wallbox.SetOptAllow)
-			.forEach(wallbox => {
-				wallbox.SetAllow = false;
-				wallbox.SetAmp = wallbox.MinAmp;
-				this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} switched off due to SetOptAllow being false`);
-			});
-
-		// Second loop: Wallboxes with ChargeNOW = true (enable as much current as available)
-		this.wallboxInfoList
-			.filter(wallbox => wallbox.SetOptAllow && wallbox.ChargeNOW)
-			.forEach(wallbox => {
-				if (wallbox.SetOptAmp > this.config.maxAmpTotal) {
-					wallbox.SetOptAmp = this.config.maxAmpTotal;
-				}
-				if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
-					wallbox.SetAmp = wallbox.SetOptAmp;
-					wallbox.SetAllow = true;
-					this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) verified charge with ${wallbox.SetAmp}A`);
-					TotalSetOptAmp += wallbox.SetAmp;
-				} else {
-					if (this.config.maxAmpTotal - TotalSetOptAmp >= wallbox.MinAmp) {
-						wallbox.SetAmp = this.config.maxAmpTotal - TotalSetOptAmp;
-						wallbox.SetAllow = true;
-						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) verified throttled charge with ${wallbox.SetAmp}A`);
-						TotalSetOptAmp += wallbox.SetAmp;
-					} else {
-						wallbox.SetAmp = wallbox.MinAmp;
-						wallbox.SetAllow = false;
-						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) switched off due to not enough remaining total current`);
-					}
-				}
-			});
-
-		// Third loop: Remaining wallboxes without ChargeNOW, so boxes with ChargeManager
-		this.wallboxInfoList
-			.filter(wallbox => wallbox.SetOptAllow && !wallbox.ChargeNOW && wallbox.ChargeManager)
-			.forEach(wallbox => {
-				if (wallbox.SetOptAmp > this.config.maxAmpTotal) {
-					wallbox.SetOptAmp = this.config.maxAmpTotal;
-				}
-				if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
-					wallbox.SetAmp = wallbox.SetOptAmp;
-					wallbox.SetAllow = true;
-					this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) verified charge with ${wallbox.SetAmp}A`);
-					TotalSetOptAmp += wallbox.SetAmp;
-				} else {
-					if (this.config.maxAmpTotal - TotalSetOptAmp >= wallbox.MinAmp) {
-						wallbox.SetAmp = this.config.maxAmpTotal - TotalSetOptAmp;
-						wallbox.SetAllow = true;
-						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) verified throttled charge with ${wallbox.SetAmp}A`);
-						TotalSetOptAmp += wallbox.SetAmp;
-					} else {
-						wallbox.SetAmp = wallbox.MinAmp;
-						wallbox.SetAllow = false;
-						this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) switched off due to not enough remaining total current`);
-					}
-				}
-			});
+		limitTotalCurrent(this.wallboxInfoList, this.config.maxAmpTotal, msg => this.log.debug(msg));
 	} // END Charge_Limiter
 
 	/**

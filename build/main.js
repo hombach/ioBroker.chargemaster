@@ -34,6 +34,7 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const utils = __importStar(require("@iobroker/adapter-core"));
+const chargeAlgorithms_1 = require("./lib/chargeAlgorithms");
 const projectUtils_1 = require("./lib/projectUtils");
 class ChargeMaster extends utils.Adapter {
     wallboxInfoList = [];
@@ -282,101 +283,19 @@ class ChargeMaster extends utils.Adapter {
         this.log.debug(`Charge Manager: Got external state of solar power: ${solarPower} W`);
         const houseConsumption = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomePowerConsumption)) ?? 0;
         this.log.debug(`Charge Manager: Got external state of house power consumption: ${houseConsumption} W`);
-        const MAX_BAT_DISCHARGE = 2000;
-        const RESERVE = 100;
-        const VOLTAGE = 230;
         const wallbox = this.wallboxInfoList.find(wallbox => wallbox.ID == ID);
         if (wallbox) {
-            const usableBatRange = 100 - this.minHomeBatVal;
-            const batDischargePower = usableBatRange > 0 ? (MAX_BAT_DISCHARGE / usableBatRange) * (this.batSoC - this.minHomeBatVal) : 0;
-            let optAmpere = Math.floor((solarPower - houseConsumption + RESERVE + batDischargePower) / VOLTAGE);
-            optAmpere = Math.min(optAmpere, wallbox.MaxAmp);
-            optAmpere = Math.max(optAmpere, 0);
-            this.log.debug(`Charge Manager: Optimal charging current of Wallbox ${ID} would be: ${optAmpere} A`);
-            if (wallbox.SetOptAmp < optAmpere) {
-                wallbox.SetOptAmp++;
-            }
-            else if (wallbox.SetOptAmp > optAmpere) {
-                wallbox.SetOptAmp--;
-            }
-            this.log.debug(`Charge Manager: Wallbox ${ID} blended current: ${wallbox.SetOptAmp} A; ` +
-                `Solar power: ${solarPower} W; ` +
-                `House consumption: ${houseConsumption} W; ` +
-                `Total charger power: ${this.totalChargePower} W`);
-            if (wallbox.SetOptAmp > wallbox.MinAmp + wallbox.CurrentHysteresis) {
-                wallbox.SetOptAllow = true;
-            }
-            else if (wallbox.SetOptAmp < wallbox.MinAmp) {
-                wallbox.DelayOff++;
-                if (wallbox.DelayOff > 15) {
-                    wallbox.SetOptAllow = false;
-                    wallbox.DelayOff = 0;
-                }
-            }
-            this.log.debug(`Charge Manager: Wallbox ${ID} planned state: ${wallbox.SetOptAllow}`);
+            (0, chargeAlgorithms_1.planWallboxCharge)(wallbox, {
+                solarPower,
+                houseConsumption,
+                batSoC: this.batSoC,
+                minHomeBatSoC: this.minHomeBatVal,
+                totalChargePower: this.totalChargePower,
+            }, msg => this.log.debug(msg));
         }
     }
     chargeLimiter() {
-        let TotalSetOptAmp = 0;
-        this.wallboxInfoList
-            .filter(wallbox => !wallbox.SetOptAllow)
-            .forEach(wallbox => {
-            wallbox.SetAllow = false;
-            wallbox.SetAmp = wallbox.MinAmp;
-            this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} switched off due to SetOptAllow being false`);
-        });
-        this.wallboxInfoList
-            .filter(wallbox => wallbox.SetOptAllow && wallbox.ChargeNOW)
-            .forEach(wallbox => {
-            if (wallbox.SetOptAmp > this.config.maxAmpTotal) {
-                wallbox.SetOptAmp = this.config.maxAmpTotal;
-            }
-            if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
-                wallbox.SetAmp = wallbox.SetOptAmp;
-                wallbox.SetAllow = true;
-                this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) verified charge with ${wallbox.SetAmp}A`);
-                TotalSetOptAmp += wallbox.SetAmp;
-            }
-            else {
-                if (this.config.maxAmpTotal - TotalSetOptAmp >= wallbox.MinAmp) {
-                    wallbox.SetAmp = this.config.maxAmpTotal - TotalSetOptAmp;
-                    wallbox.SetAllow = true;
-                    this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) verified throttled charge with ${wallbox.SetAmp}A`);
-                    TotalSetOptAmp += wallbox.SetAmp;
-                }
-                else {
-                    wallbox.SetAmp = wallbox.MinAmp;
-                    wallbox.SetAllow = false;
-                    this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeNOW) switched off due to not enough remaining total current`);
-                }
-            }
-        });
-        this.wallboxInfoList
-            .filter(wallbox => wallbox.SetOptAllow && !wallbox.ChargeNOW && wallbox.ChargeManager)
-            .forEach(wallbox => {
-            if (wallbox.SetOptAmp > this.config.maxAmpTotal) {
-                wallbox.SetOptAmp = this.config.maxAmpTotal;
-            }
-            if (TotalSetOptAmp + wallbox.SetOptAmp <= this.config.maxAmpTotal) {
-                wallbox.SetAmp = wallbox.SetOptAmp;
-                wallbox.SetAllow = true;
-                this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) verified charge with ${wallbox.SetAmp}A`);
-                TotalSetOptAmp += wallbox.SetAmp;
-            }
-            else {
-                if (this.config.maxAmpTotal - TotalSetOptAmp >= wallbox.MinAmp) {
-                    wallbox.SetAmp = this.config.maxAmpTotal - TotalSetOptAmp;
-                    wallbox.SetAllow = true;
-                    this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) verified throttled charge with ${wallbox.SetAmp}A`);
-                    TotalSetOptAmp += wallbox.SetAmp;
-                }
-                else {
-                    wallbox.SetAmp = wallbox.MinAmp;
-                    wallbox.SetAllow = false;
-                    this.log.debug(`Charge Limiter: Wallbox ${wallbox.ID} (ChargeManager) switched off due to not enough remaining total current`);
-                }
-            }
-        });
+        (0, chargeAlgorithms_1.limitTotalCurrent)(this.wallboxInfoList, this.config.maxAmpTotal, msg => this.log.debug(msg));
     }
     async chargeConfig() {
         for (const wallbox of this.wallboxInfoList.filter(wallbox => !wallbox.SetAllow)) {

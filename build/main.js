@@ -286,8 +286,11 @@ class ChargeMaster extends utils.Adapter {
         const VOLTAGE = 230;
         const wallbox = this.wallboxInfoList.find(wallbox => wallbox.ID == ID);
         if (wallbox) {
-            let optAmpere = Math.floor((solarPower - houseConsumption + RESERVE + (MAX_BAT_DISCHARGE / (100 - this.minHomeBatVal)) * (this.batSoC - this.minHomeBatVal)) / VOLTAGE);
+            const usableBatRange = 100 - this.minHomeBatVal;
+            const batDischargePower = usableBatRange > 0 ? (MAX_BAT_DISCHARGE / usableBatRange) * (this.batSoC - this.minHomeBatVal) : 0;
+            let optAmpere = Math.floor((solarPower - houseConsumption + RESERVE + batDischargePower) / VOLTAGE);
             optAmpere = Math.min(optAmpere, wallbox.MaxAmp);
+            optAmpere = Math.max(optAmpere, 0);
             this.log.debug(`Charge Manager: Optimal charging current of Wallbox ${ID} would be: ${optAmpere} A`);
             if (wallbox.SetOptAmp < optAmpere) {
                 wallbox.SetOptAmp++;

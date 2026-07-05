@@ -320,10 +320,13 @@ class ChargeMaster extends utils.Adapter {
 		const VOLTAGE = 230;
 		const wallbox = this.wallboxInfoList.find(wallbox => wallbox.ID == ID);
 		if (wallbox) {
-			let optAmpere = Math.floor(
-				(solarPower - houseConsumption + RESERVE + (MAX_BAT_DISCHARGE / (100 - this.minHomeBatVal)) * (this.batSoC - this.minHomeBatVal)) / VOLTAGE,
-			);
+			// allowed battery discharge power scales linearly from 0 at minHomeBatVal to MAX_BAT_DISCHARGE at 100% SoC;
+			// with a setpoint of 100% there is no usable band, so no battery discharge is allowed
+			const usableBatRange = 100 - this.minHomeBatVal;
+			const batDischargePower = usableBatRange > 0 ? (MAX_BAT_DISCHARGE / usableBatRange) * (this.batSoC - this.minHomeBatVal) : 0;
+			let optAmpere = Math.floor((solarPower - houseConsumption + RESERVE + batDischargePower) / VOLTAGE);
 			optAmpere = Math.min(optAmpere, wallbox.MaxAmp); // limiting to max current of single box - global will be limited later
+			optAmpere = Math.max(optAmpere, 0); // don't ramp below zero - avoids long recovery when solar power returns
 			this.log.debug(`Charge Manager: Optimal charging current of Wallbox ${ID} would be: ${optAmpere} A`);
 			if (wallbox.SetOptAmp < optAmpere) {
 				wallbox.SetOptAmp++;

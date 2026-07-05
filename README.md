@@ -63,6 +63,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) stop state machine and reset info.connection on adapter unload
 - (HombachC) await wallbox state writes with proper error handling and throttle/switch off boxes exceeding the measured total current limit
 - (HombachC) fixed lost min/max/step value of 0 and duplicated unit handling in projectUtils
+- (HombachC) charge manager: clamp optimal current at zero and fix division by zero with home battery setpoint of 100%
 
 ### 0.15.1 (2026-06-04)
 

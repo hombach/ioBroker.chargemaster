@@ -4,8 +4,8 @@ import { ProjectUtils, type IWallboxInfo } from "./lib/projectUtils";
 
 class ChargeMaster extends utils.Adapter {
 	wallboxInfoList: IWallboxInfo[] = [];
-	adapterIntervals: NodeJS.Timeout[];
 	projectUtils = new ProjectUtils(this);
+	private stopStateMachine = false;
 	private batSoC = 0;
 	private minHomeBatVal = 85;
 	private totalChargePower = 0;
@@ -22,7 +22,6 @@ class ChargeMaster extends utils.Adapter {
 		// this.on('message', this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 		this.wallboxInfoList = [];
-		this.adapterIntervals = [];
 	}
 
 	/**
@@ -186,7 +185,8 @@ class ChargeMaster extends utils.Adapter {
 	 * @param {() => void} callback */
 	private onUnload(callback: () => void): void {
 		try {
-			// WiP - Object.keys(this.adapterIntervals).forEach((timeOut) => clearTimeout(timeOut));
+			this.stopStateMachine = true;
+			void this.setState(`info.connection`, false, true);
 			this.log.info(`Adapter ChargeMaster cleaned up everything...`);
 			callback();
 		} catch {
@@ -272,8 +272,11 @@ class ChargeMaster extends utils.Adapter {
 	 * This process repeats indefinitely, managing the state of the wallboxes according to the specified conditions and limits.
 	 */
 	private async StateMachine(): Promise<void> {
-		while (true) {
+		while (!this.stopStateMachine) {
 			await this.delay(this.config.cycleTime);
+			if (this.stopStateMachine) {
+				break;
+			}
 			this.log.debug(`-x-x-x-x-x-x- StateMachine cycle started -x-x-x-x-x-x-`);
 			await this.calcTotalPower();
 			for (const wallbox of this.wallboxInfoList) {

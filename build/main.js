@@ -37,8 +37,8 @@ const utils = __importStar(require("@iobroker/adapter-core"));
 const projectUtils_1 = require("./lib/projectUtils");
 class ChargeMaster extends utils.Adapter {
     wallboxInfoList = [];
-    adapterIntervals;
     projectUtils = new projectUtils_1.ProjectUtils(this);
+    stopStateMachine = false;
     batSoC = 0;
     minHomeBatVal = 85;
     totalChargePower = 0;
@@ -52,7 +52,6 @@ class ChargeMaster extends utils.Adapter {
         this.on("stateChange", this.onStateChange.bind(this));
         this.on("unload", this.onUnload.bind(this));
         this.wallboxInfoList = [];
-        this.adapterIntervals = [];
     }
     async onReady() {
         if (!this.config.cycleTime) {
@@ -171,6 +170,8 @@ class ChargeMaster extends utils.Adapter {
     }
     onUnload(callback) {
         try {
+            this.stopStateMachine = true;
+            void this.setState(`info.connection`, false, true);
             this.log.info(`Adapter ChargeMaster cleaned up everything...`);
             callback();
         }
@@ -240,8 +241,11 @@ class ChargeMaster extends utils.Adapter {
         }
     }
     async StateMachine() {
-        while (true) {
+        while (!this.stopStateMachine) {
             await this.delay(this.config.cycleTime);
+            if (this.stopStateMachine) {
+                break;
+            }
             this.log.debug(`-x-x-x-x-x-x- StateMachine cycle started -x-x-x-x-x-x-`);
             await this.calcTotalPower();
             for (const wallbox of this.wallboxInfoList) {

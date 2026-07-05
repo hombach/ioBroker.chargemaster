@@ -127,8 +127,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.16.0 (2026-07-05)
 
 - (HombachC) switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input
 - (HombachC) fixed warnings of adapter checker
@@ -167,13 +166,6 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### 0.14.6 (2026-02-27)
 
-- (HombachC) update dependencies
-
-### 0.14.5 (2026-01-01)
-
-- (HombachC) update axios
-- (HombachC) year 2026 changes
-- (HombachC) optimize dependabot config (#718)
 - (HombachC) update dependencies
 
 ### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)

@@ -186,13 +186,14 @@ class ChargeMaster extends utils.Adapter {
                     this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
                     const subId = id.substring(id.indexOf(`Settings.`));
                     if (subId === `Settings.Setpoint_HomeBatSoC`) {
-                        if (typeof state.val === "number") {
-                            this.minHomeBatVal = state.val;
+                        const newVal = typeof state.val === "number" ? state.val : typeof state.val === "string" ? parseInt(state.val) : Number.NaN;
+                        if (Number.isFinite(newVal)) {
+                            this.minHomeBatVal = Math.min(100, Math.max(0, newVal));
+                            void this.setState(id, this.minHomeBatVal, true);
                         }
-                        else if (typeof state.val === "string") {
-                            this.minHomeBatVal = parseInt(state.val);
+                        else {
+                            this.log.warn(`Wrong value for Setpoint_HomeBatSoC: ${state.val}`);
                         }
-                        void this.setState(id, this.minHomeBatVal, true);
                     }
                     else {
                         for (let i = 0; i < this.config.wallBoxList.length; i++) {

@@ -65,6 +65,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) fixed lost min/max/step value of 0 and duplicated unit handling in projectUtils
 - (HombachC) charge manager: clamp optimal current at zero and fix division by zero with home battery setpoint of 100%
 - (HombachC) validate and clamp Setpoint_HomeBatSoC state changes (NaN guard, 0-100%)
+- (HombachC) improved typing: typed state getters in projectUtils instead of any, fixed wallBoxList tuple type
 
 ### 0.15.1 (2026-06-04)
 

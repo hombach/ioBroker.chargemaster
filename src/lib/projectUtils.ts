@@ -84,10 +84,10 @@ export class ProjectUtils {
 	 * @param stateName - A string representing the name of the state to retrieve.
 	 * @returns A Promise that resolves with the value of the state if it exists, otherwise resolves with null.
 	 */
-	async getStateValue(stateName: string): Promise<any> {
+	async getStateValue<T extends ioBroker.StateValue = ioBroker.StateValue>(stateName: string): Promise<T | null> {
 		try {
 			const stateObject = await this.getState(stateName);
-			return stateObject?.val ?? null; // errors have already been handled in getState()
+			return (stateObject?.val as T) ?? null; // errors have already been handled in getState()
 		} catch (error) {
 			this.adapter.log.error(`[getStateValue](${stateName}): ${error as Error}`);
 			return null;
@@ -137,14 +137,13 @@ export class ProjectUtils {
 	 * @param stateName - Full path to state, like 0_userdata.0.other.isSummer
 	 * @returns State value, or null if error
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
-	async asyncGetForeignStateVal(stateName: string): Promise<any | null> {
+	async asyncGetForeignStateVal<T extends ioBroker.StateValue = ioBroker.StateValue>(stateName: string): Promise<T | null> {
 		try {
 			const stateObject = await this.asyncGetForeignState(stateName);
 			if (stateObject == null) {
 				return null;
 			} // errors thrown already in asyncGetForeignState()
-			return stateObject.val;
+			return stateObject.val as T;
 		} catch (error) {
 			this.adapter.log.error(`[asyncGetForeignStateValue](${stateName}): ${error as Error}`);
 			return null;

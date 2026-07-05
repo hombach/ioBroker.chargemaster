@@ -140,7 +140,7 @@
     "icon": "chargemaster.png",
     "enabled": true,
     "extIcon": "https://raw.githubusercontent.com/Hombach/ioBroker.chargemaster/master/admin/chargemaster.png",
-    "readme": "https://github.com/Hombach/ioBroker.chargemaster/master/README.md",
+    "readme": "https://github.com/Hombach/ioBroker.chargemaster/blob/master/README.md",
     "loglevel": "info",
     "mode": "daemon",
     "type": "energy",

@@ -288,7 +288,7 @@ class ChargeMaster extends utils.Adapter {
 					this.log.debug(`State machine: Wallbox ${wallbox.ID} planned for charge-now with ${wallbox.SetOptAmp}A`);
 				} else if (wallbox.ChargeManager) {
 					// Charge-Manager is enabled for this wallbox
-					this.batSoC = await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomeBatSoc);
+					this.batSoC = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomeBatSoc)) ?? 0;
 					this.log.debug(`State machine: Got external state of battery SoC: ${this.batSoC}%`);
 					if (this.batSoC >= this.minHomeBatVal) {
 						// SoC of home battery sufficient?
@@ -312,9 +312,9 @@ class ChargeMaster extends utils.Adapter {
 	}
 
 	private async chargeManager(ID: number): Promise<void> {
-		const solarPower: number = await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomeSolarPower);
+		const solarPower: number = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomeSolarPower)) ?? 0;
 		this.log.debug(`Charge Manager: Got external state of solar power: ${solarPower} W`);
-		const houseConsumption: number = await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomePowerConsumption);
+		const houseConsumption: number = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomePowerConsumption)) ?? 0;
 		this.log.debug(`Charge Manager: Got external state of house power consumption: ${houseConsumption} W`);
 		const MAX_BAT_DISCHARGE = 2000;
 		const RESERVE = 100;

@@ -273,17 +273,12 @@ export class ProjectUtils {
 				desc: description,
 				read: true,
 				write: writeable,
-				// Add unit only if it's provided and not null or undefined
-				...((unit ?? undefined) ? { unit } : {}),
-				// Add minimum, maximum and step for value only if it's provided and not null or undefined
-				...((min ?? undefined) ? { min } : {}),
-				...((max ?? undefined) ? { max } : {}),
-				...((step ?? undefined) ? { step } : {}),
+				// Add unit, minimum, maximum and step only if provided and not null or undefined (0 is a valid value)
+				...(unit != null ? { unit } : {}),
+				...(min != null ? { min } : {}),
+				...(max != null ? { max } : {}),
+				...(step != null ? { step } : {}),
 			};
-			// Add unit only if it's provided
-			if (unit != null) {
-				commonObj.unit = unit;
-			}
 
 			await (forceMode
 				? this.adapter.setObject(stateName, { type: "state", common: commonObj, native: {} })

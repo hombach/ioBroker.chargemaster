@@ -306,7 +306,7 @@ class ChargeMaster extends utils.Adapter {
 				}
 			}
 			this.chargeLimiter();
-			this.chargeConfig();
+			await this.chargeConfig();
 		}
 	}
 
@@ -440,40 +440,48 @@ class ChargeMaster extends utils.Adapter {
 	 *    - Updates the charge state to off and sets the charge current to the minimum (which may be zero or a specified value).
 	 * 2. **Turn On Wallboxes:**
 	 *    - Iterates through the list of wallboxes that are allowed to charge (`SetAllow` is true).
-	 *    - Checks if the total current including the new wallbox does not exceed the maximum allowed total current.
-	 *    - Updates the charge state and current for these wallboxes.
+	 *    - Verifies against the measured total current that the setpoint still fits into the maximum allowed total current.
+	 *    - If not, the wallbox is throttled to the remaining current, or switched off if the remainder is below its minimum current.
 	 *
 	 */
-	private chargeConfig(): void {
+	private async chargeConfig(): Promise<void> {
 		// First loop: Turn off wallboxes that are not allowed to charge
-		this.wallboxInfoList
-			.filter(wallbox => !wallbox.SetAllow) // first switch off boxes
-			.forEach(wallbox => {
-				try {
-					this.setForeignState(this.config.wallBoxList[wallbox.ID].stateChargeAllowed, wallbox.SetAllow);
-					this.setForeignState(this.config.wallBoxList[wallbox.ID].stateChargeCurrent, Number(wallbox.SetAmp));
-					// Consider awaiting confirmation or feedback here if necessary
-				} catch (error) {
-					this.log.error(`Charger Config: Error in setting values for wallbox ${wallbox.ID}: ${error as Error}`);
-				}
+		for (const wallbox of this.wallboxInfoList.filter(wallbox => !wallbox.SetAllow)) {
+			try {
+				await this.setForeignStateAsync(this.config.wallBoxList[wallbox.ID].stateChargeAllowed, wallbox.SetAllow);
+				await this.setForeignStateAsync(this.config.wallBoxList[wallbox.ID].stateChargeCurrent, Number(wallbox.SetAmp));
 				this.log.debug(`Charger Config: Shutdown Wallbox ${wallbox.ID} - ${wallbox.SetAmp} Ampere`);
-			});
+			} catch (error) {
+				this.log.error(`Charger Config: Error in setting values for wallbox ${wallbox.ID}: ${error as Error}`);
+			}
+		}
 
 		// Second loop: Configure wallboxes that are allowed to charge
-		this.wallboxInfoList
-			.filter(wallbox => wallbox.SetAllow) // wallboxes with operation
-			.forEach(wallbox => {
-				if (this.totalMeasuredChargeCurrent + (wallbox.SetAmp - wallbox.MeasuredMaxChargeAmp) <= this.config.maxAmpTotal) {
-					// HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
-					try {
-						this.setForeignState(this.config.wallBoxList[wallbox.ID].stateChargeCurrent, Number(wallbox.SetAmp));
-						this.setForeignState(this.config.wallBoxList[wallbox.ID].stateChargeAllowed, wallbox.SetAllow);
-					} catch (error) {
-						this.log.error(`Charger Config: Error in setting charging for wallbox ${wallbox.ID}: ${error as Error}`);
+		for (const wallbox of this.wallboxInfoList.filter(wallbox => wallbox.SetAllow)) {
+			// HIER FEHLT NOCH DIE DEAKTIVIERUNG NICHT VORHANDENER AUTOS!!!
+			// Verify against measured currents that this box's setpoint still fits into the global limit
+			const remainingAmp = this.config.maxAmpTotal - (this.totalMeasuredChargeCurrent - Math.ceil(wallbox.MeasuredMaxChargeAmp));
+			const setAmp = Math.min(wallbox.SetAmp, remainingAmp);
+			try {
+				if (setAmp >= wallbox.MinAmp) {
+					await this.setForeignStateAsync(this.config.wallBoxList[wallbox.ID].stateChargeCurrent, Number(setAmp));
+					await this.setForeignStateAsync(this.config.wallBoxList[wallbox.ID].stateChargeAllowed, wallbox.SetAllow);
+					if (setAmp < wallbox.SetAmp) {
+						this.log.debug(`Charger Config: Wallbox ${wallbox.ID} throttled to ${setAmp}A due to measured total current`);
+					} else {
+						this.log.debug(`Charger Config: Wallbox ${wallbox.ID} switched on for charge with ${setAmp}A`);
 					}
-					this.log.debug(`Charger Config: Wallbox ${wallbox.ID} switched on for charge with ${wallbox.SetAmp}A`);
+				} else {
+					await this.setForeignStateAsync(this.config.wallBoxList[wallbox.ID].stateChargeAllowed, false);
+					await this.setForeignStateAsync(this.config.wallBoxList[wallbox.ID].stateChargeCurrent, Number(wallbox.MinAmp));
+					this.log.debug(
+						`Charger Config: Wallbox ${wallbox.ID} switched off - measured total current leaves no room within ${this.config.maxAmpTotal}A`,
+					);
 				}
-			});
+			} catch (error) {
+				this.log.error(`Charger Config: Error in setting charging for wallbox ${wallbox.ID}: ${error as Error}`);
+			}
+		}
 	} // END Charge_Config
 
 	/**

@@ -108,14 +108,11 @@ class ProjectUtils {
                 desc: description,
                 read: true,
                 write: writeable,
-                ...((unit ?? undefined) ? { unit } : {}),
-                ...((min ?? undefined) ? { min } : {}),
-                ...((max ?? undefined) ? { max } : {}),
-                ...((step ?? undefined) ? { step } : {}),
+                ...(unit != null ? { unit } : {}),
+                ...(min != null ? { min } : {}),
+                ...(max != null ? { max } : {}),
+                ...(step != null ? { step } : {}),
             };
-            if (unit != null) {
-                commonObj.unit = unit;
-            }
             await (forceMode
                 ? this.adapter.setObject(stateName, { type: "state", common: commonObj, native: {} })
                 : this.adapter.setObjectNotExistsAsync(stateName, { type: "state", common: commonObj, native: {} }));

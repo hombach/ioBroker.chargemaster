@@ -106,9 +106,9 @@ class ChargeMaster extends utils.Adapter {
             }
         }
         for (let i = 0; i < this.config.wallBoxList.length; i++) {
-            void this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeNOW`, false, `ChargeNOW enabled for wallbox ${i}`, `switch.enable`, true, true);
-            void this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeManager`, false, `Charge Manager for wallbox ${i} enabled`, `switch.enable`, true, true);
-            void this.projectUtils.checkAndSetValueNumber(`Settings.WB_${i}.ChargeCurrent`, 6, `Set chargeNOW current output for wallbox ${i}`, `A`, `level.current`, true, true);
+            await this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeNOW`, false, `ChargeNOW enabled for wallbox ${i}`, `switch.enable`, true, true);
+            await this.projectUtils.checkAndSetValueBoolean(`Settings.WB_${i}.ChargeManager`, false, `Charge Manager for wallbox ${i} enabled`, `switch.enable`, true, true);
+            await this.projectUtils.checkAndSetValueNumber(`Settings.WB_${i}.ChargeCurrent`, 6, `Set chargeNOW current output for wallbox ${i}`, `A`, `level.current`, true, true);
         }
         if (this.supportsFeature && this.supportsFeature("PLUGINS")) {
             const sentryInstance = this.getPluginInstance("sentry");
@@ -135,13 +135,13 @@ class ChargeMaster extends utils.Adapter {
             }
         }
         try {
-            minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
+            minHomeBatVal = (await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`)) ?? 80;
             for (let i = 0; i < this.config.wallBoxList.length; i++) {
                 this.wallboxInfoList.push({
                     ID: i,
-                    ChargeNOW: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`),
-                    ChargeManager: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`),
-                    ChargeCurrent: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`),
+                    ChargeNOW: (await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`)) ?? false,
+                    ChargeManager: (await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`)) ?? false,
+                    ChargeCurrent: (await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`)) ?? 6,
                     ChargePower: 0,
                     MeasuredMaxChargeAmp: 0,
                     MinAmp: this.config.wallBoxList[i].minAmp,

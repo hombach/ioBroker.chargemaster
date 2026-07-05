@@ -89,7 +89,7 @@ class ChargeMaster extends utils.Adapter {
 
 		//#region *** Setup configured amount of charger control objects ***
 		for (let i = 0; i < this.config.wallBoxList.length; i++) {
-			void this.projectUtils.checkAndSetValueBoolean(
+			await this.projectUtils.checkAndSetValueBoolean(
 				`Settings.WB_${i}.ChargeNOW`,
 				false,
 				`ChargeNOW enabled for wallbox ${i}`,
@@ -97,7 +97,7 @@ class ChargeMaster extends utils.Adapter {
 				true,
 				true,
 			);
-			void this.projectUtils.checkAndSetValueBoolean(
+			await this.projectUtils.checkAndSetValueBoolean(
 				`Settings.WB_${i}.ChargeManager`,
 				false,
 				`Charge Manager for wallbox ${i} enabled`,
@@ -105,7 +105,7 @@ class ChargeMaster extends utils.Adapter {
 				true,
 				true,
 			);
-			void this.projectUtils.checkAndSetValueNumber(
+			await this.projectUtils.checkAndSetValueNumber(
 				`Settings.WB_${i}.ChargeCurrent`,
 				6,
 				`Set chargeNOW current output for wallbox ${i}`,
@@ -145,13 +145,13 @@ class ChargeMaster extends utils.Adapter {
 		//#endregion
 
 		try {
-			minHomeBatVal = await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`);
+			minHomeBatVal = (await this.projectUtils.getStateValue(`Settings.Setpoint_HomeBatSoC`)) ?? 80;
 			for (let i = 0; i < this.config.wallBoxList.length; i++) {
 				this.wallboxInfoList.push({
 					ID: i,
-					ChargeNOW: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`),
-					ChargeManager: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`),
-					ChargeCurrent: await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`),
+					ChargeNOW: (await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeNOW`)) ?? false,
+					ChargeManager: (await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeManager`)) ?? false,
+					ChargeCurrent: (await this.projectUtils.getStateValue(`Settings.WB_${i}.ChargeCurrent`)) ?? 6,
 					ChargePower: 0,
 					MeasuredMaxChargeAmp: 0,
 					MinAmp: this.config.wallBoxList[i].minAmp,

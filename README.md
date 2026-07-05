@@ -54,9 +54,10 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
-- (HombachC) fix warnings of adapter checker
+- (HombachC) fixed warnings of adapter checker
 - (HombachC) repository cleanup
-- (HombachC) remove unused chai/sinon-chai/chai-as-promised/proxyquire devDependencies and switch tests to node:assert
+- (HombachC) removed unused chai/sinon-chai/chai-as-promised/proxyquire devDependencies and switch tests to node:assert
+- (HombachC) fixed race condition at first start
 
 ### 0.15.1 (2026-06-04)
 

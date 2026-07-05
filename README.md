@@ -58,6 +58,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) repository cleanup
 - (HombachC) removed unused chai/sinon-chai/chai-as-promised/proxyquire devDependencies and switch tests to node:assert
 - (HombachC) fixed race condition at first start
+- (HombachC) fixed wrong config default keys in io-package.json and added guard for missing maxAmpTotal
 
 ### 0.15.1 (2026-06-04)
 

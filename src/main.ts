@@ -36,6 +36,12 @@ class ChargeMaster extends utils.Adapter {
 		}
 		this.log.info(`Cycletime set to: ${this.config.cycleTime / 1000} seconds`);
 
+		if (!this.config.maxAmpTotal) {
+			this.log.warn(`Maximum total current not configured or zero - will be set to 6A`);
+			this.config.maxAmpTotal = 6;
+		}
+		this.log.info(`Maximum total current set to: ${this.config.maxAmpTotal}A`);
+
 		this.subscribeStates(`Settings.*`); // this.subscribeForeignObjects('dwd.0.warning.*');
 
 		//#region *** Verify configured foreign states chargers and amount of chargers ***

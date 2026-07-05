@@ -168,8 +168,12 @@
     "supportCustoms": false
   },
   "native": {
-    "cycletime": 10000,
-    "MaxAmpTotal": 6
+    "cycleTime": 10000,
+    "maxAmpTotal": 6,
+    "stateHomeBatSoc": "",
+    "stateHomeSolarPower": "",
+    "stateHomePowerConsumption": "",
+    "wallBoxList": []
   },
   "objects": [],
   "instanceObjects": [

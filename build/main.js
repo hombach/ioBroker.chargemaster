@@ -42,8 +42,12 @@ class ChargeMaster extends utils.Adapter {
     stopStateMachine = false;
     batSoC = 0;
     minHomeBatVal = 85;
+    solarPower = 0;
+    houseConsumption = 0;
     totalChargePower = 0;
     totalMeasuredChargeCurrent = 0;
+    foreignStateUpdaters = new Map();
+    triggerCycle = null;
     constructor(options = {}) {
         super({
             ...options,
@@ -159,7 +163,18 @@ class ChargeMaster extends utils.Adapter {
                     SetAllow: false,
                 });
             }
-            void this.calcTotalPower();
+            this.foreignStateUpdaters.set(this.config.stateHomeSolarPower, val => (this.solarPower = val));
+            this.foreignStateUpdaters.set(this.config.stateHomePowerConsumption, val => (this.houseConsumption = val));
+            this.foreignStateUpdaters.set(this.config.stateHomeBatSoc, val => (this.batSoC = val));
+            for (const [i, box] of this.config.wallBoxList.entries()) {
+                this.foreignStateUpdaters.set(box.stateActiveChargePower, val => (this.wallboxInfoList[i].ChargePower = val));
+                this.foreignStateUpdaters.set(box.stateActiveChargeAmp, val => (this.wallboxInfoList[i].MeasuredMaxChargeAmp = val));
+            }
+            for (const [id, updateCache] of this.foreignStateUpdaters) {
+                updateCache((await this.projectUtils.asyncGetForeignStateVal(id)) ?? 0);
+            }
+            await this.subscribeForeignStatesAsync([...this.foreignStateUpdaters.keys()]);
+            this.calcTotalPower();
         }
         catch (error) {
             void this.setState(`info.connection`, false, true);
@@ -172,6 +187,7 @@ class ChargeMaster extends utils.Adapter {
     onUnload(callback) {
         try {
             this.stopStateMachine = true;
+            this.triggerCycle?.();
             void this.setState(`info.connection`, false, true);
             this.log.info(`Adapter ChargeMaster cleaned up everything...`);
             callback();
@@ -183,6 +199,16 @@ class ChargeMaster extends utils.Adapter {
     onStateChange(id, state) {
         try {
             if (state) {
+                const updateCache = this.foreignStateUpdaters.get(id);
+                if (updateCache) {
+                    if (typeof state.val === "number" && Number.isFinite(state.val)) {
+                        updateCache(state.val);
+                    }
+                    else {
+                        this.log.debug(`Ignoring non numeric value '${state.val}' of foreign state ${id}`);
+                    }
+                    return;
+                }
                 if (!state.ack) {
                     this.log.info(`state ${id} changed to: ${state.val} (ack = ${state.ack})`);
                     const subId = id.substring(id.indexOf(`Settings.`));
@@ -232,6 +258,7 @@ class ChargeMaster extends utils.Adapter {
                             }
                         }
                     }
+                    this.triggerCycle?.();
                 }
             }
             else {
@@ -244,12 +271,18 @@ class ChargeMaster extends utils.Adapter {
     }
     async StateMachine() {
         while (!this.stopStateMachine) {
-            await this.delay(this.config.cycleTime);
+            await Promise.race([
+                this.delay(this.config.cycleTime),
+                new Promise(resolve => {
+                    this.triggerCycle = resolve;
+                }),
+            ]);
+            this.triggerCycle = null;
             if (this.stopStateMachine) {
                 break;
             }
             this.log.debug(`-x-x-x-x-x-x- StateMachine cycle started -x-x-x-x-x-x-`);
-            await this.calcTotalPower();
+            this.calcTotalPower();
             for (const wallbox of this.wallboxInfoList) {
                 if (wallbox.ChargeNOW) {
                     wallbox.SetOptAmp = wallbox.ChargeCurrent;
@@ -257,10 +290,9 @@ class ChargeMaster extends utils.Adapter {
                     this.log.debug(`State machine: Wallbox ${wallbox.ID} planned for charge-now with ${wallbox.SetOptAmp}A`);
                 }
                 else if (wallbox.ChargeManager) {
-                    this.batSoC = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomeBatSoc)) ?? 0;
-                    this.log.debug(`State machine: Got external state of battery SoC: ${this.batSoC}%`);
+                    this.log.debug(`State machine: Battery SoC (cached): ${this.batSoC}%`);
                     if (this.batSoC >= this.minHomeBatVal) {
-                        await this.chargeManager(wallbox.ID);
+                        this.chargeManager(wallbox.ID);
                     }
                     else {
                         wallbox.SetOptAmp = wallbox.MinAmp;
@@ -278,16 +310,12 @@ class ChargeMaster extends utils.Adapter {
             await this.chargeConfig();
         }
     }
-    async chargeManager(ID) {
-        const solarPower = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomeSolarPower)) ?? 0;
-        this.log.debug(`Charge Manager: Got external state of solar power: ${solarPower} W`);
-        const houseConsumption = (await this.projectUtils.asyncGetForeignStateVal(this.config.stateHomePowerConsumption)) ?? 0;
-        this.log.debug(`Charge Manager: Got external state of house power consumption: ${houseConsumption} W`);
+    chargeManager(ID) {
         const wallbox = this.wallboxInfoList.find(wallbox => wallbox.ID == ID);
         if (wallbox) {
             (0, chargeAlgorithms_1.planWallboxCharge)(wallbox, {
-                solarPower,
-                houseConsumption,
+                solarPower: this.solarPower,
+                houseConsumption: this.houseConsumption,
                 batSoC: this.batSoC,
                 minHomeBatSoC: this.minHomeBatVal,
                 totalChargePower: this.totalChargePower,
@@ -333,22 +361,15 @@ class ChargeMaster extends utils.Adapter {
             }
         }
     }
-    async calcTotalPower() {
+    calcTotalPower() {
         this.totalChargePower = 0;
         this.totalMeasuredChargeCurrent = 0;
-        try {
-            for (const wallbox of this.wallboxInfoList) {
-                wallbox.ChargePower = (await this.projectUtils.asyncGetForeignStateVal(this.config.wallBoxList[wallbox.ID].stateActiveChargePower)) ?? 0;
-                wallbox.MeasuredMaxChargeAmp = (await this.projectUtils.asyncGetForeignStateVal(this.config.wallBoxList[wallbox.ID].stateActiveChargeAmp)) ?? 0;
-                this.totalChargePower += wallbox.ChargePower;
-                this.totalMeasuredChargeCurrent += Math.ceil(wallbox.MeasuredMaxChargeAmp);
-            }
-            void this.setState(`Power.Charge`, this.totalChargePower, true);
-            this.log.debug(`Total measured charge power: ${this.totalChargePower}W - Total measured charge current: ${this.totalMeasuredChargeCurrent}A`);
+        for (const wallbox of this.wallboxInfoList) {
+            this.totalChargePower += wallbox.ChargePower;
+            this.totalMeasuredChargeCurrent += Math.ceil(wallbox.MeasuredMaxChargeAmp);
         }
-        catch (error) {
-            this.log.error(`Error in reading charge power of wallboxes: ${error}`);
-        }
+        void this.setState(`Power.Charge`, this.totalChargePower, true);
+        this.log.debug(`Total measured charge power: ${this.totalChargePower}W - Total measured charge current: ${this.totalMeasuredChargeCurrent}A`);
     }
 }
 if (require.main !== module) {

@@ -54,6 +54,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input
 - (HombachC) fixed warnings of adapter checker
 - (HombachC) repository cleanup
 - (HombachC) removed unused chai/sinon-chai/chai-as-promised/proxyquire devDependencies and switch tests to node:assert

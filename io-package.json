@@ -146,7 +146,7 @@
     "type": "energy",
     "compact": true,
     "connectionType": "local",
-    "dataSource": "poll",
+    "dataSource": "push",
     "adminUI": {
       "config": "json"
     },

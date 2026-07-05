@@ -66,6 +66,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 - (HombachC) charge manager: clamp optimal current at zero and fix division by zero with home battery setpoint of 100%
 - (HombachC) validate and clamp Setpoint_HomeBatSoC state changes (NaN guard, 0-100%)
 - (HombachC) improved typing: typed state getters in projectUtils instead of any, fixed wallBoxList tuple type
+- (HombachC) removed yarn devDependency and switched release build hook to npm
 
 ### 0.15.1 (2026-06-04)
 

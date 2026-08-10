@@ -15,6 +15,9 @@
 Adapter to manage one or multiple EV-chargers (wallboxes) with use of PV-energy. Adapter currently handles with up to 3 EV wallboxes to manage charging available grid power with potential use of PV surplus energy.
 
 ## Changelog - OLD CHANGES
+## 0.14.6 (2026-02-27)
+
+- (HombachC) update dependencies
 
 ## 0.14.5 (2026-01-01)
 

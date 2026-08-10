@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.16.0",
+    "version": "0.16.1",
     "news": {
+      "0.16.1": {
+        "en": "projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts\nupdated dependencies",
+        "de": "projectUtils: Verwenden Sie in forceMode extendObject anstelle von setObject, damit Benutzeranpassungen auch nach Neustarts erhalten bleiben.\naktualisierte Abhängigkeiten",
+        "ru": "projectUtils: используйте extendObject вместо setObject в forceMode, чтобы пользовательские настройки сохранялись после перезапуска.\nобновленные зависимости",
+        "pt": "projectUtils: use extendObject em vez de setObject em forceMode para que as personalizações do usuário persistam após reinicializações.\ndependências atualizadas",
+        "nl": "projectUtils: gebruik extendObject in plaats van setObject in forceMode zodat gebruikersaanpassingen behouden blijven na herstarts\nbijgewerkte afhankelijkheden",
+        "fr": "projectUtils : utiliser extendObject au lieu de setObject en mode forcé afin que les personnalisations utilisateur soient conservées après un redémarrage.\ndépendances mises à jour",
+        "it": "projectUtils: utilizzare extendObject invece di setObject in forceMode in modo che le personalizzazioni dell'utente persistano dopo il riavvio\ndipendenze aggiornate",
+        "es": "projectUtils: utilice extendObject en lugar de setObject en forceMode para que las personalizaciones del usuario se conserven tras los reinicios.\ndependencias actualizadas",
+        "pl": "projectUtils: użyj extendObject zamiast setObject w forceMode, aby dostosowania użytkownika przetrwały ponowne uruchomienia\nzaktualizowane zależności",
+        "uk": "projectUtils: використано extendObject замість setObject у forceMode, щоб налаштування користувача зберігалися після перезапусків\nоновлені залежності",
+        "zh-cn": "projectUtils：在 forceMode 模式下使用 extendObject 而不是 setObject，以便用户自定义设置能够保留在重启后。\n更新依赖项"
+      },
       "0.16.0": {
         "en": "switched data acquisition from polling to event driven foreign state subscriptions, react immediately to user input\nfixed warnings of adapter checker\nrepository cleanup\nremoved unused chai/sinon-chai/chai-as-promised/proxyquire devDependencies and switch tests to node:assert\nfixed race condition at first start\nfixed wrong config default keys in io-package.json and added guard for missing maxAmpTotal\nmoved module-global variables into adapter class to fix possible conflicts in compact mode\nstop state machine and reset info.connection on adapter unload\nawait wallbox state writes with proper error handling and throttle/switch off boxes exceeding the measured total current limit\nfixed lost min/max/step value of 0 and duplicated unit handling in projectUtils\ncharge manager: clamp optimal current at zero and fix division by zero with home battery setpoint of 100%\nvalidate and clamp Setpoint_HomeBatSoC state changes (NaN guard, 0-100%)\nimproved typing: typed state getters in projectUtils instead of any, fixed wallBoxList tuple type\nremoved yarn devDependency and switched release build hook to npm\nextracted charge planning and limiting algorithms into testable module and added 18 unit tests\nimproved README with feature overview, configuration, states and algorithm documentation",
         "de": "Die Datenerfassung wurde von Abfragen auf ereignisgesteuerte Abonnements ausländischer Staaten umgestellt; die Reaktion auf Benutzereingaben erfolgt umgehend.\nWarnungen des Adapterprüfers behoben\nRepository-Bereinigung\nDie ungenutzten Abhängigkeiten chai/sinon-chai/chai-as-promised/proxyquire wurden entfernt und die Tests auf node:assert umgestellt.\nFeste Rennbedingung beim ersten Start\nDie fehlerhaften Standardkonfigurationsschlüssel in io-package.json wurden korrigiert und eine Schutzfunktion für fehlendes maxAmpTotal hinzugefügt.\nUm mögliche Konflikte im Kompaktmodus zu beheben, wurden modulglobale Variablen in die Adapterklasse verschoben.\nZustandsmaschine stoppen und info.connection beim Entladen des Adapters zurücksetzen\nWarten auf Statusmeldungen der Wandboxen mit ordnungsgemäßer Fehlerbehandlung und Drosselung/Abschaltung von Boxen, die den gemessenen Gesamtstromgrenzwert überschreiten\nBehebung des Fehlers, der zu einem fehlenden Min-/Max-/Schrittwert von 0 und zur doppelten Einheitenbehandlung in projectUtils geführt hat.\nLademanager: Optimalen Strom auf Null begrenzen und Division durch Null bei einem Sollwert von 100 % für die Heimbatterie festlegen\nZustandsänderungen von Setpoint_HomeBatSoC validieren und begrenzen (NaN-Schutz, 0-100 %)\nVerbesserte Typisierung: Typisierte Status-Getter in projectUtils anstelle von any, korrigierter Tupeltyp für wallBoxList.\nDie Yarn-Entwicklungsabhängigkeit wurde entfernt und der Release-Build-Hook auf npm umgestellt.\nDie Algorithmen für die Ladeplanung und -begrenzung wurden in ein testbares Modul ausgelagert und 18 Unit-Tests hinzugefügt.\nVerbesserte README-Datei mit Funktionsübersicht, Konfiguration, Zuständen und Algorithmusdokumentation",
@@ -80,19 +93,6 @@
         "pl": "aktualizacja axios\nrok 2026 zmiany\nzoptymalizować config zależny (# 718)\naktualizacji zależności",
         "uk": "оновлення axios\nрік 2026 змін\nоптимізоване налаштування залежностей (#718)\nоновлення залежності",
         "zh-cn": "更新轴线\n2026年的变化\n优化依赖配置 (# 718)\n更新依赖关系"
-      },
-      "0.14.4": {
-        "en": "update NPM deploy system\nbump dependencies",
-        "de": "nPM-Einsatzsystem aktualisieren\nbumpabhängigkeiten",
-        "ru": "обновление системы развертывания NPM\nбамп зависимости",
-        "pt": "atualizar sistema de implantação NPM\ndependências de colisão",
-        "nl": "nPM-implementatiesysteem bijwerken\nbump afhankelijkheden",
-        "fr": "mettre à jour le système de déploiement NPM\ndépendances des bosses",
-        "it": "aggiornamento Sistema di distribuzione NPM\nindipendenza urto",
-        "es": "actualización del sistema de despliegue del mecanismo nacional de prevención\ndependencia de los gastos",
-        "pl": "aktualizacja systemu rozmieszczania NPM\nuzależnienia od guza",
-        "uk": "оновлення системи NPM розгортання\nbump залежності",
-        "zh-cn": "更新国家预防机制部署系统\n意外依赖"
       }
     },
     "titleLang": {

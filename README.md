@@ -130,6 +130,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts
 - (HombachC) updated dependencies
 
 ### 0.16.0 (2026-07-05)

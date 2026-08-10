@@ -63,6 +63,15 @@ export interface IWallboxInfo {
 	SetAllow: boolean;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════════════════════════
+ * ║  SHARED REGION — class ProjectUtils                                                            ║
+ * ║  Keep this block IDENTICAL across all of my own ioBroker adapters                              ║
+ * ║  (tibberlink, go-e-charger, chargemaster, goodwe-pv, teslafi, …).                              ║
+ * ║  Everything ABOVE this banner is adapter-specific and must NOT be copied.                      ║
+ * ║  When you change anything below, bump the date and propagate the block to the other adapters.  ║
+ * ║  Last changed: 2026-08-09                                                                      ║
+ * ═══════════════════════════════════════════════════════════════════════════════════════════════ */
+
 /**
  * ProjectUtils
  */
@@ -226,7 +235,7 @@ export class ProjectUtils {
 				write: writeable,
 			};
 			await (forceMode
-				? this.adapter.setObject(stateName, { type: "state", common: commonObj, native: {} })
+				? this.adapter.extendObject(stateName, { type: "state", common: commonObj, native: {} })
 				: this.adapter.setObjectNotExistsAsync(stateName, { type: "state", common: commonObj, native: {} }));
 
 			if (!dontUpdate || !(await this.adapter.getStateAsync(stateName))) {
@@ -280,7 +289,7 @@ export class ProjectUtils {
 			};
 
 			await (forceMode
-				? this.adapter.setObject(stateName, { type: "state", common: commonObj, native: {} })
+				? this.adapter.extendObject(stateName, { type: "state", common: commonObj, native: {} })
 				: this.adapter.setObjectNotExistsAsync(stateName, { type: "state", common: commonObj, native: {} }));
 
 			if (!dontUpdate || !(await this.adapter.getStateAsync(stateName))) {
@@ -321,7 +330,7 @@ export class ProjectUtils {
 			};
 
 			await (forceMode
-				? this.adapter.setObject(stateName, { type: "state", common: commonObj, native: {} })
+				? this.adapter.extendObject(stateName, { type: "state", common: commonObj, native: {} })
 				: this.adapter.setObjectNotExistsAsync(stateName, { type: "state", common: commonObj, native: {} }));
 
 			if (!dontUpdate || !(await this.adapter.getStateAsync(stateName))) {
@@ -349,7 +358,7 @@ export class ProjectUtils {
 			commonObj.icon = icon;
 		}
 		await (forceMode
-			? this.adapter.setObject(folderObjectName, {
+			? this.adapter.extendObject(folderObjectName, {
 					type: "folder",
 					common: commonObj,
 					native: {},
@@ -385,7 +394,7 @@ export class ProjectUtils {
 			commonObj.icon = icon;
 		}
 		await (forceMode
-			? this.adapter.setObject(deviceObjectName, {
+			? this.adapter.extendObject(deviceObjectName, {
 					type: "device",
 					common: commonObj,
 					native: {},
@@ -415,7 +424,7 @@ export class ProjectUtils {
 			commonObj.icon = icon;
 		}
 		await (forceMode
-			? this.adapter.setObject(channelObjectName, {
+			? this.adapter.extendObject(channelObjectName, {
 					type: "channel",
 					common: commonObj,
 					native: {},

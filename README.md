@@ -130,6 +130,7 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ### **WORK IN PROGRESS**
 
+- (HombachC) updated iobroker/testing
 - (HombachC) fixed repochecker warnings
 - (HombachC) switch to iobroker testing 6.x
 - (HombachC) fixed vulnerability

@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "chargemaster",
-    "version": "0.16.1",
+    "version": "0.16.2",
     "news": {
+      "0.16.2": {
+        "en": "updated iobroker/testing\nfixed repochecker warnings\nswitch to iobroker testing 6.x\nfixed vulnerability\nupdated dependencies",
+        "de": "Iobroker/Testing aktualisiert\nRepocheckerwarnungen behoben\nzu iobroker test 6.x wechseln\nSchwachstelle behoben\nNeue Abhängigkeiten",
+        "ru": "обновленный iobroker/тестирование\nисправлены предупреждения repochecker\nперейти к тестированию iobroker 6.x\nисправленная уязвимость\nобновленные зависимости",
+        "pt": "corretor/teste atualizado\navisos fixos do repochecker\nvá para o teste iobroker 6.x\nvulnerabilidade fixa\nnovas dependências",
+        "nl": "iobroker/testing bijgewerkt\nRepochecker-waarschuwingen opgelost\noverschakelen naar iobroker testing 6.x\nkwetsbaarheid opgelost\nbijgewerkte afhankelijkheden",
+        "fr": "iobroker/testing mis à jour\nalertes Repochecker fixes\npasser à iobroker testing 6.x\nvulnérabilité corrigée\ndépendances mises à jour",
+        "it": "iobroker/test aggiornati\navvisi repochecker fissi\npassare a iobroker testing 6.x\nvulnerabilità fissa\ndipendenze aggiornate",
+        "es": "iobroker/testing actualizado\navisos de repochecker fijos\ncambiar a iobroker testing 6.x\nvulnerabilidad fija\ndependencias actualizadas",
+        "pl": "zaktualizowany iobroker/testy\nnaprawiono ostrzeżenia repochecker\nprzejdź do testowania iobroker 6.x\nnaprawiona luka\nzaktualizowane zależności",
+        "uk": "оновлений іоброкер/тестування\nвиправлені попередження про повторну перевірку\nпереключитися на тестування іоброкера 6.x\nвиправлена вразливість\nоновлені залежності",
+        "zh-cn": "更新了 iobroker/测试\n修复了 repochecker 警告\n切换到 iobroker 测试 6.x\n修复了漏洞\n更新的依赖关系"
+      },
       "0.16.1": {
         "en": "projectUtils: use extendObject instead of setObject in forceMode so user customizations survive restarts\nupdated dependencies",
         "de": "projectUtils: Verwenden Sie in forceMode extendObject anstelle von setObject, damit Benutzeranpassungen auch nach Neustarts erhalten bleiben.\naktualisierte Abhängigkeiten",
@@ -80,19 +93,6 @@
         "pl": "aktualizacji zależności",
         "uk": "оновлення залежності",
         "zh-cn": "更新依赖关系"
-      },
-      "0.14.5": {
-        "en": "update axios\nyear 2026 changes\noptimize dependabot config (#718)\nupdate dependencies",
-        "de": "axios\njahr 2026 änderungen\noptimieren abhängigabot config (#718)\naktualisierung der abhängigkeiten",
-        "ru": "обновление axios\n2026 год изменения\nоптимизируйте конфигурацию зависимого робота (#718)\nобновление зависимостей",
-        "pt": "atualizar axios\nvariações do ano de 2026\notimizar a configuração do dependebot (# 718)\natualizar dependências",
-        "nl": "axios bijwerken\njaar 2026 veranderingen\ndependabot-configuratie optimaliseren (#718)\nafhankelijkheden bijwerken",
-        "fr": "mettre à jour axios\nannée 2026 changements\noptimiser la configuration de divabot (#718)\nmettre à jour les dépendances",
-        "it": "aggiornamento assio\nanno 2026 modifiche\nottimizzare la configurazione dipendeabot (#718)\naggiornamento dipendenze",
-        "es": "actualización axios\naño 2026 cambios\noptimiza config de dependabot (#718)\ndependencias de actualización",
-        "pl": "aktualizacja axios\nrok 2026 zmiany\nzoptymalizować config zależny (# 718)\naktualizacji zależności",
-        "uk": "оновлення axios\nрік 2026 змін\nоптимізоване налаштування залежностей (#718)\nоновлення залежності",
-        "zh-cn": "更新轴线\n2026年的变化\n优化依赖配置 (# 718)\n更新依赖关系"
       }
     },
     "titleLang": {
